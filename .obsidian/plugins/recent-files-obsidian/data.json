@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "常见注解",
+      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java注解/常见注解.md"
+    },
+    {
+      "basename": "元注解",
+      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java注解/元注解.md"
+    },
+    {
+      "basename": "Spring注解",
+      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java注解/Spring注解.md"
+    },
+    {
+      "basename": "Java反射浅析",
+      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java反射/Java反射浅析.md"
+    },
+    {
+      "basename": "Java反射-kuang",
+      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java反射/Java反射-kuang.md"
+    },
+    {
       "basename": "jdk编译过程（MACOS）",
       "path": "source/_posts/编程语言/Java/jdk/jdk编译过程（MACOS）.md"
     },
@@ -179,26 +199,6 @@
     {
       "basename": "6.1 基于窗口的算子",
       "path": "大数据/实时计算/Flink/基于Apache Flink的流处理/6.1 基于窗口的算子.md"
-    },
-    {
-      "basename": "7 虚拟机类加载机制",
-      "path": "编程语言/Java/Java语言/JVM/7 虚拟机类加载机制.md"
-    },
-    {
-      "basename": "6 类文件结构",
-      "path": "编程语言/Java/Java语言/JVM/6 类文件结构.md"
-    },
-    {
-      "basename": "2022-11-25",
-      "path": "学习进度/计划/2022-11-25.md"
-    },
-    {
-      "basename": "2022-11-26",
-      "path": "学习进度/计划/2022-11-26.md"
-    },
-    {
-      "basename": "2022-11-28",
-      "path": "学习进度/计划/2022-11-28.md"
     }
   ],
   "omittedPaths": [
