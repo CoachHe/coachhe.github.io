@@ -1,6 +1,42 @@
 {
   "recentFiles": [
     {
+      "basename": "APUE-4-文件和目录",
+      "path": "source/_posts/计算机/Linux/APUE/APUE-4-文件和目录.md"
+    },
+    {
+      "basename": "1 单一职责原则",
+      "path": "source/_posts/计算机/设计模式/设计模式之禅/1 单一职责原则.md"
+    },
+    {
+      "basename": "APUE-1-UNIX基础知识",
+      "path": "source/_posts/计算机/Linux/APUE/APUE-1-UNIX基础知识.md"
+    },
+    {
+      "basename": "APUE-3-文件IO",
+      "path": "source/_posts/计算机/Linux/APUE/APUE-3-文件IO.md"
+    },
+    {
+      "basename": "创建一个私人git仓库",
+      "path": "source/_posts/工具/Git/创建一个私人git仓库.md"
+    },
+    {
+      "basename": "WordPress建站教程",
+      "path": "source/_posts/工具/WordPress/WordPress建站教程.md"
+    },
+    {
+      "basename": "Git基础",
+      "path": "source/_posts/工具/Git/Git基础.md"
+    },
+    {
+      "basename": "Git命令",
+      "path": "source/_posts/工具/Git/Git命令.md"
+    },
+    {
+      "basename": "Git",
+      "path": "source/_posts/工具/Git/Git.drawio"
+    },
+    {
       "basename": "0 简介",
       "path": "source/_posts/微服务/K8S/尚硅谷/0 简介.md"
     },
@@ -163,42 +199,6 @@
     {
       "basename": "SpringBoot3-依赖管理",
       "path": "source/_posts/编程语言/Java/Java开发/Java框架/SpringBoot/尚硅谷Springboot/SpringBoot1-基础入门/SpringBoot3-依赖管理.md"
-    },
-    {
-      "basename": "Spring.excalidraw",
-      "path": "source/_posts/编程语言/Java/Java开发/Java框架/Spring/源码/《Spring源码深度解析》/图示/Spring.excalidraw.md"
-    },
-    {
-      "basename": "JVM.excalidraw",
-      "path": "source/_posts/编程语言/Java/Java语言/JVM/图示/JVM.excalidraw.md"
-    },
-    {
-      "basename": "Java反射浅析",
-      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java反射/Java反射浅析.md"
-    },
-    {
-      "basename": "Java反射.excalidraw",
-      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java反射/Java反射.excalidraw.md"
-    },
-    {
-      "basename": "Java反射-kuang",
-      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java反射/Java反射-kuang.md"
-    },
-    {
-      "basename": "Gradle 构建基础",
-      "path": "source/_posts/编程语言/Java/Java开发/Java工具/Gradle/Gradle 构建基础.md"
-    },
-    {
-      "basename": "AoP",
-      "path": "source/_posts/编程语言/Java/Java开发/Java框架/Spring/源码/《Spring源码深度解析》/AoP.md"
-    },
-    {
-      "basename": "8 虚拟机字节码执行引擎",
-      "path": "source/_posts/编程语言/Java/Java语言/JVM/8 虚拟机字节码执行引擎.md"
-    },
-    {
-      "basename": "7 虚拟机类加载机制",
-      "path": "source/_posts/编程语言/Java/Java语言/JVM/7 虚拟机类加载机制.md"
     }
   ],
   "omittedPaths": [

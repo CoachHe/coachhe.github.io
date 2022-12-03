@@ -1,9 +1,13 @@
 ---
+title: APUE-3-文件IO  
+date: 2022-12-04 02:37:21  
+tags: []  
 categories:
   - 计算机
   - Linux
   - APUE
 ---
+
 # 1 引言
 本章开始讨论UNIX系统，先说明可用的文件I/O函数-打开文件、读文件、写文件等。
 UNIX系统中的大部分文件I/O只需要用到5个函数：open、read、write、lseek以及close。然后说明不同缓冲长度对read和write函数的影响。
