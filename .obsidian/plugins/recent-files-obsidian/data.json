@@ -1,12 +1,28 @@
 {
   "recentFiles": [
     {
-      "basename": "虚拟机安装",
-      "path": "source/_posts/微服务/K8S/极客时间/虚拟机安装.md"
+      "basename": "0 简介",
+      "path": "source/_posts/微服务/K8S/尚硅谷/0 简介.md"
+    },
+    {
+      "basename": "1 k8s概念和架构",
+      "path": "source/_posts/微服务/K8S/尚硅谷/1 k8s概念和架构.md"
+    },
+    {
+      "basename": "Chapter37_找到容器不容易_Service",
+      "path": "source/_posts/微服务/K8S/极客时间/深入剖析k8s/Chapter37_找到容器不容易_Service.md"
     },
     {
       "basename": "Docker容器数据卷",
       "path": "source/_posts/微服务/Docker/Docker容器数据卷.md"
+    },
+    {
+      "basename": "虚拟机安装",
+      "path": "source/_posts/微服务/K8S/极客时间/虚拟机安装.md"
+    },
+    {
+      "basename": "通过docker搭建集群",
+      "path": "source/_posts/微服务/Docker/通过docker搭建集群.md"
     },
     {
       "basename": "Docker学习",
@@ -17,20 +33,8 @@
       "path": "source/_posts/微服务/K8S/极客时间/深入剖析k8s/Chapter38_从外界联通Service与Service.md"
     },
     {
-      "basename": "Chapter37_找到容器不容易_Service",
-      "path": "source/_posts/微服务/K8S/极客时间/深入剖析k8s/Chapter37_找到容器不容易_Service.md"
-    },
-    {
       "basename": "2 k8s集群安装",
       "path": "source/_posts/微服务/K8S/尚硅谷/2 k8s集群安装.md"
-    },
-    {
-      "basename": "1 k8s概念和架构",
-      "path": "source/_posts/微服务/K8S/尚硅谷/1 k8s概念和架构.md"
-    },
-    {
-      "basename": "0 简介",
-      "path": "source/_posts/微服务/K8S/尚硅谷/0 简介.md"
     },
     {
       "basename": "1. 深入Web请求过程",
@@ -195,10 +199,6 @@
     {
       "basename": "7 虚拟机类加载机制",
       "path": "source/_posts/编程语言/Java/Java语言/JVM/7 虚拟机类加载机制.md"
-    },
-    {
-      "basename": "6 类文件结构",
-      "path": "source/_posts/编程语言/Java/Java语言/JVM/6 类文件结构.md"
     }
   ],
   "omittedPaths": [
