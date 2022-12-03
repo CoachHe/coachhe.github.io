@@ -1,9 +1,13 @@
 ---
+title: APUE-8-进程控制  
+date: 2022-12-04 02:38:06  
+tags: []  
 categories:
   - 计算机
   - Linux
   - APUE
 ---
+
 # 1 引言
 本章介绍UNIX系统的进程控制，包括：
 1. 创建新进程

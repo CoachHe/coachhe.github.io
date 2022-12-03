@@ -1,9 +1,13 @@
 ---
+title: APUE-12-线程控制  
+date: 2022-12-04 02:38:37  
+tags: []  
 categories:
   - 计算机
   - Linux
   - APUE
 ---
+
 # 1 线程属性
 
 回顾一下创建线程的函数：

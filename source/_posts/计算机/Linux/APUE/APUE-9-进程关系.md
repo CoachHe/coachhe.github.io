@@ -1,9 +1,13 @@
 ---
+title: APUE-9-进程关系  
+date: 2022-12-04 02:38:13  
+tags: []  
 categories:
   - 计算机
   - Linux
   - APUE
 ---
+
 # 1 终端登录和网络登录
 
 ### 终端介绍

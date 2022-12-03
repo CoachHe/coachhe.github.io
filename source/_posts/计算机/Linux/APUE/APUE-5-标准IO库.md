@@ -1,9 +1,13 @@
 ---
+title: APUE-5-标准IO库  
+date: 2022-12-04 02:37:44  
+tags: []  
 categories:
   - 计算机
   - Linux
   - APUE
 ---
+
 # 标准I/O介绍
 
 ## 1 引言

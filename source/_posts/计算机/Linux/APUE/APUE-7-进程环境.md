@@ -1,9 +1,13 @@
 ---
+title: APUE-7-进程环境  
+date: 2022-12-04 02:37:59  
+tags: []  
 categories:
   - 计算机
   - Linux
   - APUE
 ---
+
 # 1 进程环境简介
 
 ## 1 引言

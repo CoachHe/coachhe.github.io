@@ -1,9 +1,13 @@
 ---
+title: APUE-11-线程  
+date: 2022-12-04 02:38:30  
+tags: []  
 categories:
   - 计算机
   - Linux
   - APUE
 ---
+
 # 1 线程的概念
 线程就是一个正在运行的函数。
 

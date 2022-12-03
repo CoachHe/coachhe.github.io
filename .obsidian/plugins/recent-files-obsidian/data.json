@@ -1,6 +1,42 @@
 {
   "recentFiles": [
     {
+      "basename": "APUE-15-进程间通信",
+      "path": "source/_posts/计算机/Linux/APUE/APUE-15-进程间通信.md"
+    },
+    {
+      "basename": "APUE-12-线程控制",
+      "path": "source/_posts/计算机/Linux/APUE/APUE-12-线程控制.md"
+    },
+    {
+      "basename": "APUE-11-线程",
+      "path": "source/_posts/计算机/Linux/APUE/APUE-11-线程.md"
+    },
+    {
+      "basename": "APUE-10-信号",
+      "path": "source/_posts/计算机/Linux/APUE/APUE-10-信号.md"
+    },
+    {
+      "basename": "APUE-9-进程关系",
+      "path": "source/_posts/计算机/Linux/APUE/APUE-9-进程关系.md"
+    },
+    {
+      "basename": "APUE-8-进程控制",
+      "path": "source/_posts/计算机/Linux/APUE/APUE-8-进程控制.md"
+    },
+    {
+      "basename": "APUE-7-进程环境",
+      "path": "source/_posts/计算机/Linux/APUE/APUE-7-进程环境.md"
+    },
+    {
+      "basename": "APUE-6-系统数据文件和信息",
+      "path": "source/_posts/计算机/Linux/APUE/APUE-6-系统数据文件和信息.md"
+    },
+    {
+      "basename": "APUE-5-标准IO库",
+      "path": "source/_posts/计算机/Linux/APUE/APUE-5-标准IO库.md"
+    },
+    {
       "basename": "APUE-4-文件和目录",
       "path": "source/_posts/计算机/Linux/APUE/APUE-4-文件和目录.md"
     },
@@ -163,42 +199,6 @@
     {
       "basename": "1、简介",
       "path": "source/_posts/编程语言/Python/Python分析excel/1、简介.md"
-    },
-    {
-      "basename": "自定义注解",
-      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java注解/自定义注解.md"
-    },
-    {
-      "basename": "常见注解",
-      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java注解/常见注解.md"
-    },
-    {
-      "basename": "元注解",
-      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java注解/元注解.md"
-    },
-    {
-      "basename": "Spring简介",
-      "path": "source/_posts/编程语言/Java/Java开发/Java框架/Spring/Spring简介.md"
-    },
-    {
-      "basename": "spring源码编译",
-      "path": "source/_posts/编程语言/Java/Java开发/Java框架/Spring/源码/Spring源码编译/spring源码编译.md"
-    },
-    {
-      "basename": "Spring注解",
-      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java注解/Spring注解.md"
-    },
-    {
-      "basename": "SpringBoot笔记",
-      "path": "source/_posts/编程语言/Java/Java开发/Java框架/SpringBoot/SpringBoot笔记.md"
-    },
-    {
-      "basename": "Springboot4- 自动配置原理",
-      "path": "source/_posts/编程语言/Java/Java开发/Java框架/SpringBoot/尚硅谷Springboot/SpringBoot3-自动配置/Springboot4- 自动配置原理.md"
-    },
-    {
-      "basename": "SpringBoot3-依赖管理",
-      "path": "source/_posts/编程语言/Java/Java开发/Java框架/SpringBoot/尚硅谷Springboot/SpringBoot1-基础入门/SpringBoot3-依赖管理.md"
     }
   ],
   "omittedPaths": [
