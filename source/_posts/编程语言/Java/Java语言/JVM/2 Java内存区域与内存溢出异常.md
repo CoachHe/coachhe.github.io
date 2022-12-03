@@ -10,6 +10,7 @@ categories:
 ---
 
 # 内存介绍
+
 内存是非常重要的系统资源，是硬盘和 CPU 的中间仓库及桥梁，承载着操作系统和应用程序的实时运行。JVM 内存布局规定了 Java 在运行过程中内存申请、分配、管理的策略，保证了 JVM 的高效稳定运行。
 
 ## 结构图
@@ -47,7 +48,7 @@ JVM 中的 PC 寄存器是对物理 PC 寄存器的一种抽象模拟。
 ### PC 寄存器作用
 PC 寄存器用来存储指向下一条指令的地址，也就是吉祥要执行的指令代码。由执行引擎读取下一条指令。
 
-<img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211222191350.png" width = "80%" />
+<img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211222191350.png" width = "50%" />
 
 
 
