@@ -1,0 +1,16 @@
+{
+  "vimMode": true,
+  "legacyEditor": false,
+  "promptDelete": false,
+  "readableLineLength": false,
+  "autoPairBrackets": true,
+  "autoPairMarkdown": true,
+  "alwaysUpdateLinks": true,
+  "userIgnoreFilters": [
+    "node_modules",
+    "node_modules.nosync",
+    "script",
+    "themes",
+    "scaffolds"
+  ]
+}

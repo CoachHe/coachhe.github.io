@@ -1,0 +1,125 @@
+{
+  "workspace:split-horizontal": [],
+  "workspace:split-vertical": [],
+  "app:go-forward": [],
+  "app:toggle-right-sidebar": [],
+  "app:toggle-left-sidebar": [],
+  "workspace:edit-file-title": [
+    {
+      "modifiers": [
+        "Shift"
+      ],
+      "key": "F6"
+    }
+  ],
+  "editor:toggle-code": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "B"
+    }
+  ],
+  "open-with-default-app:show": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "R"
+    }
+  ],
+  "app:open-vault": [],
+  "hotkeysplus-obsidian:clear-current-line": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "D"
+    }
+  ],
+  "easy-typing-obsidian:easy-typing-format-switch": [],
+  "easy-typing-obsidian:easy-typing-format-note": [],
+  "easy-typing-obsidian:easy-typing-format-line": [],
+  "hotkeysplus-obsidian:insert-line-above": [
+    {
+      "modifiers": [
+        "Ctrl",
+        "Mod",
+        "Shift"
+      ],
+      "key": "O"
+    }
+  ],
+  "switcher:open": [],
+  "app:open-help": [],
+  "editor:insert-link": [],
+  "app:go-back": [],
+  "workspace:close": [],
+  "graph:open": [],
+  "command-palette:open": [],
+  "editor:toggle-checklist-status": [],
+  "editor:delete-paragraph": [],
+  "editor:open-search-replace": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "R"
+    }
+  ],
+  "editor:open-link-in-new-leaf": [],
+  "file-explorer:new-file-in-new-pane": [],
+  "workspace:undo-close-pane": [],
+  "table-editor-obsidian:table-control-bar": [],
+  "hotkeysplus-obsidian:insert-line-below": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "O"
+    }
+  ],
+  "hotkeysplus-obsidian:better-toggle-todo": [],
+  "hotkeysplus-obsidian:toggle-block-quote": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "."
+    }
+  ],
+  "hotkeysplus-obsidian:duplicate-lines-down": [],
+  "hotkeysplus-obsidian:duplicate-lines-up": [],
+  "editor:swap-line-up": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "ArrowUp"
+    }
+  ],
+  "editor:swap-line-down": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "ArrowDown"
+    }
+  ],
+  "markdown:toggle-preview": [],
+  "obsidian-quiet-outline:quiet-outline": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "O"
+    }
+  ],
+  "obsidian-git:pull": []
+}
