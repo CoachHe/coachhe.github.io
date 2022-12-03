@@ -1,4 +1,7 @@
 ---
+title: 1 Session Mode  
+date: 2022-12-04 02:42:11  
+tags: []  
 categories:
   - 大数据
   - 实时计算
