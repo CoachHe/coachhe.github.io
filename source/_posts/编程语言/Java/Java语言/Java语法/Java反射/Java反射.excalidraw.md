@@ -1,7 +1,11 @@
 ---
-
 excalidraw-plugin: raw
-
+categories:
+  - 编程语言
+  - Java
+  - Java语言
+  - Java语法
+  - Java反射
 ---
 ==⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
 

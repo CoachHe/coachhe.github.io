@@ -1,7 +1,14 @@
 ---
-
 excalidraw-plugin: parsed
-
+categories:
+  - 编程语言
+  - Java
+  - Java开发
+  - Java框架
+  - Spring
+  - 源码
+  - 《Spring源码深度解析》
+  - 图示
 ---
 ==⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
 

@@ -1,3 +1,13 @@
+---
+categories:
+  - 编程语言
+  - Java
+  - Java开发
+  - Java框架
+  - SpringBoot
+  - 尚硅谷Springboot
+  - SpringBoot1-基础入门
+---
 # 了解自动配置原理
 
 ## 1. SpringBoot 特点

@@ -1,3 +1,13 @@
+---
+categories:
+  - 编程语言
+  - Java
+  - Java开发
+  - Java框架
+  - SpringBoot
+  - 尚硅谷Springboot
+  - SpringBoot3-自动配置
+---
 # 一 引导加载自动配置类
 最重要的一个注解：`@SpringBootApplication`
 ```java

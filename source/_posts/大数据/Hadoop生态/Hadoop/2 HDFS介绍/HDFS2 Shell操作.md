@@ -1,3 +1,10 @@
+---
+categories:
+  - 大数据
+  - Hadoop生态
+  - Hadoop
+  - 2 HDFS介绍
+---
 # dfs和fs的区别
 
 ## hadoop fs 

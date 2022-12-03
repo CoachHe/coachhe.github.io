@@ -1,3 +1,13 @@
+---
+categories:
+  - 编程语言
+  - Java
+  - Java开发
+  - Java框架
+  - Spring
+  - 源码
+  - Spring源码解析-coachhe
+---
 有了 [Spring1-IOC容器启动创建bean - CoachHe-Blog](https://coachhe.studio/11.html) 的基础，我们现在更加深入地对整个 spring 的核心，也就是 bean 做更加深入的理解。
 
 还是从

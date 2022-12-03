@@ -1,3 +1,10 @@
+---
+categories:
+  - 大数据
+  - Hadoop生态
+  - Hadoop
+  - 2 HDFS介绍
+---
 # 1 客户端环境准备
 
 ## 注意

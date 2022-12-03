@@ -1,3 +1,11 @@
+---
+categories:
+  - 编程语言
+  - Java
+  - Java语言
+  - Java语法
+  - Java反射
+---
 # JVM构建实例浅析
 ## 示例代码
 ```java

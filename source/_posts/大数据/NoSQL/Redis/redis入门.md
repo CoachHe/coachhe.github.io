@@ -1,3 +1,9 @@
+---
+categories:
+  - 大数据
+  - NoSQL
+  - Redis
+---
 # Redis简介
 
 ## Redis是什么？

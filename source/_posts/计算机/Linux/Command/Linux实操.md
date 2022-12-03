@@ -1,3 +1,9 @@
+---
+categories:
+  - 计算机
+  - Linux
+  - Command
+---
 # 一、登录
 
 ## 虚拟机网络的三种连接方式

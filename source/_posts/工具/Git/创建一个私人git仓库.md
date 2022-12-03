@@ -1,3 +1,8 @@
+---
+categories:
+  - 工具
+  - Git
+---
 # 1. 在远端服务器上建立一个新的用户，专门用来存储 git 仓库
 ``` shell
 $ useradd git

@@ -1,3 +1,8 @@
+---
+categories:
+  - 工具
+  - Git
+---
 # git和github的关系
 
 git是代码管理工具，gitHub是基于git打造的一个开源社区。

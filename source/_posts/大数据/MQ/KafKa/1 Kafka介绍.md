@@ -1,3 +1,9 @@
+---
+categories:
+  - 大数据
+  - MQ
+  - KafKa
+---
 # 一 Kafka概述
 
 ## 定义

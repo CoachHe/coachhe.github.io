@@ -1,3 +1,11 @@
+---
+categories:
+  - 大数据
+  - 实时计算
+  - Flink
+  - 极客时间
+  - flink on k8s配置说明
+---
 # 配置文件
 
 ## ConfigMap

@@ -1,3 +1,10 @@
+---
+categories:
+  - 微服务
+  - K8S
+  - 极客时间
+  - 深入剖析k8s
+---
 # Session mode
 
 一共有5个文件：

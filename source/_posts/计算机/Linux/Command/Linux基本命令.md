@@ -1,3 +1,9 @@
+---
+categories:
+  - 计算机
+  - Linux
+  - Command
+---
 # cat
 
 ### 普通cat

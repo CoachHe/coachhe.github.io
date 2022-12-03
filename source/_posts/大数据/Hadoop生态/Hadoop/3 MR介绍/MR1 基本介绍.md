@@ -1,3 +1,10 @@
+---
+categories:
+  - 大数据
+  - Hadoop生态
+  - Hadoop
+  - 3 MR介绍
+---
 # 1 概述
 
 ## 定义

@@ -1,3 +1,13 @@
+---
+categories:
+  - 编程语言
+  - Java
+  - Java开发
+  - Java框架
+  - Spring
+  - 源码
+  - Spring源码解析-coachhe
+---
 # 从一个最简单的实例开始：
 这里有两个 POJO：MyTestBean 和 MyTestBean2
 

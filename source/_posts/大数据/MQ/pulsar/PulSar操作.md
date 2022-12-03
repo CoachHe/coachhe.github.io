@@ -1,3 +1,9 @@
+---
+categories:
+  - 大数据
+  - MQ
+  - pulsar
+---
 ```shell
 [root@chadoop01 apache-pulsar-2.8.0]# bin/pulsar-admin tenants list
 "public"

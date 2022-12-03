@@ -1,3 +1,10 @@
+---
+categories:
+  - 大数据
+  - Hadoop生态
+  - Hadoop
+  - 2 HDFS介绍
+---
 # HDFS写数据流程
 
 ## 1 剖析文件写入

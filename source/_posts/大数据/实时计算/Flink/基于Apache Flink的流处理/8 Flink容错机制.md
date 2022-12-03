@@ -1,3 +1,10 @@
+---
+categories:
+  - 大数据
+  - 实时计算
+  - Flink
+  - 基于Apache Flink的流处理
+---
 # 主要内容
 
 * 一致性检查点（checkpoint）

@@ -1,3 +1,9 @@
+---
+categories:
+  - 计算机
+  - Linux
+  - Vim
+---
 # 基本语法
 
 ## insert模式：

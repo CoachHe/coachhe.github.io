@@ -1,3 +1,9 @@
+---
+categories:
+  - 计算机
+  - Linux
+  - APUE
+---
 # 1 进程间通信分类
 1. 管道
 2. XSI -> SysV

@@ -1,3 +1,11 @@
+---
+categories:
+  - 编程语言
+  - Java
+  - Java开发
+  - Java工具
+  - Gradle
+---
 # 构建基础
 ## Projects 和 tasks
 

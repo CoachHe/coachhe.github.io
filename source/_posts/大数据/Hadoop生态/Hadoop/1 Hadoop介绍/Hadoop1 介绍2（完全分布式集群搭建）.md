@@ -1,3 +1,10 @@
+---
+categories:
+  - 大数据
+  - Hadoop生态
+  - Hadoop
+  - 1 Hadoop介绍
+---
 # 环境和工具准备
 
 ## 虚拟机环境准备

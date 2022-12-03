@@ -1,3 +1,10 @@
+---
+categories:
+  - 大数据
+  - Hadoop生态
+  - Hadoop
+  - 3 MR介绍
+---
 # InputFormat数据输入
 
 ## 1 切片与MapTask并行度决定机制

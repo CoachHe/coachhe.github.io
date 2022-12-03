@@ -1,3 +1,9 @@
+---
+categories:
+  - 大数据
+  - Hadoop生态
+  - Zookeeper
+---
 # 一、zookeeper简介
 
 ## 简介

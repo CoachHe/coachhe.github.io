@@ -1,3 +1,10 @@
+---
+categories:
+  - 大数据
+  - Hadoop生态
+  - Hadoop
+  - 2 HDFS介绍
+---
 # NN和2NN工作机制
 
 ## 一 NameNode元数据存储位置

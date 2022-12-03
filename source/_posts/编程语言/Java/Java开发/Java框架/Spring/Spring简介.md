@@ -1,3 +1,11 @@
+---
+categories:
+  - 编程语言
+  - Java
+  - Java开发
+  - Java框架
+  - Spring
+---
 # 1. Spring
 
 ## 1.1 优点

@@ -1,3 +1,9 @@
+---
+categories:
+  - 计算机
+  - Linux
+  - APUE
+---
 # 标准I/O介绍
 
 ## 1 引言

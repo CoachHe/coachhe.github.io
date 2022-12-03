@@ -1,3 +1,8 @@
+---
+categories:
+  - 工具
+  - WordPress
+---
 # 工具
 腾讯云轻量服务器，可以直接购买 wordpress，会配置上用户名和密码。
 

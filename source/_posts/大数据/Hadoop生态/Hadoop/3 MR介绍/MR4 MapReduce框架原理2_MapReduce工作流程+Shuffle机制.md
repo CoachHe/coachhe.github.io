@@ -1,3 +1,10 @@
+---
+categories:
+  - 大数据
+  - Hadoop生态
+  - Hadoop
+  - 3 MR介绍
+---
 # MapReduce工作原理
 
 ## 1 Map阶段工作大纲

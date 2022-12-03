@@ -1,3 +1,10 @@
+---
+categories:
+  - 大数据
+  - Hadoop生态
+  - Hadoop
+  - 3 MR介绍
+---
 # 一 序列化基本介绍
 
 ## 1 概念

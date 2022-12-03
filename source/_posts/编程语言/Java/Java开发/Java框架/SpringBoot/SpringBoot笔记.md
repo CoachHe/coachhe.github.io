@@ -1,3 +1,11 @@
+---
+categories:
+  - 编程语言
+  - Java
+  - Java开发
+  - Java框架
+  - SpringBoot
+---
 # 原理初探
 
 自动配置

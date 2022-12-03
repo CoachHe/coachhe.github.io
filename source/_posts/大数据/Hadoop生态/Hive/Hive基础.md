@@ -1,3 +1,9 @@
+---
+categories:
+  - 大数据
+  - Hadoop生态
+  - Hive
+---
 # 一、 Hive基本概念
 
 ## 1. 什么是Hive

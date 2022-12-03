@@ -1,3 +1,10 @@
+---
+categories:
+  - 大数据
+  - Hadoop生态
+  - Hadoop
+  - 1 Hadoop介绍
+---
 #  Hadoop介绍
 
 ## 1 定义

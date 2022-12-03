@@ -1,3 +1,8 @@
+---
+categories:
+  - 微服务
+  - Docker
+---
 1. 首先下载最新版的centos
 
 ![](https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210326003243.png)
