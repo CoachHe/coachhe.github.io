@@ -1,4 +1,7 @@
 ---
+title: Hadoop1 介绍3（源码编译）  
+date: 2022-12-04 02:44:34  
+tags: []  
 categories:
   - 大数据
   - Hadoop生态

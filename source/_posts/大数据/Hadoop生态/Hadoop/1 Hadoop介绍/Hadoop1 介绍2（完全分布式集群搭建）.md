@@ -1,4 +1,7 @@
 ---
+title: Hadoop1 介绍2（完全分布式集群搭建）  
+date: 2022-12-04 02:44:30  
+tags: []  
 categories:
   - 大数据
   - Hadoop生态
