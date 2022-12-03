@@ -1,9 +1,13 @@
 ---
+title: Shell学习  
+date: 2022-12-04 02:39:04  
+tags: []  
 categories:
   - 计算机
   - Linux
   - Shell
 ---
+
 ### 1 基本概念
 
 ## 双括号结构

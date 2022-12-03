@@ -1,4 +1,7 @@
 ---
+title: Linux实操  
+date: 2022-12-04 02:38:58  
+tags: []  
 categories:
   - 计算机
   - Linux

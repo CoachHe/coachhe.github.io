@@ -1,9 +1,13 @@
 ---
+title: Linux基本命令  
+date: 2022-12-04 02:38:48  
+tags: []  
 categories:
   - 计算机
   - Linux
   - Command
 ---
+
 # cat
 
 ### 普通cat

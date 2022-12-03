@@ -1,6 +1,34 @@
 {
   "recentFiles": [
     {
+      "basename": "操作系统简介",
+      "path": "source/_posts/计算机/操作系统/操作系统简介.md"
+    },
+    {
+      "basename": "抓包实例",
+      "path": "source/_posts/计算机/计算机网络/TCP/抓包实例.md"
+    },
+    {
+      "basename": "tshark使用技巧",
+      "path": "source/_posts/计算机/计算机网络/TCP/tshark使用技巧.md"
+    },
+    {
+      "basename": "Vim",
+      "path": "source/_posts/计算机/Linux/Vim/Vim.md"
+    },
+    {
+      "basename": "Shell学习",
+      "path": "source/_posts/计算机/Linux/Shell/Shell学习.md"
+    },
+    {
+      "basename": "Linux实操",
+      "path": "source/_posts/计算机/Linux/Command/Linux实操.md"
+    },
+    {
+      "basename": "Linux基本命令",
+      "path": "source/_posts/计算机/Linux/Command/Linux基本命令.md"
+    },
+    {
       "basename": "APUE-15-进程间通信",
       "path": "source/_posts/计算机/Linux/APUE/APUE-15-进程间通信.md"
     },
@@ -171,34 +199,6 @@
     {
       "basename": "上传文件",
       "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/上传文件.md"
-    },
-    {
-      "basename": "上传文件",
-      "path": "source/_posts/编程语言/Go/Go项目/工单系统/coachhe工单系统/上传文件.md"
-    },
-    {
-      "basename": "上传图片",
-      "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/上传图片.md"
-    },
-    {
-      "basename": "README",
-      "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/README.md"
-    },
-    {
-      "basename": "README",
-      "path": "source/_posts/编程语言/Go/Go项目/工单系统/coachhe工单系统/README.md"
-    },
-    {
-      "basename": "gojob",
-      "path": "source/_posts/编程语言/Go/Go项目/调度系统/gojob.md"
-    },
-    {
-      "basename": "casbin",
-      "path": "source/_posts/编程语言/Go/go组件/casbin.md"
-    },
-    {
-      "basename": "1、简介",
-      "path": "source/_posts/编程语言/Python/Python分析excel/1、简介.md"
     }
   ],
   "omittedPaths": [

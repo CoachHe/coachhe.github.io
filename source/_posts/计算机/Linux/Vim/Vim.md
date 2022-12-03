@@ -1,9 +1,13 @@
 ---
+title: Vim  
+date: 2022-12-04 02:39:21  
+tags: []  
 categories:
   - 计算机
   - Linux
   - Vim
 ---
+
 # 基本语法
 
 ## insert模式：
