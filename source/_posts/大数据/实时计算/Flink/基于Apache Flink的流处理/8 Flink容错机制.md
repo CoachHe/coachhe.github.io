@@ -1,4 +1,9 @@
 ---
+---  
+
+title: 8 Flink容错机制  
+date: 2022-12-04 02:14:37  
+tags: []  
 categories:
   - 大数据
   - 实时计算

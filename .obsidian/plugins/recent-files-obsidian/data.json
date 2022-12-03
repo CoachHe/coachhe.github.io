@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "8 Flink容错机制",
+      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/8 Flink容错机制.md"
+    },
+    {
+      "basename": "7.3 Flink的状态管理-状态后端",
+      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/7.3 Flink的状态管理-状态后端.md"
+    },
+    {
+      "basename": "7.2 Flink的状态管理-实例",
+      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/7.2 Flink的状态管理-实例.md"
+    },
+    {
+      "basename": "7 Flink的状态管理",
+      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/7 Flink的状态管理.md"
+    },
+    {
       "basename": "6.2 基于时间的算子",
       "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/6.2 基于时间的算子.md"
     },
@@ -183,22 +199,6 @@
     {
       "basename": "1 k8s概念和架构",
       "path": "微服务/K8S/尚硅谷/1 k8s概念和架构.md"
-    },
-    {
-      "basename": "模板",
-      "path": "Languages/Go/Go项目/工单系统/coachhe工单系统/模板.md"
-    },
-    {
-      "basename": "工单",
-      "path": "Languages/Go/Go项目/工单系统/coachhe工单系统/工单.md"
-    },
-    {
-      "basename": "流程",
-      "path": "Languages/Go/Go项目/工单系统/coachhe工单系统/流程.md"
-    },
-    {
-      "basename": "README",
-      "path": "Languages/Go/Go项目/工单系统/coachhe工单系统/README.md"
     }
   ],
   "omittedPaths": [
