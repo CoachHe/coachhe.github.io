@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "4 虚拟机性能监控、故障处理工具",
+      "path": "source/_posts/编程语言/Java/Java语言/JVM/4 虚拟机性能监控、故障处理工具.md"
+    },
+    {
+      "basename": "3 垃圾收集器与内存分配策略",
+      "path": "source/_posts/编程语言/Java/Java语言/JVM/3 垃圾收集器与内存分配策略.md"
+    },
+    {
+      "basename": "2 Java内存区域与内存溢出异常",
+      "path": "source/_posts/编程语言/Java/Java语言/JVM/2 Java内存区域与内存溢出异常.md"
+    },
+    {
+      "basename": "2 Java内存区域",
+      "path": "source/_posts/编程语言/Java/Java语言/JVM/图示/2 Java内存区域.drawio"
+    },
+    {
       "basename": "1.状态流处理概述",
       "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/1.状态流处理概述.md"
     },
@@ -183,22 +199,6 @@
     {
       "basename": "HDFS1 概述",
       "path": "大数据/Hadoop生态/Hadoop/2 HDFS介绍/HDFS1 概述.md"
-    },
-    {
-      "basename": "Docker学习",
-      "path": "微服务/Docker/Docker学习.md"
-    },
-    {
-      "basename": "0 简介",
-      "path": "微服务/K8S/尚硅谷/0 简介.md"
-    },
-    {
-      "basename": "2 k8s集群安装",
-      "path": "微服务/K8S/尚硅谷/2 k8s集群安装.md"
-    },
-    {
-      "basename": "1 k8s概念和架构",
-      "path": "微服务/K8S/尚硅谷/1 k8s概念和架构.md"
     }
   ],
   "omittedPaths": [
