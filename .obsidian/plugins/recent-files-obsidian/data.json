@@ -1,12 +1,12 @@
 {
   "recentFiles": [
     {
-      "basename": "2022-11-23",
-      "path": "source/_posts/学习进度/计划/2022-11-23.md"
-    },
-    {
       "basename": "PostTemplate",
       "path": "source/_obsidian/PostTemplate.md"
+    },
+    {
+      "basename": "2022-11-23",
+      "path": "source/_posts/学习进度/计划/2022-11-23.md"
     },
     {
       "basename": "JVM学习计划",
@@ -195,10 +195,6 @@
     {
       "basename": "1.2-SpringBoot入门",
       "path": "Languages/Java/Java开发/Java框架/SpringBoot/尚硅谷Springboot/SpringBoot1-基础入门/1.2-SpringBoot入门.md"
-    },
-    {
-      "basename": "SpringBoot3-依赖管理",
-      "path": "Languages/Java/Java开发/Java框架/SpringBoot/尚硅谷Springboot/SpringBoot1-基础入门/SpringBoot3-依赖管理.md"
     }
   ],
   "omittedPaths": [
