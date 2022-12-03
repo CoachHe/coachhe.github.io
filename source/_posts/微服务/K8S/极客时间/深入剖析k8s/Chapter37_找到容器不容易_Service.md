@@ -1,4 +1,7 @@
 ---
+title: Chapter37_找到容器不容易:Service、DNS与服务发现  
+date: 2022-12-04 02:34:14  
+tags: []  
 categories:
   - 微服务
   - K8S

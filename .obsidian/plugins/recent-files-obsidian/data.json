@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "Docker学习",
+      "path": "source/_posts/微服务/Docker/Docker学习.md"
+    },
+    {
+      "basename": "Docker容器数据卷",
+      "path": "source/_posts/微服务/Docker/Docker容器数据卷.md"
+    },
+    {
+      "basename": "Chapter38_从外界联通Service与Service",
+      "path": "source/_posts/微服务/K8S/极客时间/深入剖析k8s/Chapter38_从外界联通Service与Service.md"
+    },
+    {
+      "basename": "Chapter37_找到容器不容易_Service",
+      "path": "source/_posts/微服务/K8S/极客时间/深入剖析k8s/Chapter37_找到容器不容易_Service.md"
+    },
+    {
+      "basename": "2 k8s集群安装",
+      "path": "source/_posts/微服务/K8S/尚硅谷/2 k8s集群安装.md"
+    },
+    {
+      "basename": "1 k8s概念和架构",
+      "path": "source/_posts/微服务/K8S/尚硅谷/1 k8s概念和架构.md"
+    },
+    {
       "basename": "0 简介",
       "path": "source/_posts/微服务/K8S/尚硅谷/0 简介.md"
     },
@@ -175,30 +199,6 @@
     {
       "basename": "4 虚拟机性能监控、故障处理工具",
       "path": "source/_posts/编程语言/Java/Java语言/JVM/4 虚拟机性能监控、故障处理工具.md"
-    },
-    {
-      "basename": "3、循环依赖和三级缓存",
-      "path": "source/_posts/编程语言/Java/Java开发/Java框架/Spring/源码/Spring源码解析-coachhe/3、循环依赖和三级缓存.md"
-    },
-    {
-      "basename": "2. 深入分析Java IO的工作机制",
-      "path": "source/_posts/编程语言/Java/Java开发/Java Web/2. 深入分析Java IO的工作机制.md"
-    },
-    {
-      "basename": "3 垃圾收集器与内存分配策略",
-      "path": "source/_posts/编程语言/Java/Java语言/JVM/3 垃圾收集器与内存分配策略.md"
-    },
-    {
-      "basename": "2、Bean生命周期处理机制",
-      "path": "source/_posts/编程语言/Java/Java开发/Java框架/Spring/源码/Spring源码解析-coachhe/2、Bean生命周期处理机制.md"
-    },
-    {
-      "basename": "2-底层注解",
-      "path": "source/_posts/编程语言/Java/Java开发/Java框架/SpringBoot/尚硅谷Springboot/SpringBoot2-底层注解/2-底层注解.md"
-    },
-    {
-      "basename": "2 容器的基本实现",
-      "path": "source/_posts/编程语言/Java/Java开发/Java框架/Spring/源码/《Spring源码深度解析》/2 容器的基本实现.md"
     }
   ],
   "omittedPaths": [
