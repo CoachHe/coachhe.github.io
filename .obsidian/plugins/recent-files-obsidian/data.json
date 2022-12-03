@@ -1,6 +1,34 @@
 {
   "recentFiles": [
     {
+      "basename": "权限模型",
+      "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/权限模型.md"
+    },
+    {
+      "basename": "权限",
+      "path": "source/_posts/编程语言/Go/Go项目/工单系统/coachhe工单系统/权限.md"
+    },
+    {
+      "basename": "工单系统简介",
+      "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/工单系统简介.md"
+    },
+    {
+      "basename": "工单",
+      "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/工单.md"
+    },
+    {
+      "basename": "协议",
+      "path": "source/_posts/编程语言/Go/Go项目/工单系统/coachhe工单系统/协议.md"
+    },
+    {
+      "basename": "上传文件",
+      "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/上传文件.md"
+    },
+    {
+      "basename": "上传文件",
+      "path": "source/_posts/编程语言/Go/Go项目/工单系统/coachhe工单系统/上传文件.md"
+    },
+    {
       "basename": "上传图片",
       "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/上传图片.md"
     },
@@ -171,34 +199,6 @@
     {
       "basename": "jdk编译过程（MACOS）",
       "path": "source/_posts/编程语言/Java/jdk/jdk编译过程（MACOS）.md"
-    },
-    {
-      "basename": "jdk编译过程（Centos）",
-      "path": "source/_posts/编程语言/Java/jdk/jdk编译过程（Centos）.md"
-    },
-    {
-      "basename": "1.状态流处理概述",
-      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/1.状态流处理概述.md"
-    },
-    {
-      "basename": "8 Flink容错机制",
-      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/8 Flink容错机制.md"
-    },
-    {
-      "basename": "7.3 Flink的状态管理-状态后端",
-      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/7.3 Flink的状态管理-状态后端.md"
-    },
-    {
-      "basename": "7.2 Flink的状态管理-实例",
-      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/7.2 Flink的状态管理-实例.md"
-    },
-    {
-      "basename": "7 Flink的状态管理",
-      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/7 Flink的状态管理.md"
-    },
-    {
-      "basename": "6.2 基于时间的算子",
-      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/6.2 基于时间的算子.md"
     }
   ],
   "omittedPaths": [
