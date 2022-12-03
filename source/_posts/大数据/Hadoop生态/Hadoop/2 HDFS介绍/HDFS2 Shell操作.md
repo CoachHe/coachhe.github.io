@@ -1,4 +1,7 @@
 ---
+title: HDFS2 Shell操作  
+date: 2022-12-04 02:44:47  
+tags: []  
 categories:
   - 大数据
   - Hadoop生态

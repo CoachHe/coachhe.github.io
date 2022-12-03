@@ -1,4 +1,7 @@
 ---
+title: MR2 MR序列化  
+date: 2022-12-04 02:45:24  
+tags: []  
 categories:
   - 大数据
   - Hadoop生态

@@ -1,4 +1,7 @@
 ---
+title: HDFS5 NN和2NN  
+date: 2022-12-04 02:45:00  
+tags: []  
 categories:
   - 大数据
   - Hadoop生态

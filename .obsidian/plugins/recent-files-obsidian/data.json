@@ -1,6 +1,50 @@
 {
   "recentFiles": [
     {
+      "basename": "MR5 MapReduce框架原理3_MapReduce工作机制",
+      "path": "source/_posts/大数据/Hadoop生态/Hadoop/3 MR介绍/MR5 MapReduce框架原理3_MapReduce工作机制.md"
+    },
+    {
+      "basename": "MR4 MapReduce框架原理2_MapReduce工作流程+Shuffle机制",
+      "path": "source/_posts/大数据/Hadoop生态/Hadoop/3 MR介绍/MR4 MapReduce框架原理2_MapReduce工作流程+Shuffle机制.md"
+    },
+    {
+      "basename": "MR3 MapReduce框架原理1_InputFormat数据输入",
+      "path": "source/_posts/大数据/Hadoop生态/Hadoop/3 MR介绍/MR3 MapReduce框架原理1_InputFormat数据输入.md"
+    },
+    {
+      "basename": "MR2 MR序列化",
+      "path": "source/_posts/大数据/Hadoop生态/Hadoop/3 MR介绍/MR2 MR序列化.md"
+    },
+    {
+      "basename": "MR1 基本介绍",
+      "path": "source/_posts/大数据/Hadoop生态/Hadoop/3 MR介绍/MR1 基本介绍.md"
+    },
+    {
+      "basename": "Hive基础",
+      "path": "source/_posts/大数据/Hadoop生态/Hive/Hive基础.md"
+    },
+    {
+      "basename": "HDFS6 DataNode工作机制",
+      "path": "source/_posts/大数据/Hadoop生态/Hadoop/2 HDFS介绍/HDFS6 DataNode工作机制.md"
+    },
+    {
+      "basename": "HDFS5 NN和2NN",
+      "path": "source/_posts/大数据/Hadoop生态/Hadoop/2 HDFS介绍/HDFS5 NN和2NN.md"
+    },
+    {
+      "basename": "HDFS4 数据流",
+      "path": "source/_posts/大数据/Hadoop生态/Hadoop/2 HDFS介绍/HDFS4 数据流.md"
+    },
+    {
+      "basename": "HDFS3 客户端操作",
+      "path": "source/_posts/大数据/Hadoop生态/Hadoop/2 HDFS介绍/HDFS3 客户端操作.md"
+    },
+    {
+      "basename": "HDFS2 Shell操作",
+      "path": "source/_posts/大数据/Hadoop生态/Hadoop/2 HDFS介绍/HDFS2 Shell操作.md"
+    },
+    {
       "basename": "HDFS1 概述",
       "path": "source/_posts/大数据/Hadoop生态/Hadoop/2 HDFS介绍/HDFS1 概述.md"
     },
@@ -155,50 +199,6 @@
     {
       "basename": "Docker学习",
       "path": "source/_posts/微服务/Docker/Docker学习.md"
-    },
-    {
-      "basename": "1 k8s概念和架构",
-      "path": "source/_posts/微服务/K8S/尚硅谷/1 k8s概念和架构.md"
-    },
-    {
-      "basename": "2、Bean生命周期处理机制",
-      "path": "source/_posts/编程语言/Java/Java开发/Java框架/Spring/源码/Spring源码解析-coachhe/2、Bean生命周期处理机制.md"
-    },
-    {
-      "basename": "集群分发脚本",
-      "path": "source/_posts/计算机/Linux/Command/集群分发脚本.md"
-    },
-    {
-      "basename": "王道考研2-进程与线程",
-      "path": "source/_posts/计算机/操作系统/王道考研2-进程与线程.md"
-    },
-    {
-      "basename": "王道考研1-计算机系统概论",
-      "path": "source/_posts/计算机/操作系统/王道考研1-计算机系统概论.md"
-    },
-    {
-      "basename": "操作系统简介",
-      "path": "source/_posts/计算机/操作系统/操作系统简介.md"
-    },
-    {
-      "basename": "抓包实例",
-      "path": "source/_posts/计算机/计算机网络/TCP/抓包实例.md"
-    },
-    {
-      "basename": "tshark使用技巧",
-      "path": "source/_posts/计算机/计算机网络/TCP/tshark使用技巧.md"
-    },
-    {
-      "basename": "Vim",
-      "path": "source/_posts/计算机/Linux/Vim/Vim.md"
-    },
-    {
-      "basename": "Shell学习",
-      "path": "source/_posts/计算机/Linux/Shell/Shell学习.md"
-    },
-    {
-      "basename": "Linux实操",
-      "path": "source/_posts/计算机/Linux/Command/Linux实操.md"
     }
   ],
   "omittedPaths": [

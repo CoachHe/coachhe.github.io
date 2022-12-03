@@ -1,4 +1,7 @@
 ---
+title: MR4 MapReduce框架原理2_MapReduce工作流程+Shuffle机制  
+date: 2022-12-04 02:45:36  
+tags: []  
 categories:
   - 大数据
   - Hadoop生态

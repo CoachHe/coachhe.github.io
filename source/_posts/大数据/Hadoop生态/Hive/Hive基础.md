@@ -1,4 +1,7 @@
 ---
+title: Hive基础  
+date: 2022-12-04 02:45:15  
+tags: []  
 categories:
   - 大数据
   - Hadoop生态

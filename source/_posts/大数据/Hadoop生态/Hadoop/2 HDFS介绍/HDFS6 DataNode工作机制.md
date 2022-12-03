@@ -1,4 +1,7 @@
 ---
+title: HDFS6 DataNode工作机制  
+date: 2022-12-04 02:45:06  
+tags: []  
 categories:
   - 大数据
   - Hadoop生态
