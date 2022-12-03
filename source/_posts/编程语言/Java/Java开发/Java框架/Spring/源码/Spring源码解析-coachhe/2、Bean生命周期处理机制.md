@@ -1,4 +1,7 @@
 ---
+title: 2、Bean生命周期处理机制  
+date: 2022-12-04 02:27:16  
+tags: []  
 categories:
   - 编程语言
   - Java
