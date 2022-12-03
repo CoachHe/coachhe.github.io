@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "1.状态流处理概述",
+      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/1.状态流处理概述.md"
+    },
+    {
+      "basename": "尚硅谷大数据技术之HBase",
+      "path": "source/_posts/大数据/Hadoop生态/HBase/尚硅谷大数据技术之HBase.pdf"
+    },
+    {
+      "basename": "Zookeeper笔记",
+      "path": "source/_posts/大数据/Hadoop生态/Zookeeper/Zookeeper笔记.md"
+    },
+    {
+      "basename": "redis入门",
+      "path": "source/_posts/大数据/NoSQL/Redis/redis入门.md"
+    },
+    {
+      "basename": "PulSar操作",
+      "path": "source/_posts/大数据/MQ/pulsar/PulSar操作.md"
+    },
+    {
       "basename": "MR5 MapReduce框架原理3_MapReduce工作机制",
       "path": "source/_posts/大数据/Hadoop生态/Hadoop/3 MR介绍/MR5 MapReduce框架原理3_MapReduce工作机制.md"
     },
@@ -97,10 +117,6 @@
       "path": "source/_posts/大数据/MQ/KafKa/2 Kafka常见命令.md"
     },
     {
-      "basename": "1.状态流处理概述",
-      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/1.状态流处理概述.md"
-    },
-    {
       "basename": "1.3 HBase基本架构2 架构角色",
       "path": "source/_posts/大数据/Hadoop生态/HBase/1.3 HBase基本架构2 架构角色.md"
     },
@@ -131,10 +147,6 @@
     {
       "basename": "1 Hbase简介1 Hbase定义",
       "path": "source/_posts/大数据/Hadoop生态/HBase/1 Hbase简介1 Hbase定义.md"
-    },
-    {
-      "basename": "PulSar操作",
-      "path": "source/_posts/大数据/MQ/pulsar/PulSar操作.md"
     },
     {
       "basename": "7.3 Flink的状态管理-状态后端",
@@ -187,18 +199,6 @@
     {
       "basename": "2022-11-25",
       "path": "source/_posts/学习进度/计划/2022-11-25.md"
-    },
-    {
-      "basename": "2022-11-24",
-      "path": "source/_posts/学习进度/计划/2022-11-24.md"
-    },
-    {
-      "basename": "2022-11-23",
-      "path": "source/_posts/学习进度/计划/2022-11-23.md"
-    },
-    {
-      "basename": "Docker学习",
-      "path": "source/_posts/微服务/Docker/Docker学习.md"
     }
   ],
   "omittedPaths": [
