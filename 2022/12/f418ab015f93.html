@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+<html lang="en" data-default-color-scheme=auto>
 
 
 
@@ -13,7 +13,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="CoachHe">
   <meta name="keywords" content="">
   
     <meta name="description" content="构建一个典型的 Flink 流式应用的步骤 设置执行环境 从数据源读取一条或多条流 通过一系列流式转换来实现应用逻辑 选择性地将结果输出到一个或多个数据汇中 执行程序   这是一个 flink 程序的基本流程。 一、 Environment getExecutionEnvironment 创建一个执行环境，表示当前执行程序的上下文。 如果程序是独立调用的，则此方法返回本地执行环境； 如果从命令行客">
@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://example.com/2022/12/f418ab015f93.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="构建一个典型的 Flink 流式应用的步骤 设置执行环境 从数据源读取一条或多条流 通过一系列流式转换来实现应用逻辑 选择性地将结果输出到一个或多个数据汇中 执行程序   这是一个 flink 程序的基本流程。 一、 Environment getExecutionEnvironment 创建一个执行环境，表示当前执行程序的上下文。 如果程序是独立调用的，则此方法返回本地执行环境； 如果从命令行客">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210223201933.png">
 <meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210223233317.png">
 <meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210223233439.png">
@@ -46,7 +46,7 @@
 <meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210224233344.png">
 <meta property="article:published_time" content="2022-12-03T13:38:08.695Z">
 <meta property="article:modified_time" content="2022-12-03T13:38:08.695Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="CoachHe">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210223201933.png">
   
@@ -136,7 +136,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                Home
               </a>
             </li>
           
@@ -148,7 +148,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                归档
+                Archives
               </a>
             </li>
           
@@ -160,7 +160,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                分类
+                Categories
               </a>
             </li>
           
@@ -172,7 +172,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                Tags
               </a>
             </li>
           
@@ -184,7 +184,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                About
               </a>
             </li>
           
@@ -229,7 +229,7 @@
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
         <time datetime="2022-12-03 21:38" pubdate>
-          2022年12月3日 晚上
+          December 3, 2022 pm
         </time>
       </span>
     
@@ -240,7 +240,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          23k 字
+          23k words
         
       </span>
     
@@ -251,7 +251,7 @@
         
         
         
-          191 分钟
+          191 mins
         
       </span>
     
@@ -693,26 +693,26 @@
     <div class="license-meta">
       
         <div class="license-meta-item">
-          <div>作者</div>
-          <div>John Doe</div>
+          <div>Author</div>
+          <div>CoachHe</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2022年12月3日</div>
+          <div>Posted on</div>
+          <div>December 3, 2022</div>
         </div>
       
       
       
         <div class="license-meta-item">
-          <div>许可协议</div>
+          <div>Licensed under</div>
           <div>
             
               
               
                 <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
                     <i class="iconfont icon-by"></i>
                   </span>
                 </a>
@@ -735,16 +735,16 @@
                       <a href="/2022/12/bbeb762a64e3.html" title="">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">上一篇</span>
+                        <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/12/b97b4b83acd0.html" title="">
+                      <a href="/2022/12/87bc3ee8fd56.html" title="">
                         <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">下一篇</span>
+                        <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -763,7 +763,7 @@
       
   <aside class="sidebar" style="margin-left: -1rem">
     <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -818,7 +818,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -826,7 +826,7 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -1005,7 +1005,7 @@
   
 
   <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
   </noscript>
 </body>
 </html>
