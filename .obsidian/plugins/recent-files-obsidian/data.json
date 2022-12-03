@@ -1,6 +1,50 @@
 {
   "recentFiles": [
     {
+      "basename": "Spring简介",
+      "path": "source/_posts/编程语言/Java/Java开发/Java框架/Spring/Spring简介.md"
+    },
+    {
+      "basename": "spring源码编译",
+      "path": "source/_posts/编程语言/Java/Java开发/Java框架/Spring/源码/Spring源码编译/spring源码编译.md"
+    },
+    {
+      "basename": "Spring注解",
+      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java注解/Spring注解.md"
+    },
+    {
+      "basename": "SpringBoot笔记",
+      "path": "source/_posts/编程语言/Java/Java开发/Java框架/SpringBoot/SpringBoot笔记.md"
+    },
+    {
+      "basename": "Springboot4- 自动配置原理",
+      "path": "source/_posts/编程语言/Java/Java开发/Java框架/SpringBoot/尚硅谷Springboot/SpringBoot3-自动配置/Springboot4- 自动配置原理.md"
+    },
+    {
+      "basename": "SpringBoot3-依赖管理",
+      "path": "source/_posts/编程语言/Java/Java开发/Java框架/SpringBoot/尚硅谷Springboot/SpringBoot1-基础入门/SpringBoot3-依赖管理.md"
+    },
+    {
+      "basename": "Spring.excalidraw",
+      "path": "source/_posts/编程语言/Java/Java开发/Java框架/Spring/源码/《Spring源码深度解析》/图示/Spring.excalidraw.md"
+    },
+    {
+      "basename": "JVM.excalidraw",
+      "path": "source/_posts/编程语言/Java/Java语言/JVM/图示/JVM.excalidraw.md"
+    },
+    {
+      "basename": "Java反射浅析",
+      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java反射/Java反射浅析.md"
+    },
+    {
+      "basename": "Java反射.excalidraw",
+      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java反射/Java反射.excalidraw.md"
+    },
+    {
+      "basename": "Java反射-kuang",
+      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java反射/Java反射-kuang.md"
+    },
+    {
       "basename": "Gradle 构建基础",
       "path": "source/_posts/编程语言/Java/Java开发/Java工具/Gradle/Gradle 构建基础.md"
     },
@@ -93,10 +137,6 @@
       "path": "source/_posts/编程语言/Java/Java语言/JVM/图示/7 虚拟机类加载机制.drawio"
     },
     {
-      "basename": "JVM.excalidraw",
-      "path": "source/_posts/编程语言/Java/Java语言/JVM/图示/JVM.excalidraw.md"
-    },
-    {
       "basename": "自定义注解",
       "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java注解/自定义注解.md"
     },
@@ -107,18 +147,6 @@
     {
       "basename": "元注解",
       "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java注解/元注解.md"
-    },
-    {
-      "basename": "Spring注解",
-      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java注解/Spring注解.md"
-    },
-    {
-      "basename": "Java反射浅析",
-      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java反射/Java反射浅析.md"
-    },
-    {
-      "basename": "Java反射-kuang",
-      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java反射/Java反射-kuang.md"
     },
     {
       "basename": "jdk编译过程（MACOS）",
@@ -171,34 +199,6 @@
     {
       "basename": "2.Dataflow编程概述",
       "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/2.Dataflow编程概述.md"
-    },
-    {
-      "basename": "gojob",
-      "path": "source/_posts/编程语言/Go/Go项目/调度系统/gojob.md"
-    },
-    {
-      "basename": "PostTemplate",
-      "path": "source/_obsidian/PostTemplate.md"
-    },
-    {
-      "basename": "2022-11-23",
-      "path": "source/_posts/学习进度/计划/2022-11-23.md"
-    },
-    {
-      "basename": "JVM学习计划",
-      "path": "学习进度/JVM学习计划.md"
-    },
-    {
-      "basename": "2022-11-27",
-      "path": "学习进度/计划/2022-11-27.md"
-    },
-    {
-      "basename": "2022-11-24",
-      "path": "学习进度/计划/2022-11-24.md"
-    },
-    {
-      "basename": "Docker容器数据卷",
-      "path": "微服务/Docker/Docker容器数据卷.md"
     }
   ],
   "omittedPaths": [

@@ -1,4 +1,7 @@
 ---
+title: Springboot4- 自动配置原理  
+date: 2022-12-04 02:29:07  
+tags: []  
 categories:
   - 编程语言
   - Java
