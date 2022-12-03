@@ -223,15 +223,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/43d3ff7f92b8.html" target="_self">
-          
+        <a href="/2022/12/529163297a85.html" target="_self">
+          2.Dataflow编程概述
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/43d3ff7f92b8.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/529163297a85.html" target="_self">
         <div>
-          工具腾讯云轻量服务器，可以直接购买 wordpress，会配置上用户名和密码。  基础设置登录服务器访问之后，可以得到网站地址，用户名和密码，以及数据库的密码，就可以顺利进行登录了。  接着就直接登录上去了，进入管理界面：  在设置这里可以进行一系列的基础设置： 基础设置： 进行基本设置之后就可以看到浏览效果： 更改主题更改为 astra 主题，接下来的教程都会基于这个主题来进行。  结果就是刷新
+          在深入探索流处理的基础知识之前，我们需要先介绍Dataflow编程的必要背景。 Dataflow图先决了解Dataflow是数据流，源自于谷歌非常著名的论文。本节就是较为基础地讲解了Dataflow的知识，并且需要知道的是，Flink就是基本按照那篇论文的架构来进行实现的。 Dataflow介绍顾名思义，Dataflow程序描述了数据如何在不同操作之间流动。Dataflow程序通常表示为有向图。
         </div>
       </a>
 
@@ -239,69 +239,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-03 21:38" pubdate>
-              2022-12-03
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%B7%A5%E5%85%B7/" class="category-chain-item">工具</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%B7%A5%E5%85%B7/WordPress/" class="category-chain-item">WordPress</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/8dd807d1977c.html" target="_self">
-          
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/8dd807d1977c.html" target="_self">
-        <div>
-          
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-03 21:38" pubdate>
-              2022-12-03
+            <time datetime="2022-12-04 02:12" pubdate>
+              2022-12-04
             </time>
           </div>
         
@@ -321,13 +260,20 @@
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97/" class="category-chain-item">实时计算</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/HBase/" class="category-chain-item">HBase</a>
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97/Flink/" class="category-chain-item">Flink</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97/Flink/%E5%9F%BA%E4%BA%8EApache-Flink%E7%9A%84%E6%B5%81%E5%A4%84%E7%90%86/" class="category-chain-item">基于Apache Flink的流处理</a>
+  
+  
+
   
 
   
@@ -352,15 +298,90 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/1d0794edaf56.html" target="_self">
+        <a href="/2022/12/9108907eb755.html" target="_self">
+          1.状态流处理概述
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/9108907eb755.html" target="_self">
+        <div>
+          事务型处理  在事务型处理问题时，多个应用会共享同一个数据库系统，有时候还会访问相同的数据库或表。 问题一旦多个而应用基于相同的数据表示或共享架构，那么更改表模式或对数据库系统进行扩缩容必将劳心费力。 分析型处理graph LR 事务性--&gt;分析型   原因如果能将不同事务型数据库的内容进行联合查询，能为企业提供更加全面的分析见解。然而事务型数据库之间通常相互隔离，难以联合分析，因此将其全部
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:11" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97/" class="category-chain-item">实时计算</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97/Flink/" class="category-chain-item">Flink</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/%E5%AE%9E%E6%97%B6%E8%AE%A1%E7%AE%97/Flink/%E5%9F%BA%E4%BA%8EApache-Flink%E7%9A%84%E6%B5%81%E5%A4%84%E7%90%86/" class="category-chain-item">基于Apache Flink的流处理</a>
+  
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/a3448465bfce.html" target="_self">
           
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/1d0794edaf56.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/a3448465bfce.html" target="_self">
         <div>
-          
+          body{margin-left:0;margin-right:0;margin-top:0}#bN015htcoyT__google-cache-hdr{background:#f8f9fa;font:13px arial,sans-serif;text-align:left;color:#202124;border:0;margin:0;border-bottom:1px solid #da
         </div>
       </a>
 
@@ -399,8 +420,29 @@
   
     <span>></span>
     
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java-Web/" class="category-chain-item">Java Web</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/" class="category-chain-item">Java框架</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/Spring/" class="category-chain-item">Spring</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/Spring/%E6%BA%90%E7%A0%81/" class="category-chain-item">源码</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/Spring/%E6%BA%90%E7%A0%81/Spring%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91/" class="category-chain-item">Spring源码编译</a>
+  
+  
+
+  
+
+  
+
   
 
   
@@ -427,15 +469,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/b64df2354d3e.html" target="_self">
+        <a href="/2022/12/7c53f504774f.html" target="_self">
           
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/b64df2354d3e.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/7c53f504774f.html" target="_self">
         <div>
-          
+          &#x3D;&#x3D;⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠&#x3D;&#x3D; Text Elements加载Loading ^JZbLi5Z2 验证Verification ^1OIaN8RT 准备Preparation ^C52dJ2gJ 解析Resolution ^Nf12Eo
         </div>
       </a>
 
@@ -477,84 +519,9 @@
   <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/" class="category-chain-item">JVM</a>
   
   
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/abfa7e31ab72.html" target="_self">
-          
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/abfa7e31ab72.html" target="_self">
-        <div>
-          
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-03 21:38" pubdate>
-              2022-12-03
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
-  
-  
     <span>></span>
     
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Go/" class="category-chain-item">Go</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Go/Go%E9%A1%B9%E7%9B%AE/" class="category-chain-item">Go项目</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Go/Go%E9%A1%B9%E7%9B%AE/%E5%B7%A5%E5%8D%95%E7%B3%BB%E7%BB%9F/" class="category-chain-item">工单系统</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Go/Go%E9%A1%B9%E7%9B%AE/%E5%B7%A5%E5%8D%95%E7%B3%BB%E7%BB%9F/ferry%E5%B7%A5%E5%8D%95%E7%B3%BB%E7%BB%9F/" class="category-chain-item">ferry工单系统</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/%E5%9B%BE%E7%A4%BA/" class="category-chain-item">图示</a>
   
   
 
@@ -584,15 +551,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/38167ee76c84.html" target="_self">
+        <a href="/2022/12/ea51fb3f3b99.html" target="_self">
           
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/38167ee76c84.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/ea51fb3f3b99.html" target="_self">
         <div>
-          
+          &#x3D;&#x3D;⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠&#x3D;&#x3D; Text Elementsinterface UserDao{    public void login()} ^beAQcED1 class UserDaoImpl implements UserDao
         </div>
       </a>
 
@@ -649,9 +616,98 @@
   <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/Spring/%E6%BA%90%E7%A0%81/%E3%80%8ASpring%E6%BA%90%E7%A0%81%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90%E3%80%8B/" class="category-chain-item">《Spring源码深度解析》</a>
   
   
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/Spring/%E6%BA%90%E7%A0%81/%E3%80%8ASpring%E6%BA%90%E7%A0%81%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90%E3%80%8B/%E5%9B%BE%E7%A4%BA/" class="category-chain-item">图示</a>
+  
+  
 
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/06f10ec84b24.html" target="_self">
+          
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/06f10ec84b24.html" target="_self">
+        <div>
+          &#x3D;&#x3D;⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠&#x3D;&#x3D; Text Elementsjavac Person.class  ^wvRTe8zv Person.class ^5WyyRodU ClassLoader加载进内存 ^zjWexb3x 生成Class对象
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-03 21:38" pubdate>
+              2022-12-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/Java%E5%8F%8D%E5%B0%84/" class="category-chain-item">Java反射</a>
+  
   
 
   

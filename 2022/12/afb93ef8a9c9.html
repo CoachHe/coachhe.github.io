@@ -1,0 +1,1018 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="CoachHe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="目标：过年前学完JVM视频一共381个视频，目前学习到了第34个，还有340个，每天学习8个&#x2F;每周学习48个&#x2F;每月学习200个   01-JVM内存与垃圾回收篇概述  02-如何看待Java上层技术与JVM  03-为什么要学习JVM  04-面向人群和课程特点  05-官方规范下载与参考书目  06-跨平台的语言Java和跨语言的平台JVM  07-字节码与多语言混合编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM学习计划">
+<meta property="og:url" content="http://example.com/2022/12/afb93ef8a9c9.html">
+<meta property="og:site_name" content="CoachHe&#39;s Blog">
+<meta property="og:description" content="目标：过年前学完JVM视频一共381个视频，目前学习到了第34个，还有340个，每天学习8个&#x2F;每周学习48个&#x2F;每月学习200个   01-JVM内存与垃圾回收篇概述  02-如何看待Java上层技术与JVM  03-为什么要学习JVM  04-面向人群和课程特点  05-官方规范下载与参考书目  06-跨平台的语言Java和跨语言的平台JVM  07-字节码与多语言混合编程">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-03T18:41:58.000Z">
+<meta property="article:modified_time" content="2022-12-03T18:48:30.376Z">
+<meta property="article:author" content="CoachHe">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>JVM学习计划 - CoachHe&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="JVM学习计划"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-04 02:41" pubdate>
+          2022年12月4日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          54 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JVM学习计划</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="目标：过年前学完JVM"><a href="#目标：过年前学完JVM" class="headerlink" title="目标：过年前学完JVM"></a>目标：过年前学完JVM</h1><h1 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h1><p>一共381个视频，目前学习到了第34个，还有340个，每天学习8个&#x2F;每周学习48个&#x2F;每月学习200个</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 01-JVM内存与垃圾回收篇概述</li>
+<li><input checked="" disabled="" type="checkbox"> 02-如何看待Java上层技术与JVM</li>
+<li><input checked="" disabled="" type="checkbox"> 03-为什么要学习JVM</li>
+<li><input checked="" disabled="" type="checkbox"> 04-面向人群和课程特点</li>
+<li><input checked="" disabled="" type="checkbox"> 05-官方规范下载与参考书目</li>
+<li><input checked="" disabled="" type="checkbox"> 06-跨平台的语言Java和跨语言的平台JVM</li>
+<li><input checked="" disabled="" type="checkbox"> 07-字节码与多语言混合编程</li>
+<li><input checked="" disabled="" type="checkbox"> 08-Java及JVM历史上的重大事件</li>
+<li><input checked="" disabled="" type="checkbox"> 09-虚拟机与Java虚拟机介绍</li>
+<li><input checked="" disabled="" type="checkbox"> 10-JVM的位置</li>
+<li><input checked="" disabled="" type="checkbox"> 11-JVM的整体结构</li>
+<li><input checked="" disabled="" type="checkbox"> 12-Java代码执行流程</li>
+<li><input checked="" disabled="" type="checkbox"> 13-区分栈的指令集架构和寄存器的指令集架构</li>
+<li><input checked="" disabled="" type="checkbox"> 14-JVM的生命周期</li>
+<li><input checked="" disabled="" type="checkbox"> 15-SUN Classic VM的介绍</li>
+<li><input checked="" disabled="" type="checkbox"> 16-Exact VM的介绍</li>
+<li><input checked="" disabled="" type="checkbox"> 17-HotSpot VM的介绍</li>
+<li><input checked="" disabled="" type="checkbox"> 18-JRockit VM的介绍</li>
+<li><input checked="" disabled="" type="checkbox"> 19-IBM J9 VM的介绍</li>
+<li><input checked="" disabled="" type="checkbox"> 20-KVM、CDC、CLDC的介绍</li>
+<li><input checked="" disabled="" type="checkbox"> 21-Azul VM和BEA Liquid VM的介绍</li>
+<li><input checked="" disabled="" type="checkbox"> 22-Apache Harmony的介绍</li>
+<li><input checked="" disabled="" type="checkbox"> 23-Microsoft JVM和TaobaoJVM</li>
+<li><input checked="" disabled="" type="checkbox"> 24-Dalvik VM及其他虚拟机的介绍</li>
+<li><input checked="" disabled="" type="checkbox"> 25-Graal VM的介绍</li>
+<li><input checked="" disabled="" type="checkbox"> 26-内存结构概述</li>
+<li><input checked="" disabled="" type="checkbox"> 27-概述类的加载器及类加载过程</li>
+<li><input checked="" disabled="" type="checkbox"> 28-类的加载过程一：Loading</li>
+<li><input checked="" disabled="" type="checkbox"> 29-类的加载过程二：Linking</li>
+<li><input checked="" disabled="" type="checkbox"> 30-类的加载过程三：Initialization</li>
+<li><input checked="" disabled="" type="checkbox"> 31-几种类加载器的使用体会</li>
+<li><input checked="" disabled="" type="checkbox"> 32-引导类、扩展类、系统类加载器的使用及演示</li>
+<li><input checked="" disabled="" type="checkbox"> 33-为什么需要用户自定义类加载器及具体实现</li>
+<li><input checked="" disabled="" type="checkbox"> 34-ClassLoader的常用方法及获取方法</li>
+<li><input checked="" disabled="" type="checkbox"> 35-双亲委派机制的工作原理及演示</li>
+<li><input checked="" disabled="" type="checkbox"> 36-双亲委派机制的优势</li>
+<li><input checked="" disabled="" type="checkbox"> 37-沙箱安全机制</li>
+<li><input checked="" disabled="" type="checkbox"> 38-类的主动使用与被动使用等</li>
+<li><input checked="" disabled="" type="checkbox"> 39-运行时数据区内部结构</li>
+<li><input checked="" disabled="" type="checkbox"> 40-JVM中的线程说明</li>
+<li><input checked="" disabled="" type="checkbox"> 41-PC寄存器概述</li>
+<li><input checked="" disabled="" type="checkbox"> 42-PC寄存器的使用举例</li>
+<li><input checked="" disabled="" type="checkbox"> 43-解决PC寄存器两个面试问题</li>
+<li><input checked="" disabled="" type="checkbox"> 44-虚拟机栈的主要特点</li>
+<li><input checked="" disabled="" type="checkbox"> 45-虚拟机栈的常见异常与如何设置栈大小</li>
+<li><input checked="" disabled="" type="checkbox"> 46-栈的存储结构和运行原理</li>
+<li><input checked="" disabled="" type="checkbox"> 47-栈桢的内部结构</li>
+<li><input checked="" disabled="" type="checkbox"> 48-局部变量表结构的认识</li>
+<li><input checked="" disabled="" type="checkbox"> 49-字节码中方法内部结构的剖析</li>
+<li><input checked="" disabled="" type="checkbox"> 50-变量槽slot的理解与演示</li>
+<li><input checked="" disabled="" type="checkbox"> 51-静态变量与局部变量的对比及小结</li>
+<li><input checked="" disabled="" type="checkbox"> 52-操作数栈的特点</li>
+<li><input checked="" disabled="" type="checkbox"> 53-涉及操作数栈的字节码指令执行分析</li>
+<li><input checked="" disabled="" type="checkbox"> 54-栈顶缓存技术</li>
+<li><input checked="" disabled="" type="checkbox"> 55-动态链接的理解与常量池的作用</li>
+<li><input checked="" disabled="" type="checkbox"> 56-方法的绑定机制：静态绑定与动态绑定</li>
+<li><input checked="" disabled="" type="checkbox"> 57-4种方法调用指令区分非虚方法与虚方法</li>
+<li><input checked="" disabled="" type="checkbox"> 58-invokedynamic指令的使用</li>
+<li><input checked="" disabled="" type="checkbox"> 59-方法重写的本质与虚方法表的使用</li>
+<li><input checked="" disabled="" type="checkbox"> 60-方法返回地址的说明</li>
+<li><input checked="" disabled="" type="checkbox"> 61-栈桢中的一些附加信息</li>
+<li><input checked="" disabled="" type="checkbox"> 62-虚拟机栈的5道面试题</li>
+<li><input checked="" disabled="" type="checkbox"> 63-本地方法接口的理解</li>
+<li><input checked="" disabled="" type="checkbox"> 64-本地方法栈的理解</li>
+<li><input checked="" disabled="" type="checkbox"> 65-JVM学习路线与内容回顾</li>
+<li><input checked="" disabled="" type="checkbox"> 66-堆空间的概述_进程中堆的唯一性</li>
+<li><input checked="" disabled="" type="checkbox"> 67-堆空间关于对象创建和和GC的概述</li>
+<li><input checked="" disabled="" type="checkbox"> 68-堆的细分内存结构</li>
+<li><input checked="" disabled="" type="checkbox"> 69-堆空间大小的设置和查看</li>
+<li><input checked="" disabled="" type="checkbox"> 70-OOM的说明与举例</li>
+<li><input checked="" disabled="" type="checkbox"> 71-新生代与老年代中相关参数的设置</li>
+<li><input checked="" disabled="" type="checkbox"> 72-图解对象分配的一般过程</li>
+<li><input checked="" disabled="" type="checkbox"> 73-对象分配的特殊情况</li>
+<li><input checked="" disabled="" type="checkbox"> 74-代码举例与JVisualVM演示对象的分配过程</li>
+<li><input checked="" disabled="" type="checkbox"> 75-常用优工具概述与Jprofiler的演示</li>
+<li><input checked="" disabled="" type="checkbox"> 76-MinorGC、MajorGC和FullGC的对比</li>
+<li><input checked="" disabled="" type="checkbox"> 77-GC举例与日志分析</li>
+<li><input checked="" disabled="" type="checkbox"> 78-体会堆空间分代的思想</li>
+<li><input checked="" disabled="" type="checkbox"> 79-总结内存分配策略</li>
+<li><input checked="" disabled="" type="checkbox"> 80-堆空间为每个线程分配的TLAB</li>
+<li><input checked="" disabled="" type="checkbox"> 81-小结堆空间的常用参数设置</li>
+<li><input checked="" disabled="" type="checkbox"> 82-通过逃逸分析看堆空间的对象分配策略</li>
+<li><input checked="" disabled="" type="checkbox"> 83-代码优化之栈上分配</li>
+<li><input checked="" disabled="" type="checkbox"> 84-代码优化之同步省略</li>
+<li><input checked="" disabled="" type="checkbox"> 85-代码优化之标量替换</li>
+<li><input checked="" disabled="" type="checkbox"> 86-代码优化及堆的小结</li>
+<li><input disabled="" type="checkbox"> 87-方法区概述_栈堆方法区间的交互关系</li>
+<li><input disabled="" type="checkbox"> 88-方法区的基本理解</li>
+<li><input disabled="" type="checkbox"> 89-Hotspot中方法区的演进</li>
+<li><input disabled="" type="checkbox"> 90-设置方法区大小的参数</li>
+<li><input disabled="" type="checkbox"> 91-OOM：PermGen和OOM：Metaspace举例</li>
+<li><input disabled="" type="checkbox"> 92-方法区的内部结构1</li>
+<li><input disabled="" type="checkbox"> 93-方法区的内部结构2</li>
+<li><input disabled="" type="checkbox"> 94-class文件中常量池的理解</li>
+<li><input disabled="" type="checkbox"> 95-运行时常量池的理解</li>
+<li><input disabled="" type="checkbox"> 96-图示举例方法区的使用</li>
+<li><input disabled="" type="checkbox"> 97-方法区在jdk6、jdk7、jdk8中的演进细节</li>
+<li><input disabled="" type="checkbox"> 98-StringTable为什么要调整位置</li>
+<li><input disabled="" type="checkbox"> 99-如何证明静态变量存在哪</li>
+<li><input disabled="" type="checkbox"> 100-方法区的垃圾回收行为</li>
+<li><input disabled="" type="checkbox"> 101-运行时数据区的总结与常见大厂面试题说明</li>
+<li><input disabled="" type="checkbox"> 102-对象实例化的几种方式</li>
+<li><input disabled="" type="checkbox"> 103-字节码角度看对象的创建过程</li>
+<li><input disabled="" type="checkbox"> 104-对象创建的六个步骤</li>
+<li><input disabled="" type="checkbox"> 105-对象的内存布局</li>
+<li><input disabled="" type="checkbox"> 106-对象访问定位</li>
+<li><input disabled="" type="checkbox"> 107-直接内存的简单体验</li>
+<li><input disabled="" type="checkbox"> 108-使用本地内存读写数据的测试</li>
+<li><input disabled="" type="checkbox"> 109-直接内存的00M与内存大小的设置</li>
+<li><input disabled="" type="checkbox"> 110-执行引擎的作用及工作过程概述</li>
+<li><input disabled="" type="checkbox"> 111-Java程序的编译和解释运行的理解</li>
+<li><input disabled="" type="checkbox"> 112-机器码_指令_汇编_高级语言理解与执行过程</li>
+<li><input disabled="" type="checkbox"> 113-解释器的使用</li>
+<li><input disabled="" type="checkbox"> 114-HotspotVM为何解释器与JIT编译器并存</li>
+<li><input disabled="" type="checkbox"> 115-热点代码探测确定何时JIT</li>
+<li><input disabled="" type="checkbox"> 116-Hotspot设置模式_C1与C2编译器</li>
+<li><input disabled="" type="checkbox"> 117-Graal编译器与AOT编译器</li>
+<li><input disabled="" type="checkbox"> 118-String的不可变性</li>
+<li><input disabled="" type="checkbox"> 119-String底层Hashtable结构的说明</li>
+<li><input disabled="" type="checkbox"> 120-String内存结构的分配位置</li>
+<li><input disabled="" type="checkbox"> 121-两个案例熟悉String的基本操作</li>
+<li><input disabled="" type="checkbox"> 122-字符串拼接操作的面试题讲解</li>
+<li><input disabled="" type="checkbox"> 123-字符串变量拼接操作的底层原理</li>
+<li><input disabled="" type="checkbox"> 124-拼接操作与append操作的效率对比</li>
+<li><input disabled="" type="checkbox"> 125-intern()的理解</li>
+<li><input disabled="" type="checkbox"> 126-new String()到底创建了几个对象</li>
+<li><input disabled="" type="checkbox"> 127-关于intern()的面试难题</li>
+<li><input disabled="" type="checkbox"> 128-面试的拓展问题</li>
+<li><input disabled="" type="checkbox"> 129-intern()的课后练习1</li>
+<li><input disabled="" type="checkbox"> 130-intern()的课后练习2</li>
+<li><input disabled="" type="checkbox"> 131-intern()的空间效率测试</li>
+<li><input disabled="" type="checkbox"> 132-StringTable的垃圾回收测试</li>
+<li><input disabled="" type="checkbox"> 133-G1垃圾收集器的String去重操作</li>
+<li><input disabled="" type="checkbox"> 134-垃圾回收相关章节的说明</li>
+<li><input disabled="" type="checkbox"> 135-什么是GC，为什么需要GC</li>
+<li><input disabled="" type="checkbox"> 136-了解早期垃圾回收行为</li>
+<li><input disabled="" type="checkbox"> 137-Java自动内存管理介绍</li>
+<li><input disabled="" type="checkbox"> 138-垃圾回收相关算法概述</li>
+<li><input disabled="" type="checkbox"> 139-引用计数算法的原理及优缺点</li>
+<li><input disabled="" type="checkbox"> 140-Java代码举例_Python的引用计数实施方案</li>
+<li><input disabled="" type="checkbox"> 141-可达性分析算法与GC Roots</li>
+<li><input disabled="" type="checkbox"> 142-对象的finalization机制</li>
+<li><input disabled="" type="checkbox"> 143-代码演示可复活的对象</li>
+<li><input disabled="" type="checkbox"> 144-使用MAT查看GC Roots</li>
+<li><input disabled="" type="checkbox"> 145-使用JProfiler进行GC Roots溯源</li>
+<li><input disabled="" type="checkbox"> 146-使用JProfiler分析OOM</li>
+<li><input disabled="" type="checkbox"> 147-标记-清除算法原理及优缺点</li>
+<li><input disabled="" type="checkbox"> 148-复制算法原理及优缺点</li>
+<li><input disabled="" type="checkbox"> 149-标记-压缩算法原理及优缺点</li>
+<li><input disabled="" type="checkbox"> 150-不同指标上对比三种算法</li>
+<li><input disabled="" type="checkbox"> 151-分代收集算法的说明</li>
+<li><input disabled="" type="checkbox"> 152-增量收集算法原理及优缺点</li>
+<li><input disabled="" type="checkbox"> 153-分区算法的说明</li>
+<li><input disabled="" type="checkbox"> 154-垃圾回收相关概念的概述</li>
+<li><input disabled="" type="checkbox"> 155-System.gc()的理解</li>
+<li><input disabled="" type="checkbox"> 156-手动gc理解不可达对象的回收行为</li>
+<li><input disabled="" type="checkbox"> 157-内存溢出的分析</li>
+<li><input disabled="" type="checkbox"> 158-内存泄漏的分析</li>
+<li><input disabled="" type="checkbox"> 159-StopTheWorld事件的理解</li>
+<li><input disabled="" type="checkbox"> 160-程序的并行与并发</li>
+<li><input disabled="" type="checkbox"> 161-垃圾回收的并行与并发</li>
+<li><input disabled="" type="checkbox"> 162-安全点与安全区域的说明</li>
+<li><input disabled="" type="checkbox"> 163-Java中几种不同引用的概述</li>
+<li><input disabled="" type="checkbox"> 164-强引用：不回收</li>
+<li><input disabled="" type="checkbox"> 165-软引用：内存不足即回收</li>
+<li><input disabled="" type="checkbox"> 166-弱引用：发现即回收</li>
+<li><input disabled="" type="checkbox"> 167-虚引用：对象回收跟踪</li>
+<li><input disabled="" type="checkbox"> 168-终结器引用的介绍</li>
+<li><input disabled="" type="checkbox"> 169-垃圾回收器章节概览</li>
+<li><input disabled="" type="checkbox"> 170-垃圾回收器的分类</li>
+<li><input disabled="" type="checkbox"> 171-GC性能指标的整体说明</li>
+<li><input disabled="" type="checkbox"> 172-吞吐量与暂停时间的对比说明</li>
+<li><input disabled="" type="checkbox"> 173-垃圾回收器的发展迭代史</li>
+<li><input disabled="" type="checkbox"> 174-垃圾回收器的组合关系</li>
+<li><input disabled="" type="checkbox"> 175-如何查看默认的垃圾回收器</li>
+<li><input disabled="" type="checkbox"> 176-Serial与Serial Old垃圾回收器的介绍</li>
+<li><input disabled="" type="checkbox"> 177-如何设置使用Serial垃圾回收器</li>
+<li><input disabled="" type="checkbox"> 178-ParNew垃圾回收器的介绍</li>
+<li><input disabled="" type="checkbox"> 179-如何设置使用ParNew垃圾回收器</li>
+<li><input disabled="" type="checkbox"> 180-Parallel与Parallel Old垃圾回收器的介绍</li>
+<li><input disabled="" type="checkbox"> 181-Parallel垃圾回收器的相关参数设置</li>
+<li><input disabled="" type="checkbox"> 182-CMS垃圾回收器概述与工作原理</li>
+<li><input disabled="" type="checkbox"> 183-CMS的特点与弊端分析</li>
+<li><input disabled="" type="checkbox"> 184-CMS垃圾回收器的参数设置</li>
+<li><input disabled="" type="checkbox"> 185-CMS的小结及后续JDK版本中的变化</li>
+<li><input disabled="" type="checkbox"> 186-认识G1垃圾回收器</li>
+<li><input disabled="" type="checkbox"> 187-G1垃圾回收器的优势和不足</li>
+<li><input disabled="" type="checkbox"> 188-G1的参数设置</li>
+<li><input disabled="" type="checkbox"> 189-G1在生产环境的适用场景</li>
+<li><input disabled="" type="checkbox"> 190-region的使用介绍</li>
+<li><input disabled="" type="checkbox"> 191-G1垃圾回收器的主要回收环节</li>
+<li><input disabled="" type="checkbox"> 192-记忆集与写屏障</li>
+<li><input disabled="" type="checkbox"> 193-G1垃圾回收过程的详细说明</li>
+<li><input disabled="" type="checkbox"> 194-G1垃圾回收的优化建议</li>
+<li><input disabled="" type="checkbox"> 195-7种经典的垃圾回收器总结与调优建议</li>
+<li><input disabled="" type="checkbox"> 196-常用的显示GC日志的参数</li>
+<li><input disabled="" type="checkbox"> 197-GC日志中垃圾回收数据的分析</li>
+<li><input disabled="" type="checkbox"> 198-举例说明日志中堆空间数据如何解读</li>
+<li><input disabled="" type="checkbox"> 199-日志分析工具的使用</li>
+<li><input disabled="" type="checkbox"> 200-新时期的Epsilon和Shenandoah垃圾回收器</li>
+<li><input disabled="" type="checkbox"> 201-革命性的ZGC的性能介绍</li>
+<li><input disabled="" type="checkbox"> 202-其他的厂商的垃圾回收器</li>
+<li><input disabled="" type="checkbox"> 203-最后寄语</li>
+<li><input disabled="" type="checkbox"> 204-JVM中篇内容概述</li>
+<li><input disabled="" type="checkbox"> 205-字节码文件的跨平台性</li>
+<li><input disabled="" type="checkbox"> 206-了解Java的前端编译器</li>
+<li><input disabled="" type="checkbox"> 207-透过字节码看代码执行细节举例1</li>
+<li><input disabled="" type="checkbox"> 208-透过字节码看代码执行细节举例2</li>
+<li><input disabled="" type="checkbox"> 209-透过字节码看代码执行细节举例3</li>
+<li><input disabled="" type="checkbox"> 210-解读Class文件的三种方式</li>
+<li><input disabled="" type="checkbox"> 211-Class文件本质和内部数据类型</li>
+<li><input disabled="" type="checkbox"> 212-Class文件内部结构概述</li>
+<li><input disabled="" type="checkbox"> 213-字节码数据保存到excel中的操作</li>
+<li><input disabled="" type="checkbox"> 214-Class文件的标识：魔数</li>
+<li><input disabled="" type="checkbox"> 215-Class文件版本号</li>
+<li><input disabled="" type="checkbox"> 216-常量池概述</li>
+<li><input disabled="" type="checkbox"> 217-常量池计数器</li>
+<li><input disabled="" type="checkbox"> 218-常量池表中的字面量和符号引用</li>
+<li><input disabled="" type="checkbox"> 219-解析得到常量池中所有的常量</li>
+<li><input disabled="" type="checkbox"> 220-常量池表数据的解读1</li>
+<li><input disabled="" type="checkbox"> 221-常量池表数据的解读2</li>
+<li><input disabled="" type="checkbox"> 222-常量池表项数据的总结</li>
+<li><input disabled="" type="checkbox"> 223-访问标识</li>
+<li><input disabled="" type="checkbox"> 224-类索引、父类索引、接口索引集合</li>
+<li><input disabled="" type="checkbox"> 225-字段表集合的整体理解</li>
+<li><input disabled="" type="checkbox"> 226-字段表数据的解读</li>
+<li><input disabled="" type="checkbox"> 227-方法表集合的整体理解</li>
+<li><input disabled="" type="checkbox"> 228-方法表数据的解读</li>
+<li><input disabled="" type="checkbox"> 229-属性表集合的整理理解</li>
+<li><input disabled="" type="checkbox"> 230-方法中Code属性的解读</li>
+<li><input disabled="" type="checkbox"> 231-LineNumberTable和LocalVariableTable属性的解读</li>
+<li><input disabled="" type="checkbox"> d232-SourceFile属性的解读</li>
+<li><input disabled="" type="checkbox"> 233-Class文件结构的小结</li>
+<li><input disabled="" type="checkbox"> 234-javac -g操作的说明</li>
+<li><input disabled="" type="checkbox"> 235-javap主要参数的使用</li>
+<li><input disabled="" type="checkbox"> d236-javap解析得到的文件结构的解读</li>
+<li><input disabled="" type="checkbox"> d237-javap使用小结</li>
+<li><input disabled="" type="checkbox"> 238-字节码指令集的概述</li>
+<li><input disabled="" type="checkbox"> 239-指令与数据类型的关系及指令分类</li>
+<li><input disabled="" type="checkbox"> 240-加载与存储指令概述</li>
+<li><input disabled="" type="checkbox"> 241-再谈操作数栈与局部变量表</li>
+<li><input disabled="" type="checkbox"> 242-局部变量压栈指令</li>
+<li><input disabled="" type="checkbox"> 243-常量入栈指令</li>
+<li><input disabled="" type="checkbox"> 244-出栈装入局部变量表指令</li>
+<li><input disabled="" type="checkbox"> 245-算术指令及举例</li>
+<li><input disabled="" type="checkbox"> d246-算法指令再举例</li>
+<li><input disabled="" type="checkbox"> 247-彻底搞定++运算符</li>
+<li><input disabled="" type="checkbox"> 248-比较指令的说明</li>
+<li><input disabled="" type="checkbox"> 249-宽化类型转换</li>
+<li><input disabled="" type="checkbox"> d250-窄化类型转换</li>
+<li><input disabled="" type="checkbox"> d251-创建类和数组实例的指令</li>
+<li><input disabled="" type="checkbox"> 252-字段访问指令</li>
+<li><input disabled="" type="checkbox"> 253-数组操作指令</li>
+<li><input disabled="" type="checkbox"> 254-类型检查指令</li>
+<li><input disabled="" type="checkbox"> 255-方法调用指令</li>
+<li><input disabled="" type="checkbox"> 256-方法返回指令</li>
+<li><input disabled="" type="checkbox"> 257-操作数栈管理指令</li>
+<li><input disabled="" type="checkbox"> d258-比较指令</li>
+<li><input disabled="" type="checkbox"> 259-条件跳转指令</li>
+<li><input disabled="" type="checkbox"> d260-比较条件跳转指令</li>
+<li><input disabled="" type="checkbox"> 261-多条件分支跳转指令</li>
+<li><input disabled="" type="checkbox"> 262-无条件跳转指令</li>
+<li><input disabled="" type="checkbox"> 263-抛出异常指令</li>
+<li><input disabled="" type="checkbox"> 264-异常处理与异常表</li>
+<li><input disabled="" type="checkbox"> d265-同步控制指令</li>
+<li><input disabled="" type="checkbox"> d266-类的生命周期概述</li>
+<li><input disabled="" type="checkbox"> 267-加载完成的操作及二进制的获取方式</li>
+<li><input disabled="" type="checkbox"> 268-类模型与Class实例的位置</li>
+<li><input disabled="" type="checkbox"> 269-链接之验证环节</li>
+<li><input disabled="" type="checkbox"> 270-链接之准备环节</li>
+<li><input disabled="" type="checkbox"> 271-链接之解析环节</li>
+<li><input disabled="" type="checkbox"> 272-初始化过程与类初始化方法</li>
+<li><input disabled="" type="checkbox"> 273-初始化阶段赋值与准备阶段赋值的对比</li>
+<li><input disabled="" type="checkbox"> d274-类初始化方法clinit()的线程安全性</li>
+<li><input disabled="" type="checkbox"> 275-何为类的主动使用和被动使用</li>
+<li><input disabled="" type="checkbox"> 276-类的主动使用1</li>
+<li><input disabled="" type="checkbox"> 277-类的主动使用2</li>
+<li><input disabled="" type="checkbox"> 278-类的主动使用3</li>
+<li><input disabled="" type="checkbox"> 279-类的主动使用4</li>
+<li><input disabled="" type="checkbox"> 280-类的被动使用</li>
+<li><input disabled="" type="checkbox"> 281-类的使用介绍</li>
+<li><input disabled="" type="checkbox"> 282-类的卸载相关问题</li>
+<li><input disabled="" type="checkbox"> 283-类加载器的概述</li>
+<li><input disabled="" type="checkbox"> 284-命名空间与类的唯一性</li>
+<li><input disabled="" type="checkbox"> 285-类的加载器的分类</li>
+<li><input disabled="" type="checkbox"> 286-引导类加载器的说明</li>
+<li><input disabled="" type="checkbox"> 287-扩展类加载器的说明</li>
+<li><input disabled="" type="checkbox"> 288-系统类加载器的说明</li>
+<li><input disabled="" type="checkbox"> 289-用户自定义类加载器的说明</li>
+<li><input disabled="" type="checkbox"> 290-测试不同类使用的类加载器</li>
+<li><input disabled="" type="checkbox"> 291-ClassLoader与Launcher的初步剖析</li>
+<li><input disabled="" type="checkbox"> 292-ClassLoader的源码解析1</li>
+<li><input disabled="" type="checkbox"> 293-ClassLoader的源码解析2</li>
+<li><input disabled="" type="checkbox"> 294-ClassLoader子类的结构剖析</li>
+<li><input disabled="" type="checkbox"> 295-双亲委派机制的优势与劣势</li>
+<li><input disabled="" type="checkbox"> d296-三次双亲委派机制的破坏</li>
+<li><input disabled="" type="checkbox"> 297-热替换的代码实现</li>
+<li><input disabled="" type="checkbox"> 298-沙箱安全机制</li>
+<li><input disabled="" type="checkbox"> 299-自定义类加载器的好处和应用场景</li>
+<li><input disabled="" type="checkbox"> 300-自定义类加载器的代码实现</li>
+<li><input disabled="" type="checkbox"> 301-Java9的新特性</li>
+<li><input disabled="" type="checkbox"> 302-性能监控与调优篇概述</li>
+<li><input disabled="" type="checkbox"> 303-见识一下大厂面试题</li>
+<li><input disabled="" type="checkbox"> 304-为什么调优及监控的依据</li>
+<li><input disabled="" type="checkbox"> 305-性能优化的三部曲</li>
+<li><input disabled="" type="checkbox"> 306-4个性能测试指标及相关关系</li>
+<li><input disabled="" type="checkbox"> 307-JVM命令行监控工具的概述</li>
+<li><input disabled="" type="checkbox"> 308-jps：查看正在运行的Java进程</li>
+<li><input disabled="" type="checkbox"> 309-jstat：基本语法</li>
+<li><input disabled="" type="checkbox"> 310-jstat：如何排查OOM和内存泄漏</li>
+<li><input disabled="" type="checkbox"> d311-jinfo：实时查看和修改JVM配置参数</li>
+<li><input disabled="" type="checkbox"> 312-PrintFlagsFinal的使用</li>
+<li><input disabled="" type="checkbox"> 313-jmap：各种option参数说明</li>
+<li><input disabled="" type="checkbox"> 314-导出dump堆转储快照文件的两种方式</li>
+<li><input disabled="" type="checkbox"> 315-jmap：如何显示堆内存等功能</li>
+<li><input disabled="" type="checkbox"> 316-jhat：JDK自带堆分析工具</li>
+<li><input disabled="" type="checkbox"> 317-jstack：追踪JVM中线程快照</li>
+<li><input disabled="" type="checkbox"> d318-jcmd：多功能命令行工具</li>
+<li><input disabled="" type="checkbox"> 319-jstatd：远程主机信息收集</li>
+<li><input disabled="" type="checkbox"> 320-JVM监控及诊断的GUI工具概述</li>
+<li><input disabled="" type="checkbox"> 321-jConsole的使用</li>
+<li><input disabled="" type="checkbox"> 322-VisualVM的安装及连接方式</li>
+<li><input disabled="" type="checkbox"> 323-VisualVM的基本功能</li>
+<li><input disabled="" type="checkbox"> 324-VisualVM生成和查看堆dump文件</li>
+<li><input disabled="" type="checkbox"> 325-Visual生成和分析线程dump文件</li>
+<li><input disabled="" type="checkbox"> 326-VisualVM的CPU抽样和内存抽样</li>
+<li><input disabled="" type="checkbox"> 327-MAT概述_获取dump的四种方式</li>
+<li><input disabled="" type="checkbox"> 328-MAT界面主要功能概览</li>
+<li><input disabled="" type="checkbox"> 329-MAT中Histogram的功能演示</li>
+<li><input disabled="" type="checkbox"> 330-基于对象的出引用与入引用分析内存泄漏</li>
+<li><input disabled="" type="checkbox"> 331-ShallowHeap与RetainedHeap</li>
+<li><input disabled="" type="checkbox"> 332-案例分析：StudentTrace</li>
+<li><input disabled="" type="checkbox"> 333-支配树的理解及应用</li>
+<li><input disabled="" type="checkbox"> 334-案例：Tomcat堆溢出分析</li>
+<li><input disabled="" type="checkbox"> 335-内存泄漏的理解与分类</li>
+<li><input disabled="" type="checkbox"> 336-内存泄漏的8种情况</li>
+<li><input disabled="" type="checkbox"> 337-内存泄漏分析案例1</li>
+<li><input disabled="" type="checkbox"> 338-内存泄漏分析案例2</li>
+<li><input disabled="" type="checkbox"> 339-OQL语句的使用举例</li>
+<li><input disabled="" type="checkbox"> 340-JProfiler的使用概述</li>
+<li><input disabled="" type="checkbox"> 341-JProfiler的安装和配置</li>
+<li><input disabled="" type="checkbox"> 342-两种数据采集方式</li>
+<li><input disabled="" type="checkbox"> 343-遥感监测视图中相关监测数据</li>
+<li><input disabled="" type="checkbox"> 344-内存视图的分析</li>
+<li><input disabled="" type="checkbox"> 345-Heap Walker功能演示</li>
+<li><input disabled="" type="checkbox"> 346-CPU视图的功能说明</li>
+<li><input disabled="" type="checkbox"> 347-Threads视图的功能说明</li>
+<li><input disabled="" type="checkbox"> 348-JProfiler使用案例1</li>
+<li><input disabled="" type="checkbox"> 349-JProfiler使用案例2</li>
+<li><input disabled="" type="checkbox"> 350-为什么要引入Arthas</li>
+<li><input disabled="" type="checkbox"> 351-Arthas的安装及对Java进程的监控</li>
+<li><input disabled="" type="checkbox"> 352-Arthas中基础指令的使用</li>
+<li><input disabled="" type="checkbox"> 353-dashboard命令和thread命令</li>
+<li><input disabled="" type="checkbox"> 354-sysprop命令和heapdump命令</li>
+<li><input disabled="" type="checkbox"> 355-sc命令和sm命令</li>
+<li><input disabled="" type="checkbox"> 356-jad命令_mc命令_classloader命令</li>
+<li><input disabled="" type="checkbox"> 357-monitor_watch_trace_stack_tt命令</li>
+<li><input disabled="" type="checkbox"> 358-Arthas的其它相关命令</li>
+<li><input disabled="" type="checkbox"> 359-JMC介绍_实时JVM监控</li>
+<li><input disabled="" type="checkbox"> 360-Java Flight Recorder介绍和取样分析</li>
+<li><input disabled="" type="checkbox"> 361-火焰图的使用介绍</li>
+<li><input disabled="" type="checkbox"> 362-Tprofiler等工具的介绍</li>
+<li><input disabled="" type="checkbox"> 363-JVM参数选项类型1：标准参数选项</li>
+<li><input disabled="" type="checkbox"> 364-JVM参数选项类型2：-X参数选项</li>
+<li><input disabled="" type="checkbox"> 365-JVM参数选项类型3：-XX参数选项</li>
+<li><input disabled="" type="checkbox"> 366-如何添加JVM参数选项的说明</li>
+<li><input disabled="" type="checkbox"> 367-打印设置的XX选项及值</li>
+<li><input disabled="" type="checkbox"> 368-栈、堆、方法区内存的相关VM参数选项设置</li>
+<li><input disabled="" type="checkbox"> 369-OutOfMemory相关VM参数选项的设置</li>
+<li><input disabled="" type="checkbox"> 370-回顾经典的GC及相互搭配关系</li>
+<li><input disabled="" type="checkbox"> 371-不同垃圾回收器的VM参数选项设置</li>
+<li><input disabled="" type="checkbox"> 372-GC日志相关VM参数选项的设置</li>
+<li><input disabled="" type="checkbox"> 373-了解其他VM参数选项</li>
+<li><input disabled="" type="checkbox"> 374-通过Java代码获取JVM参数</li>
+<li><input disabled="" type="checkbox"> 375-复习GC的分类</li>
+<li><input disabled="" type="checkbox"> 376-GC日志的分类</li>
+<li><input disabled="" type="checkbox"> 377-MinorGC的日志解析</li>
+<li><input disabled="" type="checkbox"> 378-FullGC的日志解析</li>
+<li><input disabled="" type="checkbox"> 379-在线日志分析工具：GCEasy</li>
+<li><input disabled="" type="checkbox"> 380-其它日志分析工具：GCViewer、GChisto、HPjmeter</li>
+<li><input disabled="" type="checkbox"> 381-OOM及性能优化案例与解决方案</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%BF%9B%E5%BA%A6/" class="category-chain-item">学习进度</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>JVM学习计划</div>
+      <div>http://example.com/2022/12/afb93ef8a9c9.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>CoachHe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年12月4日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/12/10ee7b3f587e.html" title="1 Session Mode">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">1 Session Mode</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/12/1b9695fa54cb.html" title="Flink学习计划">
+                        <span class="hidden-mobile">Flink学习计划</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
