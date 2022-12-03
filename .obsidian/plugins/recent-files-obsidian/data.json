@@ -1,6 +1,34 @@
 {
   "recentFiles": [
     {
+      "basename": "2022-11-23",
+      "path": "source/_posts/学习进度/计划/2022-11-23.md"
+    },
+    {
+      "basename": "Docker学习",
+      "path": "source/_posts/微服务/Docker/Docker学习.md"
+    },
+    {
+      "basename": "1 k8s概念和架构",
+      "path": "source/_posts/微服务/K8S/尚硅谷/1 k8s概念和架构.md"
+    },
+    {
+      "basename": "2、Bean生命周期处理机制",
+      "path": "source/_posts/编程语言/Java/Java开发/Java框架/Spring/源码/Spring源码解析-coachhe/2、Bean生命周期处理机制.md"
+    },
+    {
+      "basename": "集群分发脚本",
+      "path": "source/_posts/计算机/Linux/Command/集群分发脚本.md"
+    },
+    {
+      "basename": "王道考研2-进程与线程",
+      "path": "source/_posts/计算机/操作系统/王道考研2-进程与线程.md"
+    },
+    {
+      "basename": "王道考研1-计算机系统概论",
+      "path": "source/_posts/计算机/操作系统/王道考研1-计算机系统概论.md"
+    },
+    {
       "basename": "操作系统简介",
       "path": "source/_posts/计算机/操作系统/操作系统简介.md"
     },
@@ -105,10 +133,6 @@
       "path": "source/_posts/微服务/K8S/尚硅谷/0 简介.md"
     },
     {
-      "basename": "1 k8s概念和架构",
-      "path": "source/_posts/微服务/K8S/尚硅谷/1 k8s概念和架构.md"
-    },
-    {
       "basename": "Chapter37_找到容器不容易_Service",
       "path": "source/_posts/微服务/K8S/极客时间/深入剖析k8s/Chapter37_找到容器不容易_Service.md"
     },
@@ -123,10 +147,6 @@
     {
       "basename": "通过docker搭建集群",
       "path": "source/_posts/微服务/Docker/通过docker搭建集群.md"
-    },
-    {
-      "basename": "Docker学习",
-      "path": "source/_posts/微服务/Docker/Docker学习.md"
     },
     {
       "basename": "Chapter38_从外界联通Service与Service",
@@ -179,26 +199,6 @@
     {
       "basename": "模板",
       "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/模板.md"
-    },
-    {
-      "basename": "权限模型",
-      "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/权限模型.md"
-    },
-    {
-      "basename": "权限",
-      "path": "source/_posts/编程语言/Go/Go项目/工单系统/coachhe工单系统/权限.md"
-    },
-    {
-      "basename": "工单系统简介",
-      "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/工单系统简介.md"
-    },
-    {
-      "basename": "协议",
-      "path": "source/_posts/编程语言/Go/Go项目/工单系统/coachhe工单系统/协议.md"
-    },
-    {
-      "basename": "上传文件",
-      "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/上传文件.md"
     }
   ],
   "omittedPaths": [
