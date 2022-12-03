@@ -81,7 +81,8 @@ public class PCRegisterTest {
 
 
 反编译之后我们可以看到：
-![](https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211223094728.png)
+
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221204052528.png" width = "50%" />
 
 主要还是看 main 方法中，以操作数 10 为例，代表我们创建了一个字符串，指向常量池中的#2，找到常量池中的#2 为 String 类型，并且再次指向了#16，为 abc。这里其实是两步操作 (多了一步从去找#16 的过程），因此在操作数 10 之后直接是操作数 12
 
