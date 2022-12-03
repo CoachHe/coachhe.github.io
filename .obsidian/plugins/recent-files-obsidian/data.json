@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "1.2 HBase数据结构1 HBase逻辑结构",
+      "path": "source/_posts/大数据/Hadoop生态/HBase/1.2 HBase数据结构1 HBase逻辑结构.md"
+    },
+    {
+      "basename": "1 Session Mode",
+      "path": "source/_posts/大数据/实时计算/Flink/极客时间/flink on k8s配置说明/1 Session Mode.md"
+    },
+    {
+      "basename": "1 Kafka介绍",
+      "path": "source/_posts/大数据/MQ/KafKa/1 Kafka介绍.md"
+    },
+    {
+      "basename": "1 Hbase简介1 Hbase定义",
+      "path": "source/_posts/大数据/Hadoop生态/HBase/1 Hbase简介1 Hbase定义.md"
+    },
+    {
+      "basename": "PulSar操作",
+      "path": "source/_posts/大数据/MQ/pulsar/PulSar操作.md"
+    },
+    {
+      "basename": "2 Kafka常见命令",
+      "path": "source/_posts/大数据/MQ/KafKa/2 Kafka常见命令.md"
+    },
+    {
       "basename": "8 Flink容错机制",
       "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/8 Flink容错机制.md"
     },
@@ -43,10 +67,6 @@
     {
       "basename": "3.Flink安装部署",
       "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/3.Flink安装部署.md"
-    },
-    {
-      "basename": "1 Session Mode",
-      "path": "source/_posts/大数据/实时计算/Flink/极客时间/flink on k8s配置说明/1 Session Mode.md"
     },
     {
       "basename": "JVM学习计划",
@@ -179,26 +199,6 @@
     {
       "basename": "APUE-6-系统数据文件和信息",
       "path": "source/_posts/计算机/Linux/APUE/APUE-6-系统数据文件和信息.md"
-    },
-    {
-      "basename": "APUE-5-标准IO库",
-      "path": "source/_posts/计算机/Linux/APUE/APUE-5-标准IO库.md"
-    },
-    {
-      "basename": "APUE-4-文件和目录",
-      "path": "source/_posts/计算机/Linux/APUE/APUE-4-文件和目录.md"
-    },
-    {
-      "basename": "1 单一职责原则",
-      "path": "source/_posts/计算机/设计模式/设计模式之禅/1 单一职责原则.md"
-    },
-    {
-      "basename": "APUE-1-UNIX基础知识",
-      "path": "source/_posts/计算机/Linux/APUE/APUE-1-UNIX基础知识.md"
-    },
-    {
-      "basename": "APUE-3-文件IO",
-      "path": "source/_posts/计算机/Linux/APUE/APUE-3-文件IO.md"
     }
   ],
   "omittedPaths": [

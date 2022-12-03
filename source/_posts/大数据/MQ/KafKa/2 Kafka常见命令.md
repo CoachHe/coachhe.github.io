@@ -1,9 +1,13 @@
 ---
+title: 2 Kafka常见命令  
+date: 2022-12-04 02:42:57  
+tags: []  
 categories:
   - 大数据
   - MQ
   - KafKa
 ---
+
 # 1. 创建和查看主题
 
 ## 关键脚本
