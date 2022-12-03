@@ -16,31 +16,30 @@
   <meta name="author" content="CoachHe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在深入探索流处理的基础知识之前，我们需要先介绍Dataflow编程的必要背景。 Dataflow图先决了解Dataflow是数据流，源自于谷歌非常著名的论文。本节就是较为基础地讲解了Dataflow的知识，并且需要知道的是，Flink就是基本按照那篇论文的架构来进行实现的。 Dataflow介绍顾名思义，Dataflow程序描述了数据如何在不同操作之间流动。Dataflow程序通常表示为有向图。">
+    <meta name="description" content="1 解压文件将文件解压到&#x2F;opt&#x2F;module文件夹下 1tar -zxvf flink flink-1.10.1-bin-scala_2.12.tgz   2 修改配置文件首先进入conf目录中。  修改flink-conf.yaml文件   修改slaves文件   分发给另外两台机器   启动     访问http:&#x2F;&#x2F;hadoop100:8081，可以对flink集群和">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CoachHe&#39;s Blog">
-<meta property="og:url" content="http://example.com/2022/12/7f765d704589.html">
+<meta property="og:title" content="3.Flink安装部署">
+<meta property="og:url" content="http://example.com/2022/12/94f4d9a4e592.html">
 <meta property="og:site_name" content="CoachHe&#39;s Blog">
-<meta property="og:description" content="在深入探索流处理的基础知识之前，我们需要先介绍Dataflow编程的必要背景。 Dataflow图先决了解Dataflow是数据流，源自于谷歌非常著名的论文。本节就是较为基础地讲解了Dataflow的知识，并且需要知道的是，Flink就是基本按照那篇论文的架构来进行实现的。 Dataflow介绍顾名思义，Dataflow程序描述了数据如何在不同操作之间流动。Dataflow程序通常表示为有向图。">
+<meta property="og:description" content="1 解压文件将文件解压到&#x2F;opt&#x2F;module文件夹下 1tar -zxvf flink flink-1.10.1-bin-scala_2.12.tgz   2 修改配置文件首先进入conf目录中。  修改flink-conf.yaml文件   修改slaves文件   分发给另外两台机器   启动     访问http:&#x2F;&#x2F;hadoop100:8081，可以对flink集群和">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213220929.png">
-<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213220954.png">
-<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213221018.png">
-<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Algorithm/20201213193956.png">
-<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213195451.png">
-<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213195734.png">
-<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213201043.png">
-<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213221100.png">
-<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213221119.png">
-<meta property="article:published_time" content="2022-12-03T13:38:08.684Z">
-<meta property="article:modified_time" content="2022-12-03T13:38:08.684Z">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213211354.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213211645.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213211744.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213211843.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213212136.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213214824.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213212329.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213213202.png">
+<meta property="article:published_time" content="2022-12-03T18:12:33.000Z">
+<meta property="article:modified_time" content="2022-12-03T18:15:29.447Z">
 <meta property="article:author" content="CoachHe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213220929.png">
+<meta name="twitter:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213211354.png">
   
   
   
-  <title>CoachHe&#39;s Blog</title>
+  <title>3.Flink安装部署 - CoachHe&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -205,7 +204,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text=""></span>
+            <span id="subtitle" data-typed-text="3.Flink安装部署"></span>
           
         </div>
 
@@ -216,8 +215,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-12-03 21:38" pubdate>
-          2022年12月3日 晚上
+        <time datetime="2022-12-04 02:12" pubdate>
+          2022年12月4日 凌晨
         </time>
       </span>
     
@@ -228,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          293 字
         
       </span>
     
@@ -239,7 +238,7 @@
         
         
         
-          17 分钟
+          3 分钟
         
       </span>
     
@@ -277,82 +276,43 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">3.Flink安装部署</h1>
             
             
               <div class="markdown-body">
                 
-                <p>在深入探索流处理的基础知识之前，我们需要先介绍Dataflow编程的必要背景。</p>
-<h1 id="Dataflow图"><a href="#Dataflow图" class="headerlink" title="Dataflow图"></a>Dataflow图</h1><h2 id="先决了解"><a href="#先决了解" class="headerlink" title="先决了解"></a>先决了解</h2><p>Dataflow是数据流，源自于谷歌非常著名的论文。本节就是较为基础地讲解了Dataflow的知识，并且需要知道的是，Flink就是基本按照那篇论文的架构来进行实现的。</p>
-<h2 id="Dataflow介绍"><a href="#Dataflow介绍" class="headerlink" title="Dataflow介绍"></a>Dataflow介绍</h2><p>顾名思义，Dataflow程序描述了数据如何在不同操作之间流动。Dataflow程序通常表示为<strong>有向图</strong>。</p>
-<p>图中<strong>顶点为算子</strong>，表示<strong>计算</strong>；而<strong>边表示数据依赖关系</strong>。</p>
-<h3 id="算子"><a href="#算子" class="headerlink" title="算子"></a>算子</h3><p>算子是Dataflow程序的基本功能单元，它们从输入获取数据，对其进行计算，然后产生数据并发往输出以供后续处理。没有输入端的算子称为<strong>数据源</strong>，没有输出端的算子称为<strong>数据汇</strong>。</p>
-<p>一个Dataflow图至少要有一个数据源和一个数据汇。下图展示了一个从推文输入流中提取并统计主题标签的Dataflow程序。</p>
-<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213220929.png" srcset="/img/loading.gif" lazyload style="zoom: 50%;" />
+                <h1 id="1-解压文件"><a href="#1-解压文件" class="headerlink" title="1 解压文件"></a>1 解压文件</h1><p>将文件解压到&#x2F;opt&#x2F;module文件夹下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">tar -zxvf flink flink-1.10.1-bin-scala_2.12.tgz<br></code></pre></td></tr></table></figure>
 
-<p>图中的Tweets source是数据源，也就是没有输入端的算子（自身就是输入端）。Trending topics sink为数据汇，也就是没有输出端的算子（自身就是最终节点）。中间的Extract hashtags和Count就是普通算子。</p>
-<h2 id="逻辑Dataflow图和物理Dataflow图"><a href="#逻辑Dataflow图和物理Dataflow图" class="headerlink" title="逻辑Dataflow图和物理Dataflow图"></a>逻辑Dataflow图和物理Dataflow图</h2><p>类似上图2-1称为<strong>逻辑Dataflow图</strong>，因为它们表达了高层视角下的计算逻辑。</p>
-<p>为了执行Dataflow程序，需要将逻辑Dataflow图转化为<strong>物理Dataflow图</strong>，后者会指定程序的执行细节。</p>
-<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213220954.png" srcset="/img/loading.gif" lazyload style="zoom: 50%;" />
-
-<h4 id="逻辑Dataflow图和物理Dataflow图的区别"><a href="#逻辑Dataflow图和物理Dataflow图的区别" class="headerlink" title="逻辑Dataflow图和物理Dataflow图的区别"></a>逻辑Dataflow图和物理Dataflow图的区别</h4><p>在逻辑Dataflow图中，顶点代表<strong>算子</strong>。</p>
-<p>在物理Dataflow图中，顶点代表<strong>任务</strong>。</p>
-<p>以图2-1为例，顶点推文数据源的下一个顶点是抽取主题标签，代表的是一个算子，也就是一类型的任务。而图2-2中顶点推文数据源中的下一个顶点为两个抽取主题标签，”抽取主题标签“算起包含两个并行算子任务，每个任务负责计算一部分输入数据。</p>
-<h1 id="数据并行和任务并行"><a href="#数据并行和任务并行" class="headerlink" title="数据并行和任务并行"></a>数据并行和任务并行</h1><p>Dataflow图的并行性可以通过多种方式加以利用。</p>
-<h6 id="数据并行"><a href="#数据并行" class="headerlink" title="数据并行"></a>数据并行</h6><p>将输入数据分组，让同一操作的多个任务并行执行在不同数据子集上，这种并行称为数据并行。</p>
-<h6 id="任务并行"><a href="#任务并行" class="headerlink" title="任务并行"></a>任务并行</h6><p>让不同算子的任务并行计算，这种并行称为任务并行</p>
-<h6 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h6><p>数据并行就是同一个任务的数据并行进行计算，任务并行就是不同任务并行进行。</p>
-<h1 id="数据交换策略"><a href="#数据交换策略" class="headerlink" title="数据交换策略"></a>数据交换策略</h1><p>数据交换策略定义了如何将数据项分配给物理Dataflow中的不同任务。</p>
-<p>分为转发策略，广播策略，基于键值策略和随机策略。分别表示如下：</p>
-<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213221018.png" srcset="/img/loading.gif" lazyload style="zoom: 33%;" />
-
+<p><img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213211354.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="2-修改配置文件"><a href="#2-修改配置文件" class="headerlink" title="2 修改配置文件"></a>2 修改配置文件</h1><p>首先进入conf目录中。</p>
 <ol>
-<li>转发策略：发送端任务和接收端任务之间一对一进行数据传输。</li>
-<li>广播策略：会把每个任务项发往下游算子的全部并行任务。代价较为昂贵。</li>
-<li>基于键值的策略：基于某一键值属性对数据分区，并保证键值相同的项会进入同一个任务处理。</li>
-<li>随机策略：会将数据均匀分配给所有任务。</li>
-</ol>
-<h1 id="并行流处理"><a href="#并行流处理" class="headerlink" title="并行流处理"></a>并行流处理</h1><h2 id="数据流的定义"><a href="#数据流的定义" class="headerlink" title="数据流的定义"></a>数据流的定义</h2><p>数据流是一个可能无限的时间序列。</p>
-<p>由于数据流没有总执行时间的概念，因此我们用延迟和吞吐来表示系统的性能。</p>
-<h2 id="延迟"><a href="#延迟" class="headerlink" title="延迟"></a>延迟</h2><p>延迟表示处理一个事件所需要的时间。</p>
-<h4 id="延迟的分类"><a href="#延迟的分类" class="headerlink" title="延迟的分类"></a>延迟的分类</h4><p>延迟分为平均延迟，最大延迟和延迟的百分位数值。例如95百分位在10ms表示有95%的数据会在10ms内被处理。</p>
-<h2 id="吞吐"><a href="#吞吐" class="headerlink" title="吞吐"></a>吞吐</h2><p>吞吐是用来衡量系统处理能力的指标，它告诉我们系统每单位时间能处理多少事件。</p>
-<h3 id="数据流上的操作"><a href="#数据流上的操作" class="headerlink" title="数据流上的操作"></a>数据流上的操作</h3><h4 id="窗口"><a href="#窗口" class="headerlink" title="窗口"></a>窗口</h4><ol>
-<li><p>滚动窗口</p>
-<p>将事件分配到长度固定且互不重叠的桶中。</p>
-<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Algorithm/20201213193956.png" srcset="/img/loading.gif" lazyload style="zoom:33%;" />
-
-<p>​																				基于数量的滚动窗口</p>
-<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213195451.png" srcset="/img/loading.gif" lazyload style="zoom:33%;" />
-
-<p>​																					基于时间的滚动窗口</p>
+<li><p>修改flink-conf.yaml文件</p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213211645.png" srcset="/img/loading.gif" lazyload style="zoom: 33%;" />
 </li>
-<li><p>滑动窗口</p>
-<p>将事件分配到大小固定且允许相互冲切的桶中，这意味着每个事件可能会同时属于多个桶。</p>
-<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213195734.png" srcset="/img/loading.gif" lazyload style="zoom: 33%;" />
-
-<p>​													长度为4个事件滑动间隔为3个事件的基于数量的滑动窗口</p>
+<li><p>修改slaves文件</p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213211744.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
 </li>
-<li><p>会话窗口</p>
-<p>能将属于同一会话的时间分配到相同桶中。会话窗口根据会话间隔将事件分为不同的会话，改间隔值定义了会话在关闭前的非活动时间长度。</p>
-<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213201043.png" srcset="/img/loading.gif" lazyload style="zoom:33%;" />
+<li><p>分发给另外两台机器</p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213211843.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+</li>
+<li><p>启动</p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213212136.png" srcset="/img/loading.gif" lazyload style="zoom: 33%;" />
 
-<p>​																						会话窗口</p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213214824.png" srcset="/img/loading.gif" lazyload style="zoom: 33%;" />
+</li>
+<li><p>访问<a href="http://hadoop100:8081，可以对flink集群和任务进行监控管理">http://hadoop100:8081，可以对flink集群和任务进行监控管理</a></p>
+<p><img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213212329.png" srcset="/img/loading.gif" lazyload></p>
 </li>
 </ol>
-<h1 id="时间语义"><a href="#时间语义" class="headerlink" title="时间语义"></a>时间语义</h1><h2 id="处理时间"><a href="#处理时间" class="headerlink" title="处理时间"></a>处理时间</h2><p>处理时间是当前<strong>流处理算子所在机器</strong>上本地时钟时间。</p>
-<p>也就是说，若某个人离线之后再重新连接，离线的那段时间并不是处理时间，因为他并没有和算子所在机器取得联系。</p>
-<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213221100.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+<h1 id="2-提交任务"><a href="#2-提交任务" class="headerlink" title="2 提交任务"></a>2 提交任务</h1><ol>
+<li><p>准备数据文件（如果需要），分发到taskmanager机器中</p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213213202.png" srcset="/img/loading.gif" lazyload style="zoom: 33%;" />
 
-<p>可以看到，不会将离线时间考虑在内。</p>
-<h2 id="事件时间"><a href="#事件时间" class="headerlink" title="事件时间"></a>事件时间</h2><p>事件时间是数据流中事件实际发生的时间，它以<strong>附加在数据流中事件的时间戳</strong>为依据。如下图所示，即便有事件延迟，事件时间窗口也能准确地将事件分配到窗口中，从而反映出真实发生的情况。</p>
-<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Flink/20201213221119.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
-
-<p>事件时间将处理速度和结果内容彻底解耦。要客服的挑战之一是如何处理延迟事件。</p>
-<h2 id="水位线"><a href="#水位线" class="headerlink" title="水位线"></a>水位线</h2><p>水位线是一个全局进度指标，表示我们确信不再有延迟事件到来的某个时间点。</p>
-<p>本质上，水位线提供了一个<strong>逻辑时钟</strong>，用来通知系统<strong>当前的事件时间</strong>。</p>
-<h4 id="水位线的意义"><a href="#水位线的意义" class="headerlink" title="水位线的意义"></a>水位线的意义</h4><p>当一个算子接收到时间为T的水位线，就可以认为不会再收到任何时间戳小于或等于T的事件了。也就是说，算子一旦收到某个水位线，就相当于接到信号：某个特定时间区间的时间戳已经到齐，可以出发窗口计算或对接收的数据进行排序了。</p>
-<h2 id="事件时间和处理时间"><a href="#事件时间和处理时间" class="headerlink" title="事件时间和处理时间"></a>事件时间和处理时间</h2><p>事件时间虽然能解决所有问题，但是处理时间窗口能够将延迟降到最低。无需考虑迟到或者乱序。对于那些更重视处理速度而非准确度的应用，处理时间就会派上用场。</p>
+<p>如果从文件中读取数据，由于是从本地磁盘读取，实际任务会被分发到taskmanager的机器中，所以要把目标文件分发。如果是HDFS上读取文件则不需要。</p>
+</li>
+<li></li>
+</ol>
 
                 
               </div>
@@ -412,8 +372,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div></div>
-      <div>http://example.com/2022/12/7f765d704589.html</div>
+      <div>3.Flink安装部署</div>
+      <div>http://example.com/2022/12/94f4d9a4e592.html</div>
     </div>
     <div class="license-meta">
       
@@ -425,7 +385,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年12月3日</div>
+          <div>2022年12月4日</div>
         </div>
       
       
@@ -457,9 +417,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/12/07b4124f2772.html" title="">
+                      <a href="/2022/12/507aad122b24.html" title="4.Apache Flink架构">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">4.Apache Flink架构</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -467,8 +427,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/12/e2c43413917c.html" title="">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2022/12/529163297a85.html" title="2.Dataflow编程概述">
+                        <span class="hidden-mobile">2.Dataflow编程概述</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
