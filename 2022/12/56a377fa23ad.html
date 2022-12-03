@@ -1,0 +1,847 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="概述《深入理解JVM》原话： 虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被直接使用的Java类型，这就是虚拟机的类加载机制。 注意：这里指的Class文件不一定是本地的.class文件，而应该是一串二进制的字节流，无论什么形式都可以。 Java语言类型加载、连接和初始化特点在 Java 语言里面，类型的加载、连接和初始化过程都是在程序运行期间完">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2022/12/56a377fa23ad.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="概述《深入理解JVM》原话： 虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被直接使用的Java类型，这就是虚拟机的类加载机制。 注意：这里指的Class文件不一定是本地的.class文件，而应该是一串二进制的字节流，无论什么形式都可以。 Java语言类型加载、连接和初始化特点在 Java 语言里面，类型的加载、连接和初始化过程都是在程序运行期间完">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211209133115.png">
+<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211213125423.png">
+<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211213130235.png">
+<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211213132247.png">
+<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211217102609.png">
+<meta property="article:published_time" content="2022-12-03T13:38:08.695Z">
+<meta property="article:modified_time" content="2022-12-03T13:38:08.695Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211209133115.png">
+  
+  
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-03 21:38" pubdate>
+          December 3, 2022 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          14k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          119 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>《深入理解JVM》原话：</p>
+<p>虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被直接使用的Java类型，这就是虚拟机的类加载机制。</p>
+<p><strong>注意</strong>：<br>这里指的Class文件不一定是本地的.class文件，而应该是一串二进制的字节流，无论什么形式都可以。</p>
+<h2 id="Java语言类型加载、连接和初始化特点"><a href="#Java语言类型加载、连接和初始化特点" class="headerlink" title="Java语言类型加载、连接和初始化特点"></a>Java语言类型加载、连接和初始化特点</h2><p>在 Java 语言里面，类型的加载、连接和初始化过程都是在程序运行期间完成的。</p>
+<ul>
+<li>缺点：让Java语言进行提前编译会面临额外的困难，也会让类加载时稍微增加一些性能开销</li>
+<li>优点：为Java应用提供了极高的拓展性和灵活性，Java天生可以动态扩展的语言特性就是依赖运行期动态加载和动态连接这个特点实现的。</li>
+</ul>
+<p>理解：<br>也就是说，在编写一个面向接口的应用程序的时候，可以等到运行时再指定其实际的实现类，用户可以通过Java预置的或自定义类加载器，让某个本地的应用程序在运行时从网络或者其他地方加载一个二进制流作为其程序代码的一部分。<br>例如，我们有一个接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Phone</span>()&#123;<br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">call</span><span class="hljs-params">()</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>然后我们有对应的main方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-type">Class</span> <span class="hljs-variable">phoneClass</span> <span class="hljs-operator">=</span> Class.forName(<span class="hljs-string">&quot;xxx&quot;</span>);<br>        <span class="hljs-type">Phone</span> <span class="hljs-variable">phone</span> <span class="hljs-operator">=</span> (Phone) phoneClass.newInstance();<br>        phone.call();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>可以看到，我们可以在运行时动态加载，通过一些自定义的类加载器可以在运行时再确认具体的类型。</p>
+<h2 id="类加载器子系统作用"><a href="#类加载器子系统作用" class="headerlink" title="类加载器子系统作用"></a>类加载器子系统作用</h2><img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211209133115.png" srcset="/img/loading.gif" lazyload width = "50%">
+1. 类加载器子系统负责从文件系统或者网络中加载 Class 文件
+2. ClassLoader 只负责 class 文件的加载，至于是否它可以运行，则有 Execution Engine 决定
+3. 加载的类信息存放于一块成为**方法区**的内存空间。除了类的信息外，方法区中还会存放运行时常量池信息，可能还包括字符串字面量和数字常量（这部分常量信息是 Class 文件中常量池部分的内存映射）
+
+<h2 id="类加载器-ClassLoader-角色"><a href="#类加载器-ClassLoader-角色" class="headerlink" title="类加载器 ClassLoader 角色"></a>类加载器 ClassLoader 角色</h2><h1 id="类加载的时机"><a href="#类加载的时机" class="headerlink" title="类加载的时机"></a>类加载的时机</h1><p>这部分建议结合[[2 Java内存区域与内存溢出异常]]中的<strong>对象探秘</strong>章节来进行学习，能加深对这部分知识的理解。</p>
+<h2 id="类的生命周期"><a href="#类的生命周期" class="headerlink" title="类的生命周期"></a>类的生命周期</h2><p>类的生命周期共分为7个阶段。</p>
+<img src=https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810140918.png height=260>
+
+<p>图中黑色字体部分的顺序是确定的。其余字体（解析和使用）的顺序不一定，解析过程在某些情况下可以在初始化阶段之后再开始，这是为了支持Java语言的<strong>动态绑定</strong>。</p>
+<p>对于加载开始的时机，虚拟机规范并没有给强制的要求，但是对于初始化阶段, 《Java虚拟机规范》则是严格规定了<strong>有且只有</strong>六种情况必须立即对类进行“初始化”(而加载、 验证、准备自然需要在此之前开始)：</p>
+<ol>
+<li>遇到new、getstatic、putstatic或invokestatic这四条字节码指令<br>能生成这四条指令的典型Java代码场景有：<br> 1 使用new关键字实例化对象<br> 2 读取或设置一个类型的静态字段（被final修饰、已在编译器把结果放入常量池的静态字段除外）的时候<br> 3 调用一个类型的静态方法的时候</li>
+<li>使用java.lang.reflect包的方法对类型进行反射调用的时候</li>
+<li>当初始化类的时候，如果发现其父类还没有进行过初始化，则需要先触发其父类的初始化</li>
+<li>当虚拟机启动时，用户需要指定一个要执行的主类（包含main。方法的那个类） 虚拟机会先初始化这个主类。</li>
+<li>当使用JDK 7新加入的动态语言支持时，如果一个java.lang.invoke.MethodHandle实例最后的解析结果为 REF_getStatic、REF_putStatic、REF invokeStatic、REF newInvokeSpecial四种类型的方法句柄，并且这个方法句柄对应的类没有进行过初始化，则需要先触发其初始化。</li>
+<li>当一个接口中定义了 JDK 8新加入的默认方法（被default关键字修饰的接口方法）时，如果有这个接口的实现类发生了初始化，那该接口要在其之前被初始化。</li>
+</ol>
+<p>注意：<br><strong>有且仅有</strong>这六种情况的行为会触发类型进行初始化。也就是说，其他的任何情况都不会触发初始化。</p>
+<h3 id="主动引用和被动引用"><a href="#主动引用和被动引用" class="headerlink" title="主动引用和被动引用"></a>主动引用和被动引用</h3><p>上面介绍的这六种初始化场景中的行为称为对一个类进行<strong>主动引用</strong>。除此之外，所有引用类型的方法都不会触发初始化，称为<strong>被动引用</strong>。<br>这里给出三个被动引用的例子。<br>举例1：<br>通过子类引用父类的静态方法，不会导致子类初始化。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 父类</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SuperClass</span> &#123;<br>    <span class="hljs-keyword">static</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;SuperClass init&quot;</span>);<br>    &#125;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-variable">value</span> <span class="hljs-operator">=</span> <span class="hljs-number">123</span>;<br>&#125;<br><br><span class="hljs-comment">// 子类</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SubClass</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">SuperClass</span>&#123;<br>    <span class="hljs-keyword">static</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;SubClass init&quot;</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// Main方法</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">NotInitialization</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        System.out.println(SubClass.value);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>结果：<br><img src=https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20210815162433.png height=200></p>
+<p>分析：<br>在这里，我们看到只输出了SuperClass init，而没有输出SubClass init，这是因为对于静态字段，只有直接定义这个字段的类才会被初始化，因此通过其子类来引用父类中定义的静态字段，只会触发父类的初始化而不会触发子类的初始化。</p>
+<p>举例2：<br>通过数组定义来引用类，不会触发此类的初始化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">NotInitialization2</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        SuperClass[] sca = <span class="hljs-keyword">new</span> <span class="hljs-title class_">SuperClass</span>[<span class="hljs-number">10</span>];<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>结果：<br><img src=https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20210815162910.png height=200><br>分析：<br>可以看到，这里没有输出，说明并没有出发类SuperClass的初始化阶段。</p>
+<p>举例3：<br>常量在编译阶段会存储调用类的常量池中，本质上没有直接引用到定义常量的类，因此不会触发定义常量的类初始化：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// ConstClass类</span><br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ConstClass</span> &#123;<br>    <span class="hljs-keyword">static</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;ConstClass init&quot;</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// Main方法</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">NotInitialization3</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        System.out.println(ConstClass.HELLOWORLD);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<p>结果：<br><img src=https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20210815163256.png height=200></p>
+<p>分析：<br>只输出了”hello world”没有输出ConstClass init，这是因为虽然在Java源码中确实引用了ConstClass类的常量HELLOWORLD，但其实在编译阶段通过常量传播优化，已经将常量值（也就是被final修饰的值）”hello world”直接存储在NotInitialization3类的常量池中，所以以后NotInitialization3对ConstClass.HELLOWORLD的引用，实际都转化成对自己常量池的引用了。<br>也就是说，实际上Notlnitialization的Class文件之中并没有ConstClass类的符号引用入口,这两个类在编译成Class文件后就已不存在任何联系了。<br>用代码来表示就是：<br>对于用final修饰的常量，直接使用和引用是一样的效果。<br>在我们这里，<code>System.out.println(ConstClass.HELLOWORLD)</code>等价于<code>System.out.println(&quot;ConstClass init&quot;)</code>。</p>
+<h1 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h1><h2 id="1-加载"><a href="#1-加载" class="headerlink" title="1. 加载"></a>1. 加载</h2><p>注意：这里的加载≠类加载，只是类加载的一个阶段。<br>在加载阶段，Java虚拟机需要完成以下三件事情：</p>
+<ol>
+<li>通过一个类的全限定名来获取定义此类的二进制字节流</li>
+<li>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构。</li>
+<li>在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口。</li>
+</ol>
+<p>注意：<br>这个阶段是最灵活的一个阶段，也是开发人员可控性最强的阶段。<br>例如“通过一个类的全限定名来获取定义此类的二进制字节流”这条规则.它并没有指明二进制字节流必须得从某个Class文件中获取，确切地说是根本没有指明要从哪里获取、如何获取。仅仅这一点空隙，Java虚拟机的使用者们就可以在加载阶段搭构建出一个相当开放广阔的舞台，Java发展历程中，充满创造力的开发人员则在这个舞台上玩出了各种花样，许多举足轻重的Java技术都建立在这一基础之上，</p>
+<ul>
+<li>例如最典型的从ZIP压缩包中读取，也就是日后JAR格式的基础。</li>
+<li>从网络中获取</li>
+<li>运行时计算生成，这种场景用的最多的就是动态代理技术。</li>
+<li>…</li>
+</ul>
+<p>加载阶段既可以使用Java虚拟机里内置的引导类加载器来完成，也可以由用户自定义的类加载器去完成，开发人员 通过定义自己的类加载器去控制字节流的获取方式（重写一个类加载器的findClass()或loadClass()方法），实现根据自己的想法来赋予应用程序获取运行代码的动态性。</p>
+<p>也就是说，加载阶段完成之后，类加载器已经调用过loadClass方法来生成一个Class对象了（具体可以看[[Java反射浅析]])。</p>
+<p>具体来说，加载阶段结束后，Java虚拟机外部的二进制字节流就按照虚拟机所设定的格式存储在方法区之中了，方法区中的数据存储格式完全由虚拟机实现自行定义，《Java虚拟机规范》未规定此区域的具体数据结构。类型数据妥善安置在方法区之后，会在Java堆内存中实例化一个java.lang.dass类的对象，这个对象将作为程序访问方法区中的类型数据的外部接口。加载阶段与连接阶段的部分动作（如一部分字节码文件格式验证动作）是交叉进行的，加载阶段尚未完成，连接阶段可能已经开始，但这些夹在加载阶段之中进行的动作，仍然属于连接阶段的一部分，这两个阶段的开始时间仍然保持着固定的先后顺序。</p>
+<h2 id="2-验证"><a href="#2-验证" class="headerlink" title="2. 验证"></a>2. 验证</h2><p>首先我们介绍一下连接阶段，这个阶段公共分为三个部分：</p>
+<ul>
+<li>验证</li>
+<li>准备</li>
+<li>解析</li>
+</ul>
+<p>解析阶段的目的是确保Class文件的字节流包含的信息符合《Java虚拟机规范》的全部约束要求，保证这些信息被当成代码运行后不会危害虚拟机自身的安全。</p>
+<p>验证阶段是非常重要的，这个阶段是否严谨，直接决定了Java虚拟机是否能承受恶意代码的攻击，从代码量和耗费的执行性能的角度上讲，验证阶段的工作量在虚拟机的类加载过程中占了相当大的比重。</p>
+<h3 id="验证的几个阶段"><a href="#验证的几个阶段" class="headerlink" title="验证的几个阶段"></a>验证的几个阶段</h3><ol>
+<li>文件格式验证</li>
+<li>元数据验证</li>
+<li>字节码验证</li>
+<li>符号引用验证</li>
+</ol>
+<h2 id="3-准备"><a href="#3-准备" class="headerlink" title="3. 准备"></a>3. 准备</h2><p>准备阶段是正式为<strong>类中定义的变量</strong>（也就是静态变量，被static修饰的变量）分配内存并设置类变量初始值的阶段。</p>
+<p>从概念上讲，这些变量所使用的内存都应当在方法区中分配，但必须注意到方法区本身是一个逻辑上的区域，&#x3D;&#x3D;在JDK8之后，类变量则会随着Class对象一起存放在Java堆中&#x3D;&#x3D;，这时候”类变量在方法区“已经完全是一种对逻辑概念的表述了。具体可以参考（[[4 虚拟机性能监控、故障处理工具]]）。</p>
+<p>关于准备阶段，还有两个需要注意的：</p>
+<ol>
+<li>在这时候进行内存分配的仅包括类变量，而不包括实例变量，实例变量将会在对象实例化的时候随着对象一起分配在Java堆中。<br> 也就是说，只有用static修饰的变量才会分配内存并且设置初始值，实例变量在对象实例化的时候才会进行内存的分配。<br> 更加具体来说。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">A</span>&#123;<br>       <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">123</span>;<br>       <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> <span class="hljs-number">456</span>;<br>   &#125;<br></code></pre></td></tr></table></figure>
+ 对于这个类，被<code>static</code>修饰的变量<code>a</code>会在准备阶段被分配内存并且设置初始值(<code>0</code>)，但是没有被<code>static</code>修饰的变量<code>b</code>则不会在准备阶段被分配内存，只会在<code>new A()</code>的时候才会分配内存。</li>
+<li>这里所说的初始值，<strong>通常情况下</strong>是数据类型的零值。<br> 还是上面的例子，变量<code>a</code>在准备阶段之后的初始值是0而不是123，因为这时候尚未开始执行任何Java方法，而把value赋值为123的<code>putstatic</code>指令是程序被编译后，存放于类构造器<code>&lt;clinit&gt;()</code>之中，所以把<code>value</code>赋值为123的动作要到类的初始化阶段才会被执行。<br> 再次回忆我们这个图： <img src=https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810140918.png height=200>
+ 看到初始化在准备阶段之后，所以其不会那么快被赋值。</li>
+</ol>
+<p>还需要注意的一点是，上面提到的是在“通常情况”下初始值是零值，也就是说会有一些“特殊情况”：如果类字段的字段属性表中存在ConstantValue属性，那在准备阶段变量值就会被初始化为ConstantValue属性所指定的初始值，假设上面的类变量<code>a</code>的定义修改为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">int</span> <span class="hljs-variable">value</span> <span class="hljs-operator">=</span> <span class="hljs-number">123</span>;<br></code></pre></td></tr></table></figure>
+
+<p>编译时Javac将会为value生成ConstantValue属性，在准备阶段虚拟机就会根据ConstantValue的设置将value赋值为123。</p>
+<h2 id="4-解析"><a href="#4-解析" class="headerlink" title="4. 解析"></a>4. 解析</h2><p>解析阶段是Java虚拟机将常量池内的符号引用替换为直接引用的过程。</p>
+<p>回忆一下符号引用，在第6章（[[6 类文件结构]]）讲解Class文件格式的时候就已经出现了很多次，在Class文件中它以CONSTANT_Class_info、CONSTANT_Methodref_info等类型的常量出现。</p>
+<h3 id="直接引用和符号引用的关系"><a href="#直接引用和符号引用的关系" class="headerlink" title="直接引用和符号引用的关系"></a>直接引用和符号引用的关系</h3><h4 id="符号引用"><a href="#符号引用" class="headerlink" title="符号引用"></a>符号引用</h4><p>符号引用以一组符号来描述所引用的目标，符号可以是任何形式的字面量，只要使用时能无歧义地定位到目标即可。<br>符号引用与虚拟机的实现的内存布局无关，引用的目标并不一定是已经加载到虚拟机内存当众的内容。各种虚拟机实现的内存布局可以各不相同，但是它们能接受的符号引用必须是一致的，因为符号引用的字面量形式明确定义在《Java虚拟机规范》的Class文件格式中。</p>
+<h4 id="直接引用"><a href="#直接引用" class="headerlink" title="直接引用"></a>直接引用</h4><p>直接引用是可以直接指向目标的指针、相对偏移量或者是一个能间接定位到目标的句柄。直接引用是和虚拟机实现的内存布局直接相关的，同一个符号引用在不同虚拟机实例上翻译出来的直接引用一般不会相同。如果有了直接引用，要引用的目标必定已经在虚拟机的内存中存在。</p>
+<h3 id="解析的时机"><a href="#解析的时机" class="headerlink" title="解析的时机"></a>解析的时机</h3><p>《Java虚拟机规范》之中并未规定解析阶段发生的具体时间，只要求了在执行<code>anewarray</code>、<code>checkcast</code>、 <code>getfield</code>、<code>getstatic</code>、<code>instanceof</code>、<code>invokedynamic</code>、<code>invokeinterface</code>、<code>invokespecial</code>、<code>invokestatic</code>、<code>invokevirtual</code>、<code>Idc</code>、<code>ldc_w</code>、<code>ldc2_w</code>、<code>multianewarray</code>、<code>new</code>、<code>putfield</code> 和 <code>putstatic</code>这17个用于操作符号引用的字节码指令之前，先对它们所使用的符号引用进行解析。所以虚拟机实现可以根据需要来<strong>自行判断</strong>，到底是在类被加载器加载时就对常量池中的符号引用进行解析，还是等到一个符号引用将要被使用前才去解析它。</p>
+<p>对同一个符号引用进行多次解析请求是很常见的事情，除<code>invokedynamic</code>指令以外，虚拟机实现可以对第一次解析的结果进行缓存（在运行时常量池中记录直接引用，并把常量标识为已解析状态）从而避免解析动作重复进行。<br><strong>解释</strong>：除了invokedynamic之外，其他情况下多次解析的结果是相同的，因此可以将常量标识为已解析状态并且记录在运行时常量池中，下次可以直接使用。</p>
+<p>不过对于<code>invokedynamic</code>指令，上面的规则就不成立了。当碰到某个前面已经由<code>invokedynamic</code>指令触发过解析的符号引用时，并不意味着这个解析结果对于其他<code>invokedynamic</code>指令也同样生效。<br>因为<code>invokedynamic</code>指令的目的本来就是用于动态语言支持，它对应的引用称为“动态调用点限定符(Dynamically-Computed Call Site Specifier)”</p>
+<h4 id="动态的含义："><a href="#动态的含义：" class="headerlink" title="动态的含义："></a>动态的含义：</h4><p>“动态”的含义是指必须等到程序实际运行到这条指令时，解析动作才能进行。相对地，其余可触发解析的指令都是“静态”的，可以在刚刚完成加载阶段，还没有开始执行代码时就提前进行解析。</p>
+<h3 id="解析的对象和对应常量类型"><a href="#解析的对象和对应常量类型" class="headerlink" title="解析的对象和对应常量类型"></a>解析的对象和对应常量类型</h3><p>解析动作主要针对类和接口、字段、类方法、接口方法、方法类型、方法句柄和调用点限定符这7类符号引用进行，分别对应于常量池的的CONSTANT_Class_info、CONSTANT_Fieldref_info、CONSTANT_Methodref_info、CONSTANT_InterfaceMethodref_info、CONSTANT_MethodType_info、 CONSTANT_MethodHandle_info, CONSTANT_Dynamic_info和CONSTANT_InvokeDynamic_info 8种常量类型。</p>
+<h3 id="解析过程"><a href="#解析过程" class="headerlink" title="解析过程"></a>解析过程</h3><h4 id="1-类和接口的解析"><a href="#1-类和接口的解析" class="headerlink" title="1. 类和接口的解析"></a>1. 类和接口的解析</h4><p>假设当前代码所处的类为D，如果要把一个从未解析过的符号引用N解析为一个类或接口C的直接引用，那虚拟机完成整个解析的过程需要包括以下3个步骤： </p>
+<ol>
+<li>如果C不是一个数组类型，那虚拟机将会把代表N的全限定名传递给D的类加载器去加载这个类C。在加载过程中，由于元数据验证、字节码验证的需要，又可能触发其他相关类的加载动作，例如加载这个类的父类或实现的接口。一旦这个加载过程出现了任何异常，解析过程就将宣告失败</li>
+<li>如果C是一个数组类型，并且数组的元素类型为对象，也就是N的描述符会是类似<code>[Ljava/lang/Integer</code>的形式，那将会按照第一点的规则加载数组元素类型。如果N的描述符如前面所假设的形式，需要加载的元素类型就是“java.lang.Integer”，接着由虚拟机生成一个代表该数组维度和元素的数组对象C</li>
+<li>如果上面两步没有出现任何异常，那么C在虚拟机中实际上已经成为一个有效的类或接口了，但在解析完成前还要进行符号引用验证，确认D是否具备对C的访问权限。如果发现不具备访问权限，将抛出java.lang.IllegalAccessError异常，</li>
+</ol>
+<p>总结一下，就是<strong>先加载，然后检查访问权限</strong>。</p>
+<p>针对上面第3点访问权限验证，在JDK9引入了模块化以后，一个public类型也不再 意味着程序任何位置都有它的访问权限，我们还必须检查模块间的访问权限。<br>如果我们说一个D拥有C的访问权限，那就意味着以下3条规则中至少有其中一条成立：</p>
+<ul>
+<li>被访问类C是public的，并且与访问类D处于同一个模块。</li>
+<li>被访问类C是public的，不与访问类D处于同一个模块，但是被访问类C的模块 允许被访问类D的模块进行访问。</li>
+<li>被访问类C不是public的，但是它与访问类D处于同一个包中。</li>
+</ul>
+<h4 id="2-字段解析"><a href="#2-字段解析" class="headerlink" title="2. 字段解析"></a>2. 字段解析</h4><p>要解析一个未被解析过的字段符号引用，首先将会对字段表内<code>class_index</code>项中索引的<code>CONSTANT_Class_info</code>符号引用进行解析，也就是字段所属的类或接口的符号引用。如果在解析这个类或接口符号引用的过程中出现了任何异常，都会导致字段符号引用解析的失败如果解析成功完成，那把这个字段所属的类或接口用<code>C</code>表示，《Java虚拟机规范》要求按照如下步骤对<code>C</code>进行后续字段的搜索：</p>
+<ol>
+<li>如果<code>C</code>本身就包含了简单名称和字段描述符都与目标相匹配的字段，则返同这个字段的直接引用，查找结束。</li>
+<li>否则，如果在<code>C</code>中实现了接口，将会按照继承关系从下往上递归搜索各个接口和它的父接口，如果接口中包含了简单名称和字段描述符都与目标相匹配的字段，则返回这个字段的直接引用，查找结束。</li>
+<li>否则，如果<code>C</code>不是java.lang.Object的话，将会按照继承关系从下往上递归搜索其父类，如果在父类中包含了简单名称和字段描述符都与目标相匹配的字段，则返回这个字段的直接引用，查找结束。</li>
+<li>否则,查找失败，抛出 java.lang.NoSuchFieldError 异常。</li>
+</ol>
+<p>如果查找过程成功返回了引用，将会对这个字段进行权限验证，如果发现不具备对字段的访问权限，将抛出java.lang.IllegalAccessError异常。</p>
+<p>以上解析规则能够确保Java虚拟机获得字段唯一的解析结果，但在实际情况中，Javac编译器往往会采取比上述规范更加严格一些的约束，譬如有一个同名字段同时出现在某个类的接口和父类当中，或者同时在自己或父类的多个接口中出现，按照解析规则仍是可以确定唯一的访问字段，但Javac编译器就可能直接拒绝其编译为Class文件。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.coachhe.第<span class="hljs-number">4</span>节_字段解析;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">FieldResolution</span> &#123;<br>    <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Interface0</span>&#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">A</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Interface1</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Interface0</span>&#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">A</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Interface2</span> &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">A</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Parent</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Interface1</span>&#123;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-variable">A</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Sub</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Parent</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Interface2</span>&#123;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-variable">A</span> <span class="hljs-operator">=</span> <span class="hljs-number">4</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        System.out.println(Sub.A);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+<h4 id="3-方法解析"><a href="#3-方法解析" class="headerlink" title="3. 方法解析"></a>3. 方法解析</h4><p>方法解析的第一个步骤与字段解析一样，也是需要先解析出方法表的<code>class_index</code>项中索引的方法所属的类或接口的符号引用，如果解析成功，那么我们依然用<code>C</code>表示这个类，接下来虚拟机将会按照如下步骤进行后续的方法搜索：</p>
+<ol>
+<li>由于Class文件格式中类的方法和接口的方法符号引用的常量类型定义是分开的 ， 如果在类的方法表中发现class_index中索引的C是个接口的话，那就直接抛出java.lang. IncompatibleClassChangeError 异常。</li>
+<li>如果通过了第一步，在类C中查找是否有简单名称和描述符都与目标相匹配的方 法，如果有则返回这个方法的直接引用，查找结束。</li>
+<li>否则，在类C的父类中递归查找是否有简单名称和描述符都与目标相匹配的方法, 如果有则返回这个方法的直接引用，查找结束。</li>
+<li>否则，在类C实现的接口列表及它们的父接口之中递归查找是否有简单名称和描述 符都与目标相匹配的方法，如果存在匹配的方法，说明类C是一个抽象类，这时候查找结 束，抛出 java.lang.AbstractMethodError 异常。</li>
+<li>否则，宣告方法查找失败，抛出java.lang.NoSuchMethodErrorc</li>
+</ol>
+<p>最后，如果查找过程成功返回了直接引用，将会对这个方法进行权限验证，如果发现不具备对此方法的访问权限，将抛出java.lang.IllegalAccessError异常。</p>
+<h4 id="4-接口方法解析"><a href="#4-接口方法解析" class="headerlink" title="4. 接口方法解析"></a>4. 接口方法解析</h4><p>接口方法也是需要先解析出接口方法表的<code>class_index</code>项中索引的方法所属的类或接口的符号引用，如果解析成功，依然用C表示这个接口，接下来虚拟机将会按照如下步骤</p>
+<ol>
+<li>与类的方法解析相反，如果在接口方法表中发现class_index中的索引C是个类而不是接口，那么就直接抛出 java.lang.IncompatibleClassChangeError 异常。</li>
+<li>否则，在接口C中查找是否有简单名称和描述符都与目标相匹配的方法，如果有则返回这个方法的直接引用，查找结束。</li>
+<li>否则，在接口C的父接口中递归查找，直到java.lang.Object类（接口方法的查找范围也会包括Object类中的方法）为止，看是否有简单名称和描述符都与目标相匹配的方法，如果有则返回这个方法的直接引用，查找结束。</li>
+<li>对于规则3,由于Java的接口允许多重继承，如果C的不同父接口中存有多个简单名称和描述符都与目标相匹配的方法，那将会从这多个方法中返回其中一个并结束查找，（Java虚拟机规范》中并没有进一步规则约束应该返回哪一个接口方法。但与之前字段查找类似地，不同发行商实现的Javac编译器有可能会按照更严格的约束拒绝编译这种代码来避免不确定性。</li>
+<li>否则，宣告方法查找失败，抛出java.lang.NoSuchMethodError异常。</li>
+</ol>
+<h3 id="5-初始化"><a href="#5-初始化" class="headerlink" title="5. 初始化"></a>5. 初始化</h3><p>类的初始化阶段是类加载过程的最后一个步骤，之前介绍的几个类加载的动作里，除了在加载阶段用户应用程序可以通过自定义类加载器的方式局部参与外，其余动作都完全由 Java 虚拟机来主导控制。直到初始化阶段，Java 虚拟机才真正开始执行类中编写的 Java 程序代码，将主导权移交给应用程序。</p>
+<p>进行准备阶段时，变量已经赋过一次系统要求的初始零值，而在初始化阶段，则会根据程序员通过程序编码制定的主观计划去初始化类变量和其他资源。我们也可以从另外一种更直接的形式来表达：<br><strong>初始化阶段就是执行类构造器 <code>&lt;clinit＞()</code> 方法的过程。</strong></p>
+<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><p><code>＜clinit＞()</code> 并不是程序员在 Java 代码中直接编写的方法，它是 Javac 编译器的自动生成物，但我们非常有必要了解这个方法具体是如何产生的，以及 <code>&lt;clinit＞()</code> 方法执行过程中各种可能会影响程序运行行为的细节，这部分比起其他类加载过程更贴近于普通的程序开发人员的实际工作。</p>
+<h4 id="1-Clinit-方法的产生"><a href="#1-Clinit-方法的产生" class="headerlink" title="1. Clinit 方法的产生"></a>1. Clinit 方法的产生</h4><p><code>&lt;clinit&gt;()</code> 方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块中的语句合并产生的<br>顺序：<br>编译器收集的顺序是由语句在源文件中出现的顺序决定的，静态语句块只能访问到定义在静态语句块之前的变量，定义在它之后的变量，在前面的静态语句块中可以赋值，（这是因为在前面的准备阶段中已经赋予了一个初值，因此可以进一步进行赋值，但是不能访问，因为实际上还没有被创建出来) 但是不能访问。</p>
+<h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">IllegalForwardReference</span> &#123;  <br>    <span class="hljs-comment">/**  </span><br><span class="hljs-comment">     * 非法向前引用变量  </span><br><span class="hljs-comment">     * 在这里第一次打印i失败了，第二次打印i就成功了，这是因为在初始化过程中执行clinit方法，这个方法是顺序执行的，  </span><br><span class="hljs-comment">     * 第一次打印i时，还没有对i进行定义，因此打印失败了。  </span><br><span class="hljs-comment">     * 第二次打印i时，已经成功定义了，所以打印成功了  </span><br><span class="hljs-comment">     */</span>  <br>    <span class="hljs-keyword">static</span> &#123;  <br>        i = <span class="hljs-number">0</span>; <span class="hljs-comment">//给变量赋值是可以正常编译通过的  </span><br><span class="hljs-comment">//        System.out.println(i); //这句编译器会提示&quot;非法向前引用&quot;,illegal forward reference  </span><br>    &#125;  <br>    <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;  <br>    <span class="hljs-keyword">static</span> &#123;  <br>        System.out.println(i); <span class="hljs-comment">// 在这里就可以正常使用i这个值了  </span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="2-父类构造器的执行"><a href="#2-父类构造器的执行" class="headerlink" title="2. 父类构造器的执行"></a>2. 父类构造器的执行</h4><p>Java 虚拟机会保证在子类的 <code>&lt;clinit&gt;()</code> 方法执行前，父类的 <code>&lt;clinit&gt;()</code> 方法已经执行完毕。因此在 Java 虚拟机中第一个被执行的 <code>&lt;clinit&gt;()</code> 方法一定是 <code>java.lang.object</code><br>父类的 <code>&lt;clinit&gt;()</code> 方法先执行，也就意味着父类中定义的静态语句块要优先于子类的变量赋值操作。</p>
+<h5 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**  </span><br><span class="hljs-comment"> * clint方法执行顺序示例  </span><br><span class="hljs-comment"> */</span>  <br><span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Parent</span> &#123;  <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-variable">A</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;  <br>    <span class="hljs-keyword">static</span> &#123;  <br>        A = <span class="hljs-number">2</span>;  <br>    &#125;  <br>&#125;  <br><span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Sub</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Parent</span> &#123;  <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-variable">B</span> <span class="hljs-operator">=</span> A;  <br>&#125;  <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;  <br>    <span class="hljs-comment">// 在这里打印的是2，因为父类中的静态语句要优于子类的变量赋值操作  </span><br> System.out.println(Sub.B);  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211213125423.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="3-lt-clinit-gt-方法的必须性"><a href="#3-lt-clinit-gt-方法的必须性" class="headerlink" title="3.  &lt;clinit&gt;() 方法的必须性"></a>3.  <code>&lt;clinit&gt;()</code> 方法的必须性</h4><p> <code>&lt;clinit&gt;()</code> 方法不是必须的，如果一个类中没有静态语句块，也没有对变量的赋值操作，那么编译器可以不为这个类生成 <code>&lt;clinit&gt;()</code> 方法</p>
+<h4 id="4-lt-clinit-gt-方法初始化加锁"><a href="#4-lt-clinit-gt-方法初始化加锁" class="headerlink" title="4.  &lt;clinit&gt;() 方法初始化加锁"></a>4.  <code>&lt;clinit&gt;()</code> 方法初始化加锁</h4><p>Java 虚拟机必须要保证一个类的 <code>&lt;clinit&gt;()</code> 方法在多线程环境中被正确地加锁同步，如果多个线程同时去初始化一个类，那么只会有其中一个线程去执行这个类的 <code>&lt;clinit&gt;()</code> 方法，其他线程都需要阻塞等待，知道活动线程执行完毕 <code>&lt;clinit&gt;()</code> 方法。如果一个类的 <code>&lt;clinit&gt;()</code> 方法中有耗时很长的操作，那就可能造成多个进程阻塞。</p>
+<h5 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-keyword">package</span> com.coachhe.第<span class="hljs-number">5</span>节_初始化;  <br>  <br><span class="hljs-comment">/**  </span><br><span class="hljs-comment"> * 当多个线程同时去初始化一个类时，只会有一个线程去执行这个类的&lt;clinit&gt;()方法，其他线程都需要阻塞等待  </span><br><span class="hljs-comment"> * 直到活动线程执行完毕&lt;clinit&gt;()方法。  </span><br><span class="hljs-comment"> * 因此，如果在一个类&lt;clinit&gt;()方法中有耗时很长的操作，那就可能造成多个进程阻塞  </span><br><span class="hljs-comment"> * 接下来进行展示：  </span><br><span class="hljs-comment"> */</span>  <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DeadLoopClass</span> &#123;  <br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DealLoopClassTest</span> &#123;  <br>        <span class="hljs-keyword">static</span> &#123;  <br>            <span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) &#123;  <br>                System.out.println(Thread.currentThread() + <span class="hljs-string">&quot;init DeadLoopClass&quot;</span>);  <br>                <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;  <br>                &#125;  <br>            &#125;  <br>        &#125;  <br>    &#125;  <br>  <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;  <br>        <span class="hljs-type">Runnable</span> <span class="hljs-variable">script</span> <span class="hljs-operator">=</span> () -&gt; &#123;  <br>            System.out.println(<span class="hljs-string">&quot;Thread.currentThread() &quot;</span> + <span class="hljs-string">&quot;start&quot;</span>);  <br>            <span class="hljs-type">DealLoopClassTest</span> <span class="hljs-variable">dlc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DealLoopClassTest</span>();  <br>            System.out.println(<span class="hljs-string">&quot;Thread.currentThread() &quot;</span> + <span class="hljs-string">&quot;run over&quot;</span>);  <br>        &#125;;  <br>  <br>        <span class="hljs-type">Thread</span> <span class="hljs-variable">thread1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(script);  <br>        <span class="hljs-type">Thread</span> <span class="hljs-variable">thread2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(script);  <br>        thread1.start();  <br>        thread2.start();  <br>    &#125;  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>运行结果为：</p>
+<p><img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211213130235.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h1><img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211213132247.png" srcset="/img/loading.gif" lazyload width="70%">
+
+<p>可以看到，用户自定义类的默认类加载器就为系统类加载器，bootstrap 类加载器（引导类加载器）为 null（不是用 Java 语言实现，不是一个类），String 的类加载器也为 bootstrap 类加载器</p>
+<h2 id="类加载器的分类"><a href="#类加载器的分类" class="headerlink" title="类加载器的分类"></a>类加载器的分类</h2><h3 id="启动类加载器（bootstrap-类加载器）"><a href="#启动类加载器（bootstrap-类加载器）" class="headerlink" title="启动类加载器（bootstrap 类加载器）"></a>启动类加载器（bootstrap 类加载器）</h3><ol>
+<li>也叫引导类加载器，使用 C&#x2F;C++ 语言实现，嵌套在 JVM 内部。</li>
+<li>用来将 Java 的核心库（ <code>&lt;JAVA_HOME&gt;\lib</code> 目录，或者被 <code>-Xbootclasspath</code> 参数所指定的路径中存放的，而且是 Java 虚拟机能够识别的类库) 加载到虚拟机的内存中，用于提供 JVM 自身需要的类。 </li>
+<li>并不继承自 <code>java.lang.ClassLoader</code>，没有父加载器</li>
+<li>加载拓展类和应用程序类加载器，并指定为他们的父类加载器</li>
+<li>处于安全考虑，Bootstrap 启动类加载器只加载包名为 java、javax、sun 等开头的类<br>简单来说，就是加载核心类库和其他类加载器。</li>
+</ol>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>用户在编写自定义类加载器时，如果需要把加载请求委托给启动类加载器去处理，那直接使用 null 代替即可。<br>下面是 <code>java.lang.Class.getClassLoader()</code> 方法的代码片段，其中的注释和代码实现都明确说明了以 null 值来代表启动类加载器的约定规则：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@CallerSensitive</span>  <br><span class="hljs-meta">@ForceInline</span> <span class="hljs-comment">// to ensure Reflection.getCallerClass optimization  </span><br><span class="hljs-keyword">public</span> ClassLoader <span class="hljs-title function_">getClassLoader</span><span class="hljs-params">()</span> &#123;  <br>    <span class="hljs-comment">// 在这里，会去寻找类加载器，如果类加载器为空，则代表使用bootstrap类加载器，那么也会直接返回null  </span><br>    <span class="hljs-comment">// 其实就是主要说明了大家都约定好使用null代表bootstrap类加载器  </span><br> <span class="hljs-type">ClassLoader</span> <span class="hljs-variable">cl</span> <span class="hljs-operator">=</span> getClassLoader0();  <br>    <span class="hljs-keyword">if</span> (cl == <span class="hljs-literal">null</span>)  <br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;  <br>    <span class="hljs-type">SecurityManager</span> <span class="hljs-variable">sm</span> <span class="hljs-operator">=</span> System.getSecurityManager();  <br>    <span class="hljs-keyword">if</span> (sm != <span class="hljs-literal">null</span>) &#123;  <br>        ClassLoader.checkClassLoaderPermission(cl, Reflection.getCallerClass());  <br>    &#125;  <br>    <span class="hljs-keyword">return</span> cl;  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="虚拟机自带加载器"><a href="#虚拟机自带加载器" class="headerlink" title="虚拟机自带加载器"></a>虚拟机自带加载器</h3><h4 id="拓展类加载器"><a href="#拓展类加载器" class="headerlink" title="拓展类加载器"></a>拓展类加载器</h4><ol>
+<li>Java 语言编写，由 <code>sun.misc.Launcher$ExtClassLoader</code> 实现。</li>
+<li>派生于 ClassLoader 类</li>
+<li>父类加载器为启动类加载器</li>
+<li>从 <code>java.ext.dirs</code> 系统属性所指定的目录中加载类库，或从 JDK 的安装目录的 <code>jre/lib/ext</code> 子目录（拓展目录）下加载类库。<br>注意：如果用户创建的 JAR 放在此目录下，也会自动由拓展类加载器加载。<br>理解：拓展类加载器就是负责加载除了核心包（核心包是由启动类加载器加载）之外的拓展类。</li>
+</ol>
+<h4 id="应用程序类加载器（系统加载器、AppClassLoader）"><a href="#应用程序类加载器（系统加载器、AppClassLoader）" class="headerlink" title="应用程序类加载器（系统加载器、AppClassLoader）"></a>应用程序类加载器（系统加载器、AppClassLoader）</h4><ol>
+<li>Java 语言编写，由 <code>sun.misc.Launcher$AppClassLoader</code> 实现</li>
+<li>派生于 ClassLoader 类</li>
+<li>父类加载器为拓展类加载器</li>
+<li>它负责加载环境变量 classpath 或系统属性 <code>java.class.path</code> 指定路径下的类库</li>
+<li>该类加载器是程序中的默认类加载器，一般来说，Java 应用的类都是由它来完成加载</li>
+<li>通过 <code>ClassLoader#getSystemClassLoader()</code> 方法可以获取到该类加载器</li>
+</ol>
+<h1 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h1><img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211217102609.png" srcset="/img/loading.gif" lazyload width = "50%" />
+
+<p>上图展示的各种类加载器之间的层次关系被称为<strong>双亲委派模型</strong>。<br>双亲委派模型要求除了顶层的启动类加载器外，其余的类加载器都应有自己的父类加载器。不过这里类加载器之间的父子一般不是用<strong>继承</strong>的关系来实现，而是通常使用<strong>组合</strong>关系来复用父加载器的代码。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/" class="category-chain-item">JVM</a>
+  
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>http://example.com/2022/12/56a377fa23ad.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>December 3, 2022</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/12/b97b4b83acd0.html" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/12/87bc3ee8fd56.html" title="">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

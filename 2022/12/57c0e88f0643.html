@@ -1,0 +1,1150 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一、zookeeper简介简介zooKeeper由雅虎研究院开发，是Google Chubby的开源实现，后来托管到 Apache，于2010年11月正式成为Apache的顶级项目。  大数据生态系统里的很多组件的命名都是某种动物或者昆虫，比如hadoop就是 🐘，hive就是🐝。zookeeper即动物园管理者，顾名思义就是管理大数据生态系统各组件的管理员。  如下图所示：    zooke">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2022/12/57c0e88f0643.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、zookeeper简介简介zooKeeper由雅虎研究院开发，是Google Chubby的开源实现，后来托管到 Apache，于2010年11月正式成为Apache的顶级项目。  大数据生态系统里的很多组件的命名都是某种动物或者昆虫，比如hadoop就是 🐘，hive就是🐝。zookeeper即动物园管理者，顾名思义就是管理大数据生态系统各组件的管理员。  如下图所示：    zooke">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407091859.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407092026.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407092147.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407092714.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407092913.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407093503.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210409104631.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210409105129.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210409110005.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210409110136.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210409110236.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407093807.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407093932.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407093950.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094011.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094036.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094049.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094546.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094616.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094656.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094808.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094844.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094911.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407095033.png">
+<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407095133.png">
+<meta property="article:published_time" content="2022-12-03T13:38:08.695Z">
+<meta property="article:modified_time" content="2022-12-03T13:38:08.695Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407091859.png">
+  
+  
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-03 21:38" pubdate>
+          December 3, 2022 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          27k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          224 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="一、zookeeper简介"><a href="#一、zookeeper简介" class="headerlink" title="一、zookeeper简介"></a>一、zookeeper简介</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>zooKeeper由雅虎研究院开发，是Google Chubby的开源实现，后来托管到 Apache，于2010年11月正式成为Apache的顶级项目。 </p>
+<p>大数据生态系统里的很多组件的命名都是某种动物或者昆虫，比如hadoop就是 🐘，hive就是🐝。zookeeper即动物园管理者，顾名思义就是管理大数据生态系统各组件的管理员。 </p>
+<p>如下图所示： </p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407091859.png" srcset="/img/loading.gif" lazyload style="zoom: 33%;" />
+
+<h2 id="zookeeper应用场景"><a href="#zookeeper应用场景" class="headerlink" title="zookeeper应用场景"></a>zookeeper应用场景</h2><h3 id="1-维护配置信息"><a href="#1-维护配置信息" class="headerlink" title="1. 维护配置信息"></a>1. 维护配置信息</h3><p>java编程经常会遇到配置项，比如数据库的url、schema、user和password 等。通常这些配置项我们会放置在配置文件中，再将配置文件放置在服务器上当需要更改配置项时，需要去服务器上修改对应的配置文件。 </p>
+<p>但是随着分布式系统的兴起，由于许多服务都需要使用到该配置文件，因此有必须保证该配置服务的高可用性（high availability）和各台服务器上配置数据的一致性。通常会将配置文件部署在一个集群上，然而一个集群动辄上千台服务器，此时如果再一台台服务器逐个修改配置文件那将是非常繁琐且危险的的操作，因此就需要一种服务，能够高效快速且可靠地完成配置项的更改等操作，并能够保证各配置项在每台服务器上的数据一致性。 </p>
+<p>zookeeper就可以提供这样一种服务，其使用Zab这种一致性协议来保证一致性。现在有很多开源项目使用zookeeper来维护配置，比如在hbase中，客户端就是连接一个zookeeper，获得必要的hbase集群的配置信息，然后才可以进一步操作。还有在开源的消息队列kafka中，也使用zookeeper来维护broker的信息。在alibaba开源的soa框架dubbo中也广泛的使用zookeeper管理一些配置来实现服务治理。 </p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407092026.png" srcset="/img/loading.gif" lazyload style="zoom: 33%;" />
+
+<h3 id="2-分布式锁服务"><a href="#2-分布式锁服务" class="headerlink" title="2. 分布式锁服务"></a>2. 分布式锁服务</h3><p>一个集群是一个分布式系统，由多台服务器组成。为了提高并发度和可靠性， 多台服务器上运行着同一种服务。当多个服务在运行时就需要协调各服务的进度，有时候需要保证当某个服务在进行某个操作时，其他的服务都不能进行该操作，即对该操作进行加锁，如果当前机器挂掉后，释放锁并fail over 到其他的机器继续执行该服务。 </p>
+<h3 id="3-集群管理"><a href="#3-集群管理" class="headerlink" title="3. 集群管理"></a>3. 集群管理</h3><p>一个集群有时会因为各种软硬件故障或者网络故障，出现某些服务器挂掉而被移除集群，而某些服务器加入到集群中的情况，zookeeper会将这些服务器加入&#x2F;移出的情况通知给集群中的其他正常工作的服务器，以及时调整存储和计算等任务的分配和执行等。此外zookeeper还会对故障的服务器做出诊断并尝试修复。 </p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407092147.png" srcset="/img/loading.gif" lazyload style="zoom:33%;" />
+
+<h3 id="4-生成分布式唯一ID"><a href="#4-生成分布式唯一ID" class="headerlink" title="4. 生成分布式唯一ID"></a>4. 生成分布式唯一ID</h3><p>在过去的单库单表型系统中，通常可以使用数据库字段自带的auto_increment 属性来自动为每条记录生成一个唯一的ID。但是分库分表后，就无法在依靠数据库的 auto_increment属性来唯一标识一条记录了。此时我们就可以用zookeeper在分布式环境下生成全局唯一ID。</p>
+<h4 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h4><p>每次要生成一个新Id时，创建一个持久顺序节点，创建 操作返回的节点序号，即为新Id，然后把比自己节点小的删除即可 </p>
+<h2 id="zookeeper的设计目标"><a href="#zookeeper的设计目标" class="headerlink" title="zookeeper的设计目标"></a>zookeeper的设计目标</h2><h3 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h3><p>zooKeeper致力于为分布式应用提供一个<strong>高性能</strong>、<strong>高可用</strong>，且具有<strong>严格顺序访问控制能力</strong>的<strong>分布式协调服务</strong> </p>
+<h3 id="1-高性能"><a href="#1-高性能" class="headerlink" title="1. 高性能"></a>1. 高性能</h3><p>zooKeeper将全量数据存储在内存中，并直接服务于客户端的所有非事务请求，尤 其适用于以读为主的应用场景 </p>
+<h3 id="2-高可用"><a href="#2-高可用" class="headerlink" title="2. 高可用"></a>2. 高可用</h3><p>zooKeeper一般以集群的方式对外提供服务，一般3 ~ 5台机器就可以组成一个可用的Zookeeper集群了，每台机器都会在内存中维护当前的服务器状态，并且每台机器之间都相互保持着通信。只要集群中超过一半的机器都能够正常工作，那么整个集群就能够正常对外服务 </p>
+<h3 id="3-严格访问顺序"><a href="#3-严格访问顺序" class="headerlink" title="3. 严格访问顺序"></a>3. 严格访问顺序</h3><p>对于来自客户端的每个更新请求，ZooKeeper都会分配一个全局唯一的递增编号， 这个编号反映了所有事务操作的先后顺序</p>
+<h1 id="二、zookeeper的数据模型"><a href="#二、zookeeper的数据模型" class="headerlink" title="二、zookeeper的数据模型"></a>二、zookeeper的数据模型</h1><h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>zookeeper的数据节点可以视为树状结构（或者目录），树中的各节点被称为 znode（即zookeeper node），一个znode可以有多个子节点。 </p>
+<p>zookeeper节点在结构上表现为树状； </p>
+<p>使用路径path来定位某个znode，比如&#x2F;ns1&#x2F;itcast&#x2F;mysql&#x2F;schema1&#x2F;table1，此处ns-1、itcast、mysql、schema1、table1分别是根节点、2级节点、3级节点以及4级节点； </p>
+<p>其中ns-1是itcast的父节点，itcast是ns-1的子 节点，itcast是mysql的父节点，mysql是itcast的子节点，以此类推。 </p>
+<h3 id="znode"><a href="#znode" class="headerlink" title="znode"></a>znode</h3><p>znode，兼具文件和目录两种特点。既像文件一样维护着数据、元信息、ACL、时 间戳等数据结构，又像目录一样可以作为路径标识的一部分。 </p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407092714.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+
+<h2 id="如何描述一个znode？"><a href="#如何描述一个znode？" class="headerlink" title="如何描述一个znode？"></a>如何描述一个znode？</h2><p>一个znode大体上分为3各部分： </p>
+<ol>
+<li>节点的数据：即znode data(节点path, 节点data)的关系就像是java map中(key, value)的关系 </li>
+<li>节点的子节点children </li>
+<li>节点的状态stat：用来描述当前节点的创建、修改记录，包括cZxid、ctime等</li>
+</ol>
+<h2 id="节点状态stat的属性"><a href="#节点状态stat的属性" class="headerlink" title="节点状态stat的属性"></a>节点状态stat的属性</h2><p>在zookeeper shell中使用get命令查看指定路径节点的data、stat信息 </p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407092913.png" srcset="/img/loading.gif" lazyload style="zoom: 33%;" />
+
+<h3 id="属性说明"><a href="#属性说明" class="headerlink" title="属性说明"></a>属性说明</h3><ul>
+<li>cZxid：数据节点创建时的事务 ID </li>
+<li>ctime：数据节点创建时的时间 </li>
+<li>mZxid：数据节点最后一次更新时的事务 ID </li>
+<li>mtime：数据节点最后一次更新时的时间 </li>
+<li>pZxid：数据节点的子节点最后一次被修改时的事务 ID </li>
+<li>cversion：子节点的更改次数 </li>
+<li>dataVersion：节点数据的更改次数 </li>
+<li>aclVersion：节点的 ACL 的更改次数 </li>
+<li>ephemeralOwner：如果节点是临时节点，则表示创建该节点的会话的 SessionID；如果节点是持久节点，则该属性值为 0 </li>
+<li>dataLength：数据内容的长度 </li>
+<li>numChildren：数据节点当前的子节点个数</li>
+</ul>
+<h2 id="zookeeper节点类型"><a href="#zookeeper节点类型" class="headerlink" title="zookeeper节点类型"></a>zookeeper节点类型</h2><p>zookeeper中的节点有两种： </p>
+<p>临时节点和永久节点。节点的类型在创建时即被确定，并且不能改变。 </p>
+<h3 id="临时节点"><a href="#临时节点" class="headerlink" title="临时节点"></a>临时节点</h3><p>该节点的生命周期依赖于创建它们的会话。一旦会话(Session)结束，临 时节点将被自动删除，当然可以也可以手动删除。虽然每个临时的Znode都会绑定到一个客户端会话，但他们对所有的客户端还是可见的。另外，ZooKeeper的临时节点不允许拥有子节点。 </p>
+<h3 id="持久化节点"><a href="#持久化节点" class="headerlink" title="持久化节点"></a>持久化节点</h3><p>该节点的生命周期不依赖于会话，并且只有在客户端显示执行删除操作的时候，他们才能被删除 </p>
+<h1 id="三、zookeeper单机安装"><a href="#三、zookeeper单机安装" class="headerlink" title="三、zookeeper单机安装"></a>三、zookeeper单机安装</h1><h2 id="本地模式安装部署"><a href="#本地模式安装部署" class="headerlink" title="本地模式安装部署"></a>本地模式安装部署</h2><h3 id="安装前准备"><a href="#安装前准备" class="headerlink" title="安装前准备"></a>安装前准备</h3><p>（1）安装Jdk </p>
+<p>（2）拷贝Zookeeper安装包到Linux系统下 </p>
+<p>（3）解压到指定目录 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[coachhe@hadoop102 software]$ tar -zxvf zookeeper-3.4.10.tar.gz -C /opt/module/ <br></code></pre></td></tr></table></figure>
+
+<h3 id="配置修改"><a href="#配置修改" class="headerlink" title="配置修改"></a>配置修改</h3><p>（1）将&#x2F;opt&#x2F;module&#x2F;zookeeper-3.4.10&#x2F;conf这个路径下的zoo_sample.cfg修改为zoo.cfg； </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[coachhe@hadoop102 conf]$ mv zoo_sample.cfg zoo.cfg<br></code></pre></td></tr></table></figure>
+
+<p>（2）打开zoo.cfg文件，修改dataDir路径： </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[coachhe@hadoop102 zookeeper-3.4.10]$ vim zoo.cfg<br></code></pre></td></tr></table></figure>
+
+<p>修改如下内容： </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">dataDir=/opt/module/zookeeper-3.4.10/zkData <br></code></pre></td></tr></table></figure>
+
+<p>（3）在&#x2F;opt&#x2F;module&#x2F;zookeeper-3.4.10&#x2F;这个目录上创建zkData文件夹 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[coachhe@hadoop102 zookeeper-3.4.10]$ mkdir zkData <br></code></pre></td></tr></table></figure>
+
+<h3 id="操作zookeeper"><a href="#操作zookeeper" class="headerlink" title="操作zookeeper"></a>操作zookeeper</h3><p>（1）启动Zookeeper </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[coachhe@hadoop102 zookeeper-3.4.10]$ bin/zkServer.sh start<br></code></pre></td></tr></table></figure>
+
+<p>（2）查看进程是否启动 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">[coachhe@hadoop102 zookeeper-3.4.10]$ jps <br>4020 Jps <br>4001 QuorumPeerMain <br></code></pre></td></tr></table></figure>
+
+<p>（3）查看状态： </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">[coachhe@hadoop102 zookeeper-3.4.10]$ bin/zkServer.sh status <br>ZooKeeper JMX enabled by default <br>Using config: /opt/module/zookeeper-3.4.10/bin/../conf/zoo.cfg <br>Mode: standalone <br></code></pre></td></tr></table></figure>
+
+<p>（4）启动客户端： </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[coachhe@hadoop102 zookeeper-3.4.10]$ bin/zkCli.sh<br></code></pre></td></tr></table></figure>
+
+<p>（5）退出客户端： </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[zk: localhost:2181(CONNECTED) 0] quit <br></code></pre></td></tr></table></figure>
+
+<p>（6）停止Zookeeper </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">[coachhe@hadoop102 zookeeper-3.4.10]$ bin/zkServer.sh stop<br></code></pre></td></tr></table></figure>
+
+<p> <img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407093503.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="配置参数解读"><a href="#配置参数解读" class="headerlink" title="配置参数解读"></a>配置参数解读</h3><p>1．tickTime &#x3D;2000：通信心跳数，Zookeeper服务器与客户端心跳时间，单位毫秒 </p>
+<p>Zookeeper使用的基本时间，服务器之间或客户端与服务器之间维持心跳的时间间隔，也就是每个tickTime时间就会发送一个心跳，时间单位为毫秒。 </p>
+<p>它用于心跳机制，并且设置最小的session超时时间为两倍心跳时间。(session的最小超时时间是2*tickTime) </p>
+<p>2．initLimit &#x3D;10：LF初始通信时限 </p>
+<p>集群中的Follower跟随者服务器与Leader领导者服务器之间初始连接时能容忍的最多心跳数（tickTime的数量），用它来限定集群中的Zookeeper服务器连接到Leader的时限。 </p>
+<p>3．syncLimit &#x3D;5：LF同步通信时限 </p>
+<p>集群中Leader与Follower之间的最大响应时间单位，假如响应超过syncLimit * tickTime，Leader认为Follwer死掉，从服务器列表中删除Follwer。 </p>
+<p>4．dataDir：数据文件目录+数据持久化路径 </p>
+<p>主要用于保存Zookeeper中的数据。 </p>
+<p>5．clientPort &#x3D;2181：客户端连接端口 </p>
+<p>监听客户端连接的端口。 </p>
+<h2 id="集群部署"><a href="#集群部署" class="headerlink" title="集群部署"></a>集群部署</h2><h3 id="配置更改"><a href="#配置更改" class="headerlink" title="配置更改"></a>配置更改</h3><p>在单机模式的基础上。首先</p>
+<ol>
+<li><p>在<code>/opt/module/zookeeper-3.4.14/zkData</code>目录下创建一个myid的文件，将其设置为1</p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210409104631.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+</li>
+<li><p>将<code>/opt/module/zookeeper-3.4.14</code>拷贝到其他机器上</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">/home/bin/xsync /opt/module/zookeeper-3.4.14<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>更改zoo.cfg，增加如下配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">########cluster########</span></span><br>server.1=chadoop1:2888:3888<br>server.2=chadoop2:2888:3888<br>server.3=chadoop3:2888:3888<br></code></pre></td></tr></table></figure>
+
+<p>配置参数解读</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">server.A=B:C:D<br></code></pre></td></tr></table></figure>
+
+<p><strong>A</strong> 是一个数字，表示这个是第几号服务器；</p>
+<p>集群模式下配置一个文件 myid，这个文件在 dataDir 目录下，这个文件里面有一个数据就是 A 的值，Zookeeper 启动时读取此文件，拿到里面的数据与 zoo.cfg 里面的配置信息比较从而判断到底是哪个 server。 </p>
+<p><strong>B</strong> 是这个服务器的地址；</p>
+<p><strong>C</strong> 是这个服务器 Follower 与集群中的 Leader 服务器交换信息的端口；</p>
+<p><strong>D</strong> 是万一集群中的 Leader 服务器挂了，需要一个端口来重新进行选举，选出一个新的Leader，而这个端口就是用来执行选举时服务器相互通信的端口。</p>
+</li>
+<li><p>同步zoo.cfg</p>
+</li>
+</ol>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210409105129.png" srcset="/img/loading.gif" lazyload style="zoom: 33%;" />
+
+<ol start="5">
+<li>修改每个服务器中的myid为对应服务器号</li>
+</ol>
+<h3 id="启动集群"><a href="#启动集群" class="headerlink" title="启动集群"></a>启动集群</h3><ol>
+<li><p>分别在三个集群执行启动指令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">zkServer.sh start<br></code></pre></td></tr></table></figure>
+
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210409110005.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+</li>
+<li><p>查看状态</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">zkServer.sh status<br></code></pre></td></tr></table></figure>
+
+<p>第一个执行的主机chadoop1：</p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210409110136.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+
+<p>第二个执行的主机chadoop2：</p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210409110236.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+
+<p>可以看到，第二个执行的是leader，说明启动正常！</p>
+</li>
+</ol>
+<h1 id="四、zookeeper常用Shell命令"><a href="#四、zookeeper常用Shell命令" class="headerlink" title="四、zookeeper常用Shell命令"></a>四、zookeeper常用Shell命令</h1><h2 id="1-新增节点"><a href="#1-新增节点" class="headerlink" title="1. 新增节点"></a>1. 新增节点</h2><h3 id="两种参数"><a href="#两种参数" class="headerlink" title="两种参数"></a>两种参数</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">create [-s] [-e] path data <br>-s: <br>有序节点 <br>-e: <br>临时节点 <br></code></pre></td></tr></table></figure>
+
+<p>因此共有4种组合，分别为 </p>
+<ol>
+<li>持久化有序节点 </li>
+<li>持久化无序节点 </li>
+<li>临时有序节点 </li>
+<li>临时无序节点。</li>
+</ol>
+<h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><p>会话结束之后节点还会保留下来的节点叫做持久化节点。 </p>
+<p>有序节点会在创建时路径后面添加一个序列号。 </p>
+<p> 默认是持久化无序节点 </p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407093807.png" srcset="/img/loading.gif" lazyload style="zoom: 33%;" />
+
+<h3 id="创建持久化无序节点"><a href="#创建持久化无序节点" class="headerlink" title="创建持久化无序节点"></a>创建持久化无序节点</h3><p>默认为持久化无序节点，直接create即可。 </p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407093932.png" srcset="/img/loading.gif" lazyload style="zoom:33%;" />
+
+<h3 id="创建持久化有序节点"><a href="#创建持久化有序节点" class="headerlink" title="创建持久化有序节点"></a>创建持久化有序节点</h3><h4 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h4><p>会话结束之后节点还会保留下来的节点叫做持久化节点。 </p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">create -s path data <br></code></pre></td></tr></table></figure>
+
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407093950.png" srcset="/img/loading.gif" lazyload style="zoom: 33%;" />
+
+<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>可以用来创建唯一ID </p>
+<h3 id="创建临时有序节点"><a href="#创建临时有序节点" class="headerlink" title="创建临时有序节点"></a>创建临时有序节点</h3><h4 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">create -s -e path name <br></code></pre></td></tr></table></figure>
+
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094011.png" srcset="/img/loading.gif" lazyload style="zoom:33%;" />
+
+<h4 id="作用-1"><a href="#作用-1" class="headerlink" title="作用"></a>作用</h4><p>用来生成分布式锁</p>
+<h3 id="创建临时无序节点"><a href="#创建临时无序节点" class="headerlink" title="创建临时无序节点"></a>创建临时无序节点</h3><h4 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">create -e path name<br></code></pre></td></tr></table></figure>
+
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094036.png" srcset="/img/loading.gif" lazyload style="zoom:33%;" />
+
+<h4 id="重启之后消失"><a href="#重启之后消失" class="headerlink" title="重启之后消失"></a>重启之后消失</h4><img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094049.png" srcset="/img/loading.gif" lazyload style="zoom:33%;" />
+
+
+
+<h2 id="2-更新节点"><a href="#2-更新节点" class="headerlink" title="2. 更新节点"></a>2. 更新节点</h2><h3 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">set path new_data <br></code></pre></td></tr></table></figure>
+
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094546.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+
+<h3 id="基于版本号修改"><a href="#基于版本号修改" class="headerlink" title="基于版本号修改"></a>基于版本号修改</h3><img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094616.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+
+<h2 id="3-删除节点"><a href="#3-删除节点" class="headerlink" title="3. 删除节点"></a>3. 删除节点</h2><h3 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">delete path [version] <br></code></pre></td></tr></table></figure>
+
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094656.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+
+<h2 id="4-查看节点"><a href="#4-查看节点" class="headerlink" title="4. 查看节点"></a>4. 查看节点</h2><h3 id="语法-5"><a href="#语法-5" class="headerlink" title="语法"></a>语法</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">get path<br></code></pre></td></tr></table></figure>
+
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094808.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+
+<h3 id="属性解释"><a href="#属性解释" class="headerlink" title="属性解释"></a>属性解释</h3><img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094844.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+
+<h3 id="子节点创建和更改"><a href="#子节点创建和更改" class="headerlink" title="子节点创建和更改"></a>子节点创建和更改</h3><img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407094911.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+
+<h3 id="stat"><a href="#stat" class="headerlink" title="stat"></a>stat</h3><p>可以使用 stat 命令查看节点状态，它的返回值和 get 命令类似，但不会返回节点数据</p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407095033.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+
+<h2 id="5-查看节点列表"><a href="#5-查看节点列表" class="headerlink" title="5. 查看节点列表"></a>5. 查看节点列表</h2><p>查看节点列表有 ls path 和 ls2 path 两个命令，后者是前者的增强，不仅可以查看指定路径下的所有节点，还可以查看当前节点的信息 </p>
+<img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Docker/20210407095133.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+
+<h2 id="6-监听器"><a href="#6-监听器" class="headerlink" title="6. 监听器"></a>6. 监听器</h2><h3 id="1-get-path-watch"><a href="#1-get-path-watch" class="headerlink" title="1. get path [watch]"></a>1. get path [watch]</h3><p>使用<code>get path [watch]</code>注册的监听器能够在节点内容发生改变的时候，向客户端发出通知。需要注意的是zookeeper的触发器是一次性的（one-time trigger），即触发一次后就会立即失效。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">[zk:localhost:2181(CONNECTED) 4] get /hadoop watch<br>[zk:localhost:2181(CONNECTED) 5] set /hadoop 45678<br>WATCHER::<br>WatchedEvent state:SyncConnected type:NodeDataChanged path:/hadoop #节点值改变<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-stat-path-watch"><a href="#2-stat-path-watch" class="headerlink" title="2. stat path [watch]"></a>2. stat path [watch]</h3><p>使用<code>stat path [watch]</code>注册的监听器能够在节点状态发生改变时，向客户端发出通知</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">[zk:localhost:2181(CONNECTED) 7] stat /hadoop watch<br>[zk:localhost:2181(CONNECTED) 8] set /hadoop 112233<br>WATCHER::<br>WatchedEvent state:SyncConnected type:NodeDataChanged path:/hadoop #节点值改变<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-ls-x2F-ls2-path-watch"><a href="#3-ls-x2F-ls2-path-watch" class="headerlink" title="3. ls &#x2F; ls2 path [watch]"></a>3. ls &#x2F; ls2 path [watch]</h3><p>使用<code>ls path [watch]</code>或<code>ls2 path [watch]</code>注册的监听器能够监听该节点下所有子节点的增加和删除操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">[zk:localhost:2181(CONNECTED) 9] ls /hadoop watch<br>[]<br>[zk:localhost:2181(CONNECTED) 8] create /hadoop/yarn &quot;aaa&quot;<br>WATCHER::<br>WatchedEvent state:SyncConnected type:NodeChildrenChanged path:/hadoop<br></code></pre></td></tr></table></figure>
+
+<h1 id="六、Zookeeper-JavaAPI"><a href="#六、Zookeeper-JavaAPI" class="headerlink" title="六、Zookeeper JavaAPI"></a>六、Zookeeper JavaAPI</h1><h2 id="1-连接到Zookeeper"><a href="#1-连接到Zookeeper" class="headerlink" title="1 连接到Zookeeper"></a>1 连接到Zookeeper</h2><h3 id="需要的jar包"><a href="#需要的jar包" class="headerlink" title="需要的jar包"></a>需要的jar包</h3><p>需要添加的jar包在</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$</span><span class="language-bash">ZOOKEEPER_HOME</span><br></code></pre></td></tr></table></figure>
+
+<p>和</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$</span><span class="language-bash">ZOOKEEPER_HOME/lib</span><br></code></pre></td></tr></table></figure>
+
+<p>下面</p>
+<p>或者使用maven项目，<code>pom.xml</code>给出</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span> <br><span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> </span><br><span class="hljs-tag">         <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> </span><br><span class="hljs-tag">         <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span> <br>    <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span> <br> <br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.coachhe<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span> <br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>ZK-API<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span> <br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span> <br> <br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>junit<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span> <br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.logging.log4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>log4j-core<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.9.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span> <br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.hadoop<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>hadoop-common<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.7.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span> <br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.hadoop<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>hadoop-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.7.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span> <br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.hadoop<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>hadoop-hdfs<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.7.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span> <br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span> <br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.zookeeper<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>zookeeper<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span> <br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.4.10<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span> <br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span> <br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span> <br><span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span> <br></code></pre></td></tr></table></figure>
+
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.coachhe.zookeeper; <br> <br><span class="hljs-keyword">import</span> org.apache.zookeeper.WatchedEvent; <br><span class="hljs-keyword">import</span> org.apache.zookeeper.Watcher; <br><span class="hljs-keyword">import</span> org.apache.zookeeper.ZooKeeper; <br> <br><span class="hljs-keyword">import</span> java.util.concurrent.CountDownLatch; <br> <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ZookeeperConnection</span> &#123; <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123; <br>        <span class="hljs-keyword">try</span> &#123; <br>            <span class="hljs-comment">// 计数器对象 </span><br>            <span class="hljs-type">CountDownLatch</span> <span class="hljs-variable">countDownLatch</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CountDownLatch</span>(<span class="hljs-number">1</span>); <br>            <span class="hljs-comment">// arg1:服务器ip和端口 </span><br>            <span class="hljs-comment">// arg2:客户端与服务器之间的会话超时时间（ms） </span><br>            <span class="hljs-comment">// arg3:监视器对象 </span><br>            <span class="hljs-type">ZooKeeper</span> <span class="hljs-variable">zooKeeper</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ZooKeeper</span>(<span class="hljs-string">&quot;10.211.55.100:2181&quot;</span>, <span class="hljs-number">5000</span>, <br>                    <span class="hljs-keyword">new</span> <span class="hljs-title class_">Watcher</span>() &#123; <br>                        <span class="hljs-meta">@Override</span> <br>                        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">process</span><span class="hljs-params">(WatchedEvent event)</span> &#123; <br>                            <span class="hljs-keyword">if</span> (event.getState() == Event.KeeperState.SyncConnected) &#123; <br>                                System.out.println(<span class="hljs-string">&quot;连接创建成功&quot;</span>); <br>                                <span class="hljs-comment">// 通知countDownLatch不用继续阻塞了 </span><br>                                countDownLatch.countDown(); <br>                            &#125; <br>                        &#125; <br>                    &#125;); <br>            <span class="hljs-comment">//主线程阻塞等待连接对象的创建成功 </span><br>            countDownLatch.await(); <br>            <span class="hljs-comment">//会话编号 </span><br>            System.out.println(zooKeeper.getSessionId()); <br>            zooKeeper.close(); <br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123; <br>            e.printStackTrace(); <br>        &#125; <br>    &#125; <br>&#125; <br></code></pre></td></tr></table></figure>
+
+<h2 id="2-新增节点"><a href="#2-新增节点" class="headerlink" title="2 新增节点"></a>2 新增节点</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//同步方式</span><br>create(String path, <span class="hljs-type">byte</span>[] data, List&lt;ACL&gt; acl, CreateMode createMode)<br><span class="hljs-comment">//异步方式</span><br>create(String path, <span class="hljs-type">byte</span>[] data, List&lt;ACL&gt; acl, CreateMode createMode,<br>       AsyncCallback.StringCallback callBack, Object ctx)<br></code></pre></td></tr></table></figure>
+
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>path - znode路径。例如，<code>/node</code>，<code>/node1/node11</code></li>
+<li>data - 要存储在指定znode路径中的数据</li>
+<li>ack - 要创建的节点的访问控制列表。</li>
+<li>createMode - 节点的类型，这是一个枚举。</li>
+<li>callBack - 异步回调接口</li>
+<li>ctx - 传递上下文参数</li>
+</ul>
+<h2 id="3-更新节点"><a href="#3-更新节点" class="headerlink" title="3 更新节点"></a>3 更新节点</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 同步方式</span><br>setData(String path, <span class="hljs-type">byte</span>[] data, <span class="hljs-type">int</span> version)<br><span class="hljs-comment">// 异步方式</span><br>setData(String path, <span class="hljs-type">byte</span>[] data, <span class="hljs-type">int</span> version, AsyncCallback.StatCallback callback, Object ctx)<br></code></pre></td></tr></table></figure>
+
+<h3 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>path - znode路径。例如，<code>/node</code>，<code>/node1/node11</code></li>
+<li>data - 要存储在指定znode路径中的数据</li>
+<li>version - znode的当前版本。每当数据更改时，ZooKeeper会更新znode的版本号</li>
+<li>callBack - 异步回调接口</li>
+<li>ctx - 传递上下文参数</li>
+</ul>
+<h2 id="4-删除节点delete"><a href="#4-删除节点delete" class="headerlink" title="4 删除节点delete()"></a>4 删除节点delete()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 同步方式</span><br>delete(String path, <span class="hljs-type">int</span> version)<br><span class="hljs-comment">// 异步方式</span><br>setData(String path, <span class="hljs-type">int</span> version, AsyncCallback.StatCallback callback, Object ctx)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>path - znode路径。例如，<code>/node</code>，<code>/node1/node11</code></li>
+<li>version - znode的当前版本。每当数据更改时，ZooKeeper会更新znode的版本号</li>
+<li>callBack - 异步回调接口</li>
+<li>ctx - 传递上下文参数</li>
+</ul>
+<h2 id="5-查看节点getData"><a href="#5-查看节点getData" class="headerlink" title="5 查看节点getData()"></a>5 查看节点getData()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 同步方式</span><br>getData(String path, <span class="hljs-type">boolean</span> b, Stat stat)<br><span class="hljs-comment">// 异步方式</span><br>getData(String path, <span class="hljs-type">boolean</span> b, AsyncCallback.StatCallback callback, Object ctx)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>path - znode路径。例如，<code>/node</code>，<code>/node1/node11</code></li>
+<li>b - 是否使用连接对象中注册的监视器</li>
+<li>stat - 返回znode的元数据</li>
+<li>callBack - 异步回调接口</li>
+<li>ctx - 传递上下文参数</li>
+</ul>
+<h1 id="七、ZooKeeper事件监听机制"><a href="#七、ZooKeeper事件监听机制" class="headerlink" title="七、ZooKeeper事件监听机制"></a>七、ZooKeeper事件监听机制</h1><h2 id="1-watcher"><a href="#1-watcher" class="headerlink" title="1 watcher"></a>1 watcher</h2><h3 id="1-watcher概念"><a href="#1-watcher概念" class="headerlink" title="1. watcher概念"></a>1. watcher概念</h3><p>zookeeper提供了数据的发布&#x2F;订阅功能，多个订阅者可同时监听某一特定主题对象，当该主题对象的自身状态发生变化时(例如节点内容改变、节点下的子节点列表改变等)，会实时、主动通知所有订阅者 </p>
+<p>zookeeper采用了Watcher机制实现数据的发布&#x2F;订阅功能。该机制在被订阅对象发生变化时会异步通知客户端，因此客户端不必在Watcher注册后轮询阻塞，从而减轻了客户端压力。 </p>
+<p>watcher机制实际上与观察者模式类似，也可看作是一种观察者模式在分布式场景下的实现方式。 </p>
+<h3 id="2-watcher架构"><a href="#2-watcher架构" class="headerlink" title="2. watcher架构"></a>2. watcher架构</h3><p>Watcher实现由三个部分组成： </p>
+<ol>
+<li>Zookeeper服务端 </li>
+<li>Zookeeper客户端 </li>
+<li>客户端的ZKWatchManager对象</li>
+</ol>
+<h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><p>客户端首先将Watcher注册到服务端，同时将Watcher对象保存到客户端的WatchManager中。当ZooKeeper服务端监听的数据状态发生变化时，服务端会主动通知客户端， 接着客户端的Watch管理器会触发相关Watcher来回调相应处理逻辑，从而完成整体的数据发布&#x2F;订阅流程。 </p>
+<h3 id="3-watcher特性"><a href="#3-watcher特性" class="headerlink" title="3. watcher特性"></a>3. watcher特性</h3><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>一次性</td>
+<td>watcher是一次性的，一旦触发就会被移除，再次使用时需要重新注册</td>
+</tr>
+<tr>
+<td>客户端顺序回调</td>
+<td>watcher回调是顺序串行化执行的，只有回调后客户端才能看到最新的数据状态。一个watcher回调逻辑不应该太多，以免影响别的watcher执行</td>
+</tr>
+<tr>
+<td>轻量级</td>
+<td>WatchEvent是最小的通信单位，结构上只包含通知状态、事件类型和节点路径，并不会告诉数据节点变化前后的具体内容；</td>
+</tr>
+<tr>
+<td>时效性</td>
+<td>watcher只有在当前session彻底失效时才会无效，若在session有效期内快速重连成功，则watcher依然存在，扔可接受到通知。</td>
+</tr>
+</tbody></table>
+<h3 id="4-watcher接口设计"><a href="#4-watcher接口设计" class="headerlink" title="4. watcher接口设计"></a>4. watcher接口设计</h3><p>Watcher是一个接口，任何实现了Watcher接口的类就是一个新的Watcher。 </p>
+<p>Watcher内部包含了两个枚举类：KeeperState、EventType </p>
+<h4 id="Watcher通知状态（KeeperState）"><a href="#Watcher通知状态（KeeperState）" class="headerlink" title="Watcher通知状态（KeeperState）"></a>Watcher通知状态（KeeperState）</h4><p>KeeperState是客户端与服务端连接状态发生变化时对应的通知类型。路径为org.apache.zookeeper.Watcher.Event.KeeperState，是一个枚举类，其枚举属性 如下：</p>
+<table>
+<thead>
+<tr>
+<th>枚举属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SyncConnected</td>
+<td>客户端与服务器正常连接时</td>
+</tr>
+<tr>
+<td>Disconnected</td>
+<td>客户端与服务器断开连接时</td>
+</tr>
+<tr>
+<td>Expired</td>
+<td>会话session失效时</td>
+</tr>
+<tr>
+<td>AuthFailed</td>
+<td>身份认证失败时</td>
+</tr>
+</tbody></table>
+<h4 id="Watcher事件类型（EventType）"><a href="#Watcher事件类型（EventType）" class="headerlink" title="Watcher事件类型（EventType）"></a>Watcher事件类型（EventType）</h4><p>EventType是数据节点(znode)发生变化时对应的通知类型。EventType变化时 KeeperState永远处于SyncConnected通知状态下；当KeeperState发生变化时， EventType永远为None。其路径为org.apache.zookeeper.Watcher.Event.EventType， 是一个枚举类，枚举属性如下： </p>
+<table>
+<thead>
+<tr>
+<th>枚举属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>None</td>
+<td>无</td>
+</tr>
+<tr>
+<td>NodeCreated</td>
+<td>Watcher监听的数据节点与创建时</td>
+</tr>
+<tr>
+<td>NodeDeleted</td>
+<td>Watcher监听的数据节点被删除时</td>
+</tr>
+<tr>
+<td>NodeDataChanged</td>
+<td>Watcher监听的数据节点内容发生变更时（无论内容数据是否变化）</td>
+</tr>
+<tr>
+<td>NodeChildrenChanged</td>
+<td>Watcher监听的数据节点的子节点列表发生变化时</td>
+</tr>
+</tbody></table>
+<p>注：客户端接收到的相关事件通知中只包含状态及类型等信息，不包括节点变化前后的 具体内容，变化前的数据需业务自身存储，变化后的数据需调用get等方法重新获取； </p>
+<h3 id="5-捕获相应的事件"><a href="#5-捕获相应的事件" class="headerlink" title="5. 捕获相应的事件"></a>5. 捕获相应的事件</h3><p>在zookeeper中采用 zk.getChildren(path, watch)、zk.exists(path, watch)、zk.getData(path, watcher, stat) </p>
+<p> 这样的方式为某个znode注册监听。 </p>
+<table>
+<thead>
+<tr>
+<th>注册方式</th>
+<th>create</th>
+<th>ChildrenChanged</th>
+<th>Changed</th>
+<th>Deleted</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>zk.exists(“&#x2F;node-x”,watcher)</td>
+<td>可监控</td>
+<td></td>
+<td>可监控</td>
+<td>可监控</td>
+</tr>
+<tr>
+<td>zk.getData(“&#x2F;node-x”,watcher)</td>
+<td></td>
+<td></td>
+<td>可监控</td>
+<td>可监控</td>
+</tr>
+<tr>
+<td>zk.getChildren(“&#x2F;node-x”,watcher)</td>
+<td></td>
+<td>可监控</td>
+<td></td>
+<td>可监控</td>
+</tr>
+</tbody></table>
+<h3 id="6-注册watcher的方法"><a href="#6-注册watcher的方法" class="headerlink" title="6. 注册watcher的方法"></a>6. 注册watcher的方法</h3><h4 id="1-客户端与服务器的连接状态"><a href="#1-客户端与服务器的连接状态" class="headerlink" title="1. 客户端与服务器的连接状态"></a>1. 客户端与服务器的连接状态</h4><ul>
+<li>KeeperState:通知状态</li>
+<li>SyncConnected：客户端与服务器正常连接时</li>
+<li>Disconnected：客户端与服务器断开连接时</li>
+<li>Expired：会话session失效时</li>
+<li>AuthFailed：身份认证失败时</li>
+</ul>
+<p>时间类型为：None</p>
+<h5 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.coachhe.watcher; <br> <br><span class="hljs-keyword">import</span> org.apache.zookeeper.WatchedEvent; <br><span class="hljs-keyword">import</span> org.apache.zookeeper.Watcher; <br><span class="hljs-keyword">import</span> org.apache.zookeeper.ZooKeeper; <br> <br><span class="hljs-keyword">import</span> java.io.IOException; <br><span class="hljs-keyword">import</span> java.util.concurrent.CountDownLatch; <br> <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ZKConnectionWatcher</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Watcher</span> &#123; <br> <br>    <span class="hljs-comment">//计数器对象 </span><br>    <span class="hljs-keyword">static</span> <span class="hljs-type">CountDownLatch</span> <span class="hljs-variable">countDownLatch</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CountDownLatch</span>(<span class="hljs-number">1</span>); <br>    <span class="hljs-comment">//连接对象 </span><br>    <span class="hljs-keyword">static</span> ZooKeeper zooKeeper; <br>    <span class="hljs-comment">//连接的IP </span><br>    <span class="hljs-keyword">static</span> <span class="hljs-type">String</span> <span class="hljs-variable">IP</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;10.211.55.100:2181&quot;</span>; <br> <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123; <br>        <span class="hljs-keyword">try</span> &#123; <br>            zooKeeper = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ZooKeeper</span>(IP, <span class="hljs-number">5000</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">ZKConnectionWatcher</span>()); <br>            <span class="hljs-comment">// 阻塞线程，等待连接的创建 </span><br>            countDownLatch.await(); <br>            <span class="hljs-comment">// 会话id </span><br>            System.out.println(zooKeeper.getSessionId()); <br>            Thread.sleep(<span class="hljs-number">50000</span>); <br>            zooKeeper.close(); <br>            System.out.println(<span class="hljs-string">&quot;结束&quot;</span>); <br>        &#125; <span class="hljs-keyword">catch</span> (IOException | InterruptedException e) &#123; <br>            e.printStackTrace(); <br>        &#125; <br> <br>    &#125; <br> <br>    <span class="hljs-meta">@Override</span> <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">process</span><span class="hljs-params">(WatchedEvent watchedEvent)</span> &#123; <br>        <span class="hljs-comment">// 事件类型 </span><br>        <span class="hljs-keyword">if</span> (watchedEvent.getType() == Event.EventType.None) &#123; <br>            <span class="hljs-keyword">if</span> (watchedEvent.getState() == Event.KeeperState.SyncConnected) &#123; <br>                System.out.println(<span class="hljs-string">&quot;连接创建成功!&quot;</span>); <br>                <span class="hljs-comment">//继续往下执行 </span><br>                countDownLatch.countDown(); <br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (watchedEvent.getState() == Event.KeeperState.Disconnected) &#123; <br>                System.out.println(<span class="hljs-string">&quot;断开连接！&quot;</span>); <br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (watchedEvent.getState() == Event.KeeperState.Expired) &#123; <br>                System.out.println(<span class="hljs-string">&quot;会话超时!&quot;</span>); <br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (watchedEvent.getState() == Event.KeeperState.AuthFailed) &#123; <br>                System.out.println(<span class="hljs-string">&quot;认证失败!&quot;</span>); <br>            &#125; <br>        &#125; <br>    &#125; <br>&#125; <br><br></code></pre></td></tr></table></figure>
+
+<h3 id="7-检查节点是否存在"><a href="#7-检查节点是否存在" class="headerlink" title="7. 检查节点是否存在"></a>7. 检查节点是否存在</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 使用连接对象的监视器</span><br>exists(String path, <span class="hljs-type">boolean</span> b)<br><span class="hljs-comment">// 自定义监视器</span><br>exists(String path, Watcher w)<br>  <br><span class="hljs-comment">// NodeCreated:节点创建</span><br><span class="hljs-comment">// NodeDeleted:节点删除</span><br><span class="hljs-comment">// NodeDataChanged:节点内容发生变化</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>path - znode路径</li>
+<li>b - 是否使用连接对象中注册的监视器</li>
+<li>w - 监视器对象</li>
+</ul>
+<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.coachhe.watcher; <br> <br><span class="hljs-keyword">import</span> org.apache.zookeeper.WatchedEvent; <br><span class="hljs-keyword">import</span> org.apache.zookeeper.Watcher; <br><span class="hljs-keyword">import</span> org.apache.zookeeper.ZooKeeper; <br><span class="hljs-keyword">import</span> org.junit.After; <br><span class="hljs-keyword">import</span> org.junit.Before; <br><span class="hljs-keyword">import</span> org.junit.Test; <br> <br><span class="hljs-keyword">import</span> java.util.concurrent.CountDownLatch; <br> <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ZKWatcherExists</span> &#123; <br> <br>    <span class="hljs-type">String</span> <span class="hljs-variable">IP</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;10.211.55.100:2181&quot;</span>; <br>    ZooKeeper zooKeeper; <br> <br>    <span class="hljs-meta">@Before</span> <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">before</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception&#123; <br>        <span class="hljs-comment">// 计数器 </span><br>        <span class="hljs-type">CountDownLatch</span> <span class="hljs-variable">countDownLatch</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CountDownLatch</span>(<span class="hljs-number">1</span>); <br>        <span class="hljs-comment">// arg1:服务器ip和端口 </span><br>        <span class="hljs-comment">// arg2:客户端与服务器之间的会话超时时间（ms） </span><br>        <span class="hljs-comment">// arg3:监视器对象 </span><br>        zooKeeper = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ZooKeeper</span>(IP, <span class="hljs-number">5000</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Watcher</span>() &#123; <br>            <span class="hljs-meta">@Override</span> <br>            <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">process</span><span class="hljs-params">(WatchedEvent event)</span> &#123; <br>                <span class="hljs-keyword">if</span> (event.getState() == Event.KeeperState.SyncConnected) &#123; <br>                    System.out.println(<span class="hljs-string">&quot;连接创建成功&quot;</span>); <br>                    <span class="hljs-comment">// 通知countDownLatch不用继续阻塞了 </span><br>                    countDownLatch.countDown(); <br>                &#125; <br>                System.out.println(<span class="hljs-string">&quot;path = &quot;</span> + event.getPath()); <br>                System.out.println(<span class="hljs-string">&quot;eventType = &quot;</span> + event.getType()); <br>            &#125; <br>        &#125;); <br>        <span class="hljs-comment">//主线程阻塞等待连接对象的创建成功 </span><br>        countDownLatch.await(); <br>        <span class="hljs-comment">//会话编号 </span><br>        System.out.println(zooKeeper.getSessionId()); <br>        zooKeeper.close(); <br>    &#125; <br>     <br>    <span class="hljs-meta">@After</span> <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">after</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception&#123; <br>        zooKeeper.close(); <br>    &#125; <br>     <br>     <br>    <span class="hljs-meta">@Test</span> <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">watcherExists1</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123; <br>        <span class="hljs-comment">// arg1表示节点的路径 </span><br>        <span class="hljs-comment">// true表示需要进行监听,连接对象中的watcher </span><br>        zooKeeper.exists(<span class="hljs-string">&quot;/watcher1&quot;</span>, <span class="hljs-literal">true</span>); <br>        Thread.sleep(<span class="hljs-number">50000</span>); <br>        System.out.println(<span class="hljs-string">&quot;结束&quot;</span>); <br>    &#125; <br>&#125; <br></code></pre></td></tr></table></figure>
+
+<h3 id="8-watcher的一次性"><a href="#8-watcher的一次性" class="headerlink" title="8. watcher的一次性"></a>8. watcher的一次性</h3><p>注意 </p>
+<p>watcher监听是一次性的，若是需要多次监听，那么需要将exists方法放到process方法里面！ </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">watcherExists3</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>  zooKeeper.exists(<span class="hljs-string">&quot;/watcher1&quot;</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Watcher</span>() &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">process</span><span class="hljs-params">(WatchedEvent watchedEvent)</span>&#123;<br>      <span class="hljs-keyword">try</span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;自定义watcher&quot;</span>);<br>        System.out.println(<span class="hljs-string">&quot;path = &quot;</span> + watchedEvent.getPath());<br>        System.out.println(<span class="hljs-string">&quot;eventType = &quot;</span> + watchedEvent.getType());<br>        zooKeeper.exists(<span class="hljs-string">&quot;/watcher1&quot;</span>, <span class="hljs-built_in">this</span>);<br>      &#125; <span class="hljs-keyword">catch</span> (KeeperException e)&#123;<br>        e.printStackTrace();<br>      &#125; <span class="hljs-keyword">catch</span> (InterruptedException e)&#123;<br>        e.printStackTrace();<br>      &#125;<br>    &#125;<br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="9-注册多个监视器对象"><a href="#9-注册多个监视器对象" class="headerlink" title="9. 注册多个监视器对象"></a>9. 注册多个监视器对象</h3><p>同一个节点注册两个监视器对象，那么在其改动时两个监听器对象都会有响应</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 注册多个监视器对象</span><br><span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">watcherExists3</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>  zooKeeper.exists(<span class="hljs-string">&quot;/watcher1&quot;</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Watcher</span>() &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">process</span><span class="hljs-params">(WatchedEvent watchedEvent)</span>&#123;<br>      System.out.println(<span class="hljs-string">&quot;1&quot;</span>)<br>    &#125;<br>  &#125;);<br>    zooKeeper.exists(<span class="hljs-string">&quot;/watcher1&quot;</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Watcher</span>() &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">process</span><span class="hljs-params">(WatchedEvent watchedEvent)</span>&#123;<br>      System.out.println(<span class="hljs-string">&quot;2&quot;</span>)<br>    &#125;<br>  &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="10-查看节点getData"><a href="#10-查看节点getData" class="headerlink" title="10. 查看节点getData()"></a>10. 查看节点getData()</h3><h5 id="使用连接对象中的watcher"><a href="#使用连接对象中的watcher" class="headerlink" title="使用连接对象中的watcher"></a>使用连接对象中的watcher</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">watcherGetData1</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>  <span class="hljs-comment">// arg1:节点的路径</span><br>  <span class="hljs-comment">// arg2:使用连接对象的watcher</span><br>  zooKeeper.getData(<span class="hljs-string">&quot;/watcher2&quot;</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">null</span>);<br>  Tread.sleep(<span class="hljs-number">500000</span>);<br>  System.out.println(<span class="hljs-string">&quot;结束&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="自定义watcher对象"><a href="#自定义watcher对象" class="headerlink" title="自定义watcher对象"></a>自定义watcher对象</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">watcherGetData1</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>  zooKeeper.getData(<span class="hljs-string">&quot;/watcher2&quot;</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Watcher</span>()&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">process</span><span class="hljs-params">(WatchedEvent watchedEvent)</span>&#123;<br>      System.out.println(<span class="hljs-string">&quot;自定义watcher&quot;</span>);<br>      System.out.println(<span class="hljs-string">&quot;path = &quot;</span> + watchedEvent.getPath();<br>      System.out.println(<span class="hljs-string">&quot;eventType = &quot;</span> + watchedEvent.getType());<br>    &#125;<br>  &#125;, <span class="hljs-literal">null</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-生成分布式唯一ID案例"><a href="#2-生成分布式唯一ID案例" class="headerlink" title="2 生成分布式唯一ID案例"></a>2 生成分布式唯一ID案例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.coachhe.案例; <br> <br><span class="hljs-keyword">import</span> org.apache.zookeeper.*; <br> <br><span class="hljs-keyword">import</span> java.io.IOException; <br><span class="hljs-keyword">import</span> java.util.concurrent.CountDownLatch; <br> <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GloballyUniqueId</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Watcher</span> &#123; <br>    <span class="hljs-type">String</span> <span class="hljs-variable">IP</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;10.211.55.100:2181&quot;</span>; <br>    <span class="hljs-keyword">static</span> ZooKeeper zooKeeper; <br>    <span class="hljs-type">String</span> <span class="hljs-variable">defaultPath</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/uniqueId&quot;</span>; <br>    <span class="hljs-type">CountDownLatch</span> <span class="hljs-variable">countDownLatch</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CountDownLatch</span>(<span class="hljs-number">1</span>); <br> <br>    <span class="hljs-meta">@Override</span> <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">process</span><span class="hljs-params">(WatchedEvent watchedEvent)</span> &#123; <br>        <span class="hljs-comment">// 事件类型 </span><br>        <span class="hljs-keyword">if</span> (watchedEvent.getType() == Event.EventType.None) &#123; <br>            <span class="hljs-keyword">if</span> (watchedEvent.getState() == Event.KeeperState.SyncConnected) &#123; <br>                System.out.println(<span class="hljs-string">&quot;连接创建成功!&quot;</span>); <br>                <span class="hljs-comment">//继续往下执行 </span><br>                countDownLatch.countDown(); <br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (watchedEvent.getState() == Event.KeeperState.Disconnected) &#123; <br>                System.out.println(<span class="hljs-string">&quot;断开连接！&quot;</span>); <br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (watchedEvent.getState() == Event.KeeperState.Expired) &#123; <br>                System.out.println(<span class="hljs-string">&quot;会话超时!&quot;</span>); <br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (watchedEvent.getState() == Event.KeeperState.AuthFailed) &#123; <br>                System.out.println(<span class="hljs-string">&quot;认证失败!&quot;</span>); <br>            &#125; <br>        &#125;  <br>    &#125; <br>     <br>    <span class="hljs-comment">// 构造方法 </span><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">GloballyUniqueId</span><span class="hljs-params">()</span> &#123; <br>        <span class="hljs-keyword">try</span> &#123; <br>            <span class="hljs-comment">// 创建连接对象 </span><br>            zooKeeper = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ZooKeeper</span>(IP, <span class="hljs-number">5000</span>, <span class="hljs-built_in">this</span>); <br>            <span class="hljs-comment">// 阻塞线程，等待连接创建成功 </span><br>            countDownLatch.await(); <br>        &#125; <span class="hljs-keyword">catch</span> (IOException | InterruptedException e) &#123; <br>            e.printStackTrace(); <br>        &#125; <br>    &#125; <br>     <br>    <span class="hljs-comment">//生成ID的方法 </span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getUniqueId</span><span class="hljs-params">()</span>&#123; <br>        <span class="hljs-type">String</span> <span class="hljs-variable">path</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span>; <br>        <span class="hljs-keyword">try</span> &#123; <br>            path = zooKeeper.create(defaultPath, <span class="hljs-keyword">new</span> <span class="hljs-title class_">byte</span>[<span class="hljs-number">0</span>], ZooDefs.Ids.OPEN_ACL_UNSAFE, <br>                    CreateMode.EPHEMERAL); <br>        &#125; <span class="hljs-keyword">catch</span> (KeeperException | InterruptedException e) &#123; <br>            e.printStackTrace(); <br>        &#125;  <br>        <span class="hljs-keyword">return</span> path.substring(<span class="hljs-number">9</span>); <br>    &#125; <br> <br> <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123; <br>        <span class="hljs-type">GloballyUniqueId</span> <span class="hljs-variable">globallyUniqueId</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">GloballyUniqueId</span>(); <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++) &#123; <br>            <span class="hljs-type">String</span> <span class="hljs-variable">id</span> <span class="hljs-operator">=</span> globallyUniqueId.getUniqueId(); <br>            System.out.println(id); <br>        &#125; <br>         <br>         <br>    &#125; <br>     <br>&#125; <br></code></pre></td></tr></table></figure>
+
+<h2 id="3-配置中心案例"><a href="#3-配置中心案例" class="headerlink" title="3 配置中心案例"></a>3 配置中心案例</h2><h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>工作中有这样的一个场景: </p>
+<p>数据库用户名和密码信息放在一个配置文件中，应用读取该配置文件，配置文件信息放入缓存。 </p>
+<p>若数据库的用户名和密码改变时候，还需要重新加载缓存，比较麻烦，通过 ZooKeeper可以轻松完成，当数据库发生变化时自动完成缓存同步。 </p>
+<p>也就是说，在这里有用户名和密码，如果能及时读取更改信息。 </p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
+<li><p>连接zookeeper服务器 </p>
+</li>
+<li><p>读取zookeeper中的配置信息，注册watcher监听器，存入本地变量 </p>
+</li>
+<li><p>当zookeeper中的配置信息发生变化时，通过watcher的回调方法捕获数据变化事件 </p>
+</li>
+<li><p>重新获取配置信息</p>
+</li>
+</ol>
+<h3 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.coachhe.案例; <br> <br><span class="hljs-keyword">import</span> org.apache.zookeeper.KeeperException; <br><span class="hljs-keyword">import</span> org.apache.zookeeper.WatchedEvent; <br><span class="hljs-keyword">import</span> org.apache.zookeeper.Watcher; <br><span class="hljs-keyword">import</span> org.apache.zookeeper.ZooKeeper; <br> <br><span class="hljs-keyword">import</span> java.io.IOException; <br><span class="hljs-keyword">import</span> java.util.concurrent.CountDownLatch; <br> <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyConfigCenter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Watcher</span> &#123; <br>    <span class="hljs-type">String</span> <span class="hljs-variable">IP</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;10.211.55.100:2181&quot;</span>; <br>    <span class="hljs-keyword">static</span> ZooKeeper zooKeeper; <br>    <span class="hljs-type">CountDownLatch</span> <span class="hljs-variable">countDownLatch</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CountDownLatch</span>(<span class="hljs-number">1</span>); <br>     <br>    <span class="hljs-comment">// 用于本地化存储配置信息 </span><br>    <span class="hljs-keyword">private</span> String url; <br>    <span class="hljs-keyword">private</span> String username; <br> <br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getUrl</span><span class="hljs-params">()</span> &#123; <br>        <span class="hljs-keyword">return</span> url; <br>    &#125; <br> <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setUrl</span><span class="hljs-params">(String url)</span> &#123; <br>        <span class="hljs-built_in">this</span>.url = url; <br>    &#125; <br> <br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getUsername</span><span class="hljs-params">()</span> &#123; <br>        <span class="hljs-keyword">return</span> username; <br>    &#125; <br> <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setUsername</span><span class="hljs-params">(String username)</span> &#123; <br>        <span class="hljs-built_in">this</span>.username = username; <br>    &#125; <br> <br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getPassword</span><span class="hljs-params">()</span> &#123; <br>        <span class="hljs-keyword">return</span> password; <br>    &#125; <br> <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setPassword</span><span class="hljs-params">(String password)</span> &#123; <br>        <span class="hljs-built_in">this</span>.password = password; <br>    &#125; <br> <br>    <span class="hljs-keyword">private</span> String password; <br> <br>    <span class="hljs-meta">@Override</span> <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">process</span><span class="hljs-params">(WatchedEvent watchedEvent)</span> &#123; <br>        <span class="hljs-comment">// 事件类型 </span><br>        <span class="hljs-keyword">if</span> (watchedEvent.getType() == Event.EventType.None) &#123; <br>            <span class="hljs-keyword">if</span> (watchedEvent.getState() == Event.KeeperState.SyncConnected) &#123; <br>                System.out.println(<span class="hljs-string">&quot;连接创建成功!&quot;</span>); <br>                <span class="hljs-comment">//继续往下执行 </span><br>                countDownLatch.countDown(); <br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (watchedEvent.getState() == Event.KeeperState.Disconnected) &#123; <br>                System.out.println(<span class="hljs-string">&quot;断开连接！&quot;</span>); <br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (watchedEvent.getState() == Event.KeeperState.Expired) &#123; <br>                System.out.println(<span class="hljs-string">&quot;会话超时!&quot;</span>); <br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (watchedEvent.getState() == Event.KeeperState.AuthFailed) &#123; <br>                System.out.println(<span class="hljs-string">&quot;认证失败!&quot;</span>); <br>            &#125; <br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (watchedEvent.getType() == Event.EventType.NodeDataChanged) &#123; <br>            initValue(); <br>        &#125; <br>    &#125; <br>     <br>    <span class="hljs-comment">// 连接zookeeper服务器，读取配置信息 </span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">initValue</span><span class="hljs-params">()</span>&#123; <br>        <span class="hljs-keyword">try</span> &#123; <br>            <span class="hljs-comment">// 创建连接对象 </span><br>            zooKeeper = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ZooKeeper</span>(IP, <span class="hljs-number">5000</span>, <span class="hljs-built_in">this</span>); <br>            <span class="hljs-comment">// 阻塞线程，等待连接创建成功 </span><br>            countDownLatch.await(); <br>            <span class="hljs-comment">// 读取配置信息 </span><br>            <span class="hljs-built_in">this</span>.url = <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(zooKeeper.getData(<span class="hljs-string">&quot;/config/url&quot;</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">null</span>)); <br>            <span class="hljs-built_in">this</span>.username = <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(zooKeeper.getData(<span class="hljs-string">&quot;/config/username&quot;</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">null</span>)); <br>            <span class="hljs-built_in">this</span>.password = <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(zooKeeper.getData(<span class="hljs-string">&quot;/config/password&quot;</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">null</span>)); <br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123; <br>            e.printStackTrace(); <br>        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123; <br>            e.printStackTrace(); <br>        &#125; <span class="hljs-keyword">catch</span> (KeeperException e) &#123; <br>            e.printStackTrace(); <br>        &#125; <br>    &#125; <br> <br>    <span class="hljs-comment">// 构造方法 </span><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">MyConfigCenter</span><span class="hljs-params">()</span> &#123; <br>        initValue(); <br>    &#125; <br> <br> <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123; <br>        <span class="hljs-keyword">try</span> &#123; <br>            <span class="hljs-type">MyConfigCenter</span> <span class="hljs-variable">myConfigCenter</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyConfigCenter</span>(); <br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">10</span>; i++) &#123; <br>                Thread.sleep(<span class="hljs-number">3000</span>); <br>                System.out.println(<span class="hljs-string">&quot;url:&quot;</span> + myConfigCenter.getUrl()); <br>                System.out.println(<span class="hljs-string">&quot;username:&quot;</span> + myConfigCenter.getUsername()); <br>                System.out.println(<span class="hljs-string">&quot;password:&quot;</span> + myConfigCenter.getPassword()); <br>            &#125; <br>        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123; <br>            e.printStackTrace(); <br>        &#125; <br>    &#125; <br>&#125; <br></code></pre></td></tr></table></figure>
+
+<h2 id="4-分布式锁"><a href="#4-分布式锁" class="headerlink" title="4 分布式锁"></a>4 分布式锁</h2><h3 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h3><p>分布式锁有多种实现方式，比如通过数据库、redis都可实现。作为分布式协同工具ZooKeeper，当然也有着标准的实现方式。下面介绍在zookeeper中如何实现排他锁。  </p>
+<p>设计思路：  </p>
+<ol>
+<li><p>每个客户端往&#x2F;Locks下创建临时有序节点&#x2F;Locks&#x2F;Lock_000000001 </p>
+</li>
+<li><p>客户端取得&#x2F;Locks下子节点，并进行排序，判断排在最前面的是否为自己，如果自己的 锁节点在第一位，代表获取锁成功 </p>
+</li>
+<li><p>如果自己的锁节点不在第一位，则监听自己前一位的锁节点。例如，自己锁节点 Lock 000000001 </p>
+</li>
+<li><p>当前一位锁节点（Lock 000000002）的逻辑 </p>
+</li>
+<li><p>监听客户端重新执行第2步逻辑，判断自己是否获得了锁</p>
+</li>
+</ol>
+<h3 id="1-创建节点"><a href="#1-创建节点" class="headerlink" title="1. 创建节点"></a>1. 创建节点</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.coachhe.lock; <br> <br><span class="hljs-keyword">import</span> org.apache.zookeeper.*; <br><span class="hljs-keyword">import</span> org.apache.zookeeper.data.Stat; <br> <br><span class="hljs-keyword">import</span> java.io.IOException; <br><span class="hljs-keyword">import</span> java.util.concurrent.CountDownLatch; <br> <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyLock</span> &#123; <br>    <span class="hljs-type">String</span> <span class="hljs-variable">IP</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;10.211.55.100:2181&quot;</span>; <br>    <span class="hljs-keyword">static</span> ZooKeeper zooKeeper; <br>    <span class="hljs-type">CountDownLatch</span> <span class="hljs-variable">countDownLatch</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CountDownLatch</span>(<span class="hljs-number">1</span>); <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">LOCK_ROOT_PATH</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/locks&quot;</span>; <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">LOCK_NODE_NAME</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Lock_&quot;</span>; <br>    <span class="hljs-keyword">private</span> String lockPath; <br> <br>    <span class="hljs-comment">//打开zookeeper连接 </span><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">MyLock</span><span class="hljs-params">()</span> &#123; <br>        <span class="hljs-keyword">try</span> &#123; <br>            <span class="hljs-comment">// 创建连接对象 </span><br>            zooKeeper = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ZooKeeper</span>(IP, <span class="hljs-number">5000</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Watcher</span>() &#123; <br>                <span class="hljs-meta">@Override</span> <br>                <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">process</span><span class="hljs-params">(WatchedEvent watchedEvent)</span> &#123; <br>                    <span class="hljs-keyword">if</span> (watchedEvent.getType() == Event.EventType.None) &#123; <br>                        <span class="hljs-keyword">if</span> (watchedEvent.getState() == Event.KeeperState.SyncConnected) &#123; <br>                            System.out.println(<span class="hljs-string">&quot;连接成功&quot;</span>); <br>                            countDownLatch.countDown(); <br>                        &#125; <br>                    &#125; <br>                &#125; <br>            &#125;); <br>            <span class="hljs-comment">// 阻塞线程，等待连接创建成功 </span><br>            countDownLatch.await(); <br>        &#125; <span class="hljs-keyword">catch</span> (IOException | InterruptedException e) &#123; <br>            e.printStackTrace(); <br>        &#125; <br>    &#125; <br> <br>    <span class="hljs-comment">//获取锁 </span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">acquireLock</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123; <br>        <span class="hljs-comment">//创建锁节点 </span><br>        createLock(); <br>        <span class="hljs-comment">//尝试获取锁 </span><br>        attemptLock(); <br>    &#125; <br> <br>    <span class="hljs-comment">//创建锁节点 </span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">createLock</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception&#123; <br>        <span class="hljs-comment">// 判断locks节点是否存在，不存在则创建 </span><br>        <span class="hljs-type">Stat</span> <span class="hljs-variable">stat</span> <span class="hljs-operator">=</span> zooKeeper.exists(LOCK_ROOT_PATH, <span class="hljs-literal">false</span>); <br>        <span class="hljs-keyword">if</span> (stat == <span class="hljs-literal">null</span>) &#123; <br>            zooKeeper.create(LOCK_ROOT_PATH, <span class="hljs-keyword">new</span> <span class="hljs-title class_">byte</span>[<span class="hljs-number">0</span>], ZooDefs.Ids.OPEN_ACL_UNSAFE, <br>                    CreateMode.PERSISTENT); <br>        &#125; <br>        <span class="hljs-comment">// 创建临时有序节点 </span><br>        lockPath = zooKeeper.create(LOCK_ROOT_PATH + <span class="hljs-string">&quot;/&quot;</span> + LOCK_NODE_NAME, <span class="hljs-keyword">new</span> <span class="hljs-title class_">byte</span>[<span class="hljs-number">0</span>], <br>                ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL); <br>        System.out.println(<span class="hljs-string">&quot;节点创建成功：&quot;</span> + lockPath); <br>    &#125; <br> <br>    <span class="hljs-comment">//尝试获取锁 </span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">attemptLock</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123; <br> <br>    &#125; <br> <br>    <span class="hljs-comment">//释放锁 </span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">releaseLock</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123; <br> <br>    &#125; <br> <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123; <br>        <span class="hljs-keyword">try</span> &#123; <br>            <span class="hljs-type">MyLock</span> <span class="hljs-variable">myLock</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyLock</span>(); <br>            myLock.createLock(); <br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123; <br>            e.printStackTrace(); <br>        &#125; <br>    &#125; <br> <br>&#125; <br></code></pre></td></tr></table></figure>
+
+<h3 id="2-获取锁"><a href="#2-获取锁" class="headerlink" title="2. 获取锁"></a>2. 获取锁</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.coachhe.lock; <br> <br><span class="hljs-keyword">import</span> org.apache.zookeeper.*; <br><span class="hljs-keyword">import</span> org.apache.zookeeper.data.Stat; <br><span class="hljs-keyword">import</span> sun.tools.jstack.JStack; <br> <br><span class="hljs-keyword">import</span> java.io.IOException; <br><span class="hljs-keyword">import</span> java.util.Collection; <br><span class="hljs-keyword">import</span> java.util.Collections; <br><span class="hljs-keyword">import</span> java.util.List; <br><span class="hljs-keyword">import</span> java.util.concurrent.CountDownLatch; <br> <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyLock</span> &#123; <br>    <span class="hljs-type">String</span> <span class="hljs-variable">IP</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;10.211.55.100:2181&quot;</span>; <br>    <span class="hljs-keyword">static</span> ZooKeeper zooKeeper; <br>    <span class="hljs-type">CountDownLatch</span> <span class="hljs-variable">countDownLatch</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CountDownLatch</span>(<span class="hljs-number">1</span>); <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">LOCK_ROOT_PATH</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;/locks&quot;</span>; <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">LOCK_NODE_NAME</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Lock_&quot;</span>; <br>    <span class="hljs-keyword">private</span> String lockPath; <br> <br>    <span class="hljs-comment">//打开zookeeper连接 </span><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">MyLock</span><span class="hljs-params">()</span> &#123; <br>        <span class="hljs-keyword">try</span> &#123; <br>            <span class="hljs-comment">// 创建连接对象 </span><br>            zooKeeper = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ZooKeeper</span>(IP, <span class="hljs-number">5000</span>, <span class="hljs-keyword">new</span> <span class="hljs-title class_">Watcher</span>() &#123; <br>                <span class="hljs-meta">@Override</span> <br>                <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">process</span><span class="hljs-params">(WatchedEvent watchedEvent)</span> &#123; <br>                    <span class="hljs-keyword">if</span> (watchedEvent.getType() == Event.EventType.None) &#123; <br>                        <span class="hljs-keyword">if</span> (watchedEvent.getState() == Event.KeeperState.SyncConnected) &#123; <br>                            System.out.println(<span class="hljs-string">&quot;连接成功&quot;</span>); <br>                            countDownLatch.countDown(); <br>                        &#125; <br>                    &#125; <br>                &#125; <br>            &#125;); <br>            <span class="hljs-comment">// 阻塞线程，等待连接创建成功 </span><br>            countDownLatch.await(); <br>        &#125; <span class="hljs-keyword">catch</span> (IOException | InterruptedException e) &#123; <br>            e.printStackTrace(); <br>        &#125; <br>    &#125; <br> <br>    <span class="hljs-comment">//监视器对象，监视上一个节点是否被删除 </span><br>    <span class="hljs-type">Watcher</span> <span class="hljs-variable">watcher</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Watcher</span>() &#123; <br>        <span class="hljs-meta">@Override</span> <br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">process</span><span class="hljs-params">(WatchedEvent watchedEvent)</span> &#123; <br>            <span class="hljs-keyword">if</span> (watchedEvent.getType() == Event.EventType.NodeDeleted) &#123; <br>                <span class="hljs-keyword">synchronized</span> (<span class="hljs-built_in">this</span>) &#123; <br>                    MyLock.<span class="hljs-built_in">this</span>.notifyAll(); <br>                &#125; <br>            &#125; <br>        &#125; <br>    &#125;; <br> <br>    <span class="hljs-comment">//获取锁 </span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">acquireLock</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123; <br>        <span class="hljs-comment">//创建锁节点 </span><br>        createLock(); <br>        <span class="hljs-comment">//尝试获取锁 </span><br>        attemptLock(); <br>    &#125; <br> <br>    <span class="hljs-comment">//创建锁节点 </span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">createLock</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception&#123; <br>        <span class="hljs-comment">// 判断locks节点是否存在，不存在则创建 </span><br>        <span class="hljs-type">Stat</span> <span class="hljs-variable">stat</span> <span class="hljs-operator">=</span> zooKeeper.exists(LOCK_ROOT_PATH, <span class="hljs-literal">false</span>); <br>        <span class="hljs-keyword">if</span> (stat == <span class="hljs-literal">null</span>) &#123; <br>            zooKeeper.create(LOCK_ROOT_PATH, <span class="hljs-keyword">new</span> <span class="hljs-title class_">byte</span>[<span class="hljs-number">0</span>], ZooDefs.Ids.OPEN_ACL_UNSAFE, <br>                    CreateMode.PERSISTENT); <br>        &#125; <br>        <span class="hljs-comment">// 创建临时有序节点 </span><br>        lockPath = zooKeeper.create(LOCK_ROOT_PATH + <span class="hljs-string">&quot;/&quot;</span> + LOCK_NODE_NAME, <span class="hljs-keyword">new</span> <span class="hljs-title class_">byte</span>[<span class="hljs-number">0</span>], <br>                ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL); <br>        System.out.println(<span class="hljs-string">&quot;节点创建成功：&quot;</span> + lockPath); <br>    &#125; <br> <br>    <span class="hljs-comment">//尝试获取锁 </span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">attemptLock</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123; <br>        <span class="hljs-comment">// 获取Locks节点下的所有子节点 </span><br>        List&lt;String&gt; list = zooKeeper.getChildren(LOCK_ROOT_PATH, <span class="hljs-literal">false</span>); <br>        <span class="hljs-comment">// 对子节点进行排序 </span><br>        Collections.sort(list); <br>        <span class="hljs-comment">// /Locks/Lock_0000000001 </span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">index</span> <span class="hljs-operator">=</span> list.indexOf(lockPath.substring(LOCK_ROOT_PATH.length() + <span class="hljs-number">1</span>)); <br>        <span class="hljs-keyword">if</span> (index == <span class="hljs-number">0</span>) &#123; <br>            <span class="hljs-comment">//说明当前临时有序节点排名第一 </span><br>            System.out.println(<span class="hljs-string">&quot;获取锁成功&quot;</span>); <br>            <span class="hljs-keyword">return</span>; <br>        &#125; <span class="hljs-keyword">else</span> &#123; <br>            <span class="hljs-comment">// 获取上一个节点的路径 </span><br>            <span class="hljs-type">String</span> <span class="hljs-variable">path</span> <span class="hljs-operator">=</span> list.get(index - <span class="hljs-number">1</span>); <br>            <span class="hljs-type">Stat</span> <span class="hljs-variable">stat</span> <span class="hljs-operator">=</span> zooKeeper.exists(LOCK_ROOT_PATH + <span class="hljs-string">&quot;/&quot;</span> + path, watcher); <br>            <span class="hljs-keyword">if</span> (stat == <span class="hljs-literal">null</span>) &#123; <br>                <span class="hljs-comment">//如果等于空，那么就是在执行上面两行代码的时候前一个节点被删除掉了，那么重新尝试 </span><br>                attemptLock(); <br>            &#125; <span class="hljs-keyword">else</span> &#123; <br>                <span class="hljs-comment">//如果不为空，那么就等待上一个节点被删除 </span><br>                <span class="hljs-keyword">synchronized</span> (watcher) &#123; <br>                    watcher.wait(); <br>                &#125; <br>                attemptLock(); <br>            &#125; <br>        &#125; <br>    &#125; <br> <br>    <span class="hljs-comment">//释放锁 </span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">releaseLock</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123; <br> <br>    &#125; <br> <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123; <br>        <span class="hljs-keyword">try</span> &#123; <br>            <span class="hljs-type">MyLock</span> <span class="hljs-variable">myLock</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MyLock</span>(); <br>            myLock.createLock(); <br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123; <br>            e.printStackTrace(); <br>        &#125; <br>    &#125; <br> <br>&#125; <br></code></pre></td></tr></table></figure>
+
+<h3 id="3-释放锁"><a href="#3-释放锁" class="headerlink" title="3. 释放锁"></a>3. 释放锁</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//释放锁 </span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">releaseLock</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123; <br>    <span class="hljs-comment">//删除临时有序节点 </span><br>    zooKeeper.delete(<span class="hljs-built_in">this</span>.lockPath, -<span class="hljs-number">1</span>); <br>    zooKeeper.close(); <br>    System.out.println(<span class="hljs-string">&quot;锁已经释放：&quot;</span> + <span class="hljs-built_in">this</span>.lockPath); <br>&#125; <br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Zookeeper/" class="category-chain-item">Zookeeper</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>http://example.com/2022/12/57c0e88f0643.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>December 3, 2022</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/12/cba0c76fab70.html" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/12/bbeb762a64e3.html" title="">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
