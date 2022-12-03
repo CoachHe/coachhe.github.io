@@ -1,0 +1,157 @@
+{
+  "main": {
+    "id": "28cc11bf2264fa46",
+    "type": "split",
+    "children": [
+      {
+        "id": "7a515061ec679832",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "03694d55beed9e7b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "学习进度/计划/模板/Template.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "aa7f41740b101200",
+    "type": "split",
+    "children": [
+      {
+        "id": "a411ecea0cf401e8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5471da49e70e6812",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "abef99315fb62194",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b8acb4dcb34d9b40",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 401.5
+  },
+  "right": {
+    "id": "675047211e3104e0",
+    "type": "split",
+    "children": [
+      {
+        "id": "0b03d807ff4e8c89",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fb95ff0b777b8727",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "学习进度/计划/模板/Template.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "91e265d7fc6977d9",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "学习进度/计划/模板/Template.md"
+              }
+            }
+          },
+          {
+            "id": "842f185ecde06159",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "学习进度/计划/模板/Template.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "5c39768c4532aaf8",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "e42fd0f1fbb45429",
+            "type": "leaf",
+            "state": {
+              "type": "quiet-outline",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "active": "03694d55beed9e7b",
+  "lastOpenFiles": [
+    "学习进度/计划/2022-12-03.md",
+    "学习进度/计划/2022-11-27.md",
+    "学习进度/计划/2022-11-28.md",
+    "学习进度/计划/2022-11-30.md",
+    "学习进度/计划/2022-12-01.md",
+    "学习进度/计划/2022-11-24.md",
+    "学习进度/计划/2022-11-23.md",
+    "学习进度/计划/2022-11-29.md",
+    "学习进度/JVM学习计划.md",
+    "大数据/实时计算/Flink/基于Apache Flink的流处理/4.Apache Flink架构.md"
+  ]
+}

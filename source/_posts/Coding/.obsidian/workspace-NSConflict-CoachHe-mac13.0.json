@@ -1,0 +1,141 @@
+{
+  "main": {
+    "id": "28cc11bf2264fa46",
+    "type": "split",
+    "children": [
+      {
+        "id": "b2d31c2b174866de",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7c67b49f78c6fad8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "微服务/K8S/极客时间/深入剖析k8s/Chapter38_从外界联通Service与Service调试\"三板斧\".md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "aa7f41740b101200",
+    "type": "split",
+    "children": [
+      {
+        "id": "a411ecea0cf401e8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5471da49e70e6812",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "abef99315fb62194",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b8acb4dcb34d9b40",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "675047211e3104e0",
+    "type": "split",
+    "children": [
+      {
+        "id": "0b03d807ff4e8c89",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fb95ff0b777b8727",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "微服务/K8S/极客时间/深入剖析k8s/Chapter38_从外界联通Service与Service调试\"三板斧\".md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "91e265d7fc6977d9",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "微服务/K8S/极客时间/深入剖析k8s/Chapter38_从外界联通Service与Service调试\"三板斧\".md"
+              }
+            }
+          },
+          {
+            "id": "842f185ecde06159",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "微服务/K8S/极客时间/深入剖析k8s/Chapter38_从外界联通Service与Service调试\"三板斧\".md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "7c67b49f78c6fad8",
+  "lastOpenFiles": [
+    "微服务/Docker/Docker容器数据卷.md",
+    "微服务/Docker/通过docker搭建集群.md",
+    "README.md",
+    "微服务/K8S/2 k8s集群安装.md",
+    "微服务/K8S/1 k8s概念和架构.md",
+    "Languages/Go/Go项目/工单系统/coachhe工单系统/模板.md",
+    "Languages/Go/Go项目/工单系统/coachhe工单系统/工单.md",
+    "Languages/Go/Go项目/工单系统/coachhe工单系统/流程.md",
+    "Languages/Go/Go项目/工单系统/coachhe工单系统/权限模型.md",
+    "Languages/Go/Go项目/工单系统/coachhe工单系统/新建工单.md"
+  ]
+}
