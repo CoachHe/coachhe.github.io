@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
@@ -18,11 +18,11 @@
   
     <meta name="description" content="1 引言本章开始讨论UNIX系统，先说明可用的文件I&#x2F;O函数-打开文件、读文件、写文件等。UNIX系统中的大部分文件I&#x2F;O只需要用到5个函数：open、read、write、lseek以及close。然后说明不同缓冲长度对read和write函数的影响。 不带缓冲的定义：术语不带缓冲指的是每个read和write都调用内核中的一个系统调用。也就是说，不带缓冲的I&#x2F;O就">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="CoachHe&#39;s Blog">
 <meta property="og:url" content="http://example.com/2022/12/e4cf97e059ae.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="CoachHe&#39;s Blog">
 <meta property="og:description" content="1 引言本章开始讨论UNIX系统，先说明可用的文件I&#x2F;O函数-打开文件、读文件、写文件等。UNIX系统中的大部分文件I&#x2F;O只需要用到5个函数：open、read、write、lseek以及close。然后说明不同缓冲长度对read和write函数的影响。 不带缓冲的定义：术语不带缓冲指的是每个read和write都调用内核中的一个系统调用。也就是说，不带缓冲的I&#x2F;O就">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-3691c953c62dba149ea2cc16e190b7f7_1440w.jpg">
 <meta property="og:image" content="https://pic.downk.cc/item/5fc636fdf81f7e3bd97f4fc3.png">
 <meta property="og:image" content="https://pic.downk.cc/item/5fc6369df81f7e3bd97f387d.png">
@@ -39,7 +39,7 @@
   
   
   
-  <title>Hexo</title>
+  <title>CoachHe&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -123,7 +123,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                首页
               </a>
             </li>
           
@@ -135,7 +135,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                归档
               </a>
             </li>
           
@@ -147,7 +147,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                分类
               </a>
             </li>
           
@@ -159,7 +159,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                标签
               </a>
             </li>
           
@@ -171,7 +171,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                关于
               </a>
             </li>
           
@@ -216,7 +216,7 @@
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
         <time datetime="2022-12-03 21:38" pubdate>
-          December 3, 2022 pm
+          2022年12月3日 晚上
         </time>
       </span>
     
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.1k words
+          4.1k 字
         
       </span>
     
@@ -238,7 +238,7 @@
         
         
         
-          35 mins
+          35 分钟
         
       </span>
     
@@ -491,26 +491,26 @@
     <div class="license-meta">
       
         <div class="license-meta-item">
-          <div>Author</div>
+          <div>作者</div>
           <div>CoachHe</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
-          <div>Posted on</div>
-          <div>December 3, 2022</div>
+          <div>发布于</div>
+          <div>2022年12月3日</div>
         </div>
       
       
       
         <div class="license-meta-item">
-          <div>Licensed under</div>
+          <div>许可协议</div>
           <div>
             
               
               
                 <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
                     <i class="iconfont icon-by"></i>
                   </span>
                 </a>
@@ -533,7 +533,7 @@
                       <a href="/2022/12/1f75f6323c59.html" title="">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">Previous</span>
+                        <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
@@ -542,7 +542,7 @@
                     
                       <a href="/2022/12/6be4ce26f66b.html" title="">
                         <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -561,7 +561,7 @@
       
   <aside class="sidebar" style="margin-left: -1rem">
     <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -616,7 +616,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -624,7 +624,7 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -803,7 +803,7 @@
   
 
   <noscript>
-    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
 </body>
 </html>
