@@ -1,6 +1,4 @@
 ---
----  
-
 title: 8 Flink容错机制  
 date: 2022-12-04 02:14:37  
 tags: []  
@@ -10,6 +8,7 @@ categories:
   - Flink
   - 基于Apache Flink的流处理
 ---
+
 # 主要内容
 
 * 一致性检查点（checkpoint）
