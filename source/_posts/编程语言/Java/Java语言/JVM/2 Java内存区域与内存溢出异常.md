@@ -188,12 +188,12 @@ public class StackTest {
 可以看到，在不进行设置的情况下，执行了 10737 次。
 
 这时我们设置一下栈大小：
-![](https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211224094507.png)
+
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221204052823.png" width = "50%" />
 
 再次重新执行：
 
-![Uploading file...bvaf1]()
-
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221204052801.png" width = "50%" />
 
 可以看到，在设置栈大小为 256k 之后，只执行了 1755 次之后栈就溢出了！
 体现了设置栈大小的作用
