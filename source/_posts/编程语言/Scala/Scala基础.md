@@ -1,8 +1,12 @@
 ---
+title: Scala基础  
+date: 2022-12-04 02:25:02  
+tags: []  
 categories:
   - 编程语言
   - Scala
 ---
+
 # 一、Scala 简介
 Spark1.6 使用的是 Scala2.10，Spark2.0 版本以上使用的是 Scala2.11
 

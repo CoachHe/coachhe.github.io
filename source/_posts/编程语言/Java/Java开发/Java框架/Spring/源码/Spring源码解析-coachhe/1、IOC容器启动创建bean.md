@@ -1,4 +1,7 @@
 ---
+title: 1、IOC容器启动创建bean  
+date: 2022-12-04 02:25:26  
+tags: []  
 categories:
   - 编程语言
   - Java
