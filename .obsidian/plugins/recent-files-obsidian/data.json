@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "8 虚拟机字节码执行引擎",
+      "path": "source/_posts/编程语言/Java/Java语言/JVM/8 虚拟机字节码执行引擎.md"
+    },
+    {
+      "basename": "7 虚拟机类加载机制",
+      "path": "source/_posts/编程语言/Java/Java语言/JVM/7 虚拟机类加载机制.md"
+    },
+    {
       "basename": "2 Java内存区域与内存溢出异常",
       "path": "source/_posts/编程语言/Java/Java语言/JVM/2 Java内存区域与内存溢出异常.md"
+    },
+    {
+      "basename": "7 虚拟机类加载机制",
+      "path": "source/_posts/编程语言/Java/Java语言/JVM/图示/7 虚拟机类加载机制.drawio"
     },
     {
       "basename": "3 垃圾收集器与内存分配策略",
@@ -187,18 +199,6 @@
     {
       "basename": "2022-12-01",
       "path": "source/_posts/学习进度/计划/2022-12-01.md"
-    },
-    {
-      "basename": "2022-11-30",
-      "path": "source/_posts/学习进度/计划/2022-11-30.md"
-    },
-    {
-      "basename": "2022-11-29",
-      "path": "source/_posts/学习进度/计划/2022-11-29.md"
-    },
-    {
-      "basename": "2022-11-28",
-      "path": "source/_posts/学习进度/计划/2022-11-28.md"
     }
   ],
   "omittedPaths": [
