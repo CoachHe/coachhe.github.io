@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "Gradle 构建基础",
+      "path": "source/_posts/编程语言/Java/Java开发/Java工具/Gradle/Gradle 构建基础.md"
+    },
+    {
+      "basename": "AoP",
+      "path": "source/_posts/编程语言/Java/Java开发/Java框架/Spring/源码/《Spring源码深度解析》/AoP.md"
+    },
+    {
+      "basename": "8 虚拟机字节码执行引擎",
+      "path": "source/_posts/编程语言/Java/Java语言/JVM/8 虚拟机字节码执行引擎.md"
+    },
+    {
+      "basename": "7 虚拟机类加载机制",
+      "path": "source/_posts/编程语言/Java/Java语言/JVM/7 虚拟机类加载机制.md"
+    },
+    {
+      "basename": "6 类文件结构",
+      "path": "source/_posts/编程语言/Java/Java语言/JVM/6 类文件结构.md"
+    },
+    {
+      "basename": "4 虚拟机性能监控、故障处理工具",
+      "path": "source/_posts/编程语言/Java/Java语言/JVM/4 虚拟机性能监控、故障处理工具.md"
+    },
+    {
       "basename": "3、循环依赖和三级缓存",
       "path": "source/_posts/编程语言/Java/Java开发/Java框架/Spring/源码/Spring源码解析-coachhe/3、循环依赖和三级缓存.md"
     },
@@ -105,22 +129,6 @@
       "path": "source/_posts/编程语言/Java/jdk/jdk编译过程（Centos）.md"
     },
     {
-      "basename": "8 虚拟机字节码执行引擎",
-      "path": "source/_posts/编程语言/Java/Java语言/JVM/8 虚拟机字节码执行引擎.md"
-    },
-    {
-      "basename": "7 虚拟机类加载机制",
-      "path": "source/_posts/编程语言/Java/Java语言/JVM/7 虚拟机类加载机制.md"
-    },
-    {
-      "basename": "6 类文件结构",
-      "path": "source/_posts/编程语言/Java/Java语言/JVM/6 类文件结构.md"
-    },
-    {
-      "basename": "4 虚拟机性能监控、故障处理工具",
-      "path": "source/_posts/编程语言/Java/Java语言/JVM/4 虚拟机性能监控、故障处理工具.md"
-    },
-    {
       "basename": "1.状态流处理概述",
       "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/1.状态流处理概述.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "Docker容器数据卷",
       "path": "微服务/Docker/Docker容器数据卷.md"
-    },
-    {
-      "basename": "通过docker搭建集群",
-      "path": "微服务/Docker/通过docker搭建集群.md"
-    },
-    {
-      "basename": "2022-12-03",
-      "path": "学习进度/计划/2022-12-03.md"
     }
   ],
   "omittedPaths": [
