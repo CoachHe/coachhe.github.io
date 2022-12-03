@@ -1,6 +1,34 @@
 {
   "recentFiles": [
     {
+      "basename": "登陆",
+      "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/登陆.md"
+    },
+    {
+      "basename": "登录",
+      "path": "source/_posts/编程语言/Go/Go项目/工单系统/coachhe工单系统/登录.md"
+    },
+    {
+      "basename": "用户",
+      "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/用户.md"
+    },
+    {
+      "basename": "用户",
+      "path": "source/_posts/编程语言/Go/Go项目/工单系统/coachhe工单系统/用户.md"
+    },
+    {
+      "basename": "流程",
+      "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/流程.md"
+    },
+    {
+      "basename": "模板",
+      "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/模板.md"
+    },
+    {
+      "basename": "查询对应工单列表",
+      "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/查询对应工单列表.md"
+    },
+    {
       "basename": "权限模型",
       "path": "source/_posts/编程语言/Go/Go项目/工单系统/ferry工单系统/权限模型.md"
     },
@@ -171,34 +199,6 @@
     {
       "basename": "1. 深入Web请求过程",
       "path": "source/_posts/编程语言/Java/Java开发/Java Web/1. 深入Web请求过程.md"
-    },
-    {
-      "basename": "1. SpringBoot和SpringCloud的版本选型",
-      "path": "source/_posts/编程语言/Java/Java开发/Java框架/SpringCloud/尚硅谷SpringCloud/1. SpringBoot和SpringCloud的版本选型.md"
-    },
-    {
-      "basename": "1. Spring IOC容器的核心实现原理",
-      "path": "source/_posts/编程语言/Java/Java开发/Java框架/Spring/源码/《Spring源码深度解析》/1. Spring IOC容器的核心实现原理.md"
-    },
-    {
-      "basename": "1、IOC容器启动创建bean",
-      "path": "source/_posts/编程语言/Java/Java开发/Java框架/Spring/源码/Spring源码解析-coachhe/1、IOC容器启动创建bean.md"
-    },
-    {
-      "basename": "Scala基础",
-      "path": "source/_posts/编程语言/Scala/Scala基础.md"
-    },
-    {
-      "basename": "2 Java内存区域",
-      "path": "source/_posts/编程语言/Java/Java语言/JVM/图示/2 Java内存区域.drawio"
-    },
-    {
-      "basename": "7 虚拟机类加载机制",
-      "path": "source/_posts/编程语言/Java/Java语言/JVM/图示/7 虚拟机类加载机制.drawio"
-    },
-    {
-      "basename": "jdk编译过程（MACOS）",
-      "path": "source/_posts/编程语言/Java/jdk/jdk编译过程（MACOS）.md"
     }
   ],
   "omittedPaths": [
