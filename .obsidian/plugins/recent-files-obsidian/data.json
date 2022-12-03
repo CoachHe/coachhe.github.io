@@ -1,6 +1,22 @@
 {
   "recentFiles": [
     {
+      "basename": "6.2 基于时间的算子",
+      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/6.2 基于时间的算子.md"
+    },
+    {
+      "basename": "6.1 基于窗口的算子",
+      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/6.1 基于窗口的算子.md"
+    },
+    {
+      "basename": "5.DataStream API（1.7版本）",
+      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/5.DataStream API（1.7版本）.md"
+    },
+    {
+      "basename": "4.Apache Flink架构",
+      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/4.Apache Flink架构.md"
+    },
+    {
       "basename": "3.Flink安装部署",
       "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/3.Flink安装部署.md"
     },
@@ -183,22 +199,6 @@
     {
       "basename": "README",
       "path": "Languages/Go/Go项目/工单系统/coachhe工单系统/README.md"
-    },
-    {
-      "basename": "工单系统简介",
-      "path": "Languages/Go/Go项目/工单系统/ferry工单系统/工单系统简介.md"
-    },
-    {
-      "basename": "通过docker搭建集群",
-      "path": "microsoftservice/Docker/通过docker搭建集群.md"
-    },
-    {
-      "basename": "Docker容器数据卷",
-      "path": "microsoftservice/Docker/Docker容器数据卷.md"
-    },
-    {
-      "basename": "Docker学习",
-      "path": "microsoftservice/Docker/Docker学习.md"
     }
   ],
   "omittedPaths": [
