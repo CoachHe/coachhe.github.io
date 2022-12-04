@@ -83,7 +83,15 @@
       "key": "O"
     }
   ],
-  "hotkeysplus-obsidian:better-toggle-todo": [],
+  "hotkeysplus-obsidian:better-toggle-todo": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "T"
+    }
+  ],
   "hotkeysplus-obsidian:toggle-block-quote": [
     {
       "modifiers": [
@@ -126,7 +134,7 @@
         "Mod",
         "Shift"
       ],
-      "key": "O"
+      "key": "["
     }
   ],
   "obsidian-git:pull": [],
