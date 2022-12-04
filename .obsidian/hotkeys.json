@@ -1,20 +1,6 @@
 {
-  "workspace:split-horizontal": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "ArrowLeft"
-    }
-  ],
-  "workspace:split-vertical": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "ArrowRight"
-    }
-  ],
+  "workspace:split-horizontal": [],
+  "workspace:split-vertical": [],
   "app:go-forward": [],
   "app:toggle-right-sidebar": [],
   "app:toggle-left-sidebar": [],
