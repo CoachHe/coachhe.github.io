@@ -237,5 +237,14 @@
       "key": "/"
     }
   ],
-  "hotkeysplus-obsidian:toggle-bullet-number": []
+  "hotkeysplus-obsidian:toggle-bullet-number": [],
+  "hotkey-helper:open-hotkeys": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "H"
+    }
+  ]
 }
