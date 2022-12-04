@@ -227,5 +227,12 @@
       "key": "I"
     }
   ],
-  "editor:toggle-comments": []
+  "editor:toggle-comments": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "/"
+    }
+  ]
 }
