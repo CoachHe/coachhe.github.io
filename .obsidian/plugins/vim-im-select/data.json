@@ -1,7 +1,7 @@
 {
   "defaultIM": "com.apple.keylayout.ABC",
   "obtainCmd": "/usr/local/bin/im-select",
-  "switchCmd": "/usr/local/bin/im-select -i {im}",
+  "switchCmd": "/usr/local/bin/im-select {im}",
   "windowsDefaultIM": "",
   "windowsObtainCmd": "",
   "windowsSwitchCmd": ""
