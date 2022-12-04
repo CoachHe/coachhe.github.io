@@ -74,7 +74,15 @@
   "file-explorer:new-file-in-new-pane": [],
   "workspace:undo-close-pane": [],
   "table-editor-obsidian:table-control-bar": [],
-  "hotkeysplus-obsidian:insert-line-below": [],
+  "hotkeysplus-obsidian:insert-line-below": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "O"
+    }
+  ],
   "hotkeysplus-obsidian:better-toggle-todo": [],
   "hotkeysplus-obsidian:toggle-block-quote": [
     {
@@ -85,7 +93,15 @@
       "key": "."
     }
   ],
-  "hotkeysplus-obsidian:duplicate-lines-down": [],
+  "hotkeysplus-obsidian:duplicate-lines-down": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "Y"
+    }
+  ],
   "hotkeysplus-obsidian:duplicate-lines-up": [],
   "editor:swap-line-up": [
     {
