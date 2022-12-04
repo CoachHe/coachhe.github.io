@@ -74,15 +74,7 @@
   "file-explorer:new-file-in-new-pane": [],
   "workspace:undo-close-pane": [],
   "table-editor-obsidian:table-control-bar": [],
-  "hotkeysplus-obsidian:insert-line-below": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "O"
-    }
-  ],
+  "hotkeysplus-obsidian:insert-line-below": [],
   "hotkeysplus-obsidian:better-toggle-todo": [],
   "hotkeysplus-obsidian:toggle-block-quote": [
     {
@@ -220,5 +212,6 @@
       ],
       "key": "/"
     }
-  ]
+  ],
+  "hotkeysplus-obsidian:toggle-bullet-number": []
 }
