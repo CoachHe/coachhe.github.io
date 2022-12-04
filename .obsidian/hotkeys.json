@@ -225,5 +225,6 @@
       ],
       "key": "/"
     }
-  ]
+  ],
+  "editor:toggle-comments": []
 }
