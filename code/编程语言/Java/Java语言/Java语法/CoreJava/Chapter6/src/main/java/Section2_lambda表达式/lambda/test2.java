@@ -1,6 +1,4 @@
-package Section3_lambda表达式.lambda;
-
-import java.util.Timer;
+package Section2_lambda表达式.lambda;
 
 public class test2 {
     public static void main(String[] args) {

@@ -1,7 +1,7 @@
-package Section3_lambda表达式.How2J_lambda;
+package Section2_lambda表达式.How2J_lambda;
 
-import Section3_lambda表达式.How2J_charactor.Hero;
-import Section3_lambda表达式.How2J_charactor.HeroChecker;
+import Section2_lambda表达式.How2J_charactor.Hero;
+import Section2_lambda表达式.How2J_charactor.HeroChecker;
 
 import java.util.ArrayList;
 import java.util.List;

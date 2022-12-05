@@ -1,4 +1,4 @@
-package Section3_lambda表达式.Before;
+package Section2_lambda表达式.Before;
 import java.util.Arrays;
 import java.util.Comparator;
 public class LengthComparator implements Comparator<String> {

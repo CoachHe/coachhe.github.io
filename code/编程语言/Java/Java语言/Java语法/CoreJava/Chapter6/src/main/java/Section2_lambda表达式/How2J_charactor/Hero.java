@@ -1,4 +1,4 @@
-package Section3_lambda表达式.How2J_charactor;
+package Section2_lambda表达式.How2J_charactor;
 
 public class Hero implements Comparable<Hero> {
     public String name;
