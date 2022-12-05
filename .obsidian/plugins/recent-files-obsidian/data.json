@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "1. 接口",
+      "path": "source/_posts/编程语言/Java/Java语言/Java语法/CoreJava/Chapter6_接口、lambda表达式与内部类/1. 接口.md"
+    },
+    {
       "basename": "lambda表达式",
       "path": "source/_posts/编程语言/Java/Java语言/Java语法/lambda表达式.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "1.2 HBase数据结构1 HBase逻辑结构",
       "path": "source/_posts/大数据/Hadoop生态/HBase/1.2 HBase数据结构1 HBase逻辑结构.md"
-    },
-    {
-      "basename": "1 Session Mode",
-      "path": "source/_posts/大数据/实时计算/Flink/极客时间/flink on k8s配置说明/1 Session Mode.md"
     }
   ],
   "omittedPaths": [
