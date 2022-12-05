@@ -13,6 +13,10 @@
       "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/5.DataStream API（1.7版本）.md"
     },
     {
+      "basename": "3.Flink安装部署",
+      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/3.Flink安装部署.md"
+    },
+    {
       "basename": "7 虚拟机类加载机制",
       "path": "source/_posts/编程语言/Java/Java语言/JVM/7 虚拟机类加载机制.md"
     },
@@ -131,10 +135,6 @@
     {
       "basename": "4.Apache Flink架构",
       "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/4.Apache Flink架构.md"
-    },
-    {
-      "basename": "3.Flink安装部署",
-      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/3.Flink安装部署.md"
     },
     {
       "basename": "2.Dataflow编程概述",
