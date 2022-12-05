@@ -5,6 +5,30 @@
       "path": "source/_posts/编程语言/Java/Java语言/Java语法/lambda表达式.md"
     },
     {
+      "basename": "Spring注解",
+      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java注解/Spring注解.md"
+    },
+    {
+      "basename": "Java反射.excalidraw",
+      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java反射/Java反射.excalidraw.md"
+    },
+    {
+      "basename": "Java反射-kuang",
+      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java反射/Java反射-kuang.md"
+    },
+    {
+      "basename": "自定义注解",
+      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java注解/自定义注解.md"
+    },
+    {
+      "basename": "常见注解",
+      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java注解/常见注解.md"
+    },
+    {
+      "basename": "元注解",
+      "path": "source/_posts/编程语言/Java/Java语言/Java语法/Java注解/元注解.md"
+    },
+    {
       "basename": "6.2 基于时间的算子",
       "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/6.2 基于时间的算子.md"
     },
@@ -175,30 +199,6 @@
     {
       "basename": "1 Session Mode",
       "path": "source/_posts/大数据/实时计算/Flink/极客时间/flink on k8s配置说明/1 Session Mode.md"
-    },
-    {
-      "basename": "1 Kafka介绍",
-      "path": "source/_posts/大数据/MQ/KafKa/1 Kafka介绍.md"
-    },
-    {
-      "basename": "1 Hbase简介1 Hbase定义",
-      "path": "source/_posts/大数据/Hadoop生态/HBase/1 Hbase简介1 Hbase定义.md"
-    },
-    {
-      "basename": "7.3 Flink的状态管理-状态后端",
-      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/7.3 Flink的状态管理-状态后端.md"
-    },
-    {
-      "basename": "7 Flink的状态管理",
-      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/7 Flink的状态管理.md"
-    },
-    {
-      "basename": "JVM学习计划",
-      "path": "source/_posts/学习进度/JVM学习计划.md"
-    },
-    {
-      "basename": "Flink学习计划",
-      "path": "source/_posts/学习进度/大数据/Flink学习计划.md"
     }
   ],
   "omittedPaths": [
