@@ -12,5 +12,6 @@
     "script",
     "themes",
     "scaffolds"
-  ]
+  ],
+  "strictLineBreaks": true
 }
