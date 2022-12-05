@@ -13,5 +13,6 @@
     "themes",
     "scaffolds"
   ],
-  "strictLineBreaks": true
+  "strictLineBreaks": true,
+  "showUnsupportedFiles": true
 }
