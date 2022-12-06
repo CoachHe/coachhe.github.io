@@ -16,7 +16,7 @@ import java.time.Duration;
 public class WatermarkTest {
     public static void main(String[] args) throws Exception {
 
-        WatermarkStrategy<Event> test = new AscendingTimestampsWatermarks<>()
+        WatermarkStrategy<Event> test = new AscendingTimestampsWatermarks<>();
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(1);
