@@ -1,9 +1,7 @@
 package com.coachhe.chapter06_WindowAndTime;
 
 import com.coachhe.chapter05_DataStreamAPI.Event;
-import org.apache.flink.api.common.eventtime.AscendingTimestampsWatermarks;
-import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
-import org.apache.flink.api.common.eventtime.WatermarkStrategy;
+import org.apache.flink.api.common.eventtime.*;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
@@ -14,10 +12,21 @@ import java.time.Duration;
  * @date 2022/12/4 04:01
  **/
 public class WatermarkTest {
+
+
+    static <T> WatermarkStrategy<T> forMonotonousTimestamps() {
+        return new WatermarkStrategy<T>() {
+            @Override
+            public WatermarkGenerator<T> createWatermarkGenerator(WatermarkGeneratorSupplier.Context context) {
+                return null;
+            }
+        };
+    }
+
+
     public static void main(String[] args) throws Exception {
 
-        WatermarkStrategy<Event> test = new AscendingTimestampsWatermarks<Event>();
-        
+
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(1);
