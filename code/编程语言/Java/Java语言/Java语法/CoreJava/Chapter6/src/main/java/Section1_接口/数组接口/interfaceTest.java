@@ -9,4 +9,5 @@ public class interfaceTest implements Comparable<Integer>{
     public int compareTo(Integer o) {
         return 0;
     }
+    
 }
