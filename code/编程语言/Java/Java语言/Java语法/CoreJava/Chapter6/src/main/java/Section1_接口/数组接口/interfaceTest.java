@@ -13,10 +13,13 @@ public class interfaceTest implements Comparable<Integer>{
     public static void main(String[] args) {
         classA testclass = new classA();
         System.out.println(testclass instanceof interfaceA);
+        classB testclassB = new classB();
+        System.out.println(testclassB.intA);
     }
 }
-
-interface interfaceA {}
-
-
+interface interfaceA {
+    String intA = "string of interface A";
+}
+interface interfaceB extends  interfaceA{}
 class classA implements interfaceA{}
+class classB implements interfaceB{}
