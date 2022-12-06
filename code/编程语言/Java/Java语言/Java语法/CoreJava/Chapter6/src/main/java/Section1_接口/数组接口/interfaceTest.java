@@ -9,5 +9,17 @@ public class interfaceTest implements Comparable<Integer>{
     public int compareTo(Integer o) {
         return 0;
     }
-    
+
+    public static void main(String[] args) {
+        System.out.println(classA instanceof interfaceA);
+    }
+
+}
+
+interface interfaceA {
+
+}
+
+class classA implements interfaceA{
+
 }
