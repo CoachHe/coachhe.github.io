@@ -18,4 +18,5 @@ public class interfaceTest implements Comparable<Integer>{
 
 interface interfaceA {}
 
+
 class classA implements interfaceA{}
