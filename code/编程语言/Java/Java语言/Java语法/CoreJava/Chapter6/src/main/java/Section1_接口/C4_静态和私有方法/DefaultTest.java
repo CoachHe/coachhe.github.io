@@ -9,6 +9,12 @@ package Section1_接口.C4_静态和私有方法;
  */
 public class DefaultTest {
     public static void main(String[] args) {
-        
+
     }
 }
+
+class Bag implements InterfaceA {
+
+}
+
+interface InterfaceA {}
