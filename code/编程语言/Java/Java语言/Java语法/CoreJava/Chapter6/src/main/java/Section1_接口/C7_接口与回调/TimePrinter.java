@@ -21,5 +21,6 @@ public class TimePrinter implements ActionListener {
     public static void main(String[] args) {
         TimePrinter listener = new TimePrinter();
         Timer t = new Timer(1000, listener);
+        t.start();
     }
 }
