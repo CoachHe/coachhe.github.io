@@ -10,18 +10,22 @@ import java.time.Instant;
  * @author CoachHe
  * @date 2022/12/8 01:28
  **/
-public class TimePrinter {
+public class TimeTest {
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("Begin");
-        TimePrinterClass listener = new TimePrinterClass();
+        TimePrinter listener = new TimePrinter();
         Timer t = new Timer(1000, listener);
         t.start();
-        Thread.sleep(10000);
+
+        // keep program running until the user select "OK"
+        JOptionPane.showMessageDialog(null, "Quit program?");
+        System.exit(0);
+
     }
 }
 
-class TimePrinterClass implements ActionListener {
+class TimePrinter implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println("At the tone, the time is "
