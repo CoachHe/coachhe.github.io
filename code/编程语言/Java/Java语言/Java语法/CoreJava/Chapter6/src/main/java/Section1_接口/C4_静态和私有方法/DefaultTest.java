@@ -17,4 +17,8 @@ class Bag implements InterfaceA {
 
 }
 
-interface InterfaceA {}
+interface InterfaceA {
+    default void sayHi(){
+        System.out.println("Hi, I am interface A");
+    }
+}
