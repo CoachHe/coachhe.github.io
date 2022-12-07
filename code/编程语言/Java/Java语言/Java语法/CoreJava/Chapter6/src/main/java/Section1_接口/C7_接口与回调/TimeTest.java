@@ -21,7 +21,6 @@ public class TimeTest {
         // keep program running until the user select "OK"
         JOptionPane.showMessageDialog(null, "Quit program?");
         System.exit(0);
-
     }
 }
 
