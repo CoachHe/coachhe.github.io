@@ -13,7 +13,7 @@ public class TestGrammar {
         cb.printClassB("classB", new InterA() {
             @Override
             public String printHi(String str) {
-                return "cb";
+                return str;
             }
         });
     }
