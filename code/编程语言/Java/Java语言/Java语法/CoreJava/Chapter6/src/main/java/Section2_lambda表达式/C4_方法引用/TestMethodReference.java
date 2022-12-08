@@ -12,6 +12,6 @@ import javax.swing.*;
 public class TestMethodReference {
     public static void main(String[] args) {
         Timer timer = new Timer(1000, System.out::println);
-        
+
     }
 }
