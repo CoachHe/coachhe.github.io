@@ -16,5 +16,7 @@ public class FunctionalInterfaceTest {
                 return o1.length() - o2.length();
             }
         });
+
+        System.out.println(arr);
     }
 }
