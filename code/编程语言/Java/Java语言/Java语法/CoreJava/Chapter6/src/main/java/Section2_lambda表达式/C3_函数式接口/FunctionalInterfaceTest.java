@@ -1,5 +1,6 @@
 package Section2_lambda表达式.C3_函数式接口;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -20,5 +21,8 @@ public class FunctionalInterfaceTest {
         Arrays.sort(arr, (String o1, String o2) -> o1.length() - o2.length());
 
         System.out.println(Arrays.toString(arr));
+
+        ArrayList<Integer> intArr = new ArrayList<>();
+
     }
 }
