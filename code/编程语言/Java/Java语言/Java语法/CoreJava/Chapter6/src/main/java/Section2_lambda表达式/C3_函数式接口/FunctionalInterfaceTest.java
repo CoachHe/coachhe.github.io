@@ -9,7 +9,7 @@ import java.util.Comparator;
  **/
 public class FunctionalInterfaceTest {
     public static void main(String[] args) {
-        String[] arr = new String[]{"abc", "efc", "fslaf", "abcded"};
+        String[] arr = new String[]{"abc", "efcd", "fslaf", "abcded"};
         Arrays.sort(arr, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
@@ -17,6 +17,6 @@ public class FunctionalInterfaceTest {
             }
         });
 
-        System.out.println(arr);
+        System.out.println(Arrays.toString(arr));
     }
 }
