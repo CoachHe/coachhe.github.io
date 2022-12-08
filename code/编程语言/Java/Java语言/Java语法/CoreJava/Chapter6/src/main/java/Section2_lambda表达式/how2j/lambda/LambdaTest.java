@@ -1,4 +1,4 @@
-package Section2_lambda表达式.lambda;
+package Section2_lambda表达式.how2j.lambda;
 
 import javax.swing.*;
 import java.util.Arrays;

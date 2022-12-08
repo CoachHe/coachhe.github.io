@@ -1,4 +1,4 @@
-package Section2_lambda表达式.Before;
+package Section2_lambda表达式.how2j.Before;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Timer;

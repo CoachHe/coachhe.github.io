@@ -1,4 +1,4 @@
-package Section1_接口.数组接口;
+package Section1_接口.C2_接口的属性;
 
 /**
  * @author CoachHe
