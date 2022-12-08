@@ -24,8 +24,9 @@ public class FunctionalInterfaceTest {
 //        ArrayList<Integer> intArr = new ArrayList<>();
 
         String fileDay = Objects.requireNonNull(null, new String("20501111"));
-
-
+        System.out.println(fileDay);
+        String fileDay2 = Objects.requireNonNull(null, () -> new String("20501112"));
+        System.out.println(fileDay2);
 
     }
 }
