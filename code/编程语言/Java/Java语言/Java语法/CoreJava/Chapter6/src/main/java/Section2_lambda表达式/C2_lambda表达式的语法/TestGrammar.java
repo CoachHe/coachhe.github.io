@@ -9,24 +9,30 @@ package Section2_lambda表达式.C2_lambda表达式的语法;
  */
 public class TestGrammar {
     public static void main(String[] args) {
-        
+        ClassB cb = new ClassB();
+        cb.printClassB("classB", new InterA() {
+            @Override
+            public String printHi(String str) {
+                return "cb";
+            }
+        });
     }
 }
 
 class ClassB {
     public void printClassB(String s, InterA interA) {
-        interA.printHi(s);
+        System.out.println(interA.printHi(s));
     }
 }
 
 class ClassA implements InterA {
 
     @Override
-    public void printHi(String str) {
-        System.out.println("I am " + str);
+    public String printHi(String str) {
+        return str;
     }
 }
 
 interface InterA {
-    void printHi(String str);
+    String printHi(String str);
 }
