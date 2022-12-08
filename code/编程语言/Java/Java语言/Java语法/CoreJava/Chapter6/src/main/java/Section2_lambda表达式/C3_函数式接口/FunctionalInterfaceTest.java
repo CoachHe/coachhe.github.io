@@ -1,8 +1,7 @@
 package Section2_lambda表达式.C3_函数式接口;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
+import java.time.LocalDate;
+import java.util.*;
 
 /**
  * @author CoachHe
@@ -24,7 +23,9 @@ public class FunctionalInterfaceTest {
 
 //        ArrayList<Integer> intArr = new ArrayList<>();
 
-        
+        String fileDay = Objects.requireNonNull(null, new String("20501111"));
+
+
 
     }
 }
