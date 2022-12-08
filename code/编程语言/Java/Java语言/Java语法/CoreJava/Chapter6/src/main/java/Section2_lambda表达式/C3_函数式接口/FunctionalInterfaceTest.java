@@ -22,7 +22,9 @@ public class FunctionalInterfaceTest {
 
         System.out.println(Arrays.toString(arr));
 
-        ArrayList<Integer> intArr = new ArrayList<>();
+//        ArrayList<Integer> intArr = new ArrayList<>();
+
+        
 
     }
 }
