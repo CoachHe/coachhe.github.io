@@ -18,6 +18,15 @@ public class WatermarkTest {
         return (ctx) -> {return new AscendingTimestampsWatermarks<T>();};
     }
 
+    static <T> WatermarkStrategy<T> forMonotonousTimestamps2() {
+        return new WatermarkStrategy<T>() {
+            @Override
+            public WatermarkGenerator<T> createWatermarkGenerator(WatermarkGeneratorSupplier.Context context) {
+                return new AscendingTimestampsWatermarks<>();
+            }
+        };
+    }
+
 
     public static void main(String[] args) throws Exception {
 
