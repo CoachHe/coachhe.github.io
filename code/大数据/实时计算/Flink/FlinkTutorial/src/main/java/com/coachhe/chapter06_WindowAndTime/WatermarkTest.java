@@ -15,12 +15,7 @@ public class WatermarkTest {
 
 
     static <T> WatermarkStrategy<T> forMonotonousTimestamps() {
-        return new WatermarkStrategy<T>() {
-            @Override
-            public WatermarkGenerator<T> createWatermarkGenerator(WatermarkGeneratorSupplier.Context context) {
-                return null;
-            }
-        };
+        return (ctx) -> {return new AscendingTimestampsWatermarks<T>();};
     }
 
 
