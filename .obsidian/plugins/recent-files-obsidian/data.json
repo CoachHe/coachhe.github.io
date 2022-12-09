@@ -9,12 +9,16 @@
       "path": "source/_posts/编程语言/Java/Java语言/Java语法/CoreJava/Chapter6_接口、lambda表达式与内部类/1. 接口.md"
     },
     {
-      "basename": "6.2 基于时间的算子",
-      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/6.2 基于时间的算子.md"
+      "basename": "8 虚拟机字节码执行引擎",
+      "path": "source/_posts/编程语言/Java/Java语言/JVM/8 虚拟机字节码执行引擎.md"
     },
     {
-      "basename": "5.DataStream API（1.7版本）",
-      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/5.DataStream API（1.7版本）.md"
+      "basename": "7 虚拟机类加载机制",
+      "path": "source/_posts/编程语言/Java/Java语言/JVM/7 虚拟机类加载机制.md"
+    },
+    {
+      "basename": "6.2 基于时间的算子",
+      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/6.2 基于时间的算子.md"
     },
     {
       "basename": "lambda表达式",
@@ -49,12 +53,12 @@
       "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/6.1 基于窗口的算子.md"
     },
     {
-      "basename": "3.Flink安装部署",
-      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/3.Flink安装部署.md"
+      "basename": "5.DataStream API（1.7版本）",
+      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/5.DataStream API（1.7版本）.md"
     },
     {
-      "basename": "7 虚拟机类加载机制",
-      "path": "source/_posts/编程语言/Java/Java语言/JVM/7 虚拟机类加载机制.md"
+      "basename": "3.Flink安装部署",
+      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/3.Flink安装部署.md"
     },
     {
       "basename": "3 垃圾收集器与内存分配策略",
@@ -67,10 +71,6 @@
     {
       "basename": "7 虚拟机类加载机制",
       "path": "source/_posts/编程语言/Java/Java语言/JVM/图示/7 虚拟机类加载机制.drawio"
-    },
-    {
-      "basename": "8 虚拟机字节码执行引擎",
-      "path": "source/_posts/编程语言/Java/Java语言/JVM/8 虚拟机字节码执行引擎.md"
     },
     {
       "basename": "2 Java内存区域与内存溢出异常",
@@ -195,10 +195,6 @@
     {
       "basename": "1.2 HBase数据结构3 数据模型",
       "path": "source/_posts/大数据/Hadoop生态/HBase/1.2 HBase数据结构3 数据模型.md"
-    },
-    {
-      "basename": "1.2 HBase数据结构2 HBase 物理存储结构",
-      "path": "source/_posts/大数据/Hadoop生态/HBase/1.2 HBase数据结构2 HBase 物理存储结构.md"
     }
   ],
   "omittedPaths": [
