@@ -27,4 +27,13 @@ public class TestVariableUsageField {
         };
         new Timer(delay, listener).start();
     }
+
+    // 不合法的做法，引用值被改变了
+    public static void countDown(int start, int delay) {
+        ActionListener listener = event -> {
+//            start--;
+            System.out.println(start);
+        };
+        new Timer(delay, listener).start();
+    }
 }
