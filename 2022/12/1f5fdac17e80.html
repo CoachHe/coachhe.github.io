@@ -25,17 +25,20 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210228185234.png">
 <meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210228185928.png">
-<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210301024310.png">
+<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221204143724.png">
 <meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210301025256.png">
-<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210301031105.png">
+<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221205165720.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221130014608.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221130014750.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221130015328.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/image-20221130020335168.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/image-20221130020619684.png">
-<meta property="og:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210301042945.png">
+<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221205013809.png">
+<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221205014130.png">
+<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221205011630.png">
+<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221205165654.png">
 <meta property="article:published_time" content="2022-12-03T18:13:35.000Z">
-<meta property="article:modified_time" content="2022-12-03T18:15:29.448Z">
+<meta property="article:modified_time" content="2022-12-10T18:44:00.274Z">
 <meta property="article:author" content="CoachHe">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210228185234.png">
@@ -230,7 +233,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3k 字
+          7.4k 字
         
       </span>
     
@@ -241,7 +244,7 @@
         
         
         
-          26 分钟
+          62 分钟
         
       </span>
     
@@ -299,13 +302,13 @@
 <h2 id="图解处理时间和事件时间"><a href="#图解处理时间和事件时间" class="headerlink" title="图解处理时间和事件时间"></a>图解处理时间和事件时间</h2><img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210228185928.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
 
 <p>事件时间将处理速度和结果内容彻底解耦。我们也往往更关心事件时间。基于事件时间的操作是可预测的，其结果具有确定性。无论数据流的处理速度如何、事件到达算子的顺序怎样，基于事件时间的窗口都会生成相同的结果。</p>
-<h2 id="哪种时间语义更重要"><a href="#哪种时间语义更重要" class="headerlink" title="哪种时间语义更重要"></a>哪种时间语义更重要</h2><img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210301024310.png" srcset="/img/loading.gif" lazyload style="zoom:50%;" />
+<h2 id="哪种时间语义更重要"><a href="#哪种时间语义更重要" class="headerlink" title="哪种时间语义更重要"></a>哪种时间语义更重要</h2><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221204143724.png" srcset="/img/loading.gif" lazyload width = "50%" />
 
 <p>可以看到，红色框为 Processing Time，绿色框为 Event Time，大部分时间 Event Time 更重要。</p>
 <h2 id="设置处理时间或事件时间的方法"><a href="#设置处理时间或事件时间的方法" class="headerlink" title="设置处理时间或事件时间的方法"></a>设置处理时间或事件时间的方法</h2><p>默认状态即为处理时间，若需要使用事件时间则需要设置</p>
 <h3 id="Scala-版本"><a href="#Scala-版本" class="headerlink" title="Scala 版本"></a>Scala 版本</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">package</span> com.coachhe.apitest<br><br><span class="hljs-keyword">import</span> org.apache.flink.streaming.api.<span class="hljs-type">TimeCharacteristic</span><br><span class="hljs-keyword">import</span> org.apache.flink.streaming.api.environment.<span class="hljs-type">StreamExecutionEnvironment</span><br><br><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">TimeWindowTest</span> </span>&#123;<br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = &#123;<br>    <span class="hljs-keyword">val</span> env: <span class="hljs-type">StreamExecutionEnvironment</span> = <span class="hljs-type">StreamExecutionEnvironment</span>.getExecutionEnvironment<br>    <span class="hljs-comment">// 设置事件时间</span><br><span class="hljs-comment">//    env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)</span><br>    <span class="hljs-comment">// 设置处理时间</span><br>    env.setStreamTimeCharacteristic(<span class="hljs-type">TimeCharacteristic</span>.<span class="hljs-type">ProcessingTime</span>)<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h3 id="Java-版本"><a href="#Java-版本" class="headerlink" title="Java 版本"></a>Java 版本</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">apitest</span> &#123;  <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;  <br>        <span class="hljs-type">StreamExecutionEnvironment</span> <span class="hljs-variable">env</span> <span class="hljs-operator">=</span> StreamExecutionEnvironment.getExecutionEnvironment();  <br>        <span class="hljs-comment">// 设置为处理时间  </span><br>        env.setStreamTimeCharacteristic(TimeCharacteristic.ProcessingTime);  <br>    &#125;  <br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Java-版本"><a href="#Java-版本" class="headerlink" title="Java 版本"></a>Java 版本</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">apitest</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">StreamExecutionEnvironment</span> <span class="hljs-variable">env</span> <span class="hljs-operator">=</span> StreamExecutionEnvironment.getExecutionEnvironment();<br>        <span class="hljs-comment">// 设置为处理时间</span><br>        env.setStreamTimeCharacteristic(TimeCharacteristic.ProcessingTime);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="水位线（watermark）"><a href="#水位线（watermark）" class="headerlink" title="水位线（watermark）"></a>水位线（watermark）</h1><h2 id="乱序数据的影响"><a href="#乱序数据的影响" class="headerlink" title="乱序数据的影响"></a>乱序数据的影响</h2><img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210301025256.png" srcset="/img/loading.gif" lazyload style="zoom:33%;" />
 
@@ -315,58 +318,97 @@
 <li>由于网络、分布式等原因，会导致乱序数据的产生</li>
 </ul>
 <p>因为需要引入水位线</p>
-<h2 id="水位线概念"><a href="#水位线概念" class="headerlink" title="水位线概念"></a>水位线概念</h2><p>水位线是一个<strong>全局进度指标</strong>，表示我们确信不会再有延迟事件到来的某个的时间点。本质上水位线提供了一个逻辑时钟，用来通知系统当前的事件时间。</p>
+<h2 id="水位线概念"><a href="#水位线概念" class="headerlink" title="水位线概念"></a>水位线概念</h2><h3 id="水位线定义"><a href="#水位线定义" class="headerlink" title="水位线定义"></a>水位线定义</h3><p>水位线是一个<strong>全局进度指标</strong>，表示我们确信不会再有延迟事件到来的某个的时间点。本质上水位线提供了一个逻辑时钟，用来通知系统当前的事件时间。</p>
 <p>当一个算子接收到时间为 T 的水位线，就可以认为不会再收到任何时间戳小于或等于 T 的事件了。水位线无论对于事件时间窗口还是处理乱序事件的算子都很关键。算子一旦收到某个水位线，就相当于接到信号：某个特定时间区间的时间戳已经到齐，可以触发窗口计算或对接收的数据进行排序了。</p>
-<h2 id="水位线作用"><a href="#水位线作用" class="headerlink" title="水位线作用"></a>水位线作用</h2><p>水位线允许我们在结果的<strong>准确性和延迟之间做出取舍</strong>。</p>
-<h2 id="水位线特点"><a href="#水位线特点" class="headerlink" title="水位线特点"></a>水位线特点</h2><p><img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210301031105.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="水位线特点"><a href="#水位线特点" class="headerlink" title="水位线特点"></a>水位线特点</h3><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221205165720.png" srcset="/img/loading.gif" lazyload width = "50%" />
+
 <ul>
-<li><p>watermark 是一条特殊的数据记录（里面只有一类信息：当前的事件时间）</p>
-<p>也就是说，水位线到来之后，水位线的记录时间之前的数据开始全部不接受，窗口关闭。</p>
-</li>
-<li><p>watermark 必须单调递增，以确保任务的事件时间时钟在向前推进，而不是在后退</p>
-</li>
-<li><p>water 与数据时间戳相关</p>
-</li>
+<li>watermark 是一条特殊的数据记录（里面只有一类信息：当前的事件时间）<br>也就是说，水位线到来之后，水位线的记录时间之前的数据开始全部不接受，窗口关闭。</li>
+<li>watermark 必须单调递增，以确保任务的事件时间时钟在向前推进，而不是在后退</li>
+<li>water 与数据时间戳相关</li>
 </ul>
-<h2 id="水位线的类型"><a href="#水位线的类型" class="headerlink" title="水位线的类型"></a>水位线的类型</h2><h3 id="有序流中的水位线"><a href="#有序流中的水位线" class="headerlink" title="有序流中的水位线"></a>有序流中的水位线</h3><ol>
-<li><p>每条记录都插入一条水位线</p>
-<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221130014608.png" srcset="/img/loading.gif" lazyload width = "100%" />
+<h3 id="水位线的类型"><a href="#水位线的类型" class="headerlink" title="水位线的类型"></a>水位线的类型</h3><h4 id="有序流中的水位线"><a href="#有序流中的水位线" class="headerlink" title="有序流中的水位线"></a>有序流中的水位线</h4><ol>
+<li>每条记录都插入一条水位线</li>
+</ol>
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221130014608.png" srcset="/img/loading.gif" lazyload width = "50%" />
 
 <p>可以看到，每到来一条记录就会产生一条水位线，这种是最直观的，但是效率也很低</p>
-</li>
-<li><p>周期性插入水位线</p>
-<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221130014750.png" srcset="/img/loading.gif" lazyload width = "100%" />
+<ol start="2">
+<li>周期性插入水位线</li>
+</ol>
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221130014750.png" srcset="/img/loading.gif" lazyload width = "50%" />
 
 <p>可以看到，首先来的数据是 2 5 7，此时到了一个周期，会自动找到这个周期中最大值，也就是 7，产生一条水位线，然后是 9 9 9 10 11，最大值是 11，也会产生一条水位线。</p>
-</li>
+<h4 id="乱序流中的水位线"><a href="#乱序流中的水位线" class="headerlink" title="乱序流中的水位线"></a>乱序流中的水位线</h4><ol>
+<li>判断只有数据的时间戳比当前时钟大，才能推动时间前进，这时才插入水位线</li>
 </ol>
-<h3 id="乱序流中的水位线"><a href="#乱序流中的水位线" class="headerlink" title="乱序流中的水位线"></a>乱序流中的水位线</h3><ol>
-<li><p>判断只有数据的时间戳比当前时钟大，才能推动时间前进，这时才插入水位线</p>
-<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221130015328.png" srcset="/img/loading.gif" lazyload width = "100%" />
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221130015328.png" srcset="/img/loading.gif" lazyload width = "50%" />
 
-<p>可以看到，当水位线为9时，来了时间戳为7 9 9的数据，水位线都不产生变动，因为这个是所谓“迟到数据”，只有当时间戳为11的数据来了时，水位线才会变动。以此类推</p>
-</li>
-<li><p>周期性插入水位线的方法</p>
-<img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/image-20221130020335168.png" srcset="/img/loading.gif" lazyload width = "100%" />
+<p>可以看到，当水位线为 9 时，来了时间戳为 7 9 9 的数据，水位线都不产生变动，因为这个是所谓“迟到数据”，只有当时间戳为 11 的数据来了时，水位线才会变动。以此类推</p>
+<ol start="2">
+<li>周期性插入水位线的方法</li>
+</ol>
+<img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/image-20221130020335168.png" srcset="/img/loading.gif" lazyload width = "50%" />
 
 <p>和上面的类似，也是比较周期时间范围内时间戳的最大值</p>
-</li>
-</ol>
-<p>	</p>
-<h3 id="处理迟到数据的水位线"><a href="#处理迟到数据的水位线" class="headerlink" title="处理迟到数据的水位线"></a>处理迟到数据的水位线</h3><img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/image-20221130020619684.png" srcset="/img/loading.gif" lazyload width = "100%" />
+<h4 id="处理迟到数据的水位线"><a href="#处理迟到数据的水位线" class="headerlink" title="处理迟到数据的水位线"></a>处理迟到数据的水位线</h4><img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/image-20221130020619684.png" srcset="/img/loading.gif" lazyload width = "50%" />
 
-<p>可以看到，此时处理的水位线是T-2的，也就是说，当接受到数据时间为8的数据时，此时会将窗口的右半边延伸至T&#x3D;6处，确保迟到数据能处理完成（但也不绝对，有可能就是延迟很久，需要做权衡）</p>
-<h2 id="水位线的传播"><a href="#水位线的传播" class="headerlink" title="水位线的传播"></a>水位线的传播</h2><p>当任务接收到一个水位线时会执行以下操作：</p>
-<ol>
-<li>基于水位线记录的时间戳更新内部时间时钟</li>
-<li>任务的时间服务会找出所有触发时间小于更新后事件时间的计时器。对于每个到期的计时器，调用回调函数，利用它来执行计算或发出记录</li>
-<li>任务根据更新后的事件时间将水位线发出</li>
-</ol>
-<p>Flink 会将数据流划分为不同的分区，并将它们交由不同的算子任务来并行执行。每个分区作为一个数据流，都会包含带有时间戳的记录以及水位线。</p>
-<p>一个任务可能同时接受来自多个输入分区的记录和水位线，也可能需要将它们发送到多个输出分区。</p>
-<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><p>一个 4 个输入分区和 3 个输出分区的任务在接收到水位线后对分区水位线和事件时钟的更新过程。</p>
-<p><img src="https://coachhe.oss-cn-shenzhen.aliyuncs.com/Scala/20210301042945.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="时间戳分配和水位线生成"><a href="#时间戳分配和水位线生成" class="headerlink" title="时间戳分配和水位线生成"></a>时间戳分配和水位线生成</h2><p>时间戳和水位线通常都是在数据流刚刚进入流处理应用的时候分配和生成的。</p>
+<p>可以看到，此时处理的水位线是 T-2 的，也就是说，当接受到数据时间为 8 的数据时，此时会将窗口的右半边延伸至 T&#x3D;6 处，确保迟到数据能处理完成（但也不绝对，有可能就是延迟很久，需要做权衡）</p>
+<h3 id="水位线作用"><a href="#水位线作用" class="headerlink" title="水位线作用"></a>水位线作用</h3><p>水位线允许我们在结果的<strong>准确性和延迟之间做出取舍</strong>。</p>
+<h4 id="水位线的特性"><a href="#水位线的特性" class="headerlink" title="水位线的特性"></a>水位线的特性</h4><ul>
+<li>水位线是插入到数据流中的一个标记，可以认为是一个特殊的数据</li>
+<li>水位线主要的内容是一个时间戳，用来表示当前事件时间的进展</li>
+<li>水位线是基于数据的时间戳生成的</li>
+<li>水位线的时间戳必须单调递增，以确保任务的事件时间时钟一直向前推进</li>
+<li>水位线可以通过设置延迟，来保证正确处理乱序数据</li>
+</ul>
+<h2 id="水位线生成"><a href="#水位线生成" class="headerlink" title="水位线生成"></a>水位线生成</h2><h3 id="水位线的生成原则"><a href="#水位线的生成原则" class="headerlink" title="水位线的生成原则"></a>水位线的生成原则</h3><p>从上面我们了解到，如果存在迟到数据，那对我们水位线的生成是有影响的，那我们怎么能保证我们未来不会出现一个超级迟到数据呢？所以一种做法是，可以单独创建一个 Flink 作业来监控事件流，建立概率分布或者机器学习模型，学习事件的迟到规律。得到分布规律之后，就可以选择置信区间来确定延迟，作为水位线的生成策略了。例如，如果得到数据的迟到时间服从 μ&#x3D;1，σ&#x3D;1 的正态分布，那么设置水位线延迟为 3 秒，就可以保证至少 97.7%的数据可以正确处理。</p>
+<p>如果我们希望计算结果能更加准确，那可以将水位线的延迟设置得更高一些，等待的时间越长，自然也就越不容易漏掉数据。不过这样做的代价是处理的实时性降低了，我们可能为极少数的迟到数据增加了很多不必要的延迟。</p>
+<p>如果我们希望处理得更快、实时性更强，那么可以将水位线延迟设得低一些。这种情况下，可能很多迟到数据会在水位线之后才到达，就会导致窗口遗漏数据，计算结果不准确。对于这些 “漏网之鱼”，Flink 另外提供了窗口处理迟到数据的方法，我们会在后面介绍。当然，如果我们对准确性完全不考虑、一味地追求处理速度，可以直接使用处理时间语义，这在理论上可以得到最低的延迟。</p>
+<h3 id="水位线的生成策略-watermarkStrategy"><a href="#水位线的生成策略-watermarkStrategy" class="headerlink" title="水位线的生成策略 (watermarkStrategy)"></a>水位线的生成策略 (watermarkStrategy)</h3><p>在 Flink 的 DataStream API 中，有一个单独用于生成水位线的方法：<code>.assignTimestampsAndWatermarks()</code> ，它主要用来为流中的数据分配时间戳，并生成水位线来指示事件时间：</p>
+<p><code>assignTimestampsAndWatermarks</code> 源码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> SingleOutputStreamOperator&lt;T&gt; <span class="hljs-title function_">assignTimestampsAndWatermarks</span> <span class="hljs-params">(</span><br><span class="hljs-params">	WatermarkStrategy&lt;T&gt; watermarkStrategy)</span><br></code></pre></td></tr></table></figure>
+
+<p>可以看到，这个方法接收了一个 <code>WatermarkStrategy</code> 类型的参数，并且返回一个 <code>SingleOutputStreamOperator</code>。</p>
+<p><code>WatermarkStrategy</code> 就是所谓的 <strong>水位线生成策略</strong> 。 <code>WatermarkStrategy</code> 中包含了一个 <strong>时间戳分配器</strong> <code>TimestampAssigner</code> 和一个 <strong>水位线生成器</strong>  <code>WatermarkGenerator</code>。</p>
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221205013809.png" srcset="/img/loading.gif" lazyload width = "70%" />
+
+<p>时间戳和水位线通常都是在数据流刚刚进入流处理应用的时候分配和生成的。</p>
+<ul>
+<li><p><code>TimestampAssigner</code> ：时间戳分配器, 主要负责从流中数据元素的某个字段中提取时间戳，并分配给元素。时间戳的分配是生成水位线的基础。</p>
+<p>  这里可能有疑惑：不是说数据里已经有时间戳了吗，为什么这里还要“分配”呢？这是因为原始的时间戳只是写入日志数据的一个字段，如果不提取出来并明确把它分配给数据， <code>Flink</code> 是无法知道数据真正产生的时间的。当然，有些时候数据源本身就提供了时间戳信息，比如读取 <code>Kafka</code> 时，我们就可以从 <code>Kafka</code> 数据中直接获取时间戳，而不需要单独提取字段分配了。</p>
+</li>
+<li><p><code>WatermarkGenerator</code> ：水位线生成器, 主要负责按照既定的方式，基于时间戳生成水位线。在 <code>WatermarkGenerator</code> 接口中，主要又有两个方法：<code>onEvent()</code> 和 <code>onPeriodicEmit()</code>。这两个方法就对应了我们之前说的周期性生成和事件性生成</p>
+</li>
+</ul>
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221205014130.png" srcset="/img/loading.gif" lazyload width = "50%" />
+    - `onEvent()` ：每个事件(数据)到来都会调用的方法，它的参数有当前事件、时间戳，以及允许发出水位线的一个 `WatermarkOutput`，可以基于事件做各种操作
+    - `onPeriodicEmit()` ：周期性调用的方法，可以由 `WatermarkOutput` 发出水位线。周期时间为处理时间，可以调用环境配置的 . `setAutoWatermarkInterval()` 方法来设置，默认为 200ms。
+
+<p>需要注意的是， <code>WatermarksStrategy</code> 是一个接口，无法直接 <code>new</code>，因此若是要自己实现这个接口还是比较麻烦，因此对于一般应用我们不会自己去实现这个接口，<code>flink</code> 会有内置的方法。</p>
+<p>我们先来看看 <code>WatermarkStrategy</code> 接口的方法 (<code>cmd+F12</code>)</p>
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221205011630.png" srcset="/img/loading.gif" lazyload width = "50%" />
+
+<p>重点关注其中的 <code>forBoundedOutOfOrderness</code> 和 <code>forMonotonousTimestamps</code>，这两个方法直接返回了两种不同类型的 <code>WatermarkStrategy</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// forBoundedOutOfOrderness</span><br><span class="hljs-keyword">static</span> &lt;T&gt; WatermarkStrategy&lt;T&gt; <span class="hljs-title function_">forBoundedOutOfOrderness</span><span class="hljs-params">(Duration maxOutOfOrderness)</span> &#123;  <br>    <span class="hljs-keyword">return</span> (ctx) -&gt; &#123;  <br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BoundedOutOfOrdernessWatermarks</span>(maxOutOfOrderness);  <br>    &#125;;  <br>&#125;<br><br><span class="hljs-comment">// forMonotonousTimestamps</span><br><span class="hljs-keyword">static</span> &lt;T&gt; WatermarkStrategy&lt;T&gt; <span class="hljs-title function_">forMonotonousTimestamps</span><span class="hljs-params">()</span> &#123;  <br>    <span class="hljs-keyword">return</span> (ctx) -&gt; &#123;  <br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">AscendingTimestampsWatermarks</span>();  <br>    &#125;;  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这两个方法提供了一个对应的实现，从名字可以看出来，<code>forBoundedOutOfOrderness</code> 方法是用来获取处理乱序数据的 <code>WatermarkStrategy</code> 的，同样的，另一个方法 <code>forMonotonousTimestamps</code> 是用来处理顺序（单调）数据的，同样返回一个 <code>WatermarkStrategy</code>。</p>
+<p>当然，最通用的就是使用这个类然后实现 <code>WatermarkStrategy</code> 接口。具体使用时，直接用 DataStream 调用该方法即可，与普通的 transform 方法完全一样，下面就是一个典型的用法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">DataStream&lt;Event&gt; stream = env.addSource (<span class="hljs-keyword">new</span> <span class="hljs-title class_">ClickSource</span>());<br>DataStream&lt;Event&gt; withTimestampsAndWatermarks = stream. assignTimestampsAndWatermarks (&lt;watermark strategy&gt;);<br></code></pre></td></tr></table></figure>
+
+<h4 id="有序流水位线的生成方式"><a href="#有序流水位线的生成方式" class="headerlink" title="有序流水位线的生成方式"></a>有序流水位线的生成方式</h4><p>经过上面我们知道，有序流的水位线生成有下面这个方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">WatermarkStrategy.&lt;T&gt;forMonotonousTimestamps()<br></code></pre></td></tr></table></figure>
+
+<p>举例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;  <br>    <span class="hljs-type">StreamExecutionEnvironment</span> <span class="hljs-variable">env</span> <span class="hljs-operator">=</span> StreamExecutionEnvironment.getExecutionEnvironment();  <br>    env.setParallelism(<span class="hljs-number">1</span>);  <br>    env.getConfig().setAutoWatermarkInterval(<span class="hljs-number">100</span>);  <br>  <br>    env.fromElements(  <br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">Event</span>(<span class="hljs-string">&quot;Mary&quot;</span>, <span class="hljs-string">&quot;./home&quot;</span>, <span class="hljs-number">1000L</span>),  <br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">Event</span>(<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-string">&quot;./cart&quot;</span>, <span class="hljs-number">2000L</span>),  <br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">Event</span>(<span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-string">&quot;./prod?id=100&quot;</span>, <span class="hljs-number">3000L</span>),  <br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">Event</span>(<span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-string">&quot;./prod?id=200&quot;</span>, <span class="hljs-number">3500L</span>),  <br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">Event</span>(<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-string">&quot;./prod?id=2&quot;</span>, <span class="hljs-number">2500L</span>),  <br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">Event</span>(<span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-string">&quot;./prod?id=300&quot;</span>, <span class="hljs-number">3600L</span>),  <br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">Event</span>(<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-string">&quot;./home&quot;</span>, <span class="hljs-number">3000L</span>),  <br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">Event</span>(<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-string">&quot;./prod?id=1&quot;</span>, <span class="hljs-number">2300L</span>),  <br>            <span class="hljs-keyword">new</span> <span class="hljs-title class_">Event</span>(<span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-string">&quot;./prod?id=3&quot;</span>, <span class="hljs-number">3300L</span>))  <br>            <span class="hljs-comment">// 有序流的watermark生成，一般做测试用  </span><br>            .assignTimestampsAndWatermarks( WatermarkStrategy.&lt;Event&gt;forMonotonousTimestamps()  <br>                    .withTimestampAssigner(<span class="hljs-keyword">new</span> <span class="hljs-title class_">SerializableTimestampAssigner</span>&lt;Event&gt;() &#123;  <br>                        <span class="hljs-meta">@Override</span>  <br>                        <span class="hljs-keyword">public</span> <span class="hljs-type">long</span> <span class="hljs-title function_">extractTimestamp</span><span class="hljs-params">(Event event, <span class="hljs-type">long</span> l)</span> &#123;  <br>                            <span class="hljs-keyword">return</span> event.timestamp;  <br>                        &#125;  <br>                    &#125;)) ;  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>可以看到，使用了 <code>flink</code> 内置的 <code>forMonotonousTimestamps()</code> 方法返回一个有序流的 <code>WatermarkStrategy</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">static</span> &lt;T&gt; WatermarkStrategy&lt;T&gt; <span class="hljs-title function_">forMonotonousTimestamps</span><span class="hljs-params">()</span> &#123;  <br>    <span class="hljs-keyword">return</span> (ctx) -&gt; &#123;  <br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">AscendingTimestampsWatermarks</span>();  <br>    &#125;;  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这里就是<br>进一步的，来看 <code>AscendingTimestampsWatermarks()</code> ：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Public</span>  <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AscendingTimestampsWatermarks</span>&lt;T&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title class_">BoundedOutOfOrdernessWatermarks</span>&lt;T&gt; &#123;  <br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">AscendingTimestampsWatermarks</span><span class="hljs-params">()</span> &#123;  <br>        <span class="hljs-built_in">super</span>(Duration.ofMillis(<span class="hljs-number">0L</span>));  <br>    &#125;  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>并且生成 <code>WatermarkStrategy</code> 之后还需要实现一个 <code>.withTimestampsAssigner</code> 方法，这个方法是为了</p>
 <p>生成水位线可以由以下三种方式指定：</p>
 <ol>
 <li><p>在数据源完成</p>
@@ -380,11 +422,20 @@
 </li>
 </ol>
 <h3 id="周期性水位线分配器"><a href="#周期性水位线分配器" class="headerlink" title="周期性水位线分配器"></a>周期性水位线分配器</h3><p>周期性分配水位线的含义是我们会指示系统以固定的机器时间间隔来发出水位线并推动事件时间前进。</p>
-<h4 id="举例-1"><a href="#举例-1" class="headerlink" title="举例"></a>举例</h4><p>设置每 5 秒发出一次水位线</p>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><p>设置每 5 秒发出一次水位线</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">val</span> env: <span class="hljs-type">StreamExecutionEnvironment</span> = <span class="hljs-type">StreamExecutionEnvironment</span>.getExecutionEnvironment<br><br>env.setStreamTimeCharacteristic(<span class="hljs-type">TimeCharacteristic</span>.<span class="hljs-type">EventTime</span>)<br><span class="hljs-comment">// 每5秒生成一次水位线</span><br>env.getConfig.setAutoWatermarkInterval(<span class="hljs-number">5000</span>)<br></code></pre></td></tr></table></figure>
 
 <p>实际上，Flink 会每隔 5 秒调用一次 AssignerWithPeriodWatermarks 中的 getCurrentWatermark()方法。如果该方法返回值非空，且时间戳大于上一个水位线的时间戳，那么算子就会发出一个新的水位线。</p>
-
+<h2 id="水位线的传播"><a href="#水位线的传播" class="headerlink" title="水位线的传播"></a>水位线的传播</h2><p>当任务接收到一个水位线时会执行以下操作：</p>
+<ol>
+<li>基于水位线记录的时间戳更新内部时间时钟</li>
+<li>任务的时间服务会找出所有触发时间小于更新后事件时间的计时器。对于每个到期的计时器，调用回调函数，利用它来执行计算或发出记录</li>
+<li>任务根据更新后的事件时间将水位线发出</li>
+</ol>
+<p>Flink 会将数据流划分为不同的分区，并将它们交由不同的算子任务来并行执行。每个分区作为一个数据流，都会包含带有时间戳的记录以及水位线。</p>
+<p>一个任务可能同时接受来自多个输入分区的记录和水位线，也可能需要将它们发送到多个输出分区。</p>
+<h3 id="举例-1"><a href="#举例-1" class="headerlink" title="举例"></a>举例</h3><p>一个 4 个输入分区和 3 个输出分区的任务在接收到水位线后对分区水位线和事件时钟的更新过程。</p>
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221205165654.png" srcset="/img/loading.gif" lazyload width = "50%" />
                 
               </div>
             
