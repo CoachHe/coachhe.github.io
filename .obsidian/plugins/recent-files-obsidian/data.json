@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "1.Channel",
+      "path": "source/_posts/编程语言/Java/Java语言/Java IO/1.Channel.md"
+    },
+    {
       "basename": "6 类文件结构",
       "path": "source/_posts/编程语言/Java/Java语言/JVM/6 类文件结构.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "1.3 HBase基本架构2 架构角色",
       "path": "source/_posts/大数据/Hadoop生态/HBase/1.3 HBase基本架构2 架构角色.md"
-    },
-    {
-      "basename": "1.3 HBase基本架构1 基本架构",
-      "path": "source/_posts/大数据/Hadoop生态/HBase/1.3 HBase基本架构1 基本架构.md"
     }
   ],
   "omittedPaths": [
