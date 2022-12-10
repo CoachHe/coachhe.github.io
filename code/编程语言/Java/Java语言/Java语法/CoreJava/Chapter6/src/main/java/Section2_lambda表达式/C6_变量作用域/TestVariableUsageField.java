@@ -36,5 +36,15 @@ public class TestVariableUsageField {
         };
         new Timer(delay, listener).start();
     }
-    
+
+    // 不合法的做法2，lambda表达式中引用的对象在外部可能会改变。
+    public static void repeat(String text, int count) {
+        for (int i = 0; i < count; i++) {
+            ActionListener listener = event -> {
+                System.out.println(i + ": " + text);
+
+            };
+            new Timer(1000, listener).start();
+        }
+    }
 }
