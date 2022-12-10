@@ -1,3 +1,10 @@
+---
+categories:
+  - 编程语言
+  - Java
+  - Java语言
+  - Java语法
+---
 --- 
 
 title: lambda表达式  
