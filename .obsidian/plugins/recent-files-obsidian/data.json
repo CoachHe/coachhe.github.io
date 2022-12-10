@@ -1,12 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "7 虚拟机类加载机制",
-      "path": "source/_posts/编程语言/Java/Java语言/JVM/7 虚拟机类加载机制.md"
+      "basename": "6 类文件结构",
+      "path": "source/_posts/编程语言/Java/Java语言/JVM/6 类文件结构.md"
+    },
+    {
+      "basename": "JVM.excalidraw",
+      "path": "source/_posts/编程语言/Java/Java语言/JVM/图示/JVM.excalidraw.md"
     },
     {
       "basename": "8 虚拟机字节码执行引擎",
       "path": "source/_posts/编程语言/Java/Java语言/JVM/8 虚拟机字节码执行引擎.md"
+    },
+    {
+      "basename": "7 虚拟机类加载机制",
+      "path": "source/_posts/编程语言/Java/Java语言/JVM/7 虚拟机类加载机制.md"
     },
     {
       "basename": "1. 接口",
@@ -191,14 +199,6 @@
     {
       "basename": "1.3 HBase基本架构1 基本架构",
       "path": "source/_posts/大数据/Hadoop生态/HBase/1.3 HBase基本架构1 基本架构.md"
-    },
-    {
-      "basename": "1.2 HBase数据结构3 数据模型",
-      "path": "source/_posts/大数据/Hadoop生态/HBase/1.2 HBase数据结构3 数据模型.md"
-    },
-    {
-      "basename": "1.2 HBase数据结构2 HBase 物理存储结构",
-      "path": "source/_posts/大数据/Hadoop生态/HBase/1.2 HBase数据结构2 HBase 物理存储结构.md"
     }
   ],
   "omittedPaths": [
