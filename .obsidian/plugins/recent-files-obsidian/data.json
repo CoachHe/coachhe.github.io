@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "APUE-4-文件和目录",
+      "path": "source/_posts/计算机/Linux/APUE/APUE-4-文件和目录.md"
+    },
+    {
+      "basename": "APUE-3-文件IO",
+      "path": "source/_posts/计算机/Linux/APUE/APUE-3-文件IO.md"
+    },
+    {
       "basename": "APUE-5-标准IO库",
       "path": "source/_posts/计算机/Linux/APUE/APUE-5-标准IO库.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "2 Kafka常见命令",
       "path": "source/_posts/大数据/MQ/KafKa/2 Kafka常见命令.md"
-    },
-    {
-      "basename": "1.3 HBase基本架构2 架构角色",
-      "path": "source/_posts/大数据/Hadoop生态/HBase/1.3 HBase基本架构2 架构角色.md"
-    },
-    {
-      "basename": "1.3 HBase基本架构1 基本架构",
-      "path": "source/_posts/大数据/Hadoop生态/HBase/1.3 HBase基本架构1 基本架构.md"
     }
   ],
   "omittedPaths": [

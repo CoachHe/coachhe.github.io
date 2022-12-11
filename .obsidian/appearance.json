@@ -1,10 +1,12 @@
 {
   "baseFontSize": 17,
-  "cssTheme": "Deep Work",
+  "cssTheme": "",
   "theme": "moonstone",
   "enabledCssSnippets": [
     "minimal-plus"
   ],
   "translucency": false,
-  "accentColor": ""
+  "accentColor": "",
+  "interfaceFontFamily": "Times New Roman",
+  "textFontFamily": "新宋体"
 }
