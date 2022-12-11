@@ -32,9 +32,11 @@ ssize_t recvfrom(int sockfd, void *buff, size_t nbytes, int flags,
 ssize_t sendto(int sockfd, const void *buff, size_t nbytes, int flags, 
 	const struct sockaddr *to, socklen_t *addrlen);
 
-// 均返回：若成功则为读或写的字节数。若出则则为-1
+// 均返回：若成功则为读或写的字节数。若出错则为-1
 ```
 
 可以看到，两个函数很像，其中前三个参数 `sockfd`、 `buff` 和 `nbytes` 等同于 `read` 和 `write` 函数的三个参数：描述符、指向读入或写出缓冲区的指针和读写字节数。
+
+`flags` 参数将在[[第14章 高级IO函数]]中讨论 `recv`、`send`、 `recvmsg` 和 `sendmsg` 等函数时再介绍，本章中重写简单的 `UDP` 回射客户/服务器程序用不若它们。时下我们总是把 `flags` 置为 0。
 
 
