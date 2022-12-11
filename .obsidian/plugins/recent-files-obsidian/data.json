@@ -5,16 +5,24 @@
       "path": "source/_posts/计算机/Linux/网络编程/UNP/第6章 IO复用：Select和poll函数.md"
     },
     {
-      "basename": "第4章 基本TCP套接字编程",
-      "path": "source/_posts/计算机/Linux/网络编程/UNP/第4章 基本TCP套接字编程.md"
+      "basename": "1. Java NIO概述",
+      "path": "source/_posts/编程语言/Java/Java语言/Java IO/1. Java NIO概述.md"
+    },
+    {
+      "basename": "2. Channel",
+      "path": "source/_posts/编程语言/Java/Java语言/Java IO/2. Channel.md"
+    },
+    {
+      "basename": "第14章 高级IO函数",
+      "path": "source/_posts/计算机/Linux/网络编程/UNP/第14章 高级IO函数.md"
     },
     {
       "basename": "第8章 基本UDP套接字编程",
       "path": "source/_posts/计算机/Linux/网络编程/UNP/第8章 基本UDP套接字编程.md"
     },
     {
-      "basename": "第14章 高级IO函数",
-      "path": "source/_posts/计算机/Linux/网络编程/UNP/第14章 高级I/第14章 高级IO函数.md"
+      "basename": "第4章 基本TCP套接字编程",
+      "path": "source/_posts/计算机/Linux/网络编程/UNP/第4章 基本TCP套接字编程.md"
     },
     {
       "basename": "APUE-4-文件和目录",
@@ -27,10 +35,6 @@
     {
       "basename": "APUE-5-标准IO库",
       "path": "source/_posts/计算机/Linux/APUE/APUE-5-标准IO库.md"
-    },
-    {
-      "basename": "1.Channel",
-      "path": "source/_posts/编程语言/Java/Java语言/Java IO/1.Channel.md"
     },
     {
       "basename": "2. lambda表达式",
@@ -195,10 +199,6 @@
     {
       "basename": "8 Flink容错机制",
       "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/8 Flink容错机制.md"
-    },
-    {
-      "basename": "7.2 Flink的状态管理-实例",
-      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/7.2 Flink的状态管理-实例.md"
     }
   ],
   "omittedPaths": [

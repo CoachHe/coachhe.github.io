@@ -128,5 +128,12 @@ tags: []
 ## 同步 I/O 和异步 I/O 的对比
 
 posix 把这两个术语定义如下：
-同步 I/O 操作（synchronous I/O opetation）导致请求进程阻塞，直到 1/0 操作完成；
-•异步 I/O 操作（asynchronous 1/0opetation）不导致请求进程阻塞。
+- 同步 I/O 操作（synchronous I/O opetation）导致请求进程阻塞，直到 I/0 操作完成；
+- 异步 I/O 操作（asynchronous 1/0opetation）不导致请求进程阻塞。
+
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211212926.png" width = "70%" />
+
+根据上述定义，我们的前 4 种模型——阻塞式 I/O 模型、非阻塞式 I/O 模型、I/O 复用模型和信
+号驱动式 1/0 模型都是同步 I/O 模型，因为其中真正的 I/O 操作 （`recvfrom`）将阻塞进程。只有异
+步 1/0 模型与 POSIX 定义的异步 I/O 相匹配。
+
