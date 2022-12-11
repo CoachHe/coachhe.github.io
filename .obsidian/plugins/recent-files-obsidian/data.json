@@ -5,6 +5,10 @@
       "path": "source/_posts/计算机/Linux/网络编程/UNP/第8章 基本UDP套接字编程.md"
     },
     {
+      "basename": "第4章 基本TCP套接字编程",
+      "path": "source/_posts/计算机/Linux/网络编程/UNP/第4章 基本TCP套接字编程.md"
+    },
+    {
       "basename": "第6章 IO复用：Select和poll函数",
       "path": "source/_posts/计算机/Linux/网络编程/UNP/第6章 IO复用：Select和poll函数.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "4.Apache Flink架构",
       "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/4.Apache Flink架构.md"
-    },
-    {
-      "basename": "2.Dataflow编程概述",
-      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/2.Dataflow编程概述.md"
     }
   ],
   "omittedPaths": [

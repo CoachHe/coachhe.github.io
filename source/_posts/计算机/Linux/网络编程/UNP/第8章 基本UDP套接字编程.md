@@ -15,5 +15,8 @@ tags: []
 
 <img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211190413.png" width = "70%" />
 
+上图可以跟第四章 [[第4章 基本TCP套接字编程]]中 TCP 的函数调用图做个比较，可以看出是完全不同的。
+
+# 2. recvfrom 和 sendto 函数
 
 
