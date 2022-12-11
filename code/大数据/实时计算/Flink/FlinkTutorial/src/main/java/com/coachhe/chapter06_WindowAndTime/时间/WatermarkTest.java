@@ -13,21 +13,6 @@ import java.time.Duration;
  **/
 public class WatermarkTest {
 
-
-    static <T> WatermarkStrategy<T> forMonotonousTimestamps() {
-        return (ctx) -> {return new AscendingTimestampsWatermarks<T>();};
-    }
-
-    static <T> WatermarkStrategy<T> forMonotonousTimestamps2() {
-        return new WatermarkStrategy<T>() {
-            @Override
-            public WatermarkGenerator<T> createWatermarkGenerator(WatermarkGeneratorSupplier.Context context) {
-                return new AscendingTimestampsWatermarks<>();
-            }
-        };
-    }
-
-
     public static void main(String[] args) throws Exception {
 
 
@@ -65,7 +50,7 @@ public class WatermarkTest {
                 .assignTimestampsAndWatermarks(new WatermarkStrategy<Event>() {
                     @Override
                     public WatermarkGenerator<Event> createWatermarkGenerator(WatermarkGeneratorSupplier.Context context) {
-                        return null;
+                        return new CustomBoundedOutOfOrdernessGenerator();
                     }
                 }.withTimestampAssigner(new SerializableTimestampAssigner<Event>() {
                     @Override
@@ -73,8 +58,23 @@ public class WatermarkTest {
                         return event.timestamp;
                     }
                 }));
+    }
+}
 
+class CustomBoundedOutOfOrdernessGenerator implements WatermarkGenerator<Event> {
 
+    private Long delayTime = 5000L; // 延迟时间
+    private Long maxTx = -Long.MAX_VALUE + delayTime + 1L; // 观察到的最大时间
 
+    @Override
+    public void onEvent(Event event, long l, WatermarkOutput watermarkOutput) {
+        // 每来一条数据就调用一次
+        maxTx = Math.max(event.timestamp, maxTx); // 更新最大时间戳
+    }
+
+    @Override
+    public void onPeriodicEmit(WatermarkOutput watermarkOutput) {
+        // 发射水位线，默认200ms调用一次
+        watermarkOutput.emitWatermark(new Watermark(maxTx - delayTime - 1L));
     }
 }
