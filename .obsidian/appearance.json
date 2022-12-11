@@ -1,12 +1,13 @@
 {
   "baseFontSize": 17,
-  "cssTheme": "",
-  "theme": "moonstone",
+  "cssTheme": "Things",
+  "theme": "obsidian",
   "enabledCssSnippets": [
     "minimal-plus"
   ],
   "translucency": false,
   "accentColor": "",
   "interfaceFontFamily": "Times New Roman",
-  "textFontFamily": "新宋体"
+  "textFontFamily": "宋体",
+  "monospaceFontFamily": "Courier New"
 }

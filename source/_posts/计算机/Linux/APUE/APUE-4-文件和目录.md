@@ -92,12 +92,17 @@ struct stat {
 #### **注意**
 linux的stat.h头文件的目录在/usr/include/stat.h
 macos的stat.h头文件的目录在/Library/Developer/CommanLineTools/SDKs/MacOSX10.14.sdk/usr/include/sys
-![](https://pic.downk.cc/item/5fc63661f81f7e3bd97ee74a.jpg)
+
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211170049.png" width = "50%" />
+
 可以看到，除了中间部分不同，其余都是一样的。
 
 ### lstat和stat的区别
+
 对于除了软链接情况下的所有情况lstat和stat都是相同的，但是对于软链接情况，lstat表示的是**当前文件**的文件类型，stat表示的是**指向的文件**的文件类型。
+
 ![](https://pic.downk.cc/item/5fc63707f81f7e3bd97f5223.jpg)
+
 可以看到，原来的lstat版本表明stdout文件时一个软链接，改动后的stat版本表示stat是一个特殊字符类型。
 
 
