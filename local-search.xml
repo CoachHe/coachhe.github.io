@@ -4,17 +4,73 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2022/12/8cc265bcdcd3.html"/>
-    <url>/2022/12/8cc265bcdcd3.html</url>
+    <title>第14章 高级IO函数</title>
+    <link href="/2022/12/cb14cfae6bd7.html"/>
+    <url>/2022/12/cb14cfae6bd7.html</url>
     
-    <content type="html"><![CDATA[<hr><p>title: 1. Java NIO概述<br>date: 2022-12-11 21:35:27<br>tags: []  </p><hr>]]></content>
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机</category>
+      
+      <category>Linux</category>
+      
+      <category>网络编程</category>
+      
+      <category>UNP</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>第4章 基本TCP套接字编程</title>
+    <link href="/2022/12/eecab71e8529.html"/>
+    <url>/2022/12/eecab71e8529.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h1><h1 id="2-Socket-函数"><a href="#2-Socket-函数" class="headerlink" title="2. Socket 函数"></a>2. Socket 函数</h1><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211191104.png" width = "70%" />]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机</category>
+      
+      <category>Linux</category>
+      
+      <category>网络编程</category>
+      
+      <category>UNP</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>2. Channel</title>
+    <link href="/2022/12/91926d42388f.html"/>
+    <url>/2022/12/91926d42388f.html</url>
+    
+    <content type="html"><![CDATA[<h1 id="1-Channel-概述"><a href="#1-Channel-概述" class="headerlink" title="1. Channel 概述"></a>1. Channel 概述</h1><h1 id="2-FileChannel（介绍和用例）"><a href="#2-FileChannel（介绍和用例）" class="headerlink" title="2. FileChannel（介绍和用例）"></a>2. FileChannel（介绍和用例）</h1><h1 id="3-FileChannel-详解"><a href="#3-FileChannel-详解" class="headerlink" title="3. FileChannel 详解"></a>3. FileChannel 详解</h1>]]></content>
     
     
     <categories>
       
       <category>编程语言</category>
       
+      <category>Java</category>
+      
+      <category>Java语言</category>
+      
+      <category>Java IO</category>
+      
     </categories>
     
     
@@ -23,35 +79,22 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2022/12/42e6e4becbc6.html"/>
-    <url>/2022/12/42e6e4becbc6.html</url>
+    <title>1. Java NIO概述</title>
+    <link href="/2022/12/77f8a48c1813.html"/>
+    <url>/2022/12/77f8a48c1813.html</url>
     
-    <content type="html"><![CDATA[<hr><p>title: 2. Channel<br>date: 2022-12-11 21:35:36<br>tags: []  </p><hr><h1 id="1-Channel-概述"><a href="#1-Channel-概述" class="headerlink" title="1. Channel 概述"></a>1. Channel 概述</h1><h1 id="2-FileChannel（介绍和用例）"><a href="#2-FileChannel（介绍和用例）" class="headerlink" title="2. FileChannel（介绍和用例）"></a>2. FileChannel（介绍和用例）</h1><h1 id="3-FileChannel-详解"><a href="#3-FileChannel-详解" class="headerlink" title="3. FileChannel 详解"></a>3. FileChannel 详解</h1>]]></content>
+    <content type="html"><![CDATA[]]></content>
     
     
     <categories>
       
       <category>编程语言</category>
       
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title></title>
-    <link href="/2022/12/2a16cc41cbd8.html"/>
-    <url>/2022/12/2a16cc41cbd8.html</url>
-    
-    <content type="html"><![CDATA[<hr><p>title: 第14章 高级IO函数<br>date: 2022-12-11 21:35:59<br>tags: []  </p><hr>]]></content>
-    
-    
-    <categories>
+      <category>Java</category>
       
-      <category>计算机</category>
+      <category>Java语言</category>
+      
+      <category>Java IO</category>
       
     </categories>
     
@@ -61,16 +104,22 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2022/12/c0277ca53539.html"/>
-    <url>/2022/12/c0277ca53539.html</url>
+    <title>第8章 基本UDP套接字编程</title>
+    <link href="/2022/12/c002a6a00838.html"/>
+    <url>/2022/12/c002a6a00838.html</url>
     
-    <content type="html"><![CDATA[<hr><p>title: 第4章 基本TCP套接字编程<br>date: 2022-12-11 21:35:44<br>tags: []  </p><hr><h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h1><h1 id="2-Socket-函数"><a href="#2-Socket-函数" class="headerlink" title="2. Socket 函数"></a>2. Socket 函数</h1><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211191104.png" width = "70%" />]]></content>
+    <content type="html"><![CDATA[<h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h1><p>在使用 TCP 编写的应用程序和使用 UDP 编写的应用程序之间存在一些本质差异，其原因在<br>于这两个传输层之间的差别：UDP 是无连接不可靠的数据报协议，非常不同于 TCP 提供的面向连接的可靠字节流。然而相比 TCP, 有些场合确实更适合使用 UDP</p><p>这里给出典型的 UDP 客户&#x2F;服务器程序的函数调用。客户不与服务器建立连接，而是只管使用 <code>sendto</code> 函数给服务器发送数据报，其中必须指定目的地（即服务器）。类似的，服务器不接受来自客户端的连接，而是只管调用 <code>recvfrom</code> 函数，等待来自某个客户的数据到达。</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211190413.png" width = "70%" /><p>上图可以跟第四章 [[第4章 基本TCP套接字编程]]中 TCP 的函数调用图做个比较，可以看出是完全不同的。</p><h1 id="2-recvfrom-和-sendto-函数"><a href="#2-recvfrom-和-sendto-函数" class="headerlink" title="2. recvfrom 和 sendto 函数"></a>2. recvfrom 和 sendto 函数</h1><p>这两个函数类似于标准的 <code>read</code> 和 <code>write</code> 函数，不过需要三个额外的参数。类似于在网络环境中执行 <code>read</code> 和 <code>write</code>，因此需要一些额外的指定网络环境的参数。</p><p>来看下 <code>recvfrom</code> 和 <code>sendto</code> 的源代码：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/socket.h&gt;</span></span><br><br><span class="hljs-type">ssize_t</span> <span class="hljs-title function_">recvfrom</span><span class="hljs-params">(<span class="hljs-type">int</span> sockfd, <span class="hljs-type">void</span> *buff, <span class="hljs-type">size_t</span> nbytes, <span class="hljs-type">int</span> flags, </span><br><span class="hljs-params"><span class="hljs-keyword">struct</span> sockaddr *from, <span class="hljs-type">socklen_t</span> *addrlen)</span>;<br><br><span class="hljs-type">ssize_t</span> <span class="hljs-title function_">sendto</span><span class="hljs-params">(<span class="hljs-type">int</span> sockfd, <span class="hljs-type">const</span> <span class="hljs-type">void</span> *buff, <span class="hljs-type">size_t</span> nbytes, <span class="hljs-type">int</span> flags, </span><br><span class="hljs-params"><span class="hljs-type">const</span> <span class="hljs-keyword">struct</span> sockaddr *to, <span class="hljs-type">socklen_t</span> *addrlen)</span>;<br><br><span class="hljs-comment">// 均返回：若成功则为读或写的字节数。若出错则为-1</span><br></code></pre></td></tr></table></figure><p>可以看到，两个函数很像，其中前三个参数 <code>sockfd</code>、 <code>buff</code> 和 <code>nbytes</code> 等同于 <code>read</code> 和 <code>write</code> 函数的三个参数：描述符、指向读入或写出缓冲区的指针和读写字节数。</p><p><code>flags</code> 参数将在[[第14章 高级IO函数]]中讨论 <code>recv</code>、<code>send</code>、 <code>recvmsg</code> 和 <code>sendmsg</code> 等函数时再介绍，本章中重写简单的 <code>UDP</code> 回射客户&#x2F;服务器程序用不若它们。时下我们总是把 <code>flags</code> 置为 0。</p><p><code>sendto</code> 的 <code>to</code> 参数指向一个含有数据报接收者的协议地址（例如 IP 地址及端口号）的套接字地址结构，其大小由 <code>addrlen</code> 参数指定。<code>recvfrom</code> 的 <code>from</code> 参数指向一个将由该函数在返回时境写数据报发送者的协议地址的套接字地址结构，而在该套接字地址结构中填写的字节数则放在 <code>addrlen</code>  参数所指的整数中返回给调用者。注意，<code>sendto</code> 的最后一个参数是一个整数值，而 <code>recvfrom</code> 的最后一个参数是一个指向整数值的指针（即值-结果参数）。</p><p>这两个函数都把所读写数据的长度作为函数返回值。在 <code>recvfromt</code> 使用数据报协议的典型用途中，返回值就是所接收数据报中的用户数据量。</p>]]></content>
     
     
     <categories>
       
       <category>计算机</category>
+      
+      <category>Linux</category>
+      
+      <category>网络编程</category>
+      
+      <category>UNP</category>
       
     </categories>
     
@@ -80,35 +129,22 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2022/12/5861abcf7f9b.html"/>
-    <url>/2022/12/5861abcf7f9b.html</url>
+    <title>第6章 IO复用：Select和poll函数</title>
+    <link href="/2022/12/04b05bfd5170.html"/>
+    <url>/2022/12/04b05bfd5170.html</url>
     
-    <content type="html"><![CDATA[<hr><p>title: 第6章 IO复用：Select和poll函数<br>date: 2022-12-11 17:30:58<br>tags: []  </p><hr><h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h1><p>先来看一下 TCP 发送数据的流程：</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211174541.png" width = "50%" /><p>可以看到，两个应用直接发送信息时，分为三步：</p><ol><li>应用 A 把消息发送到缓冲区</li><li>TCP 发送缓冲区再把消息发送出去，经过网络传递后，消息会发送到 B 服务器的 TCP 接收缓冲区</li><li>应用 B 再从 TCP 接收缓冲区中去读取属于自己的数据。</li></ol><h2 id="区分阻塞-I-x2F-O-和非阻塞-I-x2F-O-呢？"><a href="#区分阻塞-I-x2F-O-和非阻塞-I-x2F-O-呢？" class="headerlink" title="区分阻塞 I&#x2F;O 和非阻塞 I&#x2F;O 呢？"></a>区分阻塞 I&#x2F;O 和非阻塞 I&#x2F;O 呢？</h2><p>通过上图我们知道了 TCP 发送数据的流程，那么什么是阻塞 I&#x2F;O 什么是非阻塞 I&#x2F;O 呢？</p><p>其实，所谓阻塞 IO 就是当应用 B 发起读取数据申请时，在内核数据没有准备好之前，应用 B 会一直处于等待数据状态，直到内核把数据准备好了交给应用 B 才结束。</p><p>所谓非阻塞 IO 就是当应用 B 发起读取数据申请时，如果内核数据没有准备好会即刻告诉应用 B，不会让 B 在这里等待。</p><h1 id="2-IO-模型"><a href="#2-IO-模型" class="headerlink" title="2. IO 模型"></a>2. IO 模型</h1><h2 id="UNIX-下可用的-5-种-I-x2F-O-模型的基本区别"><a href="#UNIX-下可用的-5-种-I-x2F-O-模型的基本区别" class="headerlink" title="UNIX 下可用的 5 种 I&#x2F;O 模型的基本区别"></a>UNIX 下可用的 5 种 I&#x2F;O 模型的基本区别</h2><ul><li>阻塞式 I&#x2F;O</li><li>非阻塞式 I&#x2F;O</li><li>I&#x2F;O 复用（<code>select</code> 和 <code>poll</code>）</li><li>信号驱动式 I&#x2F;O（SIGIO）</li><li>异步 I&#x2F;O（<code>POSIX</code> 的 <code>aio_</code> 系列函数）</li></ul><h2 id="2-1-阻塞式-I-x2F-O-模型"><a href="#2-1-阻塞式-I-x2F-O-模型" class="headerlink" title="2.1 阻塞式 I&#x2F;O 模型"></a>2.1 阻塞式 I&#x2F;O 模型</h2><p>最流行的 I&#x2F;O 模型是阻塞式 I&#x2F;O (blocking I&#x2F;O) 模型，目前为止的所有例子都使用该模型。默认情形下，所有套接字都是阻塞的，如下图：</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211200746.png" width = "70%" /><p>在上图中，进程调用 <code>recvfrom</code>, 其系统调用直到数据报到达且被复制到应用进程的缓冲区中或者发生错误才返回。最常见的错误是系统调用被信号中断。我们说进程在从调用 <code>recvfrom</code> 开始到它返回的整段时间内是被阻塞的。<code>recvfrom</code> 成功返回后，应用进程开始处理数据报。</p><h2 id="2-2-非阻塞式-I-x2F-O-模型"><a href="#2-2-非阻塞式-I-x2F-O-模型" class="headerlink" title="2.2 非阻塞式 I&#x2F;O 模型"></a>2.2 非阻塞式 I&#x2F;O 模型</h2><p>进程把一个套接字设没成非阻塞是在通知内核：当所请求的 I&#x2F;O 操作非得把本进程投入睡眠才能完成时，不要把本进程投入睡眠，而是返回一个错误。</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211201153.png" width = "70%" /><p>前三次调用 <code>recvfrom</code> 时没有数据返回，因此内核转而立即返回一个 <code>EWOULDBLOCK</code> 错误。第四次调用时已有一个数据报准备好，它被复制到应用程序缓冲区，于是 recvfrom 成功返回。我们接着处理数据。</p><p>当一个应用像这样对一个非阻塞描述符循环调用 <code>recvfrom</code> 时，我们称之为轮询（polling）。</p><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>应用程序持续轮询内核 ，以查看某个操作是否就绪。这么做往往消耗大量 CPU 时间，不过这种模型偶尔也会遇到，通常是在专门提供某一种功能的系统中才有。</p><h2 id="2-3-I-x2F-O-复用模型"><a href="#2-3-I-x2F-O-复用模型" class="headerlink" title="2.3 I&#x2F;O 复用模型"></a>2.3 I&#x2F;O 复用模型</h2><p>我们先思考一个问题：</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211202411.png" width = "80%" /><p>如图所示，如果有多个人同时往应用 B 发送消息，这种情况下应用 B 就必须创建多个线程去读取数据，每个线程都会自己去调用 <code>recvfrom</code> 去读取数据，那么并发情况下服务很可能一瞬间会收到几十上百万的请求，线程资源完全不可能跟得上，因此出现了 I&#x2F;O 复用，由一个线程监控多个网络请求，这样就可以只需要一个或几个线程就可以完成数据状态询问的操作，当有数据准备就绪之后再分配对应的线程去读取数据，这么做就可以节省出大量的线程资源出来。</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211202822.png" width = "70%" /><p>可以看到，有个专门的询问线程来轮询所有网络请求的数据是否准备完毕，若完毕则分配线程去执行 <code>recvfrom</code> 操作。</p><p>这其实就是我们常说的 <code>select</code>，<code>poll</code>、<code>epoll</code> 函数，有了这个函数后，应用程序通过调用 <code>select</code> 函数就可以同时监控多个网络 I&#x2F;O，<code>select</code> 函数监控的网络 I&#x2F;O 中只要有任何一个数据状态准备就绪了，<code>select</code> 函数就会返回刻度状态，这时询问线程再去通知处理数据的线程，对应线程此时再发起 <code>recvfrom</code> 请求去读取数据。</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211203133.png" width = "70%" /><h3 id="使用-select-的优缺点"><a href="#使用-select-的优缺点" class="headerlink" title="使用 select 的优缺点"></a>使用 select 的优缺点</h3><p>缺点：<br>由于使用 <code>select</code> 需要两个而不是一个系统调用（<code>select</code> + <code>poll</code>），I&#x2F;O 复用相比较于之前的阻塞 I&#x2F;O 和非阻塞 I&#x2F;O 甚至还稍有劣势。</p><p>优点：<br>使用 <code>select</code> 的优势在于我们可以等待多个描述符就绪，对下面描述的信号驱动 I&#x2F;O 模型很有帮助。</p><h2 id="2-4-信号驱动-I-x2F-O-模型"><a href="#2-4-信号驱动-I-x2F-O-模型" class="headerlink" title="2.4 信号驱动 I&#x2F;O 模型"></a>2.4 信号驱动 I&#x2F;O 模型</h2><p>复用 I&#x2F;O 模型解决了一个线程可以监控多个网络 I&#x2F;O 的问题，但是使用 <code>select</code> 方式时询问线程会采用轮询的方式来进行监控，这样其实大部分情况下都是无效的，因此衍生出了信号驱动 I&#x2F;O 模型。</p><p>信号驱动 I&#x2F;O 不是用循环请求询问的方式去监控数据就绪状态，而是当内核数据准备好之后再通知线程数据准备好后的可读状态，当线程收到可读状态的信号后，此时再向内核发起 <code>recvfrom</code> 读取数据的请求，因为信号驱动 IO 的模型下应用线程在发出信号监控后即可返回，不会阻塞，所以这样的方式下，一个应用线程也可以同时监控多个网络 I&#x2F;O。</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211204019.png" width = "70%" /><p>更具体的，在信号驱动 I&#x2F;O 模型中，我们先开启套接字的信号驱动式 I&#x2F;O 功能，并通过 <code>sigaction</code> 系统调用安装一个信号处理函数。该系统调用将立即返阿我们的进程继续工作，也就是说它没有被阻塞。当数据报准备好读取时，内核就为该进程产生一个 <code>SIGIO</code> 信号。我们随后既可以在信号处理函数中调用 <code>recvfrom</code> 读取数据报，并通知主循环数据已准备好待处理，也可以立即通知主循环，让它读取数据报。 </p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211203818.png" width = "70%" /><h2 id="2-5-异步-I-x2F-O-模型"><a href="#2-5-异步-I-x2F-O-模型" class="headerlink" title="2.5. 异步 I&#x2F;O 模型"></a>2.5. 异步 I&#x2F;O 模型</h2><p>上面描述的 4 中 I&#x2F;O 模式中，目前看来最好的就是信号驱动 I&#x2F;O 模型，但是我们发现，要读取一个数据总是要发起两阶段的请求，第一次发送 <code>select</code> 请求，询问数据是否准备好，第二次发送 <code>receform</code> 请求读取数据。</p><p>那么你有没有想过，是否有一种一劳永逸的方案，我只要发送一个请求告诉内核我要读取什么数据，然后我就不管了，剩下的事情由内核来帮我完成？</p><p>答案是存在的。这就是异步 I&#x2F;O 模型，在这种模型中，应用只需要向内核发送一个 <code>read</code> 请求, 告诉内核它要读取数据后即刻返回；内核收到请求后会建立一个信号联系，当数据准备就绪，内核会主动把数据从内核复制到用户空间，等所有操作都完成之后，内核会发起一个通知告诉应用，我们称这种一劳永逸的模式为异步 I&#x2F;O 模型。</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211211526.png" width = "70%" /><h3 id="工作机制"><a href="#工作机制" class="headerlink" title="工作机制"></a>工作机制</h3><p>告知内核启动某个操作，并让内核在整个操作（包括将数据从内核复制到我们自己的缓冲区）完成后通知我们。</p><h3 id="异步-I-x2F-O-和同步-I-x2F-O-的主要区别"><a href="#异步-I-x2F-O-和同步-I-x2F-O-的主要区别" class="headerlink" title="异步 I&#x2F;O 和同步 I&#x2F;O 的主要区别"></a>异步 I&#x2F;O 和同步 I&#x2F;O 的主要区别</h3><p>信号驱动式 I&#x2F;O 是由内核通知我们何时可以启动一个 I&#x2F;O 操作，而异步 I&#x2F;O 模型是由内核通知我们 I&#x2F;O 操作何时完成</p><p>也就是说，上面介绍的四种 I&#x2F;O 模型（阻塞 I&#x2F;O + 非阻塞 I&#x2F;O + I&#x2F;O 复用 + 信号驱动 I&#x2F;O），都是当数据准备好时内核通知我们可以去调用 <code>recvfrom</code> 方法去读取数据了，但是异步 I&#x2F;O 是当 I&#x2F;O 操作已经完成了之后才会给我们发送通知。</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211212115.png" width = "70%" /><p>我们调用 <code>aio</code>. <code>read</code> 函数（POSIX 异步 I&#x2F;O 函数以 <code>aio_</code> 或 <code>lio_</code> 开头），给内核传递描述符、缓冲区指针、缓冲区大小（与 <code>read</code> 相同的三个参数）和文件偏移（与 lseek 类似），并告诉内核当整个操作完成时如何通知我们。该系统调用立即返回，而且在等待 I&#x2F;O 完成期间，我们的进程不被阻塞。</p><h2 id="五种-I-x2F-O-模型的对比"><a href="#五种-I-x2F-O-模型的对比" class="headerlink" title="五种 I&#x2F;O 模型的对比"></a>五种 I&#x2F;O 模型的对比</h2><p>我们知道，一个 I&#x2F;O 操作一共有两个阶段：</p><ol><li>获取网络 I&#x2F;O 状态，确认是否可以读取</li><li>发送 <code>recvfrom</code> 系统调用来将数据获取至内核，然后将数据从内核复制到调用者的缓冲区</li></ol><p>前 4 种模型的主要区别在第一阶段，因为他们的第二阶段是相同的：从在数据从内核复制到调用者的缓冲区期间，进程阻塞与 <code>recvfrom</code> 调用。相反，异步 I&#x2F;O 模型在这两个阶段都要处理，从而不同于其他 4 种模型。</p><h2 id="同步-I-x2F-O-和异步-I-x2F-O-的对比"><a href="#同步-I-x2F-O-和异步-I-x2F-O-的对比" class="headerlink" title="同步 I&#x2F;O 和异步 I&#x2F;O 的对比"></a>同步 I&#x2F;O 和异步 I&#x2F;O 的对比</h2><p>posix 把这两个术语定义如下：</p><ul><li>同步 I&#x2F;O 操作（synchronous I&#x2F;O opetation）导致请求进程阻塞，直到 I&#x2F;0 操作完成；</li><li>异步 I&#x2F;O 操作（asynchronous 1&#x2F;0opetation）不导致请求进程阻塞。</li></ul><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211212926.png" width = "70%" /><p>根据上述定义，我们的前 4 种模型——阻塞式 I&#x2F;O 模型、非阻塞式 I&#x2F;O 模型、I&#x2F;O 复用模型和信<br>号驱动式 1&#x2F;0 模型都是同步 I&#x2F;O 模型，因为其中真正的 I&#x2F;O 操作 （<code>recvfrom</code>）将阻塞进程。只有异<br>步 1&#x2F;0 模型与 POSIX 定义的异步 I&#x2F;O 相匹配。</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>计算机</category>
-      
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title></title>
-    <link href="/2022/12/7cb68b53c38b.html"/>
-    <url>/2022/12/7cb68b53c38b.html</url>
-    
-    <content type="html"><![CDATA[<hr><p>title: 第8章 基本UDP套接字编程<br>date: 2022-12-11 19:04:39<br>tags: []  </p><hr><h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h1><p>在使用 TCP 编写的应用程序和使用 UDP 编写的应用程序之间存在一些本质差异，其原因在<br>于这两个传输层之间的差别：UDP 是无连接不可靠的数据报协议，非常不同于 TCP 提供的面向连接的可靠字节流。然而相比 TCP, 有些场合确实更适合使用 UDP</p><p>这里给出典型的 UDP 客户&#x2F;服务器程序的函数调用。客户不与服务器建立连接，而是只管使用 <code>sendto</code> 函数给服务器发送数据报，其中必须指定目的地（即服务器）。类似的，服务器不接受来自客户端的连接，而是只管调用 <code>recvfrom</code> 函数，等待来自某个客户的数据到达。</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211190413.png" width = "70%" /><p>上图可以跟第四章 [[第4章 基本TCP套接字编程]]中 TCP 的函数调用图做个比较，可以看出是完全不同的。</p><h1 id="2-recvfrom-和-sendto-函数"><a href="#2-recvfrom-和-sendto-函数" class="headerlink" title="2. recvfrom 和 sendto 函数"></a>2. recvfrom 和 sendto 函数</h1><p>这两个函数类似于标准的 <code>read</code> 和 <code>write</code> 函数，不过需要三个额外的参数。类似于在网络环境中执行 <code>read</code> 和 <code>write</code>，因此需要一些额外的指定网络环境的参数。</p><p>来看下 <code>recvfrom</code> 和 <code>sendto</code> 的源代码：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;sys/socket.h&gt;</span></span><br><br><span class="hljs-type">ssize_t</span> <span class="hljs-title function_">recvfrom</span><span class="hljs-params">(<span class="hljs-type">int</span> sockfd, <span class="hljs-type">void</span> *buff, <span class="hljs-type">size_t</span> nbytes, <span class="hljs-type">int</span> flags, </span><br><span class="hljs-params"><span class="hljs-keyword">struct</span> sockaddr *from, <span class="hljs-type">socklen_t</span> *addrlen)</span>;<br><br><span class="hljs-type">ssize_t</span> <span class="hljs-title function_">sendto</span><span class="hljs-params">(<span class="hljs-type">int</span> sockfd, <span class="hljs-type">const</span> <span class="hljs-type">void</span> *buff, <span class="hljs-type">size_t</span> nbytes, <span class="hljs-type">int</span> flags, </span><br><span class="hljs-params"><span class="hljs-type">const</span> <span class="hljs-keyword">struct</span> sockaddr *to, <span class="hljs-type">socklen_t</span> *addrlen)</span>;<br><br><span class="hljs-comment">// 均返回：若成功则为读或写的字节数。若出错则为-1</span><br></code></pre></td></tr></table></figure><p>可以看到，两个函数很像，其中前三个参数 <code>sockfd</code>、 <code>buff</code> 和 <code>nbytes</code> 等同于 <code>read</code> 和 <code>write</code> 函数的三个参数：描述符、指向读入或写出缓冲区的指针和读写字节数。</p><p><code>flags</code> 参数将在[[第14章 高级IO函数]]中讨论 <code>recv</code>、<code>send</code>、 <code>recvmsg</code> 和 <code>sendmsg</code> 等函数时再介绍，本章中重写简单的 <code>UDP</code> 回射客户&#x2F;服务器程序用不若它们。时下我们总是把 <code>flags</code> 置为 0。</p><p><code>sendto</code> 的 <code>to</code> 参数指向一个含有数据报接收者的协议地址（例如 IP 地址及端口号）的套接字地址结构，其大小由 <code>addrlen</code> 参数指定。<code>recvfrom</code> 的 <code>from</code> 参数指向一个将由该函数在返回时境写数据报发送者的协议地址的套接字地址结构，而在该套接字地址结构中填写的字节数则放在 <code>addrlen</code>  参数所指的整数中返回给调用者。注意，<code>sendto</code> 的最后一个参数是一个整数值，而 <code>recvfrom</code> 的最后一个参数是一个指向整数值的指针（即值-结果参数）。</p><p>这两个函数都把所读写数据的长度作为函数返回值。在 <code>recvfromt</code> 使用数据报协议的典型用途中，返回值就是所接收数据报中的用户数据量。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h1><p>先来看一下 TCP 发送数据的流程：</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211174541.png" width = "50%" /><p>可以看到，两个应用直接发送信息时，分为三步：</p><ol><li>应用 A 把消息发送到缓冲区</li><li>TCP 发送缓冲区再把消息发送出去，经过网络传递后，消息会发送到 B 服务器的 TCP 接收缓冲区</li><li>应用 B 再从 TCP 接收缓冲区中去读取属于自己的数据。</li></ol><h2 id="区分阻塞-I-x2F-O-和非阻塞-I-x2F-O-呢？"><a href="#区分阻塞-I-x2F-O-和非阻塞-I-x2F-O-呢？" class="headerlink" title="区分阻塞 I&#x2F;O 和非阻塞 I&#x2F;O 呢？"></a>区分阻塞 I&#x2F;O 和非阻塞 I&#x2F;O 呢？</h2><p>通过上图我们知道了 TCP 发送数据的流程，那么什么是阻塞 I&#x2F;O 什么是非阻塞 I&#x2F;O 呢？</p><p>其实，所谓阻塞 IO 就是当应用 B 发起读取数据申请时，在内核数据没有准备好之前，应用 B 会一直处于等待数据状态，直到内核把数据准备好了交给应用 B 才结束。</p><p>所谓非阻塞 IO 就是当应用 B 发起读取数据申请时，如果内核数据没有准备好会即刻告诉应用 B，不会让 B 在这里等待。</p><h1 id="2-IO-模型"><a href="#2-IO-模型" class="headerlink" title="2. IO 模型"></a>2. IO 模型</h1><h2 id="UNIX-下可用的-5-种-I-x2F-O-模型的基本区别"><a href="#UNIX-下可用的-5-种-I-x2F-O-模型的基本区别" class="headerlink" title="UNIX 下可用的 5 种 I&#x2F;O 模型的基本区别"></a>UNIX 下可用的 5 种 I&#x2F;O 模型的基本区别</h2><ul><li>阻塞式 I&#x2F;O</li><li>非阻塞式 I&#x2F;O</li><li>I&#x2F;O 复用（<code>select</code> 和 <code>poll</code>）</li><li>信号驱动式 I&#x2F;O（SIGIO）</li><li>异步 I&#x2F;O（<code>POSIX</code> 的 <code>aio_</code> 系列函数）</li></ul><h2 id="2-1-阻塞式-I-x2F-O-模型"><a href="#2-1-阻塞式-I-x2F-O-模型" class="headerlink" title="2.1 阻塞式 I&#x2F;O 模型"></a>2.1 阻塞式 I&#x2F;O 模型</h2><p>最流行的 I&#x2F;O 模型是阻塞式 I&#x2F;O (blocking I&#x2F;O) 模型，目前为止的所有例子都使用该模型。默认情形下，所有套接字都是阻塞的，如下图：</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211200746.png" width = "70%" /><p>在上图中，进程调用 <code>recvfrom</code>, 其系统调用直到数据报到达且被复制到应用进程的缓冲区中或者发生错误才返回。最常见的错误是系统调用被信号中断。我们说进程在从调用 <code>recvfrom</code> 开始到它返回的整段时间内是被阻塞的。<code>recvfrom</code> 成功返回后，应用进程开始处理数据报。</p><h2 id="2-2-非阻塞式-I-x2F-O-模型"><a href="#2-2-非阻塞式-I-x2F-O-模型" class="headerlink" title="2.2 非阻塞式 I&#x2F;O 模型"></a>2.2 非阻塞式 I&#x2F;O 模型</h2><p>进程把一个套接字设没成非阻塞是在通知内核：当所请求的 I&#x2F;O 操作非得把本进程投入睡眠才能完成时，不要把本进程投入睡眠，而是返回一个错误。</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211201153.png" width = "70%" /><p>前三次调用 <code>recvfrom</code> 时没有数据返回，因此内核转而立即返回一个 <code>EWOULDBLOCK</code> 错误。第四次调用时已有一个数据报准备好，它被复制到应用程序缓冲区，于是 recvfrom 成功返回。我们接着处理数据。</p><p>当一个应用像这样对一个非阻塞描述符循环调用 <code>recvfrom</code> 时，我们称之为轮询（polling）。</p><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>应用程序持续轮询内核 ，以查看某个操作是否就绪。这么做往往消耗大量 CPU 时间，不过这种模型偶尔也会遇到，通常是在专门提供某一种功能的系统中才有。</p><h2 id="2-3-I-x2F-O-复用模型"><a href="#2-3-I-x2F-O-复用模型" class="headerlink" title="2.3 I&#x2F;O 复用模型"></a>2.3 I&#x2F;O 复用模型</h2><p>我们先思考一个问题：</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211202411.png" width = "80%" /><p>如图所示，如果有多个人同时往应用 B 发送消息，这种情况下应用 B 就必须创建多个线程去读取数据，每个线程都会自己去调用 <code>recvfrom</code> 去读取数据，那么并发情况下服务很可能一瞬间会收到几十上百万的请求，线程资源完全不可能跟得上，因此出现了 I&#x2F;O 复用，由一个线程监控多个网络请求，这样就可以只需要一个或几个线程就可以完成数据状态询问的操作，当有数据准备就绪之后再分配对应的线程去读取数据，这么做就可以节省出大量的线程资源出来。</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211202822.png" width = "70%" /><p>可以看到，有个专门的询问线程来轮询所有网络请求的数据是否准备完毕，若完毕则分配线程去执行 <code>recvfrom</code> 操作。</p><p>这其实就是我们常说的 <code>select</code>，<code>poll</code>、<code>epoll</code> 函数，有了这个函数后，应用程序通过调用 <code>select</code> 函数就可以同时监控多个网络 I&#x2F;O，<code>select</code> 函数监控的网络 I&#x2F;O 中只要有任何一个数据状态准备就绪了，<code>select</code> 函数就会返回刻度状态，这时询问线程再去通知处理数据的线程，对应线程此时再发起 <code>recvfrom</code> 请求去读取数据。</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211203133.png" width = "70%" /><h3 id="使用-select-的优缺点"><a href="#使用-select-的优缺点" class="headerlink" title="使用 select 的优缺点"></a>使用 select 的优缺点</h3><p>缺点：<br>由于使用 <code>select</code> 需要两个而不是一个系统调用（<code>select</code> + <code>poll</code>），I&#x2F;O 复用相比较于之前的阻塞 I&#x2F;O 和非阻塞 I&#x2F;O 甚至还稍有劣势。</p><p>优点：<br>使用 <code>select</code> 的优势在于我们可以等待多个描述符就绪，对下面描述的信号驱动 I&#x2F;O 模型很有帮助。</p><h2 id="2-4-信号驱动-I-x2F-O-模型"><a href="#2-4-信号驱动-I-x2F-O-模型" class="headerlink" title="2.4 信号驱动 I&#x2F;O 模型"></a>2.4 信号驱动 I&#x2F;O 模型</h2><p>复用 I&#x2F;O 模型解决了一个线程可以监控多个网络 I&#x2F;O 的问题，但是使用 <code>select</code> 方式时询问线程会采用轮询的方式来进行监控，这样其实大部分情况下都是无效的，因此衍生出了信号驱动 I&#x2F;O 模型。</p><p>信号驱动 I&#x2F;O 不是用循环请求询问的方式去监控数据就绪状态，而是当内核数据准备好之后再通知线程数据准备好后的可读状态，当线程收到可读状态的信号后，此时再向内核发起 <code>recvfrom</code> 读取数据的请求，因为信号驱动 IO 的模型下应用线程在发出信号监控后即可返回，不会阻塞，所以这样的方式下，一个应用线程也可以同时监控多个网络 I&#x2F;O。</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211204019.png" width = "70%" /><p>更具体的，在信号驱动 I&#x2F;O 模型中，我们先开启套接字的信号驱动式 I&#x2F;O 功能，并通过 <code>sigaction</code> 系统调用安装一个信号处理函数。该系统调用将立即返阿我们的进程继续工作，也就是说它没有被阻塞。当数据报准备好读取时，内核就为该进程产生一个 <code>SIGIO</code> 信号。我们随后既可以在信号处理函数中调用 <code>recvfrom</code> 读取数据报，并通知主循环数据已准备好待处理，也可以立即通知主循环，让它读取数据报。 </p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211203818.png" width = "70%" /><h2 id="2-5-异步-I-x2F-O-模型"><a href="#2-5-异步-I-x2F-O-模型" class="headerlink" title="2.5. 异步 I&#x2F;O 模型"></a>2.5. 异步 I&#x2F;O 模型</h2><p>上面描述的 4 中 I&#x2F;O 模式中，目前看来最好的就是信号驱动 I&#x2F;O 模型，但是我们发现，要读取一个数据总是要发起两阶段的请求，第一次发送 <code>select</code> 请求，询问数据是否准备好，第二次发送 <code>receform</code> 请求读取数据。</p><p>那么你有没有想过，是否有一种一劳永逸的方案，我只要发送一个请求告诉内核我要读取什么数据，然后我就不管了，剩下的事情由内核来帮我完成？</p><p>答案是存在的。这就是异步 I&#x2F;O 模型，在这种模型中，应用只需要向内核发送一个 <code>read</code> 请求, 告诉内核它要读取数据后即刻返回；内核收到请求后会建立一个信号联系，当数据准备就绪，内核会主动把数据从内核复制到用户空间，等所有操作都完成之后，内核会发起一个通知告诉应用，我们称这种一劳永逸的模式为异步 I&#x2F;O 模型。</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211211526.png" width = "70%" /><h3 id="工作机制"><a href="#工作机制" class="headerlink" title="工作机制"></a>工作机制</h3><p>告知内核启动某个操作，并让内核在整个操作（包括将数据从内核复制到我们自己的缓冲区）完成后通知我们。</p><h3 id="异步-I-x2F-O-和同步-I-x2F-O-的主要区别"><a href="#异步-I-x2F-O-和同步-I-x2F-O-的主要区别" class="headerlink" title="异步 I&#x2F;O 和同步 I&#x2F;O 的主要区别"></a>异步 I&#x2F;O 和同步 I&#x2F;O 的主要区别</h3><p>信号驱动式 I&#x2F;O 是由内核通知我们何时可以启动一个 I&#x2F;O 操作，而异步 I&#x2F;O 模型是由内核通知我们 I&#x2F;O 操作何时完成</p><p>也就是说，上面介绍的四种 I&#x2F;O 模型（阻塞 I&#x2F;O + 非阻塞 I&#x2F;O + I&#x2F;O 复用 + 信号驱动 I&#x2F;O），都是当数据准备好时内核通知我们可以去调用 <code>recvfrom</code> 方法去读取数据了，但是异步 I&#x2F;O 是当 I&#x2F;O 操作已经完成了之后才会给我们发送通知。</p><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211212115.png" width = "70%" /><p>我们调用 <code>aio</code>. <code>read</code> 函数（POSIX 异步 I&#x2F;O 函数以 <code>aio_</code> 或 <code>lio_</code> 开头），给内核传递描述符、缓冲区指针、缓冲区大小（与 <code>read</code> 相同的三个参数）和文件偏移（与 lseek 类似），并告诉内核当整个操作完成时如何通知我们。该系统调用立即返回，而且在等待 I&#x2F;O 完成期间，我们的进程不被阻塞。</p><h2 id="五种-I-x2F-O-模型的对比"><a href="#五种-I-x2F-O-模型的对比" class="headerlink" title="五种 I&#x2F;O 模型的对比"></a>五种 I&#x2F;O 模型的对比</h2><p>我们知道，一个 I&#x2F;O 操作一共有两个阶段：</p><ol><li>获取网络 I&#x2F;O 状态，确认是否可以读取</li><li>发送 <code>recvfrom</code> 系统调用来将数据获取至内核，然后将数据从内核复制到调用者的缓冲区</li></ol><p>前 4 种模型的主要区别在第一阶段，因为他们的第二阶段是相同的：从在数据从内核复制到调用者的缓冲区期间，进程阻塞与 <code>recvfrom</code> 调用。相反，异步 I&#x2F;O 模型在这两个阶段都要处理，从而不同于其他 4 种模型。</p><h2 id="同步-I-x2F-O-和异步-I-x2F-O-的对比"><a href="#同步-I-x2F-O-和异步-I-x2F-O-的对比" class="headerlink" title="同步 I&#x2F;O 和异步 I&#x2F;O 的对比"></a>同步 I&#x2F;O 和异步 I&#x2F;O 的对比</h2><p>posix 把这两个术语定义如下：</p><ul><li>同步 I&#x2F;O 操作（synchronous I&#x2F;O opetation）导致请求进程阻塞，直到 I&#x2F;0 操作完成；</li><li>异步 I&#x2F;O 操作（asynchronous 1&#x2F;0opetation）不导致请求进程阻塞。</li></ul><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211212926.png" width = "70%" /><p>根据上述定义，我们的前 4 种模型——阻塞式 I&#x2F;O 模型、非阻塞式 I&#x2F;O 模型、I&#x2F;O 复用模型和信<br>号驱动式 1&#x2F;0 模型都是同步 I&#x2F;O 模型，因为其中真正的 I&#x2F;O 操作 （<code>recvfrom</code>）将阻塞进程。只有异<br>步 1&#x2F;0 模型与 POSIX 定义的异步 I&#x2F;O 相匹配。</p>]]></content>
     
     
     <categories>
       
       <category>计算机</category>
+      
+      <category>Linux</category>
+      
+      <category>网络编程</category>
+      
+      <category>UNP</category>
       
     </categories>
     
@@ -1274,9 +1310,7 @@
     
     <categories>
       
-      <category>计算机</category>
-      
-      <category>Linux</category>
+      <category>工具</category>
       
       <category>Vim</category>
       
