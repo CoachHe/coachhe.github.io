@@ -10,7 +10,7 @@ tags: []
 
 先来看一下 TCP 发送数据的流程：
 
-<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211174541.png" width = "80%" />
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221211174541.png" width = "50%" />
 
 可以看到，两个应用直接发送信息时，分为三步：
 1. 应用 A 把消息发送到缓冲区
