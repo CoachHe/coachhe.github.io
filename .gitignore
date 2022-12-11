@@ -10,4 +10,5 @@ public/
 .idea/
 target/
 remember-cursor-position/cursor-positions.json
- .obsidian/plugins/recent-files-obsidian/
+.obsidian/plugins/recent-files-obsidian/
+.obsidian/plugins/remember-cursor-position/cursor-positions.json
