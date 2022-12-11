@@ -39,4 +39,6 @@ ssize_t sendto(int sockfd, const void *buff, size_t nbytes, int flags,
 
 `flags` 参数将在[[第14章 高级IO函数]]中讨论 `recv`、`send`、 `recvmsg` 和 `sendmsg` 等函数时再介绍，本章中重写简单的 `UDP` 回射客户/服务器程序用不若它们。时下我们总是把 `flags` 置为 0。
 
+`sendto` 的 `to` 参数指向一个含有数据报接收者的协议地址（例如 IP 地址及端口号）的套接字地址结构，其大小由 `addrlen` 参数指定。`recvfrom` 的 `from` 参数指向一个将由该函数在返回时境写数据报发送者的协议地址的套接字地址结构，而在该套接字地址结构中填写的字节数则放在 `addrlen`  参数所指的整数中返回给调用者。注意，`sendto` 的最后一个参数是一个整数值，而 `recvfrom` 的最后一个参数是一个指向整数值的指针（即值-结果参数）。
 
+这两个函数都把所读写数据的长度作为函数返回值。在 `recvfromt` 使用数据报协议的典型用途中，返回值就是所接收数据报中的用户数据量。
