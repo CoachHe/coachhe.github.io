@@ -19,4 +19,22 @@ tags: []
 
 # 2. recvfrom 和 sendto 函数
 
+这两个函数类似于标准的 `read` 和 `write` 函数，不过需要三个额外的参数。类似于在网络环境中执行 `read` 和 `write`，因此需要一些额外的指定网络环境的参数。
+
+来看下 `recvfrom` 和 `sendto` 的源代码：
+
+```c
+#include <sys/socket.h>
+
+ssize_t recvfrom(int sockfd, void *buff, size_t nbytes, int flags, 
+	struct sockaddr *from, socklen_t *addrlen);
+
+ssize_t sendto(int sockfd, const void *buff, size_t nbytes, int flags, 
+	const struct sockaddr *to, socklen_t *addrlen);
+
+// 均返回：若成功则为读或写的字节数。若出则则为-1
+```
+
+可以看到，两个函数很像，其中前三个参数 `sockfd`、 `buff` 和 `nbytes` 等同于 `read` 和 `write` 函数的三个参数：描述符、指向读入或写出缓冲区的指针和读写字节数。
+
 
