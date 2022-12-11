@@ -1,3 +1,10 @@
+---
+categories:
+  - 计算机
+  - Linux
+  - 网络编程
+  - UNP
+---
 --- 
 
 title: 第4章 基本TCP套接字编程  

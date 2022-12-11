@@ -1,3 +1,10 @@
+---
+categories:
+  - 计算机
+  - Linux
+  - 网络编程
+  - UNP
+---
 --- 
 
 title: 第8章 基本UDP套接字编程  

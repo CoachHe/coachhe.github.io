@@ -1,11 +1,10 @@
 ---
-title: Vim  
-date: 2022-12-04 02:39:21  
-tags: []  
+title: Vim
+tags: []
 categories:
-  - 计算机
-  - Linux
+  - 工具
   - Vim
+date: 2022-12-04 02:39:21
 ---
 
 # 基本语法

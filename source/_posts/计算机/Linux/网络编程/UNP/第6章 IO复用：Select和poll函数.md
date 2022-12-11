@@ -1,3 +1,10 @@
+---
+categories:
+  - 计算机
+  - Linux
+  - 网络编程
+  - UNP
+---
 --- 
 
 title: 第6章 IO复用：Select和poll函数  
