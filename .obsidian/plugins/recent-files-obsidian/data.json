@@ -1,16 +1,20 @@
 {
   "recentFiles": [
     {
-      "basename": "Flink学习计划",
-      "path": "source/_posts/学习进度/大数据/Flink学习计划.md"
+      "basename": "第6章 IO复用：Select和poll函数",
+      "path": "source/_posts/计算机/Linux/网络编程/UNP/第6章 IO复用：Select和poll函数.md"
     },
     {
-      "basename": "2. lambda表达式",
-      "path": "source/_posts/编程语言/Java/Java语言/Java语法/CoreJava/Chapter6_接口、lambda表达式与内部类/2. lambda表达式.md"
+      "basename": "第4章 基本TCP套接字编程",
+      "path": "source/_posts/计算机/Linux/网络编程/UNP/第4章 基本TCP套接字编程.md"
     },
     {
       "basename": "1. Java NIO概述",
       "path": "source/_posts/编程语言/Java/Java语言/Java IO/1. Java NIO概述.md"
+    },
+    {
+      "basename": "2. lambda表达式",
+      "path": "source/_posts/编程语言/Java/Java语言/Java语法/CoreJava/Chapter6_接口、lambda表达式与内部类/2. lambda表达式.md"
     },
     {
       "basename": "2. Channel",
@@ -21,16 +25,8 @@
       "path": "source/_posts/计算机/Linux/网络编程/UNP/第14章 高级IO函数.md"
     },
     {
-      "basename": "第4章 基本TCP套接字编程",
-      "path": "source/_posts/计算机/Linux/网络编程/UNP/第4章 基本TCP套接字编程.md"
-    },
-    {
       "basename": "第8章 基本UDP套接字编程",
       "path": "source/_posts/计算机/Linux/网络编程/UNP/第8章 基本UDP套接字编程.md"
-    },
-    {
-      "basename": "第6章 IO复用：Select和poll函数",
-      "path": "source/_posts/计算机/Linux/网络编程/UNP/第6章 IO复用：Select和poll函数.md"
     },
     {
       "basename": "APUE-4-文件和目录",
@@ -195,10 +191,6 @@
     {
       "basename": "Hadoop1 介绍1（伪分布式集群搭建）",
       "path": "source/_posts/大数据/Hadoop生态/Hadoop/1 Hadoop介绍/Hadoop1 介绍1（伪分布式集群搭建）.md"
-    },
-    {
-      "basename": "8 Flink容错机制",
-      "path": "source/_posts/大数据/实时计算/Flink/基于Apache Flink的流处理/8 Flink容错机制.md"
     }
   ],
   "omittedPaths": [

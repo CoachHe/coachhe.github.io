@@ -131,6 +131,14 @@ tags: []
 
 ## 同步 I/O 和异步 I/O 的对比
 
+从线程角度出发
+- 同步 I/O 操作（synchronous I/O opetation）每个线程模型都有一个连接
+	- 并发度很高
+	- 大量线程产生
+- 异步 I/O 操作（asynchronous 1/0opetation）每个服务器有一个线程来处理 I/O
+	- 更多的线程经常发挥作用（同步 I/O 很多线程是没有用的）
+	- 应用处理客户端上下文的转换
+
 posix 把这两个术语定义如下：
 - 同步 I/O 操作（synchronous I/O opetation）导致请求进程阻塞，直到 I/0 操作完成；
 - 异步 I/O 操作（asynchronous 1/0opetation）不导致请求进程阻塞。
