@@ -7,7 +7,7 @@
   ],
   "translucency": false,
   "accentColor": "",
-  "interfaceFontFamily": "Times New Roman",
-  "textFontFamily": "宋体",
+  "interfaceFontFamily": "Consolas",
+  "textFontFamily": "新宋体",
   "monospaceFontFamily": "Lucida Console"
 }
