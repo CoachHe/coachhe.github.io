@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "第6章 IO复用：Select和poll函数",
+      "path": "source/_posts/计算机/Linux/网络编程/UNP/第6章 IO复用：Select和poll函数.md"
+    },
+    {
       "basename": "APUE-4-文件和目录",
       "path": "source/_posts/计算机/Linux/APUE/APUE-4-文件和目录.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "2 Perjob Mode",
       "path": "source/_posts/大数据/实时计算/Flink/极客时间/flink on k8s配置说明/2 Perjob Mode.md"
-    },
-    {
-      "basename": "2 Kafka常见命令",
-      "path": "source/_posts/大数据/MQ/KafKa/2 Kafka常见命令.md"
     }
   ],
   "omittedPaths": [
