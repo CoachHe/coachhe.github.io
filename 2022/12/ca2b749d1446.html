@@ -16,18 +16,18 @@
   <meta name="author" content="CoachHe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="简介最初的如cpp或者c等语言，编译之后会直接出现二进制文件，然后直接在对应的平台上运行。例如在windows上编译，会直接出现.exe文件，这个文件只能在windows上执行，不能在macos或者linux上执行。在类Unix上编译（例如linux或者macos），会直接出现.out文件，这个文件只能在对应系统上执行，不能在windows上执行。因此，我们编译的文件和操作系统是息息相关的。但是，">
+    <meta name="description" content="简介最初的如cpp或者c等语言，编译之后会直接出现二进制文件，然后直接在对应的平台上运行。 例如在windows上编译，会直接出现.exe文件，这个文件只能在windows上执行，不能在macos或者linux上执行。 在类Unix上编译（例如linux或者macos），会直接出现.out文件，这个文件只能在对应系统上执行，不能在windows上执行。 因此，我们编译的文件和操作系统是息息相关的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="6 类文件结构">
 <meta property="og:url" content="http://example.com/2022/12/ca2b749d1446.html">
 <meta property="og:site_name" content="CoachHe&#39;s Blog">
-<meta property="og:description" content="简介最初的如cpp或者c等语言，编译之后会直接出现二进制文件，然后直接在对应的平台上运行。例如在windows上编译，会直接出现.exe文件，这个文件只能在windows上执行，不能在macos或者linux上执行。在类Unix上编译（例如linux或者macos），会直接出现.out文件，这个文件只能在对应系统上执行，不能在windows上执行。因此，我们编译的文件和操作系统是息息相关的。但是，">
+<meta property="og:description" content="简介最初的如cpp或者c等语言，编译之后会直接出现二进制文件，然后直接在对应的平台上运行。 例如在windows上编译，会直接出现.exe文件，这个文件只能在windows上执行，不能在macos或者linux上执行。 在类Unix上编译（例如linux或者macos），会直接出现.out文件，这个文件只能在对应系统上执行，不能在windows上执行。 因此，我们编译的文件和操作系统是息息相关的。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210811202057.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20210811234110.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20210812004431.png">
 <meta property="article:published_time" content="2022-12-03T18:20:50.000Z">
-<meta property="article:modified_time" content="2022-12-03T18:48:30.382Z">
+<meta property="article:modified_time" content="2022-12-11T13:39:26.120Z">
 <meta property="article:author" content="CoachHe">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210811202057.png">
@@ -276,7 +276,12 @@
             
               <div class="markdown-body">
                 
-                <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>最初的如cpp或者c等语言，编译之后会直接出现二进制文件，然后直接在对应的平台上运行。<br>例如在windows上编译，会直接出现.exe文件，这个文件只能在windows上执行，不能在macos或者linux上执行。<br>在类Unix上编译（例如linux或者macos），会直接出现.out文件，这个文件只能在对应系统上执行，不能在windows上执行。<br>因此，我们编译的文件和操作系统是息息相关的。<br>但是，由于最近10年虚拟机以及大量建立在虚拟机之上的程序语言蓬勃发展，将我们编写的程序编译成二进制本地机器码已不再是唯一的选择，越来越多的程序语言选择了与操作系统和机器指令集无关的，平台中立的格式作为程序编译后的存储格式。<br>也就是说，我们编译出来的文件（例如Java编译后的.class文件），可以放在任何操作系统中运行。前提是安装了Java虚拟机（JVM），由JVM负责底层的处理，.class文件运行在JVM之上。</p>
+                <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>最初的如cpp或者c等语言，编译之后会直接出现二进制文件，然后直接在对应的平台上运行。</p>
+<p>例如在windows上编译，会直接出现.exe文件，这个文件只能在windows上执行，不能在macos或者linux上执行。</p>
+<p>在类Unix上编译（例如linux或者macos），会直接出现.out文件，这个文件只能在对应系统上执行，不能在windows上执行。</p>
+<p>因此，我们编译的文件和操作系统是息息相关的。</p>
+<p>但是，由于最近10年虚拟机以及大量建立在虚拟机之上的程序语言蓬勃发展，将我们编写的程序编译成二进制本地机器码已不再是唯一的选择，越来越多的程序语言选择了与操作系统和机器指令集无关的，平台中立的格式作为程序编译后的存储格式。</p>
+<p>也就是说，我们编译出来的文件（例如Java编译后的.class文件），可以放在任何操作系统中运行。前提是安装了Java虚拟机（JVM），由JVM负责底层的处理，.class文件运行在JVM之上。</p>
 <h1 id="无关性的基石"><a href="#无关性的基石" class="headerlink" title="无关性的基石"></a>无关性的基石</h1><p>各种不同平台的虚拟机与所有平台都统一使用的程序存储格式—&#x3D;&#x3D;字节码&#x3D;&#x3D;是平台无关性的基石<br>注意：<br>在这里，无关性分为两种：</p>
 <ul>
 <li>平台无关性</li>

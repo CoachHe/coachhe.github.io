@@ -223,6 +223,456 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2022/12/5e7bbb280270.html" target="_self">
+          HDFS4 数据流
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/5e7bbb280270.html" target="_self">
+        <div>
+          HDFS写数据流程1 剖析文件写入  1）客户端通过Distributed FileSystem模块向NameNode请求上传文件，NameNode检查目标文件是否已存在，父目录是否存在。2）NameNode返回是否可以上传。3）客户端请求第一个Block上传到哪几个DataNode服务器上。4）NameNode返回3个DataNode节点，分别为dn1、dn2、dn3。5）客户端通过FSData
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:44" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/2-HDFS%E4%BB%8B%E7%BB%8D/" class="category-chain-item">2 HDFS介绍</a>
+  
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/b1992b3fea6d.html" target="_self">
+          HDFS3 客户端操作
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/b1992b3fea6d.html" target="_self">
+        <div>
+          1 客户端环境准备注意若是windows电脑则需要配置HADOOP_HOME（其实感觉也不需要，只要导入maven依赖就行了）。 步骤1. 打开IDEA建立MAVEN项目  2. 配置pom.xmlpom.xml的配置信息如下： 12345678910111213141516171819202122232425262728293031323334&lt;dependencies&gt;		&lt;
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:44" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/2-HDFS%E4%BB%8B%E7%BB%8D/" class="category-chain-item">2 HDFS介绍</a>
+  
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/e8829cd2e93b.html" target="_self">
+          HDFS2 Shell操作
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/e8829cd2e93b.html" target="_self">
+        <div>
+          dfs和fs的区别hadoop fs使用面最广，可以操作任何文件系统。 hadoop dfs与hdfs dfs只能操作HDFS文件系统相关（包括与Local FS间的操作），前者（dfs）已经Deprecated，一般使用后者。 以下内容参考自stackoverflowFollowing are the three commands which appears same but have minu
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:44" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/2-HDFS%E4%BB%8B%E7%BB%8D/" class="category-chain-item">2 HDFS介绍</a>
+  
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/dd6330c7be5b.html" target="_self">
+          HDFS1 概述
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/dd6330c7be5b.html" target="_self">
+        <div>
+          一、HDFS定义定义HDFS是一个文件系统，用于存储文件，通过目录树来定位文件；  特点它是分布式的，由很多服务器联合起来实现其功能，集群中的服务器有各自的角色。  使用场景适合一次写入，多次读出的场景，且不支持文件的修改。适合用来做数据分析，并不适合用来做网盘应用。  二、HDFS优缺点优点1. 高容错性 数据自动保存多个副本，通过增加副本的形式提高容错性。  某一个副本丢失以后，可以自动恢复
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:44" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/2-HDFS%E4%BB%8B%E7%BB%8D/" class="category-chain-item">2 HDFS介绍</a>
+  
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/dd47651c31af.html" target="_self">
+          Hadoop1 介绍3（源码编译）
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/dd47651c31af.html" target="_self">
+        <div>
+          编译源码的原因例如我们从Apache官网下载的文件为默认32位，但我们是64位的系统，因此我们可以先编译，编译之后让其支持64位系统，从而能够使用。  大概意思就是我们原来缺少什么功能，现在进行编译之后让其满足那个功能。！  例如我们经过编译后可以得到一个支持64位的hadoop，可以得到支持snappy的hadoop，这些东西可以在网上直接下载，但是也可以自己编译。！  源码编译步骤1 前期准备
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:44" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/1-Hadoop%E4%BB%8B%E7%BB%8D/" class="category-chain-item">1 Hadoop介绍</a>
+  
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/605e4fae6e19.html" target="_self">
+          Hadoop1 介绍2（完全分布式集群搭建）
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/605e4fae6e19.html" target="_self">
+        <div>
+          环境和工具准备虚拟机环境准备准备三台虚拟机  关闭防火墙等步骤和之前一样  集群分发脚本scpscp功能scp可以实现服务器与服务器之间的数据拷贝（from server1 to server2）  基本语法1scp -r $pdir/$fname  $user@hadoop$host:$pdir/$fname   解释 三种用法： 本机数据拷贝到别的服务器  从别的服务器将数据拷贝到本机  将某
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:44" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/1-Hadoop%E4%BB%8B%E7%BB%8D/" class="category-chain-item">1 Hadoop介绍</a>
+  
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2022/12/cd9913a61489.html" target="_self">
           Hadoop1 介绍1（伪分布式集群搭建）
         </a>
@@ -496,419 +946,11 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/03547ec95765.html" target="_self">
-          1.2 HBase数据结构2 HBase 物理存储结构
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/03547ec95765.html" target="_self">
-        <div>
-          注意最重要的就是TimeStamp，根据这个可以利用HDFS来实现增删改查的功能。
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:43" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/HBase/" class="category-chain-item">HBase</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/f9a162fd1328.html" target="_self">
-          1.2 HBase数据结构1 HBase逻辑结构
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/f9a162fd1328.html" target="_self">
-        <div>
-          HBase数据模型逻辑HBase 的数据模型同关系型数据库很类似，数据存储在一张表中，有行有列。 底层物理存储结构但从HBase 的底层物理存储结构（K-V）来看，HBase 更像是一个multi-dimensional map。
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:43" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/HBase/" class="category-chain-item">HBase</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/c8f3ccbaef67.html" target="_self">
-          1 Hbase简介1 Hbase定义
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/c8f3ccbaef67.html" target="_self">
-        <div>
-          HBase 是一种&#x3D;&#x3D;分布式&#x3D;&#x3D;、&#x3D;&#x3D;可扩展&#x3D;&#x3D;、&#x3D;&#x3D;支持海量数据存储&#x3D;&#x3D;的NoSQL数据库。
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:43" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/HBase/" class="category-chain-item">HBase</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/fb416149f1b4.html" target="_self">
-          PulSar操作
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/fb416149f1b4.html" target="_self">
-        <div>
-          1234567891011121314151617181920[root@chadoop01 apache-pulsar-2.8.0]# bin/pulsar-admin tenants list&quot;public&quot;&quot;pulsar&quot;[root@chadoop01 apache-pulsar-2.8.0]# bin/pulsar-admin brokers lis
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:43" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/MQ/" class="category-chain-item">MQ</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/MQ/pulsar/" class="category-chain-item">pulsar</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/004d966c4499.html" target="_self">
-          2 Kafka常见命令
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/004d966c4499.html" target="_self">
-        <div>
-          1. 创建和查看主题关键脚本kafka-topics.sh 命令查看所有topic1kafka-topics.sh --zookeeper kafka01:2181 --list  创建主题1234## 创建名为first的topickakfa-topics.sh --create --zookeeper kafka01:2181 --topic first --partitions 2 --re
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:42" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/MQ/" class="category-chain-item">MQ</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/MQ/KafKa/" class="category-chain-item">KafKa</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/8506c983b6d5.html" target="_self">
-          1 Kafka介绍
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/8506c983b6d5.html" target="_self">
-        <div>
-          一 Kafka概述定义Kafka 是一个分布式的基于发布&#x2F;订阅模式的消息队列（Message Queue），主要应用于大数据实时处理领域。  消息队列（MQ）同步处理和异步处理 使用消息队列的好处 解耦  允许你独立的扩展或修改两边的处理过程，只要确保它们遵守同样的接口约束。   可恢复性  系统的一部分组件失效时，不会影响到整个系统。消息队列降低了进程间的耦合度，所以即使一个处理消息的
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:42" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/MQ/" class="category-chain-item">MQ</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/MQ/KafKa/" class="category-chain-item">KafKa</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#board">15</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/#board">16</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

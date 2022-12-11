@@ -223,6 +223,547 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2022/12/63152d92f7ab.html" target="_self">
+          Springboot4- 自动配置原理
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/63152d92f7ab.html" target="_self">
+        <div>
+          一 引导加载自动配置类最重要的一个注解：@SpringBootApplication 12345@SpringBootConfiguration@EnableAutoConfiguration@ComponentScan(excludeFilters = &#123; @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.cla
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:29" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/" class="category-chain-item">Java开发</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/" class="category-chain-item">Java框架</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/SpringBoot/" class="category-chain-item">SpringBoot</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/SpringBoot/%E5%B0%9A%E7%A1%85%E8%B0%B7Springboot/" class="category-chain-item">尚硅谷Springboot</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/SpringBoot/%E5%B0%9A%E7%A1%85%E8%B0%B7Springboot/SpringBoot3-%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE/" class="category-chain-item">SpringBoot3-自动配置</a>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/ebdfc99a2568.html" target="_self">
+          SpringBoot3-依赖管理
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/ebdfc99a2568.html" target="_self">
+        <div>
+          了解自动配置原理1. SpringBoot 特点1.1 依赖管理12345&lt;parent&gt;    &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;version&gt;2.5.
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:28" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/" class="category-chain-item">Java开发</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/" class="category-chain-item">Java框架</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/SpringBoot/" class="category-chain-item">SpringBoot</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/SpringBoot/%E5%B0%9A%E7%A1%85%E8%B0%B7Springboot/" class="category-chain-item">尚硅谷Springboot</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/SpringBoot/%E5%B0%9A%E7%A1%85%E8%B0%B7Springboot/SpringBoot1-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" class="category-chain-item">SpringBoot1-基础入门</a>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/d3c79e2b8013.html" target="_self">
+          Gradle 构建基础
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/d3c79e2b8013.html" target="_self">
+        <div>
+          构建基础Projects 和 tasksprojects 和 tasks是 Gradle 中最重要的两个概念。 任何一个 Gradle 构建都是由一个或多个 projects 组成。每个 project 包括许多可构建组成部分。 这完全取决于你要构建些什么。举个例子，每个 project 或许是一个 jar 包或者一个 web 应用，它也可以是一个由许多其他项目中产生的 jar 构成的 zip 压
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:28" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/" class="category-chain-item">Java开发</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E5%B7%A5%E5%85%B7/" class="category-chain-item">Java工具</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E5%B7%A5%E5%85%B7/Gradle/" class="category-chain-item">Gradle</a>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/d227c04384d8.html" target="_self">
+          AoP
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/d227c04384d8.html" target="_self">
+        <div>
+          什么是 AOP 面向切面编程利用 AOP 可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提供程序的可重用性，同时提高了开发的效率  AOP 底层原理 AOP 底层使用动态代理 有两种情况的动态代理 有接口情况，使用 JDK 动态代理  没有接口情况，使用 CJLIB 动态代理 创建子类的代理对象，增强类的方法
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:27" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/" class="category-chain-item">Java开发</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/" class="category-chain-item">Java框架</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/Spring/" class="category-chain-item">Spring</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/Spring/%E6%BA%90%E7%A0%81/" class="category-chain-item">源码</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/Spring/%E6%BA%90%E7%A0%81/%E3%80%8ASpring%E6%BA%90%E7%A0%81%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90%E3%80%8B/" class="category-chain-item">《Spring源码深度解析》</a>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/55036f24d91f.html" target="_self">
+          3、循环依赖和三级缓存
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/55036f24d91f.html" target="_self">
+        <div>
+          什么是循环依赖循环依赖简图：   通俗易懂来说，循环依赖就是 A 对象包含 b 属性，B 对象包含 a 属性，对 b 属性进行赋值依赖于 B 对象的实例化和初始化，对 a 属性进行赋值依赖于 A 对象的实例化和初始化。假设最开始先创建 A 对象，那么对 b 属性的赋值需要创建 B 对象，创建 B 对象时需要对 a 属性赋值，又需要创建 A 对象，这就导致了一个死循环。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:27" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/" class="category-chain-item">Java开发</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/" class="category-chain-item">Java框架</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/Spring/" class="category-chain-item">Spring</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/Spring/%E6%BA%90%E7%A0%81/" class="category-chain-item">源码</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/Spring/%E6%BA%90%E7%A0%81/Spring%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-coachhe/" class="category-chain-item">Spring源码解析-coachhe</a>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/4f115a045f28.html" target="_self">
+          2. 深入分析Java IO的工作机制
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/4f115a045f28.html" target="_self">
+        <div>
+          
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:27" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/" class="category-chain-item">Java开发</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java-Web/" class="category-chain-item">Java Web</a>
+  
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2022/12/4c1d79864e16.html" target="_self">
           2、Bean生命周期处理机制
         </a>
@@ -601,524 +1142,11 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/cecc05543a4c.html" target="_self">
-          1.1-SprintBoot简介
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/cecc05543a4c.html" target="_self">
-        <div>
-          一、SpringBoot 介绍1、SpringBoot 优点 Create stand-alone Spring applications 创建独立 Spring 应用   Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files) 内嵌 web 服务器：也就是说，避免了还需要单独安装 Tomcat 服务器等复杂操作
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:26" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/" class="category-chain-item">Java开发</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/" class="category-chain-item">Java框架</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/SpringBoot/" class="category-chain-item">SpringBoot</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/SpringBoot/%E5%B0%9A%E7%A1%85%E8%B0%B7Springboot/" class="category-chain-item">尚硅谷Springboot</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/SpringBoot/%E5%B0%9A%E7%A1%85%E8%B0%B7Springboot/SpringBoot1-%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/" class="category-chain-item">SpringBoot1-基础入门</a>
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/ac6e795bf338.html" target="_self">
-          1. 深入Web请求过程
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/ac6e795bf338.html" target="_self">
-        <div>
-          B&#x2F;S架构B&#x2F;S架构的好处 客户端使用统一的浏览器（Browser）。由于浏览器具有统一性，它不需要特殊的配置和网络连接，有效地屏蔽了不同服务提供商提供给用户使用服务的差异性。 服务端（Server）基于统一的HTTP。
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:26" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/" class="category-chain-item">Java开发</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java-Web/" class="category-chain-item">Java Web</a>
-  
-  
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/796e6d53a5c0.html" target="_self">
-          1. SpringBoot和SpringCloud的版本选型
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/796e6d53a5c0.html" target="_self">
-        <div>
-          1. SpringBoot和SpringCloud的版本选型  可以看到，对应版本有很高的要求，因此如果我需要使用最新的 2021.0.x 版本，那么 springboot 的版本就需要是 2.6.x 更加具体的版本对应：spring 版本对应关系 得到的是一个 json 串，进行解析后可以看到： 12345678910111213141516171819202122232425262728293
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:25" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/" class="category-chain-item">Java开发</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/" class="category-chain-item">Java框架</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/SpringCloud/" class="category-chain-item">SpringCloud</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/SpringCloud/%E5%B0%9A%E7%A1%85%E8%B0%B7SpringCloud/" class="category-chain-item">尚硅谷SpringCloud</a>
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/c994788f60d5.html" target="_self">
-          1. Spring IOC容器的核心实现原理
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/c994788f60d5.html" target="_self">
-        <div>
-          
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:25" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/" class="category-chain-item">Java开发</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/" class="category-chain-item">Java框架</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/Spring/" class="category-chain-item">Spring</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/Spring/%E6%BA%90%E7%A0%81/" class="category-chain-item">源码</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/Spring/%E6%BA%90%E7%A0%81/%E3%80%8ASpring%E6%BA%90%E7%A0%81%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90%E3%80%8B/" class="category-chain-item">《Spring源码深度解析》</a>
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/dd9d7a766c4c.html" target="_self">
-          1、IOC容器启动创建bean
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/dd9d7a766c4c.html" target="_self">
-        <div>
-          从一个最简单的实例开始：这里有两个 POJO：MyTestBean 和 MyTestBean2   123456789101112131415161718192021222324252627282930313233//MyTestBeanpackage com.coachhe.spring.Bean;    public class MyTestBean &#123;   String testS
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:25" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/" class="category-chain-item">Java开发</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/" class="category-chain-item">Java框架</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/Spring/" class="category-chain-item">Spring</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/Spring/%E6%BA%90%E7%A0%81/" class="category-chain-item">源码</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E5%BC%80%E5%8F%91/Java%E6%A1%86%E6%9E%B6/Spring/%E6%BA%90%E7%A0%81/Spring%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-coachhe/" class="category-chain-item">Spring源码解析-coachhe</a>
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/758158625196.html" target="_self">
-          Scala基础
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/758158625196.html" target="_self">
-        <div>
-          一、Scala 简介Spark1.6 使用的是 Scala2.10，Spark2.0 版本以上使用的是 Scala2.11 Scala 6 大特性 Java 和 scala 可以混编 可以在 Java 中调用 Scala 的包和类，也可以在 Scala 中调用 Java 的包和类 类型推测 (自动推测类型) 不需要指定 int 或 double 等，会自动进行类型的推断。 注意： Scala 不是
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:25" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Scala/" class="category-chain-item">Scala</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/11/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/#board">10</a><a class="page-number" href="/page/11/#board">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/#board">13</a><a class="page-number" href="/page/14/#board">14</a><a class="page-number" href="/page/15/#board">15</a><a class="extend next" rel="next" href="/page/13/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/11/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/#board">10</a><a class="page-number" href="/page/11/#board">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/#board">13</a><a class="page-number" href="/page/14/#board">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/#board">16</a><a class="extend next" rel="next" href="/page/13/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
