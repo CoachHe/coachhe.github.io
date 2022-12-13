@@ -1,12 +1,11 @@
-package com.coachhe.chapter06_WindowAndTime.窗口;
+package com.coachhe.chapter06_WindowAndTime.窗口.窗口函数;
 
 import com.coachhe.chapter05_DataStreamAPI.Event;
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
+import org.apache.flink.api.common.functions.ReduceFunction;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.api.windowing.assigners.EventTimeSessionWindows;
-import org.apache.flink.streaming.api.windowing.assigners.SlidingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.time.Time;
 
@@ -14,7 +13,7 @@ import org.apache.flink.streaming.api.windowing.time.Time;
  * @author CoachHe
  * @date 2022/12/13 01:19
  **/
-public class WindowTest {
+public class WindowFunctionTest {
     public static void main(String[] args) {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(1);
@@ -36,12 +35,10 @@ public class WindowTest {
                         .withTimestampAssigner((SerializableTimestampAssigner<Event>) (event, l) -> event.timestamp));
 
 
-        stream.keyBy(data -> data.user)
-//                .countWindow(10, 2) // 滑动计数窗口
-//                .window(EventTimeSessionWindows.withGap(Time.seconds(2))) // 事件时间会话窗口
-//                .window(SlidingEventTimeWindows.of(Time.hours(1), Time.milliseconds(5))) // 滑动时间会话窗口
-                .window(TumblingEventTimeWindows.of(Time.hours(1))); // 滚动时间会话窗口
-        
+        stream
+                .keyBy(data -> data.user)
+                .window(TumblingEventTimeWindows.of(Time.hours(1)))
+                .reduce((ReduceFunction<Event>) (event, t1) -> new Event());
 
     }
 }
