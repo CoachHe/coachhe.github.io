@@ -138,15 +138,7 @@
     }
   ],
   "obsidian-git:pull": [],
-  "obsidian-pangu:pangu-format": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "S"
-    }
-  ],
+  "obsidian-pangu:pangu-format": [],
   "open-with-default-app:open": [
     {
       "modifiers": [
@@ -245,6 +237,15 @@
         "Shift"
       ],
       "key": "H"
+    }
+  ],
+  "easy-typing-obsidian:easy-typing-format-article": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "S"
     }
   ]
 }
