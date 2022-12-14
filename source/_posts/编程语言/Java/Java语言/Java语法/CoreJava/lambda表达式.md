@@ -6,7 +6,7 @@ categories:
   - Java语法
   - CoreJava
   - Chapter6_接口、lambda表达式与内部类
-title: 2. lambda表达式  
+title: lambda表达式  
 date: 2022-12-09 01:22:53  
 tags: []  
 
@@ -21,7 +21,7 @@ tags: []
 
 ## 使用 `lambda` 表达式的场景
 
-例如我们在 [[1. 接口]]中 ==接口与回调== 提过的 `swing` 中的 `Timer` 类，回忆一下：
+例如我们在 [[接口]]中 ==接口与回调== 提过的 `swing` 中的 `Timer` 类，回忆一下：
 
 ```java
 /**  
