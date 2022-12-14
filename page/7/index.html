@@ -223,423 +223,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/e065706e23da.html" target="_self">
-          APUE-15-进程间通信
+        <a href="/2022/12/2f509f2faa18.html" target="_self">
+          1 单一职责原则
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/e065706e23da.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/2f509f2faa18.html" target="_self">
         <div>
-          1 进程间通信分类 管道 XSI -&gt; SysV 网络套接字  其中1和2是在同一台主机上的，3是在不同主机上的。 管道内核提供，单工通信（一端作为读端，一端作为写端），自同步机制 管道分类 匿名管道匿名管道是由内核创建的，磁盘不可见（也就是使用ls命令时看不到），通过调用pipe函数创建一个匿名管道。 命名管道  管道的创建通过调用pipe函数创建一个匿名管道 123#include &l
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:38" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/8abbafddf064.html" target="_self">
-          APUE-12-线程控制
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/8abbafddf064.html" target="_self">
-        <div>
-          1 线程属性回顾一下创建线程的函数： 123456#include &lt;pthread.h&gt;int pthread_create(pthread_t *restrict tidp,          const pthread_attr_t *restrict attr,         void *(*star_rtn)(void *) void *restrict arg);
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:38" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/fa5ea0adbbff.html" target="_self">
-          APUE-11-线程
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/fa5ea0adbbff.html" target="_self">
-        <div>
-          1 线程的概念线程就是一个正在运行的函数。 每个线程都包含有标识执行环境所必须的信息，其中包括进程中标识的线程ID、一组寄存器值、栈、调度优先级和策略、信号屏蔽字、errno变量以及线程私有数据。一个进程的所有信息对该进程的所有线程都是共享的，包括可执行程序的代码、程序的全局内存和堆内存、栈以及文件描述符。 注意会话就是一个承载进程组的容器进程组是承载更多进程的容器进程是承载线程的容器 线程标准线
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:38" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/ff18ed08088f.html" target="_self">
-          APUE-10-信号
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/ff18ed08088f.html" target="_self">
-        <div>
-          引言-异步事件处理的两种方式异步事件的处理 查询法 通知法  一、信号实现并发 信号的概念   信号是软件中断。 signal(); 信号的不可靠 可重入函数 信号的响应过程（重点） 常用函数 kill(); raise(); alarm(); pause(); abort(); system(); sleep问题   信号集 信号屏蔽字&#x2F;pending集的处理 扩展： sigsuspe
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:38" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/f6612b845dfa.html" target="_self">
-          APUE-9-进程关系
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/f6612b845dfa.html" target="_self">
-        <div>
-          1 终端登录和网络登录终端介绍计算机&#x3D;主机+终端终端&#x3D;输入设备+输出设备 也就是说，终端其实就是向主机输入信息和输出信息的设备，可以分为输入设备和输出设备。台式机的输入通常包括键盘、鼠标、麦克风，输出设备包括显示器、扬声器等。 理解：也就是说，我们最开始买来的笔记本电脑只有一个主机，没有输入输出设备，不能使用。因此我们需要购买一些终端来进行输入输出操作，例如我们买键盘和县食品，
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:38" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/5879c739d263.html" target="_self">
-          APUE-8-进程控制
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/5879c739d263.html" target="_self">
-        <div>
-          1 引言本章介绍UNIX系统的进程控制，包括：  创建新进程 执行进程 进程终止 介绍进程属性的各种ID-实际、有效的用户ID和组ID，以及它们如何受到进程控制原语的影响。 解释器文件和system函数 UNIX系统提供的进程会计机制。  进程表示每个进程都有一个非负整型表示的唯一进程ID。因为进程ID标识符是唯一的，常将其用作其他标识符的一部分以保证唯一性（例如，文件名） 系统的一些专用进程：
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:38" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/68c87e039eec.html" target="_self">
-          APUE-7-进程环境
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/68c87e039eec.html" target="_self">
-        <div>
-          1 进程环境简介1 引言学习内容： 程序执行时，其main函数是如何被调用的 命令行参数是如何传递给新程序的 典型的存储空间布局是怎么样的 如何分配另外的存储空间 进程如何使用环境变量 进程的各种不同终止方式  2 main函数C程序总是从main函数开始执行的。 main函数的原型1int main(int argc, char *argv[]); 当我们在bash下输入命令执行某一个ELF文件
+          基本概念英文缩写单一职责原则：Single Responsibility Principle（SRP） RBAC模型RBAC模型：Role-Based Access Control，基于角色的访问控制，通过分配和取消角色来完成用户权限的授予和取消，使动作主题（用户）与资源的行为（权限）分离。 单一职责原则的定义：应该有且仅有一个原因引起类的变更。
         </div>
       </a>
 
@@ -668,12 +260,12 @@
   
     <span>></span>
     
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="category-chain-item">设计模式</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E7%A6%85/" class="category-chain-item">设计模式之禅</a>
   
   
 
@@ -699,15 +291,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/bcd7e0405b48.html" target="_self">
-          APUE-6-系统数据文件和信息
+        <a href="/2022/12/60375e04399c.html" target="_self">
+          创建一个私人git仓库
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/bcd7e0405b48.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/60375e04399c.html" target="_self">
         <div>
-          口令文件（用户数据库文件）阴影文件加密口令是经单项算法加密处理过的用户口令副本。因为此算法是单向的，所以不能从加密口令猜测原来的口令 组文件
+          1. 在远端服务器上建立一个新的用户，专门用来存储 git 仓库1$ useradd git    2. 在远端服务器上创建一个空的 git 仓库1git init --bare &lt;reponame&gt;  执行结果： 1234567[git@VM-4-16-centos ~]$ git init --bare coachhe-codeInitialized empty Git repos
         </div>
       </a>
 
@@ -715,7 +307,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:37" pubdate>
+            <time datetime="2022-12-04 02:36" pubdate>
               2022-12-04
             </time>
           </div>
@@ -731,17 +323,322 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
+  <a href="/categories/%E5%B7%A5%E5%85%B7/" class="category-chain-item">工具</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
+  <a href="/categories/%E5%B7%A5%E5%85%B7/Git/" class="category-chain-item">Git</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/b7cab0f16ba4.html" target="_self">
+          WordPress建站教程
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/b7cab0f16ba4.html" target="_self">
+        <div>
+          工具腾讯云轻量服务器，可以直接购买 wordpress，会配置上用户名和密码。  基础设置登录服务器访问之后，可以得到网站地址，用户名和密码，以及数据库的密码，就可以顺利进行登录了。  接着就直接登录上去了，进入管理界面：  在设置这里可以进行一系列的基础设置： 基础设置： 进行基本设置之后就可以看到浏览效果： 更改主题更改为 astra 主题，接下来的教程都会基于这个主题来进行。  结果就是刷新
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:36" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B7%A5%E5%85%B7/" class="category-chain-item">工具</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
+  <a href="/categories/%E5%B7%A5%E5%85%B7/WordPress/" class="category-chain-item">WordPress</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/bc4c13181a93.html" target="_self">
+          Git基础
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/bc4c13181a93.html" target="_self">
+        <div>
+          git和github的关系git是代码管理工具，gitHub是基于git打造的一个开源社区。 git的使用1. 创建版本库版本库定义版本库就是仓库，英文是repository，可以理解成其为一个目录，这个目录里所有文件都可以被git管理起来，每个文件的修改，删除，Git都能跟踪，以便任何时刻都可追踪历史，或者在将来某个时刻还可以将文件“还原”。 创建版本库在这里创建了名为testgit的仓库 通过
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:36" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B7%A5%E5%85%B7/" class="category-chain-item">工具</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%B7%A5%E5%85%B7/Git/" class="category-chain-item">Git</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/a20c6605f691.html" target="_self">
+          Git命令
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/a20c6605f691.html" target="_self">
+        <div>
+          主要部分基础篇1. git commitGit 仓库中的提交记录保存的是你的目录下所有文件的快照，就像是把整个目录复制，然后再粘贴一样，但比复制粘贴优雅许多！ Git 希望提交记录尽可能地轻量，因此在你每次进行提交时，它并不会盲目地复制整个目录。条件允许的情况下，它会将当前版本与仓库中的上一个版本进行对比，并把所有的差异打包到一起作为一个提交记录。 Git 还保存了提交的历史记录。这也是为什么大多
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:36" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B7%A5%E5%85%B7/" class="category-chain-item">工具</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%B7%A5%E5%85%B7/Git/" class="category-chain-item">Git</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/d140e63b38b0.html" target="_self">
+          通过docker搭建集群
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/d140e63b38b0.html" target="_self">
+        <div>
+          首先下载最新版的centos   此时的 centos 是最简版本，很多基本命令都没有。  写一个Dockerfile，通过centos，设置密码为123456，安装ssh服务并启动  123456789101112131415FROM centosMAINTAINER mwfRUN yum install -y openssh-server sudoRUN sed -i &#x27;s/Use
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:36" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="category-chain-item">微服务</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Docker/" class="category-chain-item">Docker</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/4037a051c940.html" target="_self">
+          虚拟机安装
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/4037a051c940.html" target="_self">
+        <div>
+          安装VisualBox这里就不赘述了，非常简单。 下载ubuntu在https://ubuntu.com/download/desktop/thank-you?version=22.04.1&amp;architecture=amd64这里下载ubuntu 新建ubuntu点击新建   选择对应配置   设置用户名和密码   设置内存和CPU核心数量。 注意，这里最少需要4G内存和2核，我为了虚拟
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:35" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="category-chain-item">微服务</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/K8S/" class="category-chain-item">K8S</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/K8S/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/" class="category-chain-item">极客时间</a>
   
   
 
@@ -767,15 +664,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/0f58334a12fb.html" target="_self">
-          APUE-5-标准IO库
+        <a href="/2022/12/24274cfcd970.html" target="_self">
+          Docker容器数据卷
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/0f58334a12fb.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/24274cfcd970.html" target="_self">
         <div>
-          标准I&#x2F;O介绍1 引言本章讲述标准I&#x2F;O库。不仅是UNIX，很多其他操作系统都实现了标准I&#x2F;O库，所以这个库由ISO C标准说明。标准I&#x2F;O库处理很多细节，如缓冲区分配，以优化的块长度执行I&#x2F;O等。这些处理使用户不必担心如何选择使用正确的块长度。 注意FILE类型贯穿始终，FILE是一个结构体，随着学习深入会逐渐了解。 FILE的产生FILE类型通
+          容器数据卷什么是容器数据卷将应用和环境打包成一个镜像！ 数据？如果数据都在容器中，那么我们容器删除，数据就会丢失！需求：数据可以持久化 MySQL，容器删除了，删库跑路！需求：MySQL数据可以存储在本地！ 容器之间可以有一个数据共享的技术！Docker容器中产生的数据，同步到本地！ 这就是卷技术！目录的挂载，将我们容器内的目录，挂载到Linux上面！ 总结一句话：容器的持久化和同步操作！容器间也
         </div>
       </a>
 
@@ -783,7 +680,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:37" pubdate>
+            <time datetime="2022-12-04 02:35" pubdate>
               2022-12-04
             </time>
           </div>
@@ -799,20 +696,13 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
+  <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="category-chain-item">微服务</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
+  <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Docker/" class="category-chain-item">Docker</a>
   
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
-  
-  
-
   
 
   
@@ -835,15 +725,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/45e5ccf80fb4.html" target="_self">
-          APUE-4-文件和目录
+        <a href="/2022/12/491e661abe56.html" target="_self">
+          Docker学习
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/45e5ccf80fb4.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/491e661abe56.html" target="_self">
         <div>
-          1 文件系统需要了解文件系统，我们需要先对磁盘的物理结构有一定的了解 磁盘的物理结构可以看到，磁盘由很多盘面组成，而盘上则是由很多同心圆组成的磁道，每个磁道又被切割为许多扇区。所有磁盘面的同一个磁道构成一个柱面，同一柱面的所有磁道学完后，才会移入下一柱面。磁盘的最小组成单位可以看成扇区，每个扇区的大小逻辑看起来是512字节，但是实际上底层的物理扇区是4096字节. 文件系统的结构在UNIX系统中，
+          Docker学习过程 Docker概述 Docker安装 Docker命令 镜像命令 容器命令 操作命令 …   Docker镜像！ 容器数据卷！ DockerFile Docker网络原理 IDEA整合Docker Docker Compose Docker Swarm CI\CD Jenkins  为什么要有Dockerjava – apk – 发布（应用商店） – 张三使用apk – 安装即
         </div>
       </a>
 
@@ -851,7 +741,7 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:37" pubdate>
+            <time datetime="2022-12-04 02:34" pubdate>
               2022-12-04
             </time>
           </div>
@@ -867,18 +757,86 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
+  <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="category-chain-item">微服务</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
+  <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/Docker/" class="category-chain-item">Docker</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/da14a802c4b3.html" target="_self">
+          Chapter38_从外界联通Service与Service
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/da14a802c4b3.html" target="_self">
+        <div>
+          Session mode一共有5个文件： 12345678[root@VM-11-161-centos ~/kubernetes/flink/install/deploy/session-mode]# lltotal 24-rw-r--r-- 1 coachhe users 2442 Oct 31 00:44 flink-configuration-configmap.yaml-rw-r--r--
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:34" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" class="category-chain-item">微服务</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
+  <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/K8S/" class="category-chain-item">K8S</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/K8S/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/" class="category-chain-item">极客时间</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/K8S/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90k8s/" class="category-chain-item">深入剖析k8s</a>
+  
+  
+
   
 
   
@@ -901,7 +859,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/6/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/#board">8</a><a class="page-number" href="/page/9/#board">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/#board">16</a><a class="extend next" rel="next" href="/page/8/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/6/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#board">5</a><a class="page-number" href="/page/6/#board">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/#board">8</a><a class="page-number" href="/page/9/#board">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#board">15</a><a class="extend next" rel="next" href="/page/8/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
