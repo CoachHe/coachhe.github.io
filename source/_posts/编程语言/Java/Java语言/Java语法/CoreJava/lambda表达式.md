@@ -1,3 +1,11 @@
+---
+categories:
+  - 编程语言
+  - Java
+  - Java语言
+  - Java语法
+  - CoreJava
+---
 --- 
 title: lambda表达式  
 date: 2022-12-15 00:28:55  
