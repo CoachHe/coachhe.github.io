@@ -18,7 +18,7 @@ public class TestString {
         String s3 = "ab";
 
         String s4 = s1 + s2;
-        System.out.println(s3 == s4);
+        System.out.println(s3 == s4); // false
     }
 
     @Test
@@ -28,6 +28,6 @@ public class TestString {
         String s3 = "ab";
 
         String s4 = s1 + s2;
-        System.out.println(s3 == s4);
+        System.out.println(s3 == s4); // true
     }
 }
