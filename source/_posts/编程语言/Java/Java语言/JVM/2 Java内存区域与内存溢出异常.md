@@ -340,14 +340,14 @@ public void methodB(){
 - 首先，来看看前半句话：
 	==当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常 量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过。==
 	对应的源码部分：
-	<img src=https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810094227.png height=700>
+<img src=https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810094227.png 
 	点进`findLoadClass(name)`，可以看到：
-	<img src=https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810094452.png height=200>
+<img src=https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810094452.png>
 	在这里，`checkName`很简单，作用是检查name是否为null或者是一个有效的二进制名，然后根据`findLoadedClass0`这个native方法去执行JVM的方法。
 - 接下来看看后半句话：
 	==如果没有，那必须先执行相应的类加载过程。==
 	对应的源码部分：
-	<img src=https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810114433.png height=700>
+<img src=https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810114433.png>
 	这部分内容在[[7 虚拟机类加载机制]]进行详细说明，我们先大概分析一下，就是首先使用双亲委派机制尝试进行类的加载，如果失败，那么需要调用findClass方法来进行类的加载，最终返回的是一个Class对象。
 总结一下：类的加载主要分为三个步骤
 1.  检查是否已经加载，有就直接返回，避免重复加载
