@@ -1,4 +1,4 @@
-package com.coachhe.Section1_不可变的字符串;
+package com.coachhe.Section1_字符串概述;
 
 import org.junit.Test;
 
