@@ -1,7 +1,13 @@
 ---
-title: lambda表达式  
-date: 2022-12-15 00:31:30  
-tags: []  
+title: lambda表达式
+tags: []
+categories:
+  - 编程语言
+  - Java
+  - Java语言
+  - Java语法
+  - CoreJava
+date: 2022-12-15 00:31:30
 ---
 
 
