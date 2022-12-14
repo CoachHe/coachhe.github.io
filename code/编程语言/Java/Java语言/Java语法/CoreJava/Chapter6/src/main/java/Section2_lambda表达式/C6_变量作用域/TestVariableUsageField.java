@@ -41,7 +41,7 @@ public class TestVariableUsageField {
     public static void repeat(String text, int count) {
         for (int i = 0; i < count; i++) {
             ActionListener listener = event -> {
-                System.out.println(i + ": " + text);
+//                System.out.println(i + ": " + text);
 
             };
             new Timer(1000, listener).start();
