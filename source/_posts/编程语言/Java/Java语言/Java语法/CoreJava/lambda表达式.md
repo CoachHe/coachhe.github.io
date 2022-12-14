@@ -5,11 +5,9 @@ categories:
   - Java语言
   - Java语法
   - CoreJava
-  - Chapter6_接口、lambda表达式与内部类
-title: lambda表达式  
-date: 2022-12-09 01:22:53  
-tags: []  
-
+title: lambda表达式
+tags: []
+date: 2022-12-09 01:22:53
 ---
 
 
