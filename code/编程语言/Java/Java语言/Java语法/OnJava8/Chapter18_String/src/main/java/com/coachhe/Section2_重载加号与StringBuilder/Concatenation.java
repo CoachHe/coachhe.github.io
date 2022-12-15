@@ -51,4 +51,14 @@ public class Concatenation {
         String s = "abc" + mango + "def" + 47;
         System.out.println(s);
     }
+
+    public static void main_like(String[] args) {
+        String mango = "mango";
+        StringBuilder s = new StringBuilder();
+        s.append("abc");
+        s.append(mango);
+        s.append("def");
+        s.append(47);
+        System.out.println(s.toString());
+    }
 }
