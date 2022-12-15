@@ -34,6 +34,25 @@ public class Intern {
         System.out.println(s3 == s4); // false
     }
 
+    @Test
+    public void internTest3(){
+        String s = new String("a") + new String("b");
+
+        String s2 = s.intern(); // jdk6中：在常量池中创建一个字符串"ab"
+                                // jdk7及以后：在常量池中没有创建字符串"ab",而是创建一个引用，指向new String("ab")，将此引用返回
+
+        System.out.println(s2 == "ab"); // true
+        System.out.println(s == "ab"); // jdk1.6及以前:false， jdk1.7及以后:true
+    }
+
+    @Test
+    public void internTest4(){
+        String s1 = new String("a") + new String("b");
+        s1.intern();
+        String s2 = "ab";
+        System.out.println(s1 == s2);
+    }
+
     public static void main(String[] args) {
     }
 }
