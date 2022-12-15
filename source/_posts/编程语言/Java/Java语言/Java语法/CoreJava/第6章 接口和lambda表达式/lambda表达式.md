@@ -7,6 +7,7 @@ categories:
   - Java语言
   - Java语法
   - CoreJava
+  - 第6章 接口和lambda表达式
 date: 2022-12-15 00:31:30
 ---
 
