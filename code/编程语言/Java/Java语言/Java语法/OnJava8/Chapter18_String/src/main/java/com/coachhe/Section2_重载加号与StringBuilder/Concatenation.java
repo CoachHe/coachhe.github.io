@@ -64,7 +64,7 @@ public class Concatenation {
         int highLevel = 100000;
 
 //        method1(highLevel); //花费的时间为：4936
-        method2(highLevel);
+        method2(highLevel); //花费的时间为：4
 
         long end = System.currentTimeMillis();
 
