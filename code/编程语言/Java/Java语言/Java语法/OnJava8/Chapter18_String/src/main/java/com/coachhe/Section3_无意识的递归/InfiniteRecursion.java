@@ -10,7 +10,8 @@ public class InfiniteRecursion {
 
     @Override
     public String toString() {
-        return "InfiniteRecursion address: " + this + "\n";
+//        return "InfiniteRecursion address: " + this + "\n"; // 这里会直接爆错，产生了循环调用
+        return "InfiniteRecursion address: " + super.toString();
     }
 
     public static void main(String[] args) {
