@@ -56,6 +56,12 @@ public class Concatenation {
         System.out.println(s3 == s4);//true
     }
 
+    //  append测试，代表直接用StringBuilder效率更高
+    @Test
+    public void ConcatenationTest4(){
+
+    }
+
     public static void main(String[] args) {
         String mango = "mango";
         String s = "abc" + mango + "def" + 47;
