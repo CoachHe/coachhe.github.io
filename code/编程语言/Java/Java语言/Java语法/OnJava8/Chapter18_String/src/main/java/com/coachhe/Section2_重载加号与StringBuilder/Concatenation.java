@@ -59,7 +59,33 @@ public class Concatenation {
     //  append测试，代表直接用StringBuilder效率更高
     @Test
     public void ConcatenationTest4(){
+        long start = System.currentTimeMillis();
 
+        int highLevel = 100000;
+
+//        method1(highLevel); //花费的时间为：4936
+        method2(highLevel);
+
+        long end = System.currentTimeMillis();
+
+        System.out.println("花费的时间为：" + (end - start));
+    }
+
+    // 直接使用字符串拼接
+    public void method1(int highLevel) {
+        String src = "";
+        for (int i = 0; i < highLevel; i++) {
+            src = src + "a"; // 每次循环都会创建一个StringBuilder
+        }
+    }
+
+    // 使用StringBuilder的append操作
+    public void method2(int highLevel) {
+        // 只需要创建一个StringBuilder
+        StringBuilder src = new StringBuilder();
+        for (int i = 0; i < highLevel; i++) {
+            src.append("a");
+        }
     }
 
     public static void main(String[] args) {
