@@ -45,12 +45,20 @@ public class Intern {
         System.out.println(s == "ab"); // jdk1.6及以前:false， jdk1.7及以后:true
     }
 
+    // 两种创建对象的方法对结果的印象
     @Test
     public void internTest4(){
-        String s1 = new String("a") + new String("b");
+//        String s1 = new String("a") + new String("b"); // 不会在字符串常量池中创建"ab"常量
+        String s1 = new String("ab"); // 会在字符串常量池中创建"ab"常量
         s1.intern();
         String s2 = "ab";
         System.out.println(s1 == s2);
+    }
+
+    // 空间效率测试
+    @Test
+    public void internTest5(){
+        
     }
 
     public static void main(String[] args) {
