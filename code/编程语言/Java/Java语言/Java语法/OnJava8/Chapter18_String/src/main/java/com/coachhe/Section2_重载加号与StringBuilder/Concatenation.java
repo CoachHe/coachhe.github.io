@@ -46,6 +46,16 @@ public class Concatenation {
         System.out.println(s3 == s8); // true
     }
 
+    // 为了说明用final声明的变量重载时不会自动使用new创建
+    @Test
+    public void ConcatenationTest3(){
+        final String s1 = "a";
+        final String s2 = "b";
+        String s3 = "ab";
+        String s4 = s1 + s2;
+        System.out.println(s3 == s4);//true
+    }
+
     public static void main(String[] args) {
         String mango = "mango";
         String s = "abc" + mango + "def" + 47;
