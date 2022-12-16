@@ -14,10 +14,11 @@ categories:
 内存是非常重要的系统资源，是硬盘和 CPU 的中间仓库及桥梁，承载着操作系统和应用程序的实时运行。JVM 内存布局规定了 Java 在运行过程中内存申请、分配、管理的策略，保证了 JVM 的高效稳定运行。
 
 ## 结构图
-<img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211221130003.png" width = "50%" />
 
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221216121131.png" width = "50%" />
 
 # 从 JVM 角度看线程
+
 - 线程是一个程序里的运行单元。JVM 允许一个应用有多个线程并行的执行
 - 在 Hotspot JVM 中，每个线程都与操作系统的本地线程直接映射。
 	- 当一个 Java 线程准备好执行以后，此时一个操作系统的本地线程也同时创建。Java 线程执行终止之后，本地线程也会回收。
@@ -155,7 +156,7 @@ public class StackTest {
 }
 ```
 
-![](https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211224093503.png)
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211224093503.png" width="50%">
 
 
 - 如果 Java 虚拟机栈**允许动态扩展**，并且在尝试拓展的时候无法申请到足够的内存，或者在创建新的线程时没有足够的内存去创建对应的虚拟机栈，那么 JVM 会抛出一个 OutOfMemoryError 异常（OOM）
@@ -264,6 +265,7 @@ public void methodC(){
 ```
 
 那么结果会直接报错：
+
 <img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211224132358.png" width = "50%" />
 在 C 方法执行之后就直接结束了，但是我如果在任意一个函数添加对异常的处理，例如我在 main 方法中捕捉并打印异常：
 
@@ -281,7 +283,7 @@ public static void main(String[] args) {
 
 此时再执行：
 
-<img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211224132543.png" width = "50%" />
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211224132543.png" width = "30%" />
 
 可以看到，线程正常执行完成，之所以只打印了 methodC 的结束信息，是因为 methodB 和 methodA 都直接抛出异常返回了。如果我在 methodB 中就捕捉了异常并且处理了，那么又是另外一种情况了：
 
@@ -298,7 +300,7 @@ public void methodB(){
 ```
 
 
-<img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211224133037.png" width = "50%" />
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211224133037.png" width = "30%" />
 可以看到，在方法 B 中打印了异常，其他任务正常执行，并且 main 方法中的捕捉异常也没有工作了。
 
 
@@ -343,14 +345,15 @@ public void methodB(){
 
 先看看《深入理解JVM》里面的步骤：
 
-当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常 量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过。如果没有，那必须先执行相应的类加载过程。
+当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过。如果没有，那必须先执行相应的类加载过程。
 
 这部分对应的内容就是`java.lang.ClassLoader`类的`loadClass`方法。
 
-首先，来看看前半句话：
+首先，来看看前半句话： 
+**当 Java 虚拟机遇到一条字节码 new 指令时，首先将去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过**
 
-当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常 量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过
-	对应的源码部分：
+对应的源码部分：
+
 <img src= https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810094227.png width="50%"> 
 点进`findLoadClass(name)`，可以看到：
 <img src= https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810094452.png width="50%">
@@ -358,12 +361,15 @@ public void methodB(){
 
 接下来看看后半句话：
 
-==如果没有，那必须先执行相应的类加载过程。==
+**如果没有，那必须先执行相应的类加载过程。**
 
 对应的源码部分：
-<img src=https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810114433.png>
-	这部分内容在[[7 虚拟机类加载机制]]进行详细说明，我们先大概分析一下，就是首先使用双亲委派机制尝试进行类的加载，如果失败，那么需要调用findClass方法来进行类的加载，最终返回的是一个Class对象。
+
+<img src= https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810114433.png width="50%">
+
+这部分内容在[[7 虚拟机类加载机制]]进行详细说明，我们先大概分析一下，就是首先使用双亲委派机制尝试进行类的加载，如果失败，那么需要调用findClass方法来进行类的加载，最终返回的是一个Class对象。
 总结一下：类的加载主要分为三个步骤
+
 1.  检查是否已经加载，有就直接返回，避免重复加载
 2.  当前缓存中确实没有该类，那么遵循父优先加载机制，加载.class文件
 3.  上面两步都失败了，调用findClass()方法加载
