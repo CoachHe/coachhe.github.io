@@ -205,7 +205,9 @@ public class StackTest {
 - 栈帧是一个内存区块，是一个**数据集**，维系着方法执行过程中的各种数据信息
 - JVM 直接对 Java 栈的操作只有两个，那就是压栈和出栈，遵循“先进后出”/“后进先出”的原则。
 - 在一条活动线程中，一个时间点上，只会有一个活动的栈帧。也就是说，只有当前正在执行的方法的栈帧是有效的，这个栈帧被称为当前栈帧，与当前栈帧对应的方法就是当前方法，定义这个方法的类就是当前类。
-<img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211224101004.png" width = "50%" />
+
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221216115921.png" width = "50%" />
+
 - 执行引擎运行的所有字节码指令只针对当前栈帧进行操作
 - 如果在该方法中调用了其他方法，对应的新的栈帧会被创建出来，成为新的当前栈帧
 
@@ -278,6 +280,7 @@ public static void main(String[] args) {
 ```
 
 此时再执行：
+
 <img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211224132543.png" width = "50%" />
 
 可以看到，线程正常执行完成，之所以只打印了 methodC 的结束信息，是因为 methodB 和 methodA 都直接抛出异常返回了。如果我在 methodB 中就捕捉了异常并且处理了，那么又是另外一种情况了：
@@ -301,7 +304,7 @@ public void methodB(){
 
 ### 栈帧的内部结构
 
-<img src="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20211224133805.png" width = "80%" />
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221216120007.png" width = "50%" />
 
 每个栈帧中存储着：
 - 局部变量表
@@ -333,21 +336,31 @@ public void methodB(){
 
 
 # 对象探秘
+
 ## 1. 对象的创建
-1. 类的加载
+
+### 1. 类的加载
+
 先看看《深入理解JVM》里面的步骤：
+
 当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常 量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过。如果没有，那必须先执行相应的类加载过程。
+
 这部分对应的内容就是`java.lang.ClassLoader`类的`loadClass`方法。
-- 首先，来看看前半句话：
-	==当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常 量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过。==
+
+首先，来看看前半句话：
+
+当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常 量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过
 	对应的源码部分：
-<img src=https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810094227.png 
-	点进`findLoadClass(name)`，可以看到：
-<img src=https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810094452.png>
-	在这里，`checkName`很简单，作用是检查name是否为null或者是一个有效的二进制名，然后根据`findLoadedClass0`这个native方法去执行JVM的方法。
-- 接下来看看后半句话：
-	==如果没有，那必须先执行相应的类加载过程。==
-	对应的源码部分：
+<img src= https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810094227.png width="50%"> 
+点进`findLoadClass(name)`，可以看到：
+<img src= https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810094452.png width="50%">
+在这里，`checkName`很简单，作用是检查name是否为null或者是一个有效的二进制名，然后根据`findLoadedClass0`这个native方法去执行JVM的方法。
+
+接下来看看后半句话：
+
+==如果没有，那必须先执行相应的类加载过程。==
+
+对应的源码部分：
 <img src=https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810114433.png>
 	这部分内容在[[7 虚拟机类加载机制]]进行详细说明，我们先大概分析一下，就是首先使用双亲委派机制尝试进行类的加载，如果失败，那么需要调用findClass方法来进行类的加载，最终返回的是一个Class对象。
 总结一下：类的加载主要分为三个步骤
