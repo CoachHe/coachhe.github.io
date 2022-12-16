@@ -1,14 +1,3 @@
----
-excalidraw-plugin: raw
-categories:
-  - 编程语言
-  - Java
-  - Java语言
-  - JVM
-  - 图示
----
-==⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
-
 
 # Text Elements
 加载
