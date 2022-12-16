@@ -14,6 +14,7 @@ public class LocalVariables {
      * 输出：
      * [GC (System.gc())  69468K->66136K(251392K), 0.0012436 secs]
      * [Full GC (System.gc())  66136K->65931K(251392K), 0.0052158 secs]
+     * 说明没有进行垃圾回收
      */
     @Test
     public void localVariableTest1() {
@@ -48,13 +49,18 @@ public class LocalVariables {
         System.gc();
     }
 
+    // 会报错
+    @Test
+    public void localVariableTest4() {
+//        int a;
+//        System.out.println(a);
+    }
+
     /**
      * 输出：会报错
      */
     public static void main(String[] args) {
         LocalVariables l = new LocalVariables();
-        int a = 0;
-        System.out.println(a);
     }
 
 }
