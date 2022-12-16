@@ -50,8 +50,9 @@ public class LocalVariables {
      * 输出：会报错
      */
     public static void main(String[] args) {
-//        int a;
-//        System.out.println(a);
+        LocalVariables l = new LocalVariables();
+        int a = 0;
+        System.out.println(a);
     }
 
 }
