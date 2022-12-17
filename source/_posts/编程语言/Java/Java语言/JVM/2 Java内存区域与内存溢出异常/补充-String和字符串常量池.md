@@ -4,6 +4,10 @@ date: 2022-12-18 03:31:59
 tags: []  
 ---
 
+# 字符串常量池
+
+
+
 # 定义 String 的方式
 
 定义 String 有两种方式：
@@ -240,8 +244,7 @@ public void ConcatenationTest3(){
 
 ## 拼接的效率
 
-具体效率的比较可以参考[[2. 重载 + 与StringBuilder与intern]]
-
+具体效率的比较可以参考[[2. 重载 + 与StringBuilder]]
 
 
 #  intern 方法
