@@ -46,7 +46,6 @@ public class StringCreation {
     public void StringCreationTest3() {
         String str = new String("a") + new String("b");
         str.intern();
-
     }
 
 
