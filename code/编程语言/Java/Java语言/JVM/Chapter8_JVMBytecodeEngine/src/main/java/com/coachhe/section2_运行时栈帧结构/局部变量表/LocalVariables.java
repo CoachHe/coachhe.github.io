@@ -62,6 +62,7 @@ public class LocalVariables {
     public static void main(String[] args) {
         LocalVariables l = new LocalVariables();
         String str = "abc";
+        int a = 0;
     }
 
 }
