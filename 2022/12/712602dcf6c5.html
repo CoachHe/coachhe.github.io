@@ -16,26 +16,27 @@
   <meta name="author" content="CoachHe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在上一节 [[1. 字符串概述]]中我们知道，String 对象是不可变的，因此我们可以根据需要为特定的 String 设置多个别名。因为 String 是只读的，指向它的任何引用都不可能改变它的值，所以引用之间不会相互影响。 不可变性可能会带来效率问题。 字符串重载一个典型的例子是操作符 +，它针对 String 对象做了重载。&#x3D;&#x3D;操作符重载&#x3D;&#x3D;意味着在与">
+    <meta name="description" content="字符串常量池要了解字符串常量池我们需要先知道运行时常量池，这里会在 [[2 Java内存区域与内存溢出异常]]中进行详细介绍，这里我们就不展开了，主要来看字符串常量池。 字符串常量池中的内容是在类加载完成，经过验证、准备阶段之后存放在字符串常量池中。 字符串常量池存储位置的演进  可以看到，字符串常量池原本是属于运行时常量池的一部分，从 jdk7 开始被分割开来，分配到了堆空间中。 字符串常量池中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2. 重载 + 与StringBuilder与intern">
-<meta property="og:url" content="http://example.com/2022/12/04683758e86f.html">
+<meta property="og:title" content="补充-String和字符串常量池">
+<meta property="og:url" content="http://example.com/2022/12/712602dcf6c5.html">
 <meta property="og:site_name" content="CoachHe&#39;s Blog">
-<meta property="og:description" content="在上一节 [[1. 字符串概述]]中我们知道，String 对象是不可变的，因此我们可以根据需要为特定的 String 设置多个别名。因为 String 是只读的，指向它的任何引用都不可能改变它的值，所以引用之间不会相互影响。 不可变性可能会带来效率问题。 字符串重载一个典型的例子是操作符 +，它针对 String 对象做了重载。&#x3D;&#x3D;操作符重载&#x3D;&#x3D;意味着在与">
+<meta property="og:description" content="字符串常量池要了解字符串常量池我们需要先知道运行时常量池，这里会在 [[2 Java内存区域与内存溢出异常]]中进行详细介绍，这里我们就不展开了，主要来看字符串常量池。 字符串常量池中的内容是在类加载完成，经过验证、准备阶段之后存放在字符串常量池中。 字符串常量池存储位置的演进  可以看到，字符串常量池原本是属于运行时常量池的一部分，从 jdk7 开始被分割开来，分配到了堆空间中。 字符串常量池中">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221218041521.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221215024246.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221215130047.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221216003637.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221216004129.png">
-<meta property="article:published_time" content="2022-12-14T17:50:09.000Z">
-<meta property="article:modified_time" content="2022-12-15T18:26:18.016Z">
+<meta property="article:published_time" content="2022-12-17T19:31:59.000Z">
+<meta property="article:modified_time" content="2022-12-17T20:33:59.850Z">
 <meta property="article:author" content="CoachHe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221215024246.png">
+<meta name="twitter:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221218041521.png">
   
   
   
-  <title>2. 重载 + 与StringBuilder与intern - CoachHe&#39;s Blog</title>
+  <title>补充-String和字符串常量池 - CoachHe&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="2. 重载 + 与StringBuilder与intern"></span>
+            <span id="subtitle" data-typed-text="补充-String和字符串常量池"></span>
           
         </div>
 
@@ -211,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-12-15 01:50" pubdate>
-          2022年12月15日 凌晨
+        <time datetime="2022-12-18 03:31" pubdate>
+          2022年12月18日 凌晨
         </time>
       </span>
     
@@ -223,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          13k 字
+          14k 字
         
       </span>
     
@@ -234,7 +235,7 @@
         
         
         
-          110 分钟
+          117 分钟
         
       </span>
     
@@ -272,15 +273,55 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">2. 重载 + 与StringBuilder与intern</h1>
+            <h1 style="display: none">补充-String和字符串常量池</h1>
             
             
               <div class="markdown-body">
                 
-                <p>在上一节 [[1. 字符串概述]]中我们知道，<code>String</code> 对象是不可变的，因此我们可以根据需要为特定的 <code>String</code> 设置多个别名。因为 <code>String</code> 是只读的，指向它的任何引用都不可能改变它的值，所以引用之间不会相互影响。</p>
-<p>不可变性可能会带来效率问题。</p>
-<h1 id="字符串重载"><a href="#字符串重载" class="headerlink" title="字符串重载"></a>字符串重载</h1><p>一个典型的例子是操作符 <code>+</code>，它针对 <code>String</code> 对象做了重载。&#x3D;&#x3D;操作符重载&#x3D;&#x3D;意味着在与特定类一起使用时，相应的操作符具有额外的意义。（应用于 <code>String</code> 的 <code>+</code> 和 <code>+=</code> 是 Java 中仅有的被重载的操作符，Java 中不允许程序员重构其他操作符）</p>
-<p><code>+</code> 操作可以用来拼接字符串：</p>
+                <h1 id="字符串常量池"><a href="#字符串常量池" class="headerlink" title="字符串常量池"></a>字符串常量池</h1><p>要了解字符串常量池我们需要先知道运行时常量池，这里会在 [[2 Java内存区域与内存溢出异常]]中进行详细介绍，这里我们就不展开了，主要来看字符串常量池。</p>
+<p>字符串常量池中的内容是在类加载完成，经过验证、准备阶段之后存放在字符串常量池中。</p>
+<h2 id="字符串常量池存储位置的演进"><a href="#字符串常量池存储位置的演进" class="headerlink" title="字符串常量池存储位置的演进"></a>字符串常量池存储位置的演进</h2><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221218041521.png" srcset="/img/loading.gif" lazyload width = "50%" />
+
+<p>可以看到，字符串常量池原本是属于运行时常量池的一部分，从 jdk7 开始被分割开来，分配到了堆空间中。</p>
+<h2 id="字符串常量池中存放的内容"><a href="#字符串常量池中存放的内容" class="headerlink" title="字符串常量池中存放的内容"></a>字符串常量池中存放的内容</h2><p>这里其实是有比较大的争议的，有些人认为例如 <code>ab</code> 之类的字符串对象会创建在堆中，而字符串常量池只存一个引用，实际对象还是在堆中，例如：<a target="_blank" rel="noopener" href="https://xie.infoq.cn/article/45250864e429630990703f7f3">从字符串到常量池，一文看懂String类设计</a></p>
+<p>这篇文章所持有的观点就是字符串常量池只存堆中对象的引用。</p>
+<p>很遗憾，这里我持有的观点和这篇文章是不同的，我认为，<strong>字符串常量池中存放的就是实际的 String 对象</strong>。</p>
+<p>当然我是有证据的，具体的可以来看下 String 的 <code>intern()</code> 方法里面的定义：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Returns a canonical representation for the string object.</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * A pool of strings, initially empty, is maintained privately by the</span><br><span class="hljs-comment"> * class &#123;<span class="hljs-doctag">@code</span> String&#125;.</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * When the intern method is invoked, if the pool already contains a</span><br><span class="hljs-comment"> * string equal to this &#123;<span class="hljs-doctag">@code</span> String&#125; object as determined by</span><br><span class="hljs-comment"> * the &#123;<span class="hljs-doctag">@link</span> #equals(Object)&#125; method, then the string from the pool is</span><br><span class="hljs-comment"> * returned. Otherwise, this &#123;<span class="hljs-doctag">@code</span> String&#125; object is added to the</span><br><span class="hljs-comment"> * pool and a reference to this &#123;<span class="hljs-doctag">@code</span> String&#125; object is returned.</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * It follows that for any two strings &#123;<span class="hljs-doctag">@code</span> s&#125; and &#123;<span class="hljs-doctag">@code</span> t&#125;,</span><br><span class="hljs-comment"> * &#123;<span class="hljs-doctag">@code</span> s.intern() == t.intern()&#125; is &#123;<span class="hljs-doctag">@code</span> true&#125;</span><br><span class="hljs-comment"> * if and only if &#123;<span class="hljs-doctag">@code</span> s.equals(t)&#125; is &#123;<span class="hljs-doctag">@code</span> true&#125;.</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * All literal strings and string-valued constant expressions are</span><br><span class="hljs-comment"> * interned. String literals are defined in section 3.10.5 of the</span><br><span class="hljs-comment"> * &lt;cite&gt;The Java&amp;trade; Language Specification&lt;/cite&gt;.</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span>  a string that has the same contents as this string, but is</span><br><span class="hljs-comment"> *          guaranteed to be from a pool of unique strings.</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@jls</span> 3.10.5 String Literals</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">native</span> String <span class="hljs-title function_">intern</span><span class="hljs-params">()</span>;<br></code></pre></td></tr></table></figure>
+
+<p>我们来挑选其中最重要的几句话来看看（其余的会在本章接下来介绍 intern 方法的时候具体展开）</p>
+<ul>
+<li><p>A pool of strings, initially empty, is maintained privately by the class {@code String}.</p>
+<p>  这句话意思是字符串常量池是由 String 类私有的一个最开始为空的数据结构。</p>
+<p>  在这句话中我们可以了解到，这个字符串常量池是 String 类私有的，并且应该是全局唯一的，因此所有类共用这个字符串常量池，但是每个 class 都有一个运行时常量池，因此运行时常量池的数量应该比字符串常量池更多。</p>
+</li>
+<li><p>When the intern method is invoked, if the pool already contains a string equal to this {@code String} object as determined by the {@link # equals (Object)} method, then the string from the pool is returned. Otherwise, this {@code String} object is added to the pool and a reference to this {@code String} object is returned.</p>
+<p>  这句话的意思是当调用 <code>intern()</code> 方法时，如果运行时常量池中已经有了一个相等（equals）的字符串常量，那么直接返回这个 string 的引用。否则，这个 <strong>string 对象</strong>会被加到字符串常量池中，并且返回引用。</p>
+<p>  看到了吧，这个 string 对象！会被加载到字符串常量池中，而不是这个对象的引用会被加载到字符串常量池中，因此<strong>字符串常量池放的是实际的对应而不是引用</strong>！</p>
+</li>
+</ul>
+<h1 id="定义-String-的方式"><a href="#定义-String-的方式" class="headerlink" title="定义 String 的方式"></a>定义 String 的方式</h1><p>定义 String 有两种方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;abc&quot;</span>;<br><span class="hljs-type">String</span> <span class="hljs-variable">str_new</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">&quot;def&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>这两种定义有什么区别呢？我们可以通过字节码来看一下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-number">0</span> ldc #<span class="hljs-number">4</span> &lt;abc&gt;<br> <span class="hljs-number">2</span> astore_1<br> <span class="hljs-number">3</span> <span class="hljs-keyword">new</span> #<span class="hljs-number">5</span> &lt;java/lang/String&gt;<br> <span class="hljs-number">6</span> dup<br> <span class="hljs-number">7</span> ldc #<span class="hljs-number">6</span> &lt;def&gt;<br> <span class="hljs-number">9</span> invokespecial #<span class="hljs-number">7</span> &lt;java/lang/String.&lt;init&gt; : (Ljava/lang/String;)V&gt;<br><span class="hljs-number">12</span> astore_2<br><span class="hljs-number">13</span> <span class="hljs-keyword">return</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="String-str-quot-abc-quot-对应的操作"><a href="#String-str-quot-abc-quot-对应的操作" class="headerlink" title="String str = &quot;abc&quot; 对应的操作"></a><code>String str = &quot;abc&quot;</code> 对应的操作</h2><p>序号和字节码中的序号保持一致</p>
+<ol start="0">
+<li>使用 <code>ldc</code> 将常量池中字符串 <code>abc</code> 的引用放入操作数栈中，注意，在这里 <code>ldc</code> 会触发对其符号引用的解析操作，具体可以看 [[7 虚拟机类加载机制]]，这里会创建一个字符串 <code>abc</code> 对应的对象并将其放入字符串常量池中。</li>
+<li>将操作数栈顶的元素（也就是 <code>abc</code>）放入局部变量表的第一个位置（第 0 个是 this）。</li>
+</ol>
+<p>至此，<code>String str = &quot;abc&quot;</code> 已经结束，<code>str</code> 是一个引用，指向栈中的字符串 <code>abc</code></p>
+<h2 id="String-str-new-String-quot-def-quot-对应的操作"><a href="#String-str-new-String-quot-def-quot-对应的操作" class="headerlink" title="String str = new String(&quot;def&quot;) 对应的操作"></a><code>String str = new String(&quot;def&quot;)</code> 对应的操作</h2><p>同样，序号和字节码中的序号保持一致</p>
+<ol start="3">
+<li>创建了一个 String 对象，保留了一个引用，结果为：def</li>
+<li>将这个引用复制一份，也就是保留了两个引用，结果为：def, def</li>
+<li>和第 0 行类似，使用 <code>ldc</code> 将常量池中指定的常量 <code>def</code> 放入操作数栈中</li>
+<li>使用栈顶元素（也就是 <code>def</code>）参与构造器方法的的初始化，这样消耗了栈顶的 <code>def</code> 和 <code>dup</code> 得到的引用，值保留一个引用，指向的是堆中的对象。</li>
+<li>将这个指向堆中对象的引用放入局部变量表的第二个位置。</li>
+</ol>
+<p>可以看到，两种不同方式创建得到的引用虽然表面上看是很像的，但实际上确实存在了很大的差别。最重要的就是第一个引用指向的是栈，第二个引用指向的是堆</p>
+<h1 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h1><p>所谓字符串拼接就是两个字符串或者字符串和对象相加</p>
 <p>在进行之前我们先了解一下拼接的规则：</p>
 <h2 id="拼接的规则"><a href="#拼接的规则" class="headerlink" title="拼接的规则"></a>拼接的规则</h2><ol>
 <li>常量和常量的拼接结果在常量池，原理是编译器优化</li>
@@ -338,26 +379,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 为了说明用final声明的变量重载时不会自动使用new创建  </span><br><span class="hljs-meta">@Test</span>  <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">ConcatenationTest3</span><span class="hljs-params">()</span>&#123;  <br>    <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;a&quot;</span>;  <br>    <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">s2</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;b&quot;</span>;  <br>    <span class="hljs-type">String</span> <span class="hljs-variable">s3</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;ab&quot;</span>;  <br>    <span class="hljs-type">String</span> <span class="hljs-variable">s4</span> <span class="hljs-operator">=</span> s1 + s2;  <br>    System.out.println(s3 == s4);<span class="hljs-comment">//true  </span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>可以看到，最终输出的还是 true，说明 s4 还是直接指向了字符串常量池。</p>
-<h1 id="append-测试"><a href="#append-测试" class="headerlink" title="append 测试"></a>append 测试</h1><p>来看段代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java">    <span class="hljs-comment">//  append测试，代表直接用StringBuilder效率更高  </span><br>    <span class="hljs-meta">@Test</span>  <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">ConcatenationTest4</span><span class="hljs-params">()</span>&#123;  <br>        <span class="hljs-type">long</span> <span class="hljs-variable">start</span> <span class="hljs-operator">=</span> System.currentTimeMillis();  <br>  <br>        <span class="hljs-type">int</span> <span class="hljs-variable">highLevel</span> <span class="hljs-operator">=</span> <span class="hljs-number">100000</span>;  <br>  <br><span class="hljs-comment">//        method1(highLevel); //花费的时间为：4936  </span><br>        method2(highLevel); <span class="hljs-comment">//花费的时间为：4  </span><br>  <br>        <span class="hljs-type">long</span> <span class="hljs-variable">end</span> <span class="hljs-operator">=</span> System.currentTimeMillis();  <br>  <br>        System.out.println(<span class="hljs-string">&quot;花费的时间为：&quot;</span> + (end - start));  <br>    &#125;  <br>  <br>    <span class="hljs-comment">// 直接使用字符串拼接  </span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">method1</span><span class="hljs-params">(<span class="hljs-type">int</span> highLevel)</span> &#123;  <br>        <span class="hljs-type">String</span> <span class="hljs-variable">src</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span>;  <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; highLevel; i++) &#123;  <br>            src = src + <span class="hljs-string">&quot;a&quot;</span>; <span class="hljs-comment">// 每次循环都会创建一个StringBuilder  </span><br>        &#125;  <br>    &#125;  <br>  <br>    <span class="hljs-comment">// 使用StringBuilder的append操作  </span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">method2</span><span class="hljs-params">(<span class="hljs-type">int</span> highLevel)</span> &#123;  <br>        <span class="hljs-comment">// 只需要创建一个StringBuilder  </span><br>        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">src</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();  <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; highLevel; i++) &#123;  <br>            src.append(<span class="hljs-string">&quot;a&quot;</span>);  <br>        &#125;  <br>    &#125;<br></code></pre></td></tr></table></figure>
-
-<p>可以看到，两个方法花费的时间分别为 4936 毫秒和 4 毫秒，效率差别非常大。</p>
-<p>解释：</p>
-<ul>
-<li>使用 <code>StringBuilder</code> 的 <code>append()</code> 方式，自始至终只创建了一个 <code>StringBuilder</code> 对象</li>
-<li>使用 <code>String</code> 的字符串拼接方式，创建了多个 <code>StringBuilder</code>，速度比较慢。此外，由于内存中创建了较多的 <code>StringBuilder</code> 和 <code>String</code> 对象，内存占用更大，进行 GC 还需要额外的时间。</li>
-</ul>
-<p>从字节码角度来看：</p>
-<p>先看看 method1 的字节码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// method1</span><br> <span class="hljs-number">0</span> ldc #<span class="hljs-number">23</span><br> <span class="hljs-number">2</span> astore_2<br> <span class="hljs-number">3</span> iconst_0<br> <span class="hljs-number">4</span> istore_3<br> <span class="hljs-number">5</span> iload_3<br> <span class="hljs-number">6</span> iload_1<br> <span class="hljs-number">7</span> if_icmpge <span class="hljs-number">36</span> (+<span class="hljs-number">29</span>)<br><span class="hljs-number">10</span> <span class="hljs-keyword">new</span> #<span class="hljs-number">9</span> &lt;java/lang/StringBuilder&gt;<br><span class="hljs-number">13</span> dup<br><span class="hljs-number">14</span> invokespecial #<span class="hljs-number">10</span> &lt;java/lang/StringBuilder.&lt;init&gt; : ()V&gt;<br><span class="hljs-number">17</span> aload_2<br><span class="hljs-number">18</span> invokevirtual #<span class="hljs-number">11</span> &lt;java/lang/StringBuilder.append : (Ljava/lang/String;)Ljava/lang/StringBuilder;&gt;<br><span class="hljs-number">21</span> ldc #<span class="hljs-number">14</span> &lt;a&gt;<br><span class="hljs-number">23</span> invokevirtual #<span class="hljs-number">11</span> &lt;java/lang/StringBuilder.append : (Ljava/lang/String;)Ljava/lang/StringBuilder;&gt;<br><span class="hljs-number">26</span> invokevirtual #<span class="hljs-number">12</span> &lt;java/lang/StringBuilder.toString : ()Ljava/lang/String;&gt;<br><span class="hljs-number">29</span> astore_2<br><span class="hljs-number">30</span> iinc <span class="hljs-number">3</span> by <span class="hljs-number">1</span><br><span class="hljs-number">33</span> goto <span class="hljs-number">5</span> (-<span class="hljs-number">28</span>)<br><span class="hljs-number">36</span> <span class="hljs-keyword">return</span><br></code></pre></td></tr></table></figure>
-
-<p>可以看到，第 7 行和第 33 行构成了一个循环，每次循环的都会新建一个 <code>StringBuilder</code>，然后调用 <code>toString</code> 又会创建一个 <code>String</code> 对象。</p>
-<p>再看看 method2 的字节码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-number">0</span> <span class="hljs-keyword">new</span> #<span class="hljs-number">9</span> &lt;java/lang/StringBuilder&gt;<br> <span class="hljs-number">3</span> dup<br> <span class="hljs-number">4</span> invokespecial #<span class="hljs-number">10</span> &lt;java/lang/StringBuilder.&lt;init&gt; : ()V&gt;<br> <span class="hljs-number">7</span> astore_2<br> <span class="hljs-number">8</span> iconst_0<br> <span class="hljs-number">9</span> istore_3<br><span class="hljs-number">10</span> iload_3<br><span class="hljs-number">11</span> iload_1<br><span class="hljs-number">12</span> if_icmpge <span class="hljs-number">28</span> (+<span class="hljs-number">16</span>)<br><span class="hljs-number">15</span> aload_2<br><span class="hljs-number">16</span> ldc #<span class="hljs-number">14</span> &lt;a&gt;<br><span class="hljs-number">18</span> invokevirtual #<span class="hljs-number">11</span> &lt;java/lang/StringBuilder.append : (Ljava/lang/String;)Ljava/lang/StringBuilder;&gt;<br><span class="hljs-number">21</span> pop<br><span class="hljs-number">22</span> iinc <span class="hljs-number">3</span> by <span class="hljs-number">1</span><br><span class="hljs-number">25</span> goto <span class="hljs-number">10</span> (-<span class="hljs-number">15</span>)<br><span class="hljs-number">28</span> <span class="hljs-keyword">return</span><br></code></pre></td></tr></table></figure>
-
-<p>可以看到，第 12 行和第 25 行构成了一个循环，在循环中没有新对象的生成，只调用了 <code>append()</code> 方法。因此效率会比 method1 好很多。</p>
-<h2 id="优化方案"><a href="#优化方案" class="headerlink" title="优化方案"></a>优化方案</h2><p>如果一开始可以预估 <code>StringBuilder</code> 的长度，可以预先设置好，避免频繁进行扩容。</p>
-<h1 id="toString-的技巧"><a href="#toString-的技巧" class="headerlink" title="toString() 的技巧"></a>toString() 的技巧</h1><p>通常我们不会去动 <code>toString()</code> 方法，当创建 <code>toString()</code> 方法时，如果操作很简单，通常可以依赖编译器，让它以合理的方式自行构建结果。但如果涉及循环，并且对性能也有一定要求，那就需要再 <code>toString</code> 中显式使用 <code>StringBuilder</code> 了。</p>
+<h2 id="拼接的效率"><a href="#拼接的效率" class="headerlink" title="拼接的效率"></a>拼接的效率</h2><p>具体效率的比较可以参考[[2. 重载 + 与StringBuilder]]</p>
 <h1 id="intern-方法"><a href="#intern-方法" class="headerlink" title="intern 方法"></a>intern 方法</h1><h2 id="官方解释"><a href="#官方解释" class="headerlink" title="官方解释"></a>官方解释</h2><p>Returns a canonical representation for the string object.<br>A pool of strings, initially empty, is maintained privately by the class String.<br>When the intern method is invoked, if the pool already contains a string equal to this String object as determined by the equals (Object) method, then the string from the pool is returned. Otherwise, this String object is added to the pool and a reference to this String object is returned.<br>It follows that for any two strings s and t, <code>s.intern() == t.intern()</code> is true if and only if <code>s.equals(t)</code> is true.<br>All literal strings and string-valued constant expressions are interned. String literals are defined in section 3.10.5 of the The Java™ Language Specification.<br>Returns:<br>a string that has the same contents as this string, but is guaranteed to be from a pool of unique strings.</p>
 <p>简单来说，就是调用 <code>intern()</code> 方法的时候，如果字符串常量池中有一个调用 <code>equals</code> 方法返回 <code>true</code> 的字符串，那么会直接返回字符串常量池中的字符串。否则会将 <code>string</code> 对象放入字符串常量池，然后将 <code>reference</code> 返回。</p>
 <p>并且当前仅当 <code>s.equals(t)</code> 时 <code>s.intern() == t.intern()</code></p>
@@ -382,7 +404,13 @@
 <p>非常简单，就是 <code>new</code> 了一个 <code>String</code> 类型变量。那么来看他的字节码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-number">0</span> <span class="hljs-keyword">new</span> #<span class="hljs-number">2</span> &lt;java/lang/String&gt;<br> <span class="hljs-number">3</span> dup<br> <span class="hljs-number">4</span> ldc #<span class="hljs-number">3</span> &lt;ab&gt;<br> <span class="hljs-number">6</span> invokespecial #<span class="hljs-number">4</span> &lt;java/lang/String.&lt;init&gt; : (Ljava/lang/String;)V&gt;<br> <span class="hljs-number">9</span> astore_1<br><span class="hljs-number">10</span> <span class="hljs-keyword">return</span><br></code></pre></td></tr></table></figure>
 
-<p>可以看到，首先 <code>new</code> 了一个 <code>String</code> 对象，然后通过 <code>4 ldc #3 &lt;ab&gt;</code> 创建了一个常量池中的对象。一共两个对象。</p>
+<p>这里在 [[1. 字符串概述]]对其进行过了比较详细的分析，仅就创建对象而言，一共有两个步骤创建了对象。</p>
+<ol start="0">
+<li><code>new</code> 了一个 <code>String</code> 对象</li>
+<li>将 <code>#3</code> 指向的字符串常量的引用加入到栈顶中，在这里若 <code>#3</code> 指向的字符串常量没有被加载到字符串常量池中，则会创建一个常量池中的对象。</li>
+</ol>
+<p>因此若是 <code>#3</code> 指向的字符串常量没有被加载过，那么一共就会创建两个对象，如果已经有对象被创建了，那么就只会创建 1 个对象。</p>
+<p>使用 <code>ldc</code> 将常量池中字符串 <code>abc</code> 的引用放入操作数栈中，注意，在这里 <code>ldc</code> 会触发对其符号引用的解析操作，具体可以看 [[7 虚拟机类加载机制]]，这里会创建一个字符串 <code>abc</code> 对应的对象并将其放入字符串常量池中。</p>
 <p>那么此时我们可以来回答第二个问题：</p>
 <h3 id="new-String-quot-a-quot-new-String-quot-b-quot-会创建几个对象"><a href="#new-String-quot-a-quot-new-String-quot-b-quot-会创建几个对象" class="headerlink" title="new String(&quot;a&quot;) + new String(&quot;b&quot;) 会创建几个对象"></a><code>new String(&quot;a&quot;) + new String(&quot;b&quot;)</code> 会创建几个对象</h3><p>同样的，我们可以来看它的字节码：</p>
 <p>源代码同样很简单：</p>
@@ -484,8 +512,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>2. 重载 + 与StringBuilder与intern</div>
-      <div>http://example.com/2022/12/04683758e86f.html</div>
+      <div>补充-String和字符串常量池</div>
+      <div>http://example.com/2022/12/712602dcf6c5.html</div>
     </div>
     <div class="license-meta">
       
@@ -497,7 +525,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年12月15日</div>
+          <div>2022年12月18日</div>
         </div>
       
       
@@ -529,9 +557,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/12/b5d8c86c3153.html" title="3. 无意识的递归">
+                      <a href="/2022/12/a88c8cb65fca.html" title="">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">3. 无意识的递归</span>
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -539,8 +567,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/12/776744d80dda.html" title="1. 字符串概述">
-                        <span class="hidden-mobile">1. 字符串概述</span>
+                      <a href="/2022/12/0fba21433ffa.html" title="1. 通过引用操作对象">
+                        <span class="hidden-mobile">1. 通过引用操作对象</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

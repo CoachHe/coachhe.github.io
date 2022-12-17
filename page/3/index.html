@@ -223,6 +223,231 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2022/12/69e270597dba.html" target="_self">
+          MR5 MapReduce框架原理3_MapReduce工作机制
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/69e270597dba.html" target="_self">
+        <div>
+          1 MapTasks工作机制大纲 具体（1）Read阶段：MapTask通过用户编写的RecordReader，从输入InputSplit中解析出一个个key&#x2F;value。  （2）Map阶段：该节点主要是将解析出的key&#x2F;value交给用户编写map()函数处理，并产生一系列新的key&#x2F;value。  （3）Collect收集阶段：在用户编写map()函数中，当数据
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:45" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/3-MR%E4%BB%8B%E7%BB%8D/" class="category-chain-item">3 MR介绍</a>
+  
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/97a4fd70caba.html" target="_self">
+          MR4 MapReduce框架原理2_MapReduce工作流程+Shuffle机制
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/97a4fd70caba.html" target="_self">
+        <div>
+          MapReduce工作原理1 Map阶段工作大纲 2 Reduce阶段工作大纲 Shuffle机制1 Shuffle机制简介上面的流程是整个MapReduce最全工作流程，但是Shuffle过程只是从第7步开始到第16步结束，具体Shuffle过程详解，如下：  1）MapTask收集我们的map()方法输出的kv对，放到内存缓冲区中  2）从内存缓冲区不断溢出本地磁盘文件，可能会溢出多个文件
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:45" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/3-MR%E4%BB%8B%E7%BB%8D/" class="category-chain-item">3 MR介绍</a>
+  
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/94c8461dedbe.html" target="_self">
+          MR3 MapReduce框架原理1_InputFormat数据输入
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/94c8461dedbe.html" target="_self">
+        <div>
+          InputFormat数据输入1 切片与MapTask并行度决定机制MapTask的并行度决定Map阶段的任务处理并发度，进而影响到整个Job的处理速度。  思考：1G的数据，启动8个MapTask，可以提高集群的并发处理能力。那么1K的数据，也启动8个MapTask，会提高集群性能吗？MapTask并行任务是否越多越好呢？哪些因素影响了MapTask并行度？  2 数据块和数据切片定义数据块Bl
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:45" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/3-MR%E4%BB%8B%E7%BB%8D/" class="category-chain-item">3 MR介绍</a>
+  
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2022/12/2992bd11c637.html" target="_self">
           MR2 MR序列化
         </a>
@@ -714,231 +939,6 @@
     <span>></span>
     
   <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/2-HDFS%E4%BB%8B%E7%BB%8D/" class="category-chain-item">2 HDFS介绍</a>
-  
-  
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/e8829cd2e93b.html" target="_self">
-          HDFS2 Shell操作
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/e8829cd2e93b.html" target="_self">
-        <div>
-          dfs和fs的区别hadoop fs使用面最广，可以操作任何文件系统。 hadoop dfs与hdfs dfs只能操作HDFS文件系统相关（包括与Local FS间的操作），前者（dfs）已经Deprecated，一般使用后者。 以下内容参考自stackoverflowFollowing are the three commands which appears same but have minu
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:44" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/2-HDFS%E4%BB%8B%E7%BB%8D/" class="category-chain-item">2 HDFS介绍</a>
-  
-  
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/dd6330c7be5b.html" target="_self">
-          HDFS1 概述
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/dd6330c7be5b.html" target="_self">
-        <div>
-          一、HDFS定义定义HDFS是一个文件系统，用于存储文件，通过目录树来定位文件；  特点它是分布式的，由很多服务器联合起来实现其功能，集群中的服务器有各自的角色。  使用场景适合一次写入，多次读出的场景，且不支持文件的修改。适合用来做数据分析，并不适合用来做网盘应用。  二、HDFS优缺点优点1. 高容错性 数据自动保存多个副本，通过增加副本的形式提高容错性。  某一个副本丢失以后，可以自动恢复
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:44" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/2-HDFS%E4%BB%8B%E7%BB%8D/" class="category-chain-item">2 HDFS介绍</a>
-  
-  
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/dd47651c31af.html" target="_self">
-          Hadoop1 介绍3（源码编译）
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/dd47651c31af.html" target="_self">
-        <div>
-          编译源码的原因例如我们从Apache官网下载的文件为默认32位，但我们是64位的系统，因此我们可以先编译，编译之后让其支持64位系统，从而能够使用。  大概意思就是我们原来缺少什么功能，现在进行编译之后让其满足那个功能。！  例如我们经过编译后可以得到一个支持64位的hadoop，可以得到支持snappy的hadoop，这些东西可以在网上直接下载，但是也可以自己编译。！  源码编译步骤1 前期准备
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:44" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/1-Hadoop%E4%BB%8B%E7%BB%8D/" class="category-chain-item">1 Hadoop介绍</a>
   
   
 
