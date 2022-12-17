@@ -38,7 +38,7 @@ public class StringCreation {
      * */
     @Test
     public void StringCreationTest2() {
-        String str = "abc";
+//        String str = "abc";
         String str_new = new String("abc");
     }
 
