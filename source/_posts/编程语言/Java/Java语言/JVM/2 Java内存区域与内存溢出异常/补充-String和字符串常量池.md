@@ -26,6 +26,49 @@ tags: []
 
 当然我是有证据的，具体的可以来看下 String 的 `intern()` 方法里面的定义：
 
+```java
+    /**
+     * Returns a canonical representation for the string object.
+     * <p>
+     * A pool of strings, initially empty, is maintained privately by the
+     * class {@code String}.
+     * <p>
+     * When the intern method is invoked, if the pool already contains a
+     * string equal to this {@code String} object as determined by
+     * the {@link #equals(Object)} method, then the string from the pool is
+     * returned. Otherwise, this {@code String} object is added to the
+     * pool and a reference to this {@code String} object is returned.
+     * <p>
+     * It follows that for any two strings {@code s} and {@code t},
+     * {@code s.intern() == t.intern()} is {@code true}
+     * if and only if {@code s.equals(t)} is {@code true}.
+     * <p>
+     * All literal strings and string-valued constant expressions are
+     * interned. String literals are defined in section 3.10.5 of the
+     * <cite>The Java&trade; Language Specification</cite>.
+     *
+     * @return  a string that has the same contents as this string, but is
+     *          guaranteed to be from a pool of unique strings.
+     * @jls 3.10.5 String Literals
+     */
+    public native String intern();
+```
+
+我们来挑选其中最重要的几句话来看看（其余的会在本章接下来介绍 intern 方法的时候具体展开）
+
+- A pool of strings, initially empty, is maintained privately by the class {@code String}.
+
+	这句话意思是字符串常量池是由 String 类私有的一个最开始为空的数据结构。
+	
+	在这句话中我们可以了解到，这个字符串常量池是 String 类私有的，并且应该是全局唯一的，因此所有类共用这个字符串常量池，但是每个 class 都有一个运行时常量池，因此运行时常量池的数量应该比字符串常量池更多。
+
+- When the intern method is invoked, if the pool already contains a string equal to this {@code String} object as determined by the {@link # equals (Object)} method, then the string from the pool is returned. Otherwise, this {@code String} object is added to the pool and a reference to this {@code String} object is returned.
+
+	这句话的意思是当调用 `intern()` 方法时，如果运行时常量池中已经有了一个相等（equals）的字符串常量，那么直接返回这个 string 的引用。否则，这个 **string 对象**会被加到字符串常量池中，并且返回引用。
+
+	看到了吧，这个 string 对象！会被加载到字符串常量池中，而不是这个对象的引用会被加载到字符串常量池中，因此**字符串常量池放的是实际的对应而不是引用**！
+
+
 
 # 定义 String 的方式
 
