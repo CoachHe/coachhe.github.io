@@ -1,7 +1,13 @@
 ---
-title: 补充-String和字符串常量池  
-date: 2022-12-18 03:31:59  
-tags: []  
+title: 补充-String和字符串常量池
+tags: []
+categories:
+  - 编程语言
+  - Java
+  - Java语言
+  - JVM
+  - 2 Java内存区域与内存溢出异常
+date: 2022-12-18 03:31:59
 ---
 
 # 字符串常量池

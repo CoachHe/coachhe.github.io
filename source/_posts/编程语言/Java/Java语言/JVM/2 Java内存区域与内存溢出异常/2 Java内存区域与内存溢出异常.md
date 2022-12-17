@@ -1,12 +1,13 @@
 ---
-title: 2 Java内存区域与内存溢出异常  
-date: 2022-12-04 02:20:10  
-tags: []  
+title: 2 Java内存区域与内存溢出异常
+tags: []
 categories:
   - 编程语言
   - Java
   - Java语言
   - JVM
+  - 2 Java内存区域与内存溢出异常
+date: 2022-12-04 02:20:10
 ---
 
 # 内存介绍
