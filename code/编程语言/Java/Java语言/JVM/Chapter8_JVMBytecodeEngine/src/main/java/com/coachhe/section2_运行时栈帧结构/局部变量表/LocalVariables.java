@@ -57,7 +57,6 @@ public class LocalVariables {
     }
 
     /**
-     * 输出：会报错
      */
     public static void main(String[] args) {
         LocalVariables l = new LocalVariables();
