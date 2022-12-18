@@ -68,9 +68,9 @@ date: 2022-12-18 03:31:59
 	
 	在这句话中我们可以了解到，这个字符串常量池是 String 类私有的，并且应该是全局唯一的，因此所有类共用这个字符串常量池，但是每个 class 都有一个运行时常量池，因此运行时常量池的数量应该比字符串常量池更多。
 
-- When the intern method is invoked, if the pool already contains a string equal to this {@code String} object as determined by the {@link # equals (Object)} method, then the string from the pool is returned. Otherwise, this {@code String} object is added to the pool and a reference to this {@code String} object is returned.
+- When the intern method is invoked, if the pool already contains a string equal to this {@code String} object as determined by the {@link # equals (Object)} method, then the string from the pool is returned. Otherwise, this  string object is added to the pool and a reference to this {@code String} object is returned.
 
-	这句话的意思是当调用 `intern()` 方法时，如果运行时常量池中已经有了一个相等（equals）的字符串常量，那么直接返回这个 string 的引用。否则，这个 **string 对象**会被加到字符串常量池中，并且返回引用。
+	这句话的意思是当调用 `intern()` 方法时，如果运行时常量池中已经有了一个相等（equals）的字符串常量，那么直接返回这个 string 的引用。否则，这个 **string 对象 (this string object)** 会被加到字符串常量池中，并且返回引用。
 
 	看到了吧，这个 **string 对象**！会被加载到字符串常量池中，而不是这个对象的引用会被加载到字符串常量池中，因此**字符串常量池放的是实际的对应而不是引用**！
 
