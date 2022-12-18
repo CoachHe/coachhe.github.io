@@ -4,9 +4,9 @@
   
   
   <entry>
-    <title></title>
-    <link href="/2022/12/a88c8cb65fca.html"/>
-    <url>/2022/12/a88c8cb65fca.html</url>
+    <title>2. 必须创建所有对象</title>
+    <link href="/2022/12/ad9faad19925.html"/>
+    <url>/2022/12/ad9faad19925.html</url>
     
     <content type="html"><![CDATA[<h1 id="1-数据存储在哪里"><a href="#1-数据存储在哪里" class="headerlink" title="1. 数据存储在哪里"></a>1. 数据存储在哪里</h1><p>5 中数据存储方式</p><ol><li>寄存器：速度最快的数据存储方式，数据会直接保存在<strong>中央处理器</strong>里。缺点是数量有限</li><li>栈：数据存储在 RAM 里，处理器可以通过<strong>栈指针</strong>直接操作该数据。</li><li>堆：通用内存池，使用的也是 RAM 空间，用于<strong>存放几乎所有 Java 对象</strong>。</li><li>常量存储：直接保存在程序代码中。</li><li>非 RAM 存储：例如序列化对象、持久化对象</li></ol><h1 id="2-特殊情况：基本类型"><a href="#2-特殊情况：基本类型" class="headerlink" title="2. 特殊情况：基本类型"></a>2. 特殊情况：基本类型</h1><p>在这里我们先具体了解一下变量的分类：</p><h2 id="基本数据分类"><a href="#基本数据分类" class="headerlink" title="基本数据分类"></a>基本数据分类</h2><h3 id="按照数据类型分类"><a href="#按照数据类型分类" class="headerlink" title="按照数据类型分类"></a>按照数据类型分类</h3><p>按照数据类型分类，变量分为两种：</p><ol><li>基本数据类型<ol><li>数值型<ol><li>整数类型 (byte, short, long)</li><li>浮点类型 (float, double)</li></ol></li><li>字符型 (char)</li><li>布尔型 (boolean)</li></ol></li><li>引用数据类型<ol><li>类（class） &lt;– 字符串属于这里</li><li>接口 (interface)</li><li>数组 ([])</li></ol></li></ol><h3 id="按照声明的位置不同"><a href="#按照声明的位置不同" class="headerlink" title="按照声明的位置不同"></a>按照声明的位置不同</h3><p>按照声明位置不同，变量也分为两类：</p><ol><li>成员变量<ol><li>实例变量（不以 static 修饰）</li><li>类变量（以 static）修饰</li></ol></li><li>局部变量<ol><li>形参</li><li>方法局部变量</li><li>代码块局部变量</li></ol></li></ol><h2 id="特殊的原因"><a href="#特殊的原因" class="headerlink" title="特殊的原因"></a>特殊的原因</h2><p>它们之所以享受特殊待遇，是因为 <code>new</code> 关键字是在堆上创建对象，这就意味着哪怕是创建一些简单的变量也不会很高效。</p><p>而对于基本数据类型，我们无需 <code>new</code> 来创建基本类型的变量，Java 会直接创建一个“自动变量”，而不是引用。也就是说，该变量会直接在栈上保存它的值，因为运行效率也高。</p><p>这块我们可以用字节码来做一个证明, 这是一段很简单的代码：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;  <br>    <span class="hljs-type">LocalVariables</span> <span class="hljs-variable">l</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">LocalVariables</span>();  <br>    <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;abc&quot;</span>;  <br>    <span class="hljs-type">int</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;  <br>&#125;<br></code></pre></td></tr></table></figure><p>可以看到，我们 <code>new</code> 了一个对象，然后定义了一个 <code>String</code> 类型，然后然后定义了一个初始值为 0 的 int 类型。</p>]]></content>
     
@@ -14,6 +14,16 @@
     <categories>
       
       <category>编程语言</category>
+      
+      <category>Java</category>
+      
+      <category>Java语言</category>
+      
+      <category>Java语法</category>
+      
+      <category>OnJava8</category>
+      
+      <category>第3章 对象</category>
       
     </categories>
     
@@ -34,6 +44,14 @@
       
       <category>编程语言</category>
       
+      <category>Java</category>
+      
+      <category>Java语言</category>
+      
+      <category>JVM</category>
+      
+      <category>2 Java内存区域与内存溢出异常</category>
+      
     </categories>
     
     
@@ -52,6 +70,16 @@
     <categories>
       
       <category>编程语言</category>
+      
+      <category>Java</category>
+      
+      <category>Java语言</category>
+      
+      <category>Java语法</category>
+      
+      <category>OnJava8</category>
+      
+      <category>第3章 对象</category>
       
     </categories>
     
@@ -459,6 +487,8 @@
       <category>Java语言</category>
       
       <category>JVM</category>
+      
+      <category>8 虚拟机字节码执行引擎</category>
       
     </categories>
     
@@ -3320,6 +3350,8 @@
       
       <category>JVM</category>
       
+      <category>7 虚拟机类加载机制</category>
+      
     </categories>
     
     
@@ -3344,6 +3376,8 @@
       <category>Java语言</category>
       
       <category>JVM</category>
+      
+      <category>6 类文件结构</category>
       
     </categories>
     
@@ -3370,6 +3404,8 @@
       
       <category>JVM</category>
       
+      <category>4 虚拟机性能监控、故障处理工具</category>
+      
     </categories>
     
     
@@ -3395,6 +3431,8 @@
       
       <category>JVM</category>
       
+      <category>3 垃圾收集器与内存分配策略</category>
+      
     </categories>
     
     
@@ -3419,6 +3457,8 @@
       <category>Java语言</category>
       
       <category>JVM</category>
+      
+      <category>2 Java内存区域与内存溢出异常</category>
       
     </categories>
     
