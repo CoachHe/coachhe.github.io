@@ -1,4 +1,4 @@
-package com.coachhe.section3_分派;
+package com.coachhe.section3_方法调用;
 
 /**
  * Created with IntelliJ IDEA.
