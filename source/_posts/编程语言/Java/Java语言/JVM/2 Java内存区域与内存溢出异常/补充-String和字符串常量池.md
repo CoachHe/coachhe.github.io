@@ -196,7 +196,8 @@ public void ConcatenationTest2(){
 /**  
  * @author CoachHe  
  * @date 2022/12/15 02:37  
- **/public class Concatenation {  
+ **/
+public class Concatenation {  
     public static void main(String[] args) {  
         String mango = "mango";  
         String s = "abc" + mango + "def" + 47;  
@@ -315,7 +316,7 @@ public void ConcatenationTest3(){
 具体效率的比较可以参考[[2. 重载 + 与StringBuilder]]
 
 
-#  intern 方法
+# intern 方法
 
 ## 官方解释
 
@@ -331,7 +332,7 @@ a string that has the same contents as this string, but is guaranteed to be from
 
 并且当前仅当 `s.equals(t)` 时 `s.intern() == t.intern()`
 
-## intern () 的使用（jdk6 vs jdk7/8）
+## `intern()` 的使用（jdk6 vs jdk7/8）
 
 如果不是用双引号声明的 `String` 对象，可以使用 `String` 提供的 `intern` 方法： `intern` 方法会从字符串常量池中查询当前字符串是否存在，若不存在就会将当前字符串放入常量池中。
 
@@ -498,7 +499,7 @@ public void internTest2(){
 
 可以看到，和上面唯一的不同是 `String s4 = "18"` 往前提了一行。但是导致输出的结果变为 false。这是因为执行这行代码时字符串常量池中是没有 `"18"` 这个常量的，因此会创建并返回地址，那么此时和堆中的对象就完全没有关系了，再执行 `s3.intern()` 时因为字符串常量池中已经有了 `"18"`, 因此没有任何作用。
 
-## 总结 String 中 intern () 方法的使用
+## 总结 String 中 `intern()` 方法的使用
 
 jdk1.6 中，将这个字符串对象尝试放入常量池。 
 - 如果常量池中有，并不会放入，返回已有的常量池中的对象的地址
@@ -557,7 +558,7 @@ String s1 = new String("a") + new String("b");
 
 这种方法也会创建一个堆中的 `String` 对象，但是**不会在字符串常量池中创建字符串常量** `"ab"`，因此执行 `s1.intern()` 之后会在字符串常量池中创建一个指向堆中对象的引用，所以 `s2` 也是这个引用，因此这里会输出 true。
 
-## Intern 的效率测试
+## intern 的效率测试
 
 ```java
     // 空间效率测试  
