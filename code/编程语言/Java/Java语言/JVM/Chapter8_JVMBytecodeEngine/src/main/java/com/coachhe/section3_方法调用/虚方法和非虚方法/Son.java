@@ -27,9 +27,13 @@ public class Son extends Father{
         super.showStatic("good"); // 父类的showStatic
         showPrivate("hello"); // 自身的private方法
         super.showCommon(); // 父类的Common方法
-
         showFinal();
+
+        showCommon();
         info();
+
+        MethodInterface in = null;
+        in.methodA();
     }
 
     public void info(){}
@@ -53,3 +57,6 @@ class Father {
     }
 }
 
+interface MethodInterface{
+    void methodA();
+}
