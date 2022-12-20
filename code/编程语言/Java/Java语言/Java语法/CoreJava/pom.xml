@@ -21,9 +21,9 @@
         </plugins>
     </build>
     <modules>
-        <module>Chapter4_对象与类</module>
-        <module>Chapter5</module>
-        <module>Chapter6</module>
+        <module>Chapter4_ObjectAndClass</module>
+        <module>Chapter5_inheritance</module>
+        <module>Chapter6_Interface_Lambda_InnerClass</module>
     </modules>
 
 

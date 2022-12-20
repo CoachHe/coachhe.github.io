@@ -1,7 +1,8 @@
 package Section7_包.接收的包;
 
-import fashedeba2.*;
 // the Employee class is defined in that package
+
+import Section7_包.发射的包.Employee;
 
 import static java.lang.System.*;
 
@@ -21,8 +22,8 @@ public class Demo {
 
         //because of the static import statement , we don't have to use System.out here
         out.println("name = " + harry.getName() + " , salary = " + harry.getSalary());
-        leifangrubaozhong.Demo d = new leifangrubaozhong.Demo();
-        out.println(d.i);
+        Demo d = new Demo();
+//        out.println(d.i);
 
     }
 }
