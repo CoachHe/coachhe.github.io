@@ -1,4 +1,4 @@
-package Section1_定义子类.abstractDemo;
+package Section1_类超类和子类.abstractDemo;
 
 public class Student extends Person {
     private String major;

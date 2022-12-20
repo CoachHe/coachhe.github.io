@@ -1,4 +1,4 @@
-package Section1_定义子类.继承;
+package Section1_类超类和子类.S1_覆盖方法;
 
 public class manager extends Employee{
     private double bonus;
@@ -8,13 +8,10 @@ public class manager extends Employee{
 
     public double getSalary(){
         double baseSalary = super.getSalary();
-//        return baseSalary + bonus;
-        double a = this.getSalary();
-
-        return a;
+        return baseSalary + bonus;
+//        double a = this.getSalary();
+//        return a;
     }
-
-
 
     public static void main(String[] args) {
         manager m = new manager("Harry", 1000, 2019,8,13);
