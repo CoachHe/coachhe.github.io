@@ -1,4 +1,4 @@
-package com.coachhe.section3_方法调用.早期绑定和晚期绑定;
+package com.coachhe.section4_动态类型语言支持.早期绑定和晚期绑定;
 
 /**
  * 说明早期绑定和晚期绑定的例子

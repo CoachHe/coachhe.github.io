@@ -1,4 +1,4 @@
-package com.coachhe.section3_方法调用;
+package com.coachhe.section3_方法调用.S2_分派;
 
 /**
  * Created with IntelliJ IDEA.
@@ -28,8 +28,8 @@ public class StaticDispatch {
     }
 
     public static void main(String[] args) {
-        Human man = new Man();
-        Human woman = new Man();
+        Human man = new Man(); // Hello, guy
+        Human woman = new Woman(); // Hello, guy
         StaticDispatch sr = new StaticDispatch();
         sr.sayHello(man);
         sr.sayHello(woman);

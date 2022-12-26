@@ -1,4 +1,4 @@
-package com.coachhe.section3_方法调用.虚方法和非虚方法;
+package com.coachhe.section4_动态类型语言支持.虚方法和非虚方法;
 
 /**
  * @author CoachHe
