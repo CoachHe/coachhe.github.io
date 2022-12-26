@@ -30,9 +30,11 @@ public class StaticDispatch {
     public static void main(String[] args) {
         Human man = new Man(); // Hello, guy
         Human woman = new Woman(); // Hello, guy
+        Man man2 = new Man(); // Hello, gentleman
         StaticDispatch sr = new StaticDispatch();
         sr.sayHello(man);
         sr.sayHello(woman);
+        sr.sayHello(man2);
     }
 
 
