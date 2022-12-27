@@ -1,5 +1,7 @@
 package com.coachhe.Section2_方法重载;
 
+import java.io.Serializable;
+
 /**
  * @author CoachHe
  * @date 2022/12/28 01:59
@@ -90,8 +92,13 @@ public class PrimitiveOverloading {
     void f7(double x) {
         System.out.print("f7(double)");
     }
+    // 测试自动装箱
     void f8(Character x) {
         System.out.print("f8(Character)");
+    }
+    // 测试向上转型
+    void f9(Serializable x) {
+        System.out.print("f9(Serializable)");
     }
     void testConstVal() {
         System.out.print("5: ");
@@ -101,7 +108,7 @@ public class PrimitiveOverloading {
     void testChar() {
         char x = 'x';
         System.out.print("char: ");
-        f1(x);f2(x);f3(x);f4(x);f5(x);f6(x);f7(x);f8(x);
+        f1(x);f2(x);f3(x);f4(x);f5(x);f6(x);f7(x);f8(x);f9(x);
         System.out.println();
     }
     void testByte() {
