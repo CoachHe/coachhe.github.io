@@ -90,6 +90,9 @@ public class PrimitiveOverloading {
     void f7(double x) {
         System.out.print("f7(double)");
     }
+    void f8(Character x) {
+        System.out.print("f8(Character)");
+    }
     void testConstVal() {
         System.out.print("5: ");
         f1(5);f2(5);f3(5);f4(5);f5(5);f6(5);f7(5);
@@ -98,7 +101,7 @@ public class PrimitiveOverloading {
     void testChar() {
         char x = 'x';
         System.out.print("char: ");
-        f1(x);f2(x);f3(x);f4(x);f5(x);f6(x);f7(x);
+        f1(x);f2(x);f3(x);f4(x);f5(x);f6(x);f7(x);f8(x);
         System.out.println();
     }
     void testByte() {
