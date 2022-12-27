@@ -5,6 +5,7 @@ import java.io.Serializable;
 /**
  * @author CoachHe
  * @date 2022/12/28 01:59
+ * 基本类型升级
  * 展示的是基本类型可以从较小类型自动提升到较大类型和重载相结合的示例
  **/
 public class PrimitiveOverloading {
