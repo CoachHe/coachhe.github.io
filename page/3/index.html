@@ -223,15 +223,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/69e270597dba.html" target="_self">
-          MR5 MapReduce框架原理3_MapReduce工作机制
+        <a href="/2022/12/d39fd666f188.html" target="_self">
+          1. 概述
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/69e270597dba.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/d39fd666f188.html" target="_self">
         <div>
-          1 MapTasks工作机制大纲 具体（1）Read阶段：MapTask通过用户编写的RecordReader，从输入InputSplit中解析出一个个key&#x2F;value。  （2）Map阶段：该节点主要是将解析出的key&#x2F;value交给用户编写map()函数处理，并产生一系列新的key&#x2F;value。  （3）Collect收集阶段：在用户编写map()函数中，当数据
+          《深入理解JVM》原话： 虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被直接使用的Java类型，这就是虚拟机的类加载机制。 注意：这里指的Class文件不一定是本地的.class文件，而应该是一串二进制的字节流，无论什么形式都可以。 Java语言类型加载、连接和初始化特点在 Java 语言里面，类型的加载、连接和初始化过程都是在程序运行期间完成的
         </div>
       </a>
 
@@ -239,8 +239,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:45" pubdate>
-              2022-12-04
+            <time datetime="2022-12-18 18:24" pubdate>
+              2022-12-18
             </time>
           </div>
         
@@ -255,23 +255,30 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/3-MR%E4%BB%8B%E7%BB%8D/" class="category-chain-item">3 MR介绍</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/" class="category-chain-item">JVM</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/7-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" class="category-chain-item">7 虚拟机类加载机制</a>
+  
+  
+
   
 
   
@@ -298,15 +305,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/97a4fd70caba.html" target="_self">
-          MR4 MapReduce框架原理2_MapReduce工作流程+Shuffle机制
+        <a href="/2022/12/f8c8fd42e267.html" target="_self">
+          2. 类加载的时机
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/97a4fd70caba.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/f8c8fd42e267.html" target="_self">
         <div>
-          MapReduce工作原理1 Map阶段工作大纲 2 Reduce阶段工作大纲 Shuffle机制1 Shuffle机制简介上面的流程是整个MapReduce最全工作流程，但是Shuffle过程只是从第7步开始到第16步结束，具体Shuffle过程详解，如下：  1）MapTask收集我们的map()方法输出的kv对，放到内存缓冲区中  2）从内存缓冲区不断溢出本地磁盘文件，可能会溢出多个文件
+          这部分建议结合[[3 运行时数据区域]]中的对象探秘章节来进行学习，能加深对这部分知识的理解。 类的生命周期类的生命周期共分为7个阶段。   图中黑色字体部分的顺序是确定的。其余字体（解析和使用）的顺序不一定，解析过程在某些情况下可以在初始化阶段之后再开始，这是为了支持Java语言的动态绑定。 对于加载开始的时机，虚拟机规范并没有给强制的要求，但是对于初始化阶段, 《Java虚拟机规范》则是严格规
         </div>
       </a>
 
@@ -314,8 +321,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:45" pubdate>
-              2022-12-04
+            <time datetime="2022-12-18 18:23" pubdate>
+              2022-12-18
             </time>
           </div>
         
@@ -330,23 +337,30 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/3-MR%E4%BB%8B%E7%BB%8D/" class="category-chain-item">3 MR介绍</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/" class="category-chain-item">JVM</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/7-%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" class="category-chain-item">7 虚拟机类加载机制</a>
+  
+  
+
   
 
   
@@ -373,15 +387,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/94c8461dedbe.html" target="_self">
-          MR3 MapReduce框架原理1_InputFormat数据输入
+        <a href="/2022/12/3d0bfc820532.html" target="_self">
+          3. 方法调用
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/94c8461dedbe.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/3d0bfc820532.html" target="_self">
         <div>
-          InputFormat数据输入1 切片与MapTask并行度决定机制MapTask的并行度决定Map阶段的任务处理并发度，进而影响到整个Job的处理速度。  思考：1G的数据，启动8个MapTask，可以提高集群的并发处理能力。那么1K的数据，也启动8个MapTask，会提高集群性能吗？MapTask并行任务是否越多越好呢？哪些因素影响了MapTask并行度？  2 数据块和数据切片定义数据块Bl
+          方法调用并不等同于方法中的代码被执行。方法调用阶段唯一的任务就是确定被调用方法的版本（也就是调用哪一个方法），暂时还未涉及方法内部的具体运行过程。 概述方法调用的两种方式方法调用有两种方式：  解析调用（静态链接、早期绑定） 一定是一个静态过程，在编译期间就完全确定，在类加载的解析阶段就会将设计的符号引用全部转变为明确的直接引用，不必延迟到运行期再去完成。 分派调用（动态链接、晚期绑定） 可能是静
         </div>
       </a>
 
@@ -389,8 +403,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:45" pubdate>
-              2022-12-04
+            <time datetime="2022-12-18 17:35" pubdate>
+              2022-12-18
             </time>
           </div>
         
@@ -405,23 +419,30 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/3-MR%E4%BB%8B%E7%BB%8D/" class="category-chain-item">3 MR介绍</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/" class="category-chain-item">JVM</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/8-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/" class="category-chain-item">8 虚拟机字节码执行引擎</a>
+  
+  
+
   
 
   
@@ -448,15 +469,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/2992bd11c637.html" target="_self">
-          MR2 MR序列化
+        <a href="/2022/12/ad9faad19925.html" target="_self">
+          2. 必须创建所有对象
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/2992bd11c637.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/ad9faad19925.html" target="_self">
         <div>
-          一 序列化基本介绍1 概念序列化序列化就是把内存中的对象，转换成字节序列（或其他数据传输协议）以便存储到硬盘（持久化）或者网络传输。  反序列化将受到的字节序列（或者其他数据传输协议）或者是磁盘的持久化序列，转换成内存中的对象  序列化的原因一般来说，“活的”对象只生存在内存里，关机断电就没有了。而且“活的”对象只能有本地进程使用，不能被发送到网络上的另一台计算机。然而序列化可以存储“活的”对象，
+          1. 数据存储在哪里5 中数据存储方式  寄存器：速度最快的数据存储方式，数据会直接保存在中央处理器里。缺点是数量有限 栈：数据存储在 RAM 里，处理器可以通过栈指针直接操作该数据。 堆：通用内存池，使用的也是 RAM 空间，用于存放几乎所有 Java 对象。 常量存储：直接保存在程序代码中。 非 RAM 存储：例如序列化对象、持久化对象  2. 特殊情况：基本类型在这里我们先具体了解一下变量的
         </div>
       </a>
 
@@ -464,8 +485,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:45" pubdate>
-              2022-12-04
+            <time datetime="2022-12-18 04:38" pubdate>
+              2022-12-18
             </time>
           </div>
         
@@ -480,23 +501,37 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/3-MR%E4%BB%8B%E7%BB%8D/" class="category-chain-item">3 MR介绍</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/" class="category-chain-item">OnJava8</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/%E7%AC%AC3%E7%AB%A0-%E5%AF%B9%E8%B1%A1/" class="category-chain-item">第3章 对象</a>
+  
+  
+
+  
+
   
 
   
@@ -523,15 +558,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/99870dd18d30.html" target="_self">
-          MR1 基本介绍
+        <a href="/2022/12/712602dcf6c5.html" target="_self">
+          补充-String和字符串常量池
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/99870dd18d30.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/712602dcf6c5.html" target="_self">
         <div>
-          1 概述定义MapReduce是一个&#x3D;&#x3D;分布式运算程序的编程框架&#x3D;&#x3D;。是用户开发“基于Hadoop的数据分析应用”的核心框架。 MR核心功能MapReduce&#x3D;&#x3D;核心功能&#x3D;&#x3D;是将&#x3D;&#x3D;用户编写的业务逻辑代码&#x3D;&#x3D;和&#x3D;&#x3D;自带默认组件&#x3D;&#x3D;整合成一个
+          字符串常量池要了解字符串常量池我们需要先知道运行时常量池，这里会在 [[3 运行时数据区域]]中进行详细介绍，这里我们就不展开了，主要来看字符串常量池。 字符串常量池中的内容是在类加载完成，经过验证、准备阶段之后存放在字符串常量池中。 字符串常量池存储位置的演进  可以看到，字符串常量池原本是属于运行时常量池的一部分，从 jdk7 开始被分割开来，分配到了堆空间中。 字符串常量池中存放的内容这里其
         </div>
       </a>
 
@@ -539,8 +574,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:45" pubdate>
-              2022-12-04
+            <time datetime="2022-12-18 03:31" pubdate>
+              2022-12-18
             </time>
           </div>
         
@@ -555,23 +590,30 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/3-MR%E4%BB%8B%E7%BB%8D/" class="category-chain-item">3 MR介绍</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/" class="category-chain-item">JVM</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/2-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/" class="category-chain-item">2 Java内存区域与内存溢出异常</a>
+  
+  
+
   
 
   
@@ -598,15 +640,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/12c066d6e9c4.html" target="_self">
-          Hive基础
+        <a href="/2022/12/0fba21433ffa.html" target="_self">
+          1. 通过引用操作对象
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/12c066d6e9c4.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/0fba21433ffa.html" target="_self">
         <div>
-          一、 Hive基本概念1. 什么是HiveHive：由 Facebook 开源用于解决海量结构化日志的数据统计。  Hive 是基于 Hadoop 的一个数据仓库工具，可以将结构化的数据文件映射为一张表，并提供类 SQL 查询功能。  hive的本质将 HQL 转化成 MapReduce 程序 hive的转换流程 1）Hive 处理的数据存储在 HDFS  2）Hive 分析数据底层的默认实现是
+          类和对象的定义 类是对一类事物的描述，是抽象的、概念上的定义 对象是实际存在的该类的每个个体，因此也被称为实例（instance）  类比：  类：电视机 对象：具体的某一台电视机 引用：遥控器  描述：  类是对电视机的描述，是抽象的、概念上的，可以理解为是电视机的定义 对象是实际存在的该类的每个个体，也就是具体的某一台电视机 引用是我们实际操作对象的方式。  例如我们需要减低这台电视的音量或者
         </div>
       </a>
 
@@ -614,8 +656,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:45" pubdate>
-              2022-12-04
+            <time datetime="2022-12-17 12:36" pubdate>
+              2022-12-17
             </time>
           </div>
         
@@ -630,91 +672,37 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hive/" class="category-chain-item">Hive</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/fcf0af8feb34.html" target="_self">
-          HDFS6 DataNode工作机制
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/fcf0af8feb34.html" target="_self">
-        <div>
-          1）一个数据块在DataNode上以文件形式存储在磁盘上，包括两个文件，一个是数据本身，一个是元数据包括数据块的长度，块数据的校验和，以及时间戳。2）DataNode启动后向NameNode注册，通过后，周期性（1小时）的向NameNode上报所有的块信息。3）心跳是每3秒一次，心跳返回结果带有NameNode给该DataNode的命令如复制块数据到另一台机器，或删除某个数据块。如果超过10分
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:45" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/" class="category-chain-item">OnJava8</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/2-HDFS%E4%BB%8B%E7%BB%8D/" class="category-chain-item">2 HDFS介绍</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/%E7%AC%AC3%E7%AB%A0-%E5%AF%B9%E8%B1%A1/" class="category-chain-item">第3章 对象</a>
   
+  
+
+  
+
   
 
   
@@ -741,15 +729,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/1f52b1635d6f.html" target="_self">
-          HDFS5 NN和2NN
+        <a href="/2022/12/eeb86712181f.html" target="_self">
+          5. 格式化输出
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/1f52b1635d6f.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/eeb86712181f.html" target="_self">
         <div>
-          NN和2NN工作机制一 NameNode元数据存储位置思考：NameNode中的元数据是存储在哪里的？首先，我们做个假设，如果存储在NameNode节点的磁盘中，因为经常需要进行随机访问，还有响应客户请求，必然是效率过低。因此，元数据需要存放在内存中。但如果只存在内存中，一旦断电，元数据丢失，整个集群就无法工作了。     因此产生在磁盘中备份元数据的FsImage。这样又会带来新的问题，当在内存
+          Java 有多重格式化输出的方式 1. printf()C 语言的 printf() 并不像 Java 那样连接字符串，它使用一个简单的格式化字符串，加上要插入其中的值，然后将其格式化输出。 printf() 并不使用重载的 + 操作符（C 语言没有重载）来连接引号内的字符串或字符串变量，而是使用特殊的占位符来表示数据将来的位置。而且它还将插入格式化字符串的参数，以逗号分隔，排成一行。例如： 1S
         </div>
       </a>
 
@@ -757,8 +745,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:45" pubdate>
-              2022-12-04
+            <time datetime="2022-12-16 01:54" pubdate>
+              2022-12-16
             </time>
           </div>
         
@@ -773,23 +761,37 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/2-HDFS%E4%BB%8B%E7%BB%8D/" class="category-chain-item">2 HDFS介绍</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/" class="category-chain-item">OnJava8</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/%E7%AC%AC18%E7%AB%A0-%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="category-chain-item">第18章 字符串</a>
+  
+  
+
+  
+
   
 
   
@@ -816,15 +818,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/5e7bbb280270.html" target="_self">
-          HDFS4 数据流
+        <a href="/2022/12/f4fb7c5f89d2.html" target="_self">
+          4. 对字符串的操作
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/5e7bbb280270.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/f4fb7c5f89d2.html" target="_self">
         <div>
-          HDFS写数据流程1 剖析文件写入  1）客户端通过Distributed FileSystem模块向NameNode请求上传文件，NameNode检查目标文件是否已存在，父目录是否存在。2）NameNode返回是否可以上传。3）客户端请求第一个Block上传到哪几个DataNode服务器上。4）NameNode返回3个DataNode节点，分别为dn1、dn2、dn3。5）客户端通过FSData
+          可以参考这里 第十八章 字符串 -《On Java 8》中文版 这里需要注意的是，当需要更改内容时，由于 String 的不可变性 [[1. 字符串概述]]，每个 String 方法都会小心返回一个新的 String 对象。如果不需要更改内容，该方法就会返回一个对原始 String 的引用。这结算了存储和开销。
         </div>
       </a>
 
@@ -832,8 +834,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:44" pubdate>
-              2022-12-04
+            <time datetime="2022-12-16 01:51" pubdate>
+              2022-12-16
             </time>
           </div>
         
@@ -848,23 +850,37 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/2-HDFS%E4%BB%8B%E7%BB%8D/" class="category-chain-item">2 HDFS介绍</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/" class="category-chain-item">OnJava8</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/%E7%AC%AC18%E7%AB%A0-%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="category-chain-item">第18章 字符串</a>
+  
+  
+
+  
+
   
 
   
@@ -891,15 +907,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/b1992b3fea6d.html" target="_self">
-          HDFS3 客户端操作
+        <a href="/2022/12/b5d8c86c3153.html" target="_self">
+          3. 无意识的递归
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/b1992b3fea6d.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/b5d8c86c3153.html" target="_self">
         <div>
-          1 客户端环境准备注意若是windows电脑则需要配置HADOOP_HOME（其实感觉也不需要，只要导入maven依赖就行了）。 步骤1. 打开IDEA建立MAVEN项目  2. 配置pom.xmlpom.xml的配置信息如下： 12345678910111213141516171819202122232425262728293031323334&lt;dependencies&gt;		&lt;
+          和其他类一样，Java 的标准集合最终也是从 Object 继承来的，所以它们也包含了一个 toString 方法。这个方法从集合中被重写，这样它生成的结果字符串就能表示容器自身，以及该容器持有的所有对象。以 ArrayList.toString() 为例，它会遍历 ArrayList 的元素并为每个元素调用 toString() 方法。 123456789101112/** * @author
         </div>
       </a>
 
@@ -907,8 +923,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:44" pubdate>
-              2022-12-04
+            <time datetime="2022-12-16 01:29" pubdate>
+              2022-12-16
             </time>
           </div>
         
@@ -923,23 +939,126 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/" class="category-chain-item">Hadoop生态</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/" class="category-chain-item">Hadoop</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/Hadoop%E7%94%9F%E6%80%81/Hadoop/2-HDFS%E4%BB%8B%E7%BB%8D/" class="category-chain-item">2 HDFS介绍</a>
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
   
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/" class="category-chain-item">OnJava8</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/%E7%AC%AC18%E7%AB%A0-%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="category-chain-item">第18章 字符串</a>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/8a3567db8bfb.html" target="_self">
+          2. 重载 + 与StringBuilder与intern
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/8a3567db8bfb.html" target="_self">
+        <div>
+          在上一节 [[1. 字符串概述]]中我们知道，String 对象是不可变的，因此我们可以根据需要为特定的 String 设置多个别名。因为 String 是只读的，指向它的任何引用都不可能改变它的值，所以引用之间不会相互影响。 不可变性可能会带来效率问题。 字符串重载一个典型的例子是操作符 +，它针对 String 对象做了重载。&#x3D;&#x3D;操作符重载&#x3D;&#x3D;意味着在与
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-15 01:50" pubdate>
+              2022-12-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/" class="category-chain-item">OnJava8</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/%E7%AC%AC18%E7%AB%A0-%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="category-chain-item">第18章 字符串</a>
+  
+  
+
+  
+
   
 
   
@@ -964,7 +1083,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/#board">15</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/#board">18</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

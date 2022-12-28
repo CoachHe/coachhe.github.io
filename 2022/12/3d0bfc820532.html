@@ -1,0 +1,832 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="CoachHe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="方法调用并不等同于方法中的代码被执行。方法调用阶段唯一的任务就是确定被调用方法的版本（也就是调用哪一个方法），暂时还未涉及方法内部的具体运行过程。 概述方法调用的两种方式方法调用有两种方式：  解析调用（静态链接、早期绑定） 一定是一个静态过程，在编译期间就完全确定，在类加载的解析阶段就会将设计的符号引用全部转变为明确的直接引用，不必延迟到运行期再去完成。 分派调用（动态链接、晚期绑定） 可能是静">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3. 方法调用">
+<meta property="og:url" content="http://example.com/2022/12/3d0bfc820532.html">
+<meta property="og:site_name" content="CoachHe&#39;s Blog">
+<meta property="og:description" content="方法调用并不等同于方法中的代码被执行。方法调用阶段唯一的任务就是确定被调用方法的版本（也就是调用哪一个方法），暂时还未涉及方法内部的具体运行过程。 概述方法调用的两种方式方法调用有两种方式：  解析调用（静态链接、早期绑定） 一定是一个静态过程，在编译期间就完全确定，在类加载的解析阶段就会将设计的符号引用全部转变为明确的直接引用，不必延迟到运行期再去完成。 分派调用（动态链接、晚期绑定） 可能是静">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221212132030.png">
+<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221212131955.png">
+<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221228132723.png">
+<meta property="article:published_time" content="2022-12-18T09:35:29.000Z">
+<meta property="article:modified_time" content="2022-12-28T07:19:35.502Z">
+<meta property="article:author" content="CoachHe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221212132030.png">
+  
+  
+  
+  <title>3. 方法调用 - CoachHe&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="3. 方法调用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-18 17:35" pubdate>
+          2022年12月18日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          14k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          114 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">3. 方法调用</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>方法调用并不等同于方法中的代码被执行。方法调用阶段唯一的任务就是<strong>确定被调用方法的版本</strong>（也就是调用哪一个方法），暂时还未涉及方法内部的具体运行过程。</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="方法调用的两种方式"><a href="#方法调用的两种方式" class="headerlink" title="方法调用的两种方式"></a>方法调用的两种方式</h2><p>方法调用有两种方式：</p>
+<ol>
+<li>解析调用（静态链接、早期绑定）<br> <strong>一定是一个静态过程</strong>，在编译期间就完全确定，在类加载的解析阶段就会将设计的符号引用全部转变为明确的直接引用，不必延迟到运行期再去完成。</li>
+<li>分派调用（动态链接、晚期绑定）<br> <strong>可能是静态的也可能是动态的</strong>，根据分派一局的宗量数可以分为单分派和多分派，具体的会在下面展开。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 说明早期绑定和晚期绑定的例子</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> CoachHe</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2022/12/19 23:50</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AnimalTest</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showAnimal</span><span class="hljs-params">(Animal animal)</span> &#123;<br>        animal.eat(); <span class="hljs-comment">// 表现为晚期绑定，编译期间无法确认调用哪个方法</span><br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showHunt</span><span class="hljs-params">(Huntable huntable)</span> &#123;<br>        huntable.hunt(); <span class="hljs-comment">// 表现为晚期绑定，编译期间无法确认调用哪个方法</span><br>    &#125;<br>&#125;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Animal</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">eat</span><span class="hljs-params">()</span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;动物进食&quot;</span>);<br>    &#125;;<br>&#125;<br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Huntable</span> &#123;<br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">hunt</span><span class="hljs-params">()</span>;<br>&#125;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Dog</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Animal</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Huntable</span> &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">eat</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;狗吃骨头&quot;</span>);<br>    &#125;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">hunt</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;捕食耗子，多管闲事&quot;</span>);<br>    &#125;<br>&#125;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Cat</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Animal</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Huntable</span> &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">eat</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;猫吃鱼&quot;</span>);<br>    &#125;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">hunt</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;猫吃耗子，天经地义&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>AnimalTest</code> 中的两个方法都表现为晚期绑定。</p>
+<p>看看的方法 <code>showAnimal</code> 的字节码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">0</span> aload_1<br><span class="hljs-number">1</span> invokevirtual #<span class="hljs-number">2</span> &lt;com/coachhe/section3_方法调用/早期绑定和晚期绑定/Animal.eat : ()V&gt;<br><span class="hljs-number">4</span> <span class="hljs-keyword">return</span><br></code></pre></td></tr></table></figure>
+
+<p>再看看方法 <code>showHunt</code> 的字节码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">0</span> aload_1<br><span class="hljs-number">1</span> invokeinterface #<span class="hljs-number">3</span> &lt;com/coachhe/section3_方法调用/早期绑定和晚期绑定/Huntable.hunt : ()V&gt; count <span class="hljs-number">1</span><br><span class="hljs-number">6</span> <span class="hljs-keyword">return</span><br></code></pre></td></tr></table></figure>
+
+<p>这两个方法对应的指令 <code>invokevirtual</code> 和 <code>invokeinterface</code> 都是晚期绑定的指令。</p>
+<h1 id="1-解析"><a href="#1-解析" class="headerlink" title="1. 解析"></a>1. 解析</h1><p>Class 文件的编译过程中不包含传统语言编译的连接步骤，一切方法调用在 Class 文件里面存储的都<strong>只是符号引用</strong>，而不是方法在实际运行时内存布局中的入口地址（也就是直接引用）。</p>
+<p>而在类加载的<strong>解析阶段</strong>（具体阶段可以看 [[3. 类加载的过程]]），会将其中的一部分符号引用转化为直接引用。</p>
+<p>这种解析能够成立的前提是：<br>方法在程序真正运行之前就有一个可确定的调用版本，并且这个方法的调用版本在运行期间是不可改变的。换句话说，调用目标在程序代码写好、编译器进行编译那一刻就已经确定下来，这类方法的调用被称为解析。(来自《深入理解 Java 虚拟机》)</p>
+<p>注意：<br>在这里是有一点歧义的，如果是我理解错了希望可以指出，这里说&#x3D;&#x3D;这类方法的调用被称为解析&#x3D;&#x3D;，也就是说 <code>解析=调用可确定并且在运行期间不可改变的方法版本</code>，但是在前面的学习中我们知道，解析阶段是虚拟机将常量池内的符号引用替换为直接引用的过程，不单单是这一类方法，还包括很多用 invokedynamic 指令修饰的，在运行期间版本会改变的方法。所以这两个地方对解析的解释是否有歧义呢？</p>
+<p>回答：<br>解析分为两种，一种是类加载阶段的解析，这里能成立的前提就是方法在程序真正运行之前就能有一个可确定的调用版本，并且这个方法的调用版本在运行期间是不可改变的。还有一种是运行到 <code>invodynamic</code> 指令的解析，这类不是类加载阶段的解析</p>
+<p>在 Java 语言中，符合&#x3D;&#x3D;编译器可知，运行期不可变&#x3D;&#x3D;这个要求的方法，主要有&#x3D;&#x3D;静态方法&#x3D;&#x3D;和&#x3D;&#x3D;私有方法&#x3D;&#x3D;两大类。</p>
+<ul>
+<li>静态方法<br>与类型直接关联</li>
+<li>私有方法<br>在外部不可被访问</li>
+</ul>
+<p>这两种方法各自特点决定了它们不可能通过集成或者别的方式重写出其他版本，因此它们都很适合在类加载阶段进行解析。</p>
+<h2 id="调用字节码指令的方法"><a href="#调用字节码指令的方法" class="headerlink" title="调用字节码指令的方法"></a>调用字节码指令的方法</h2><p>调用不同类型的方法，字节码指令集里设计了不同的指令。在 JVM 中支持以下 5 中方法调用字节码指令：</p>
+<ul>
+<li>invokestatic：用于调用静态方法</li>
+<li>invokespecial：用于调用实例构造器 <code>&lt;init&gt;()</code> 方法、私有方法和父类中的方法</li>
+<li>invokevirtual：用于调用所有虚方法</li>
+<li>invokeinterface：用于调用接口方法，会在运行时再确定一个实现接口的对象</li>
+<li>invokedynamic：现在运行时动态解析出调用点限定符所引用的方法，然后再执行该方法。</li>
+</ul>
+<p>前两条指令和虚方法绑定，后三条指令（除了被 final 修饰的）都是非虚方法</p>
+<p>前面四条调用指令，分派逻辑都固化在 JVM 内部，而 invokedynamic 指令的分派逻辑是用户设定的引导方法来决定的。</p>
+<h2 id="非虚方法和虚方法"><a href="#非虚方法和虚方法" class="headerlink" title="非虚方法和虚方法"></a>非虚方法和虚方法</h2><p>只要能被 invokestatic 和 invokespecial，都可以在解析阶段中确定唯一的调用版本。也就是非虚方法，共有以下 5 种</p>
+<ol>
+<li>静态方法</li>
+<li>私有方法</li>
+<li>实例构造器</li>
+<li>父类方法</li>
+<li>被 final 修饰的方法（虽然它被 invokevirtual 指令调用）<br>对于 final 方法，由于历史原因，它是被 invokevirtual 指令调用的，但是因为它也无法被覆盖，没有其他版本的可能，所以它就是一种非虚方法。</li>
+</ol>
+<p>以上 5 种方法会在类加载的时候（也就是类加载的第 1 个阶段，详见 [[3. 类加载的过程]]）就可以把符号引用解析为该方法的直接引用。</p>
+<p>其他方法被称为虚方法。</p>
+<p>代码：方法静态解析演示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.coachhe.Chapter3_方法调用;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 方法静态解析演示</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> coachhe</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">StaticResolution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sayHello</span><span class="hljs-params">()</span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;Hello World&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        StaticResolution.sayHello();<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>使用 javap 命令查看这段程序对应的字节码：</p>
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221212132030.png" srcset="/img/loading.gif" lazyload width = "50%" />
+
+<p>可以看到，的确是通过 invokestatic 命令来调用 <code>sayHello()</code> 方法，而且其调用的方法版本已经在编译时明确以常量池项的形式固化在字节码指令的参数之中（常量池 <code>#5</code> 号）：</p>
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221212131955.png" srcset="/img/loading.gif" lazyload width = "80%" />
+
+<p>可以看到，和 String 进行了绑定。</p>
+<p>更加具体的，我们来看下面这段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> CoachHe</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2022/12/20 00:50</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Son</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Father</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Son</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-built_in">super</span>();<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Son</span><span class="hljs-params">(<span class="hljs-type">int</span> age)</span> &#123;<br>        <span class="hljs-built_in">this</span>();<br>    &#125;<br><br>    <span class="hljs-comment">// 不是重写父类方法，因为静态方法不能被重写</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showStatic</span><span class="hljs-params">(String str)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;son &quot;</span> + str);<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showPrivate</span><span class="hljs-params">(String str)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;son private&quot;</span> + str);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">show</span><span class="hljs-params">()</span>&#123;<br>        showStatic(<span class="hljs-string">&quot;coachhe.github.io&quot;</span>); <span class="hljs-comment">// 自身的showStatic</span><br>        <span class="hljs-built_in">super</span>.showStatic(<span class="hljs-string">&quot;good&quot;</span>); <span class="hljs-comment">// 父类的showStatic</span><br>        showPrivate(<span class="hljs-string">&quot;hello&quot;</span>); <span class="hljs-comment">// 自身的private方法</span><br>        <span class="hljs-built_in">super</span>.showCommon(); <span class="hljs-comment">// 父类的Common方法</span><br>        showFinal();<br><br>        showCommon();<br>        info();<br><br>        <span class="hljs-type">MethodInterface</span> <span class="hljs-variable">in</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>        in.methodA();<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">info</span><span class="hljs-params">()</span>&#123;&#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Father</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Father</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;father的构造器&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showStatic</span><span class="hljs-params">(String str)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;father &quot;</span> + str);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showFinal</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;father show final&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showCommon</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;father 普通方法&quot;</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">MethodInterface</span>&#123;<br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">methodA</span><span class="hljs-params">()</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>可以先看看子类的 <code>show()</code> 方法中的前五个</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">showStatic(<span class="hljs-string">&quot;coachhe.github.io&quot;</span>); <span class="hljs-comment">// 自身的showStatic</span><br><span class="hljs-built_in">super</span>.showStatic(<span class="hljs-string">&quot;good&quot;</span>); <span class="hljs-comment">// 父类的showStatic</span><br>showPrivate(<span class="hljs-string">&quot;hello&quot;</span>); <span class="hljs-comment">// 自身的private方法</span><br><span class="hljs-built_in">super</span>.showCommon(); <span class="hljs-comment">// 父类的Common方法</span><br>showFinal();<br></code></pre></td></tr></table></figure>
+
+<p>看看对应的字节码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-number">0</span> ldc #<span class="hljs-number">11</span> &lt;coachhe.github.io&gt;<br> <span class="hljs-number">2</span> invokestatic #<span class="hljs-number">12</span> &lt;com/coachhe/section3_方法调用/虚方法和非虚方法/Son.showStatic : (Ljava/lang/String;)V&gt;<br> <span class="hljs-number">5</span> ldc #<span class="hljs-number">13</span> &lt;good&gt;<br> <span class="hljs-number">7</span> invokestatic #<span class="hljs-number">14</span> &lt;com/coachhe/section3_方法调用/虚方法和非虚方法/Father.showStatic : (Ljava/lang/String;)V&gt;<br><span class="hljs-number">10</span> aload_0<br><span class="hljs-number">11</span> ldc #<span class="hljs-number">15</span> &lt;hello&gt;<br><span class="hljs-number">13</span> invokespecial #<span class="hljs-number">16</span> &lt;com/coachhe/section3_方法调用/虚方法和非虚方法/Son.showPrivate : (Ljava/lang/String;)V&gt;<br><span class="hljs-number">16</span> aload_0<br><span class="hljs-number">17</span> invokespecial #<span class="hljs-number">17</span> &lt;com/coachhe/section3_方法调用/虚方法和非虚方法/Father.showCommon : ()V&gt;<br><span class="hljs-number">20</span> aload_0<br><span class="hljs-number">21</span> invokevirtual #<span class="hljs-number">18</span> &lt;com/coachhe/section3_方法调用/虚方法和非虚方法/Son.showFinal : ()V&gt;<br></code></pre></td></tr></table></figure>
+
+<p>可以看到，这里除了调用被 final 修饰的方法，都采用的是非虚方法的字节码。</p>
+<p>final 方法被 <code>invokevirtual</code> 调用，但是也是非虚方法</p>
+<p>那么几个特殊的我们可以看下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-built_in">super</span>.showCommon();<br>showCommon();<br></code></pre></td></tr></table></figure>
+
+<p>可以看到，这里一个是调用了父类的 <code>showCommon</code> 方法，因为方法是确认的（也就是编译器可以明确你到底是调用了哪个方法），因此这里是 <code>invokespecial</code>。</p>
+<p>但是对于 <code>showCommon()</code>，因为随时有可能被子类重写，因此无法确认调用的具体是哪个，因此是采用了 <code>invokevirtual</code> 。</p>
+<p>我们来验证一下，看字节码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">17</span> invokespecial #<span class="hljs-number">17</span> &lt;com/coachhe/section3_方法调用/虚方法和非虚方法/Father.showCommon : ()V&gt;<br><span class="hljs-number">20</span> aload_0<br><span class="hljs-number">25</span> invokevirtual #<span class="hljs-number">19</span> &lt;com/coachhe/section3_方法调用/虚方法和非虚方法/Son.showCommon : ()V&gt;<br><span class="hljs-number">28</span> aload_0<br></code></pre></td></tr></table></figure>
+
+<p>可以看到，和我们推断是相同的。</p>
+<p>再看看:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">MethodInterface</span> <span class="hljs-variable">in</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>in.methodA();<br></code></pre></td></tr></table></figure>
+
+<p>可以看到，采用了 <code>invokeinterface</code> ，因为接口是必须要重写的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">35</span> invokeinterface #<span class="hljs-number">21</span> &lt;com/coachhe/section3_方法调用/虚方法和非虚方法/MethodInterface.methodA : ()V&gt; count <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+<h1 id="2-分派"><a href="#2-分派" class="headerlink" title="2. 分派"></a>2. 分派</h1><h2 id="静态分派"><a href="#静态分派" class="headerlink" title="静态分派"></a>静态分派</h2><p>为了解释静态分派和重载（Overloading），这里准备了一段程序代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Created with IntelliJ IDEA.</span><br><span class="hljs-comment"> * User: coachhe</span><br><span class="hljs-comment"> * Date: 2022/12/13</span><br><span class="hljs-comment"> * Time: 16:17</span><br><span class="hljs-comment"> * Description: 方法静态分派演示</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">StaticDispatch</span> &#123;<br><br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Human</span> &#123;&#125;<br><br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Man</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Human</span> &#123;&#125;<br><br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Woman</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Human</span> &#123;&#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sayHello</span><span class="hljs-params">(Human guy)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;Hello, guy&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sayHello</span><span class="hljs-params">(Man guy)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;Hello, gentleman&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sayHello</span><span class="hljs-params">(Woman guy)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;Hello, lady&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Human</span> <span class="hljs-variable">man</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Man</span>();<br>        <span class="hljs-type">Human</span> <span class="hljs-variable">woman</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Woman</span>();<br>        <span class="hljs-type">StaticDispatch</span> <span class="hljs-variable">sr</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StaticDispatch</span>();<br>        sr.sayHello(man); <span class="hljs-comment">// Hello, guy</span><br>        sr.sayHello(woman); <span class="hljs-comment">// Hello, guy</span><br>    &#125;<br><br><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>可以看到，这里输出的两条都是 <code>Hello, guy</code>，这是怎么回事呢？ 为什么通过</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Human</span> <span class="hljs-variable">man</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Man</span>();<br></code></pre></td></tr></table></figure>
+
+<p>出来的 <code>man</code> 对象调用 <code>sayHello()</code> 方法时出现的是 <code>Hello, guy</code> 而不是 <code>Hello, gentlement</code> 呢？</p>
+<p>这是因为，我们把上面代码中的“Human”称为变量的<strong>静态类型</strong>（Static Type），或者叫<strong>外观类型</strong>（Apparent Type），后面的“Man”则被称为变量的<strong>实际类型</strong>（Actual Type）或者叫“运行时类型”（Runtime Type）。</p>
+<p>静态类型和实际类型在程序中都可能会发生变化，区别是静态类型的变化仅仅在使用时发生，变量本身的静态类型不会被改变，并且最终的静态类型是在编译期可知的；而实际类型变化的结果在运行期才可确定，编译器在编译程序的时候并不知道一个对象的实际类型是什么。</p>
+<p>在方法接收者已经确定是对象“sr”的前提下，使用哪个重载版本，就完全取决于传入参数的数量和数据类型。代码中故意定义了两个静态类型相同，而实际类型不同的变量，但虚拟机（或者准确地说是编译器）在重载时是通过参数的静态类型而不是实际类型作为判定依据的。由于静态类型在编译期可知，所以在编译阶段，Javac 编译器就根据参数的静态类型决定了会使用哪个重载版本，因此选择了 <code>sayHello(Human)</code> 作为调用目标，并把这个方法的符号引用写到 <code>main()</code> 方法里的两条 <code>invokevirtual</code> 指令的参数中。</p>
+<p>也就是说，在编译期间就确定了调用方法的版本。</p>
+<h3 id="静态分派定义"><a href="#静态分派定义" class="headerlink" title="静态分派定义"></a>静态分派定义</h3><p>所有以来静态类型来决定方法执行版本的分派动作，都称为静态分派。</p>
+<p>静态分配的<strong>最典型应用表现就是方法重载</strong>。关于方法重载的更详细内容可以看 [[2. 方法重载]]</p>
+<h2 id="动态分派"><a href="#动态分派" class="headerlink" title="动态分派"></a>动态分派</h2><p>来看一段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**  </span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> CoachHe  </span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2022/12/28 02:49  </span><br><span class="hljs-comment"> * 动态分派延时  </span><br><span class="hljs-comment"> **/</span>  <br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DynamicDispatch</span> &#123;  <br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Human</span> &#123;  <br>        <span class="hljs-keyword">protected</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sayHello</span><span class="hljs-params">()</span>;  <br>    &#125;  <br>  <br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Man</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Human</span> &#123;  <br>        <span class="hljs-meta">@Override</span>  <br>        <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sayHello</span><span class="hljs-params">()</span> &#123;  <br>            System.out.println(<span class="hljs-string">&quot;man say hello&quot;</span>);  <br>        &#125;  <br>    &#125;  <br>  <br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Woman</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Human</span> &#123;  <br>        <span class="hljs-meta">@Override</span>  <br>        <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sayHello</span><span class="hljs-params">()</span> &#123;  <br>            System.out.println(<span class="hljs-string">&quot;woman say hello&quot;</span>);  <br>        &#125;  <br>    &#125;  <br>  <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;  <br>        <span class="hljs-type">Human</span> <span class="hljs-variable">man</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Man</span>();  <br>        <span class="hljs-type">Human</span> <span class="hljs-variable">woman</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Woman</span>();  <br>        man.sayHello(); <span class="hljs-comment">// man say hello  </span><br>        woman.sayHello(); <span class="hljs-comment">// woman say hello  </span><br>        man = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Woman</span>();  <br>        man.sayHello(); <span class="hljs-comment">// woman say hello  </span><br>    &#125;  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这个结果没什么好说的，但是，Java 虚拟机是如何判断应该调用哪个方法呢？</p>
+<p>显然这里和上面静态分派中说的方法重载是完全不同的，也就是说这里选择的方法版本是不可能再根据静态类型来决定的，因为静态类型都是 <code>Human</code> 的两个变量 <code>man</code> 和 <code>woman</code> 在调用 <code>sayHello()</code> 方法时产生了不同的行为，甚至变量 <code>man</code> 在两次调用中还执行了两个不同的方法。</p>
+<p>导致这个现象的原因很明显，是因为这两个变量的实际类型不同。那么我们来具体看下字节码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-number">0</span> <span class="hljs-keyword">new</span> #<span class="hljs-number">2</span> &lt;com/coachhe/section3_方法调用/S2_分派/DynamicDispatch$Man&gt;<br> <span class="hljs-number">3</span> dup<br> <span class="hljs-number">4</span> invokespecial #<span class="hljs-number">3</span> &lt;com/coachhe/section3_方法调用/S2_分派/DynamicDispatch$Man.&lt;init&gt; : ()V&gt;<br> <span class="hljs-number">7</span> astore_1<br> <span class="hljs-number">8</span> <span class="hljs-keyword">new</span> #<span class="hljs-number">4</span> &lt;com/coachhe/section3_方法调用/S2_分派/DynamicDispatch$Woman&gt;<br><span class="hljs-number">11</span> dup<br><span class="hljs-number">12</span> invokespecial #<span class="hljs-number">5</span> &lt;com/coachhe/section3_方法调用/S2_分派/DynamicDispatch$Woman.&lt;init&gt; : ()V&gt;<br><span class="hljs-number">15</span> astore_2<br><span class="hljs-number">16</span> aload_1<br><span class="hljs-number">17</span> invokevirtual #<span class="hljs-number">6</span> &lt;com/coachhe/section3_方法调用/S2_分派/DynamicDispatch$Human.sayHello : ()V&gt;<br><span class="hljs-number">20</span> aload_2<br><span class="hljs-number">21</span> invokevirtual #<span class="hljs-number">6</span> &lt;com/coachhe/section3_方法调用/S2_分派/DynamicDispatch$Human.sayHello : ()V&gt;<br><span class="hljs-number">24</span> <span class="hljs-keyword">new</span> #<span class="hljs-number">4</span> &lt;com/coachhe/section3_方法调用/S2_分派/DynamicDispatch$Woman&gt;<br><span class="hljs-number">27</span> dup<br><span class="hljs-number">28</span> invokespecial #<span class="hljs-number">5</span> &lt;com/coachhe/section3_方法调用/S2_分派/DynamicDispatch$Woman.&lt;init&gt; : ()V&gt;<br><span class="hljs-number">31</span> astore_1<br><span class="hljs-number">32</span> aload_1<br><span class="hljs-number">33</span> invokevirtual #<span class="hljs-number">6</span> &lt;com/coachhe/section3_方法调用/S2_分派/DynamicDispatch$Human.sayHello : ()V&gt;<br><span class="hljs-number">36</span> <span class="hljs-keyword">return</span><br></code></pre></td></tr></table></figure>
+
+<p>0-15 行的字节码是准备动作，具体的详情可以参考[[补充-String和字符串常量池]]，基本作用是建立 <code>man</code> 和 <code>woman</code> 的内存空间、调用 <code>Man</code> 和 <code>Woman</code> 类型的实际构造器，将这两个实例的引用存在在第 1、2 个局部变量表的变量槽里，这些动作实际对应了这两行：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Human</span> <span class="hljs-variable">man</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Man</span>();  <br><span class="hljs-type">Human</span> <span class="hljs-variable">woman</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Woman</span>();  <br></code></pre></td></tr></table></figure>
+
+<p>接下来 16-21 行是关键，16 行和 20 行的 <code>aload_1</code> 和 <code>aload_2</code> 分别是将刚刚创建的两个对象的引用压到栈顶，这两个对象是要执行的 <code>sayHello()</code> 方法的所有者，具体的执行行是第 17 和第 21 行，但是他们都是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">21</span> invokevirtual #<span class="hljs-number">6</span> &lt;com/coachhe/section3_方法调用/S2_分派/DynamicDispatch$Human.sayHello : ()V&gt;<br></code></pre></td></tr></table></figure>
+
+<p>也就是说，他们无论是指令还是参数都完全一样，但是这两句指令最终执行的目标方法并不相通。那看来解决问题的关键还是必须从 <code>invokevirtual</code> 指令本身入手。</p>
+<h3 id="invokevirtual-指令"><a href="#invokevirtual-指令" class="headerlink" title="invokevirtual 指令"></a>invokevirtual 指令</h3><p><code>invokevirtual</code> 指令的运行时解析过程大致分为以下几步：</p>
+<ol>
+<li>找到操作数栈顶的第一个元素所指向的对象的实际类型，记作C</li>
+<li>如果在类型 C 中找到与常量中的描述符和简单名称都相符的方法，则进行访问权限校验，如果通过则返回这个方法的直接引用，查找过程结束；不通过则返回 <code>java.lang.IllegalAccessError</code> 异常。</li>
+<li>否则，按照继承关系从下往上依次对 C 的各个父类进行第二步的搜索和验证过程。</li>
+<li>如果始终没有找到合适的方法，则抛出 <code>java.lang.AbstractMethodError</code> 异常</li>
+</ol>
+<p>正是因为 <code>invokevirtual</code> 指令执行的第一步就是在运行期间确定接收者的实际类型，所以两次调用中的 invokevirtual 指令并不是把常量池中的方法的符号引用解析到直接引用上来就结束了，还会根据方法接收者的实际类型来选择方法版本，这个过程就是 <strong>Java 语言中方法重写的本质</strong>。</p>
+<h3 id="字段永远不存于多态"><a href="#字段永远不存于多态" class="headerlink" title="字段永远不存于多态"></a>字段永远不存于多态</h3><p>从上面我们知道，多态性的根源在于虚方法调用指令 <code>invokevirtual</code> 的执行逻辑，但是字段不使用这条指令。事实上，在 Java 里只有虚方法存在，字段永远不可能是虚的，换句话说，<strong>字段永远不参与多态</strong></p>
+<p>哪个类的方法访问某个名字的字段时，该名字指的就是这个类能看到的那个字段。当子类声明了与父类同名的字段时，虽然在子类的内存中两个字段都会存在，但是在子类的字段会遮蔽父类的同名字段。</p>
+<p>我们来看一段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> CoachHe</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2022/12/28 11:23</span><br><span class="hljs-comment"> * 字段不参与多态</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">FieldHasNoPolymorphic</span> &#123;<br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Father</span> &#123;<br>        <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-variable">money</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">public</span> <span class="hljs-title function_">Father</span><span class="hljs-params">()</span> &#123;<br>            money = <span class="hljs-number">2</span>;<br>            showMeTheMoney();<br>        &#125;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showMeTheMoney</span><span class="hljs-params">()</span> &#123;<br>            System.out.println(<span class="hljs-string">&quot;I am Father, i have $&quot;</span> + money);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Son</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Father</span> &#123;<br>        <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-variable">money</span> <span class="hljs-operator">=</span> <span class="hljs-number">3</span>;<br>        <span class="hljs-keyword">public</span> <span class="hljs-title function_">Son</span><span class="hljs-params">()</span> &#123;<br>            money = <span class="hljs-number">4</span>;<br>            showMeTheMoney();<br>        &#125;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">showMeTheMoney</span><span class="hljs-params">()</span> &#123;<br>            System.out.println(<span class="hljs-string">&quot;I am Son, i have $&quot;</span> + money);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Father</span> <span class="hljs-variable">guy</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Son</span>();<br>        System.out.println(<span class="hljs-string">&quot;This guy has $&quot;</span> + guy.money);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs txt">I am Son, i have $0<br>I am Son, i have $4<br>This guy has $2<br></code></pre></td></tr></table></figure>
+
+<p>输出两句都是“I am Son”，这是因为 Son 类在创建的时候，首先隐式调用了 Father 的构造函数，而 Father 构造函数中对 <code>showMeTheMoney()</code> 的调用是一次虚方法调用，实际执行的版本是 <code>Son::showMeTheMoney()</code> 方法，所以输出的是“I am Son”，这点经过前面的分析相信读者是没有疑问的了。而这时候虽然父类的 money 字段已经被初始化成 2 了，但 <code>Son::showMeTheMoney()</code> 方法中访问的却是子类的 money 字段，这时候结果自然还是 0，因为它要到子类的构造函数执行时才会被初始化。 <code>main()</code> 的最后一句通过静态类型访问到了父类中的 money，输出了 2。</p>
+<h2 id="单分派与多分派"><a href="#单分派与多分派" class="headerlink" title="单分派与多分派"></a>单分派与多分派</h2><p>我们先来看一段代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> CoachHe</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2022/12/28 12:32</span><br><span class="hljs-comment"> * 单分派，多分派演示</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Dispatch</span> &#123;<br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">QQ</span>&#123;&#125;<br>    <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">_360</span>&#123;&#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Father</span>&#123;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">hardChoice</span><span class="hljs-params">(QQ arg)</span> &#123;<br>            System.out.println(<span class="hljs-string">&quot;father choose QQ&quot;</span>);<br>        &#125;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">hardChoice</span><span class="hljs-params">(_360 arg)</span> &#123;<br>            System.out.println(<span class="hljs-string">&quot;father choose 360&quot;</span>);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Son</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Father</span>&#123;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">hardChoice</span><span class="hljs-params">(QQ arg)</span> &#123;<br>            System.out.println(<span class="hljs-string">&quot;son choose QQ&quot;</span>);<br>        &#125;<br>        <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">hardChoice</span><span class="hljs-params">(_360 arg)</span> &#123;<br>            System.out.println(<span class="hljs-string">&quot;son choose 360&quot;</span>);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Father</span> <span class="hljs-variable">father</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Father</span>();<br>        <span class="hljs-type">Father</span> <span class="hljs-variable">son</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Son</span>();<br>        father.hardChoice(<span class="hljs-keyword">new</span> <span class="hljs-title class_">_360</span>());<br>        son.hardChoice(<span class="hljs-keyword">new</span> <span class="hljs-title class_">QQ</span>());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">father choose 360<br>son choose QQ<br></code></pre></td></tr></table></figure>
+
+<p>在这里，调用了两次 <code>hardChoice()</code> 方法，那么根据之前的学习我们已经了解到，静态分派和动态分派这里都会有涉及，让我们进一步进行分析：</p>
+<h3 id="静态分派经过"><a href="#静态分派经过" class="headerlink" title="静态分派经过"></a>静态分派经过</h3><p>首先会经历一次静态分派的过程，此时选择目标方法的依据有两点：</p>
+<ol>
+<li>静态类型是 Father 还是 Son</li>
+<li>方法参数是 QQ 还是 360</li>
+</ol>
+<p>因为静态类型都是 <code>Father</code>，并且方法参数分别为 QQ 和 360，因此这次选择最终产物是两条 invokevirtual 指令，两条指令分别为常量池中指向 <code>Father::hardChoice(360)</code> 以及 <code>Father::hardChoice(QQ)</code> 方法的符号引用。</p>
+<p>具体来看字节码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">24</span> invokevirtual #<span class="hljs-number">8</span> &lt;com/coachhe/section3_方法调用/S2_分派/单分派和多分派/Dispatch$Father.hardChoice : (Lcom/coachhe/section3_方法调用/S2_分派/单分派和多分派/Dispatch$_360;)V&gt;<br><span class="hljs-number">35</span> invokevirtual #<span class="hljs-number">11</span> &lt;com/coachhe/section3_方法调用/S2_分派/单分派和多分派/Dispatch$Father.hardChoice : (Lcom/coachhe/section3_方法调用/S2_分派/单分派和多分派/Dispatch$QQ;)V&gt;<br></code></pre></td></tr></table></figure>
+
+<p>因为是根据两个宗量进行选择，所以 <strong>Java 语言的静态分派数据多分派类型</strong>。</p>
+<h3 id="动态分派经过"><a href="#动态分派经过" class="headerlink" title="动态分派经过"></a>动态分派经过</h3><p>上面是编译阶段的步骤，那么接下来我们再看看运行阶段虚拟机的选择，也就是动态分派的过程：</p>
+<p>在执行 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">son.hardChoice(<span class="hljs-keyword">new</span> <span class="hljs-title class_">QQ</span>())<br></code></pre></td></tr></table></figure>
+
+<p>这行代码，更准确地说，是在执行这行代码所对应的 invokevirtual 指令时，由于编译器已经决定目标方法的签名必须为 <code>hardChoice(QQ)</code>，虚拟机此时不会关心传递过来的参数到底是什么 QQ，到底是奇瑞 QQ 还是腾讯 QQ，因为此时参数的静态类型、实际类型都对方法的选择不会构成任何影响，<strong>唯一可以影响虚拟机选择的因素只有该方法的接受者的实际类型</strong>是 Father 还是 Son</p>
+<p>因为只有一个宗量作为选择依据，所以 <strong>Java 语言的动态分派属于单分派类型</strong>。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>如今的 Java 语言是一门&#x3D;&#x3D;静态多分派，动态单分派&#x3D;&#x3D;的语言。</p>
+<h2 id="虚拟机动态分派的实现"><a href="#虚拟机动态分派的实现" class="headerlink" title="虚拟机动态分派的实现"></a>虚拟机动态分派的实现</h2><p>动态分派是执行非常频繁的动作，而且动态分派的方法版本选择过程需要运行时在接收者类型的方法元数据中搜索合适的目标方法</p>
+<p>因此，Java 虚拟机实现基于执行性能的考虑，真正运行时一般不会如此频繁地去反复搜索类型元数据。</p>
+<p>面对这种情况，一种基础而且常见的优化手段是<strong>为类型在方法区中建立一个虚方法表</strong>（Virtual Method Table，也称为 vtable，与此对应的，<strong>在 invokeinterface 执行时也会用到接口方法表</strong>——Interface Method Table，简称 itable），使用虚方法表索引来代替元数据查找以提高性能。我们先看看代码清单 8-11 所对应的虚方法表结构示例</p>
+<p>例如上面的 Father 和 Son 的例子中，有这样的一个虚方法表：</p>
+<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221228132723.png" srcset="/img/loading.gif" lazyload width = "60%" />
+
+<p>虚方法表中存放着各个方法的实际入库地址。如果某个方法在子类中没有被重写，那子类的虚方法表中的地址入库和父类相同方法的地址入库是一致的，都指向父类的实现入口。如果子类中重写了这个方法，子类虚方法表中的地址也会被替换为指向子类实现版本的入库地址。</p>
+<p>在上图中，Son 重写了来自 Father 的全部方法，因此 Son 的方法表没有指向 Father 类型数据的剪头。但是 Son 和 Father 都没有重写来自 Object 的方法，所以它们的方法表中所有从 Object 继承来的方法都指向了 Object 的数据类型。</p>
+<p>为了程序实现方便，具有相同签名的方法，在父类、子类的虚方法表中都应当具有一样的索引序号，这样当类型变换时，仅需要变更查找的虚方法表，就可以从不同虚方法表中按照索引转换出所需的入口地址。虚方法表一般在类加载的连接阶段进行初始化，准备了类的变量初始值后，虚拟机会把该类的虚方法表也一同初始化完毕。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/" class="category-chain-item">JVM</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/8-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/" class="category-chain-item">8 虚拟机字节码执行引擎</a>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>3. 方法调用</div>
+      <div>http://example.com/2022/12/3d0bfc820532.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>CoachHe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年12月18日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/12/f8c8fd42e267.html" title="2. 类加载的时机">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">2. 类加载的时机</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/12/ad9faad19925.html" title="2. 必须创建所有对象">
+                        <span class="hidden-mobile">2. 必须创建所有对象</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

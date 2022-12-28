@@ -16,29 +16,27 @@
   <meta name="author" content="CoachHe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="运行时栈帧结构每一个方法从调用开始到执行结束的过程，都对应着一个栈帧在虚拟机栈里面从入栈到出栈的过程。 理解：  虚拟机栈: 一个程序从 main 方法开始到最终全部执行结束的过程。 栈帧: 一个方法从开始到结束的过程。 main 方法调用的其他方法的数量&#x3D;栈帧的数量    可以看到，一个虚拟机栈就是一个 main 进程从开始运行到最终结束的过程。在 main 进程运行时，每调用一次方法">
+    <meta name="description" content="每一个方法从调用开始到执行结束的过程，都对应着一个栈帧在虚拟机栈里面从入栈到出栈的过程。 理解：  虚拟机栈: 一个程序从 main 方法开始到最终全部执行结束的过程。 栈帧: 一个方法从开始到结束的过程。 main 方法调用的其他方法的数量&#x3D;栈帧的数量    可以看到，一个虚拟机栈就是一个 main 进程从开始运行到最终结束的过程。在 main 进程运行时，每调用一次方法，就会生成一个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="8 虚拟机字节码执行引擎">
-<meta property="og:url" content="http://example.com/2022/12/8a5156686bbc.html">
+<meta property="og:title" content="2. 运行时栈帧结构">
+<meta property="og:url" content="http://example.com/2022/12/2513663ffa25.html">
 <meta property="og:site_name" content="CoachHe&#39;s Blog">
-<meta property="og:description" content="运行时栈帧结构每一个方法从调用开始到执行结束的过程，都对应着一个栈帧在虚拟机栈里面从入栈到出栈的过程。 理解：  虚拟机栈: 一个程序从 main 方法开始到最终全部执行结束的过程。 栈帧: 一个方法从开始到结束的过程。 main 方法调用的其他方法的数量&#x3D;栈帧的数量    可以看到，一个虚拟机栈就是一个 main 进程从开始运行到最终结束的过程。在 main 进程运行时，每调用一次方法">
+<meta property="og:description" content="每一个方法从调用开始到执行结束的过程，都对应着一个栈帧在虚拟机栈里面从入栈到出栈的过程。 理解：  虚拟机栈: 一个程序从 main 方法开始到最终全部执行结束的过程。 栈帧: 一个方法从开始到结束的过程。 main 方法调用的其他方法的数量&#x3D;栈帧的数量    可以看到，一个虚拟机栈就是一个 main 进程从开始运行到最终结束的过程。在 main 进程运行时，每调用一次方法，就会生成一个">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221206104617.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221216120007.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/image-20221130133042704.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221217024111.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221217035147.png">
-<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221212132030.png">
-<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221212131955.png">
 <meta property="article:published_time" content="2022-12-06T02:49:41.000Z">
-<meta property="article:modified_time" content="2022-12-17T20:34:15.158Z">
+<meta property="article:modified_time" content="2022-12-28T07:19:13.120Z">
 <meta property="article:author" content="CoachHe">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221206104617.png">
   
   
   
-  <title>8 虚拟机字节码执行引擎 - CoachHe&#39;s Blog</title>
+  <title>2. 运行时栈帧结构 - CoachHe&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="8 虚拟机字节码执行引擎"></span>
+            <span id="subtitle" data-typed-text="2. 运行时栈帧结构"></span>
           
         </div>
 
@@ -226,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.4k 字
+          5.6k 字
         
       </span>
     
@@ -237,7 +235,7 @@
         
         
         
-          62 分钟
+          47 分钟
         
       </span>
     
@@ -275,12 +273,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">8 虚拟机字节码执行引擎</h1>
+            <h1 style="display: none">2. 运行时栈帧结构</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="运行时栈帧结构"><a href="#运行时栈帧结构" class="headerlink" title="运行时栈帧结构"></a>运行时栈帧结构</h1><p>每一个方法从调用开始到执行结束的过程，都对应着一个栈帧在虚拟机栈里面从入栈到出栈的过程。</p>
+                <p>每一个方法从调用开始到执行结束的过程，都对应着一个栈帧在虚拟机栈里面从入栈到出栈的过程。</p>
 <p>理解：</p>
 <ul>
 <li>虚拟机栈: 一个程序从 main 方法开始到最终全部执行结束的过程。</li>
@@ -290,7 +288,7 @@
 <img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221206104617.png" srcset="/img/loading.gif" lazyload width = "50%" />
 
 <p>可以看到，一个虚拟机栈就是一个 <code>main</code> 进程从开始运行到最终结束的过程。在 <code>main</code> 进程运行时，每调用一次方法，就会生成一个栈帧，每个方法调用时可能会继续调用其他方法，那么会继续生成栈帧，栈帧的生命周期是和方法同步的。</p>
-<h2 id="栈帧的组成"><a href="#栈帧的组成" class="headerlink" title="栈帧的组成"></a>栈帧的组成</h2><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221216120007.png" srcset="/img/loading.gif" lazyload width = "50%" />
+<h1 id="栈帧的组成"><a href="#栈帧的组成" class="headerlink" title="栈帧的组成"></a>栈帧的组成</h1><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221216120007.png" srcset="/img/loading.gif" lazyload width = "50%" />
 
 <p>可以看到，栈帧由以下部分组成:</p>
 <ul>
@@ -300,15 +298,15 @@
 <li>方法返回地址</li>
 <li>额外的附加信息</li>
 </ul>
-<h3 id="局部变量表"><a href="#局部变量表" class="headerlink" title="局部变量表"></a>局部变量表</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>是一个<strong>数字数组</strong>，主要用于存储<strong>方法参数</strong>和定义在<strong>方法体内的局部变量</strong>，这些数据类型包括各类基本数据类型、对象引用以及 returnAddress 类型。</p>
+<h1 id="局部变量表"><a href="#局部变量表" class="headerlink" title="局部变量表"></a>局部变量表</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>是一个<strong>数字数组</strong>，主要用于存储<strong>方法参数</strong>和定义在<strong>方法体内的局部变量</strong>，这些数据类型包括各类基本数据类型、对象引用以及 returnAddress 类型。</p>
 <p>注意上面加粗的几个点：</p>
 <ol>
 <li>数字数组：首先表明局部变量表是一个<strong>数组</strong>类型，数组内的元素是数组，之所以可以成为<strong>数字</strong>数组，是因为 8 种基本数据类型，对象引用以及 returnAddress 都可以用数字来进行表示。</li>
 <li>方法参数：修饰方法的参数，例如 <code>private</code>、<code>public</code> 等</li>
 <li>方法体内的局部变量：方法体内定义的变量</li>
 </ol>
-<h4 id="数据安全性"><a href="#数据安全性" class="headerlink" title="数据安全性"></a>数据安全性</h4><p>局部变量表是建立在线程的栈上，因为栈是线程私有的数据，因此<strong>不存在数据安全问题</strong>。</p>
-<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ol>
+<h2 id="数据安全性"><a href="#数据安全性" class="headerlink" title="数据安全性"></a>数据安全性</h2><p>局部变量表是建立在线程的栈上，因为栈是线程私有的数据，因此<strong>不存在数据安全问题</strong>。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
 <li>局部变量表所需的<strong>容量大小</strong>是在<strong>编译期确定</strong>下来的，并保存在方法的 Code 属性的 <code>maximum local variable</code> 数据项中。在方法运行期间不会改变局部变量表大小。</li>
 </ol>
 <img src = " https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/image-20221130132906808.png" width="70%">
@@ -329,7 +327,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">    <span class="hljs-comment">// 会报错  </span><br>    <span class="hljs-meta">@Test</span>  <br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">localVariableTest4</span><span class="hljs-params">()</span> &#123;  <br><span class="hljs-comment">//        int a;  </span><br><span class="hljs-comment">//        System.out.println(a);  </span><br>    &#125;<br></code></pre></td></tr></table></figure>
 
 <p>这里直接会报错。</p>
-<h4 id="局部变量表槽的复用"><a href="#局部变量表槽的复用" class="headerlink" title="局部变量表槽的复用"></a>局部变量表槽的复用</h4><p>局部变量表中的变量槽是可以重用的，判断方法是当前的字节码 PC 计数器值是否超出了某个变量的作用域。</p>
+<h2 id="局部变量表槽的复用"><a href="#局部变量表槽的复用" class="headerlink" title="局部变量表槽的复用"></a>局部变量表槽的复用</h2><p>局部变量表中的变量槽是可以重用的，判断方法是当前的字节码 PC 计数器值是否超出了某个变量的作用域。</p>
 <ol>
 <li>代码 1：</li>
 </ol>
@@ -357,7 +355,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-number">0</span> ldc #<span class="hljs-number">2</span> &lt;<span class="hljs-number">67108864</span>&gt;<br> <span class="hljs-number">2</span> newarray <span class="hljs-number">8</span> (<span class="hljs-type">byte</span>)<br> <span class="hljs-number">4</span> astore_1<br> <span class="hljs-number">5</span> iconst_0<br> <span class="hljs-number">6</span> istore_1<br> <span class="hljs-number">7</span> invokestatic #<span class="hljs-number">3</span> &lt;java/lang/System.gc : ()V&gt;<br><span class="hljs-number">10</span> <span class="hljs-keyword">return</span><br></code></pre></td></tr></table></figure>
 
 <p>可以看到，在第 6 行将之前局部变量表中第 1 个元素进行覆盖，因此 <code>GC Root</code> 中已经没有对 <code>placeholder</code> 的引用了，因此系统垃圾回收就将其回收了。</p>
-<h3 id="操作数栈"><a href="#操作数栈" class="headerlink" title="操作数栈"></a>操作数栈</h3><p>操作数栈，在方法执行过程中，根据字节码指令，往栈中写入数据或提取数据，即入栈&#x2F;出栈</p>
+<h1 id="操作数栈"><a href="#操作数栈" class="headerlink" title="操作数栈"></a>操作数栈</h1><p>操作数栈，在方法执行过程中，根据字节码指令，往栈中写入数据或提取数据，即入栈&#x2F;出栈</p>
 <p>某些字节码指令将值压入操作数栈，其余的字节码指令将操作数取出栈，使用它们之后再把结果压入栈。</p>
 <p>直接来看个具体例子：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span>: CoachHe</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Date</span>: 2022/11/25 10:00</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OperandStackTest</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testAddOperation</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">byte</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">15</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> i + j;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
@@ -369,67 +367,27 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">0</span>: bipush        <span class="hljs-number">15</span><br><span class="hljs-number">2</span>: istore_1<br><span class="hljs-number">3</span>: iconst_0<br><span class="hljs-number">4</span>: istore_2<br><span class="hljs-number">5</span>: iload_1<br><span class="hljs-number">6</span>: iload_2<br><span class="hljs-number">7</span>: iadd<br><span class="hljs-number">8</span>: istore_3<br><span class="hljs-number">9</span>: <span class="hljs-keyword">return</span><br></code></pre></td></tr></table></figure>
 
 <p>这部分对应的是 <code>testAddOperation()</code> 方法对应的字节码指令。这些指令在运行时会被加载到虚拟机栈中进行运行</p>
-<h4 id="栈顶缓存技术"><a href="#栈顶缓存技术" class="headerlink" title="栈顶缓存技术"></a>栈顶缓存技术</h4><p>基于栈式的虚拟机所需要使用的零地址指令更加紧凑，但完成一项操作的时候必然需要使用更多的入栈和出栈指令，这同时也就意味着更多的指令分派次数和内存读&#x2F;写速度。</p>
+<h2 id="栈顶缓存技术"><a href="#栈顶缓存技术" class="headerlink" title="栈顶缓存技术"></a>栈顶缓存技术</h2><p>基于栈式的虚拟机所需要使用的零地址指令更加紧凑，但完成一项操作的时候必然需要使用更多的入栈和出栈指令，这同时也就意味着更多的指令分派次数和内存读&#x2F;写速度。</p>
 <p>由于操作数是存储在内存中的，因此频繁地执行内存读&#x2F;写操作必然会影响执行速度。为了解决这个问题，HotSpot JVM 的设计者们提出了栈顶缓存技术，将<strong>栈顶元素全部缓存在屋里 CPU 的寄存器中</strong>，以此降低为内存的读&#x2F;写次数，提升执行引擎的执行效率。</p>
-<h3 id="动态连接"><a href="#动态连接" class="headerlink" title="动态连接"></a>动态连接</h3><p>每个栈帧都包含一个指向<strong>运行时常量池</strong>中<strong>该栈帧所属方法</strong>的引用，持有这个引用是为了支持方法调用过程中的<strong>动态连接</strong>（Dynamic Linking）。比如： <code>invokedynamic</code> 指令。</p>
-<p>通过 [[6 类文件结构]]的讲解，我们知道 : </p>
+<h1 id="动态连接"><a href="#动态连接" class="headerlink" title="动态连接"></a>动态连接</h1><p>每个栈帧都包含一个指向<strong>运行时常量池</strong>中<strong>该栈帧所属方法</strong>的引用，持有这个引用是为了支持方法调用过程中的<strong>动态连接</strong>（Dynamic Linking）。比如： <code>invokedynamic</code> 指令。</p>
+<p>通过 [[2 类文件结构]]的讲解，我们知道 : </p>
 <p>在 Java 源文件被编译到字节码文件中时，所有的变量和方法引用都作为符号引用（symbolic reference）保存在 class 文件的常量池里。</p>
 <img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221217035147.png" srcset="/img/loading.gif" lazyload width = "80%" />
 
 
 <p>Class 文件的常量池中存有大量的符号引用，字节码中的方法调用指令就以常量池里指向方法的符号引用作为参数。</p>
-<h4 id="动态连接和静态解析"><a href="#动态连接和静态解析" class="headerlink" title="动态连接和静态解析"></a>动态连接和静态解析</h4><ul>
+<h2 id="动态连接和静态解析"><a href="#动态连接和静态解析" class="headerlink" title="动态连接和静态解析"></a>动态连接和静态解析</h2><ul>
 <li>Class 文件中常量池的符号引用的一部分会在类加载阶段或者第一次使用的时候就被转化为直接引用，这种转化被称为静态解析。</li>
 <li>另外一部分将在每一次运行期间都转化为直接引用，这部分就称为动态连接。</li>
 </ul>
 <p>关于这两个转化过程的具体过程，将在接下来会再详细讲解。</p>
-<h3 id="方法返回地址"><a href="#方法返回地址" class="headerlink" title="方法返回地址"></a>方法返回地址</h3><p>退出方法的两种方式</p>
+<h1 id="方法返回地址"><a href="#方法返回地址" class="headerlink" title="方法返回地址"></a>方法返回地址</h1><p>退出方法的两种方式</p>
 <ol>
 <li>正常调用完成：指的是执行引擎遇到任意一个方法返回的字节码指令</li>
 <li>异常调用完成：指的是方法执行得过程中遇到了异常，并且这个异常没有在方法体中得到妥善处理。</li>
 </ol>
 <p>无论采用何种退出方式，在方法退出之后，都必须返回到最初方法被调用的位置，程序才能继续执行，方法返回时可能需要在栈帧中保存一些信息，用来帮助恢复它的上层主调方法的执行状态。</p>
-<h1 id="方法调用"><a href="#方法调用" class="headerlink" title="方法调用"></a>方法调用</h1><p>方法调用并不等同于方法中的代码被执行。方法调用阶段唯一的任务就是<strong>确定被调用方法的版本</strong>（也就是调用哪一个方法），暂时还未涉及方法内部的具体运行过程。</p>
-<h2 id="1-解析"><a href="#1-解析" class="headerlink" title="1. 解析"></a>1. 解析</h2><p>Class 文件的编译过程中不包含传统语言编译的连接步骤，一切方法调用在 Class 文件里面存储的都<strong>只是符号引用</strong>，而不是方法在实际运行时内存布局中的入口地址（也就是直接引用）。</p>
-<p>而在类加载的<strong>解析阶段</strong>（具体阶段可以看 [[7 虚拟机类加载机制]]），会将其中的一部分符号引用转化为直接引用。</p>
-<p>这种解析能够成立的前提是：<br>方法在程序真正运行之前就有一个可确定的调用版本，并且这个方法的调用版本在运行期间是不可改变的。换句话说，调用目标在程序代码写好、编译器进行编译那一刻就已经确定下来，这类方法的调用被称为解析。(来自《深入理解 Java 虚拟机》)</p>
-<p>注意：<br>在这里是有一点歧义的，如果是我理解错了希望大佬可以指出，这里说&#x3D;&#x3D;这类方法的调用被称为解析&#x3D;&#x3D;，也就是说 <code>解析=调用可确定并且在运行期间不可改变的方法版本</code>，但是在前面的学习中我们知道，解析阶段是虚拟机将常量池内的符号引用替换为直接引用的过程，不单单是这一类方法，还包括很多用 invokedynamic 指令修饰的，在运行期间版本会改变的方法。所以这两个地方对解析的解释是否有歧义呢？</p>
-<p>在 Java 语言中，符合&#x3D;&#x3D;编译器可知，运行期不可变&#x3D;&#x3D;这个要求的方法，主要有&#x3D;&#x3D;静态方法&#x3D;&#x3D;和&#x3D;&#x3D;私有方法&#x3D;&#x3D;两大类。</p>
-<ul>
-<li>静态方法<br>与类型直接关联</li>
-<li>私有方法<br>在外部不可被访问</li>
-</ul>
-<p>这两种方法各自特点决定了它们不可能通过集成或者别的方式重写出其他版本，因此它们都很适合在类加载阶段进行解析。</p>
-<h3 id="调用字节码指令的方法"><a href="#调用字节码指令的方法" class="headerlink" title="调用字节码指令的方法"></a>调用字节码指令的方法</h3><p>调用不同类型的方法，字节码指令集里设计了不同的指令。在 JVM 中支持以下 5 中方法调用字节码指令：</p>
-<ul>
-<li>invokestatic：用于调用静态方法</li>
-<li>invokespecial：用于调用实例构造器 <code>&lt;init&gt;()</code> 方法、私有方法和父类中的方法</li>
-<li>invokevirtual：用于调用所有虚方法</li>
-<li>invokeinterface：用于调用接口方法，会在运行时再确定一个实现接口的对象</li>
-<li>invokedynamic：现在运行时动态解析出调用点限定符所引用的方法，然后再执行该方法。</li>
-</ul>
-<p>前面四条调用指令，分派逻辑都固化在 JVM 内部，而 invokedynamic 指令的分派逻辑是用户设定的引导方法来决定的。</p>
-<h3 id="非虚方法和虚方法"><a href="#非虚方法和虚方法" class="headerlink" title="非虚方法和虚方法"></a>非虚方法和虚方法</h3><p>只要能被 invokestatic 和 invokespecial，都可以在解析阶段中确定唯一的调用版本。也就是非虚方法，共有以下 5 种</p>
-<ol>
-<li>静态方法</li>
-<li>私有方法</li>
-<li>实例构造器</li>
-<li>父类方法</li>
-<li>被 final 修饰的方法（虽然它被 invokevirtual 指令调用）<br>对于 final 方法，由于历史原因，它是被 invokevirtual 指令调用的，但是因为它也无法被覆盖，没有其他版本的可能，所以它就是一种非虚方法。</li>
-</ol>
-<p>以上 5 种方法会在类加载的时候（也就是类周期的第 1 个阶段，详见 [[7 虚拟机类加载机制]]）就可以把符号引用解析为该方法的直接引用。</p>
-<p>其他方法被称为虚方法。</p>
-<p>代码：方法静态解析演示</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.coachhe.Chapter3_方法调用;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 方法静态解析演示</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> coachhe</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">StaticResolution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sayHello</span><span class="hljs-params">()</span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;Hello World&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        StaticResolution.sayHello();<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-<p>使用 javap 命令查看这段程序对应的字节码：</p>
-<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221212132030.png" srcset="/img/loading.gif" lazyload width = "50%" />
-
-<p>可以看到，的确是通过 invokestatic 命令来调用 sayHello () 方法，而且其调用的方法版本已经在编译时明确以常量池项的形式固化在字节码指令的参数之中（常量池 #5 号）：</p>
-<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221212131955.png" srcset="/img/loading.gif" lazyload width = "80%" />
-
-<p>可以看到，和 String 进行了绑定。</p>
-<h2 id="2-分派"><a href="#2-分派" class="headerlink" title="2. 分派"></a>2. 分派</h2>
                 
               </div>
             
@@ -495,8 +453,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>8 虚拟机字节码执行引擎</div>
-      <div>http://example.com/2022/12/8a5156686bbc.html</div>
+      <div>2. 运行时栈帧结构</div>
+      <div>http://example.com/2022/12/2513663ffa25.html</div>
     </div>
     <div class="license-meta">
       
@@ -540,9 +498,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/12/48985e192055.html" title="接口">
+                      <a href="/2022/12/5c48a719405e.html" title="1 接口">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">接口</span>
+                        <span class="hidden-mobile">1 接口</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
