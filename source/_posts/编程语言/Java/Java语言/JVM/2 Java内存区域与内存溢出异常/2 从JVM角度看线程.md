@@ -1,7 +1,13 @@
 ---
-title: 2 从JVM角度看线程  
-date: 2022-12-19 11:00:39  
-tags: []  
+title: 2 从JVM角度看线程
+tags: []
+categories:
+  - 编程语言
+  - Java
+  - Java语言
+  - JVM
+  - 2 Java内存区域与内存溢出异常
+date: 2022-12-19 11:00:39
 ---
 
 
