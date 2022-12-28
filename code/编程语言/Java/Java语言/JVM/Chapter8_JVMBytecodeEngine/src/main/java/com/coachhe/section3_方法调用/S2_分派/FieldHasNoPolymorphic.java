@@ -11,6 +11,7 @@ public class FieldHasNoPolymorphic {
         public int home = 100;
         public Father() {
             money = 2;
+            home--;
             showMeTheMoney();
         }
         public void showMeTheMoney() {
@@ -23,6 +24,7 @@ public class FieldHasNoPolymorphic {
 
     static class Son extends Father {
         public int money = 3;
+        // 子类对象会拥有父类对象的
         public Son() {
             money = 4;
             showMeTheMoney();
@@ -30,15 +32,16 @@ public class FieldHasNoPolymorphic {
         public void showMeTheMoney() {
             System.out.println("I am Son, i have $" + money);
         }
-        public void showHome(){
-            System.out.println("I am Son, my home is ");
-        }
     }
 
     public static void main(String[] args) {
         Father guy = new Son();
         System.out.println("This guy has $" + guy.money);
+
         Son s = new Son();
+        for (int i = 0; i < 10; i++) {
+            s = new Son();
+        }
         int home = s.home;
         System.out.println(home);
     }
