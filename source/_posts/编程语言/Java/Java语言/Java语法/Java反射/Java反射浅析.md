@@ -9,17 +9,21 @@ categories:
   - Java语法
   - Java反射
 ---
+
 # JVM构建实例浅析
 
 ## 示例代码
+
 ```java
 Person p = new Person();
 ```
 
 ## 创建对象的过程
+
 ```java
 Person p = new Person();
 ```
+
 1. 加载类
 	a. ClassLoader加载.class文件到内存
 	b. 执行静态代码块和静态初始化语句
@@ -83,6 +87,7 @@ public abstract class ClassLoader {
 3.  上面两步都失败了，调用findClass()方法加载
 
 ### 注意
+
 需要注意的是，ClassLoader类本身是抽象类
 ```java
 public abstract class ClassLoader {
