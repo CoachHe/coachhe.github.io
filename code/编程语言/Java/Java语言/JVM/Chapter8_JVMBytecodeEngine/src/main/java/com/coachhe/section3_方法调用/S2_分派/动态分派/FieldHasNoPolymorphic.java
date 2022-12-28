@@ -1,4 +1,4 @@
-package com.coachhe.section3_方法调用.S2_分派;
+package com.coachhe.section3_方法调用.S2_分派.动态分派;
 
 /**
  * @author CoachHe
@@ -42,6 +42,7 @@ public class FieldHasNoPolymorphic {
         for (int i = 0; i < 10; i++) {
             s = new Son();
         }
+        s.home = s.home - 1;
         int home = s.home;
         System.out.println(home);
     }

@@ -1,4 +1,4 @@
-package com.coachhe.section3_方法调用.S2_分派;
+package com.coachhe.section3_方法调用.S2_分派.动态分派;
 
 /**
  * @author CoachHe
