@@ -10,7 +10,7 @@ public class FieldHasNoPolymorphic {
         public int money = 1;
         public Father() {
             money = 2;
-
+            showMeTheMoney();
         }
         public void showMeTheMoney() {
             System.out.println("I am Father, i have $" + money);
