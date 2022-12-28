@@ -22,9 +22,9 @@ public class MethodHandleTest {
         getPrintlnMH("icyfenix");
     }
 
-    private static MethodHandle getPrintlnMH(Object reviver) throws Throwable {
+    private static MethodHandle getPrintlnMH(Object receiver) throws Throwable {
         MethodType mt = MethodType.methodType(void.class, String.class);
-        return MethodHandles.lookup().findVirtual(reviver.getClass(), "println", mt).bindTo(reviver);
+        return MethodHandles.lookup().findVirtual(receiver.getClass(), "println", mt).bindTo(receiver);
     }
 
 }
