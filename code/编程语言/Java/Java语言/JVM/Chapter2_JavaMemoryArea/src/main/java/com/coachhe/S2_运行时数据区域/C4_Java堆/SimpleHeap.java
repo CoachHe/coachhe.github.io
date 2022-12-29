@@ -6,6 +6,7 @@ package com.coachhe.S2_运行时数据区域.C4_Java堆;
  * VM 参数：
  * -Xms10m -Xmx10m -XX:+PrintGCDetails
  * 目的是为了查看堆内存的结构，运行之后查看
+ * 注意：这里用jdk8才比较有效果
  **/
 public class SimpleHeap {
     private int id;//属性，成员变量
