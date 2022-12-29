@@ -1,4 +1,4 @@
-package com.coachhe.section2_对象的创建;
+package com.coachhe.S3_HotSpot虚拟机对象探秘;
 
 public class Demo {
 

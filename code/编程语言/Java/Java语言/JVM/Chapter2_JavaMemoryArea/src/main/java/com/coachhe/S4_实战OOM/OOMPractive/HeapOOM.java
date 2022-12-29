@@ -1,4 +1,4 @@
-package com.coachhe.section2_对象的创建.OOMPractive;
+package com.coachhe.S4_实战OOM.OOMPractive;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.coachhe.section2_对象的创建.JVMStack;
+package com.coachhe.S2_运行时数据区域.JVMStack;
 
 /**
  * 这里有两个测试，methodA表示无限递归导致的StackOverflowError

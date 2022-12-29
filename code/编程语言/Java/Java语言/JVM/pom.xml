@@ -10,11 +10,11 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>Chapter2_JavaMemoryArea</module>
+        <module>Chapter3_GarbageCollection</module>
         <module>Chapter4_JVMPerformanceMonitoring</module>
         <module>Chapter6_ClassFileFormat</module>
         <module>Chapter7_JVMClassLoadingMechanism</module>
         <module>Chapter8_JVMBytecodeEngine</module>
-        <module>Chapter3_GarbageCollection</module>
     </modules>
 
     <build>

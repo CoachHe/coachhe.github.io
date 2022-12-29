@@ -1,4 +1,4 @@
-package com.coachhe.section2_对象的创建.JVMStack;
+package com.coachhe.S2_运行时数据区域.JVMStack;
 
 /**
  * 在这里演示了，无论任何异常，只要被抛出，就会返回。

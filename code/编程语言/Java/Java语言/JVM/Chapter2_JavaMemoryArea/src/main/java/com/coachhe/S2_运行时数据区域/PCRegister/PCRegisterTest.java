@@ -1,4 +1,4 @@
-package com.coachhe.section2_对象的创建.PCRegister;
+package com.coachhe.S2_运行时数据区域.PCRegister;
 
 /**
  * 这个测试是为了用class文件查看PC寄存器的执行过程

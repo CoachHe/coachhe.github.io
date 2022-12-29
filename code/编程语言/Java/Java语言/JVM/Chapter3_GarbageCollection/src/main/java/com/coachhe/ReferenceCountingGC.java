@@ -1,4 +1,4 @@
-package com.coachhe.section3_垃圾收集器与内存分配策略;
+package com.coachhe;
 
 public class ReferenceCountingGC {
     public Object instance = null;
