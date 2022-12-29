@@ -16,23 +16,20 @@
   <meta name="author" content="CoachHe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="每一个方法从调用开始到执行结束的过程，都对应着一个栈帧在虚拟机栈里面从入栈到出栈的过程。 理解：  虚拟机栈: 一个程序从 main 方法开始到最终全部执行结束的过程。 栈帧: 一个方法从开始到结束的过程。 main 方法调用的其他方法的数量&#x3D;栈帧的数量    可以看到，一个虚拟机栈就是一个 main 进程从开始运行到最终结束的过程。在 main 进程运行时，每调用一次方法，就会生成一个">
+    <meta name="description" content="定义是一个数字数组，主要用于存储方法参数和定义在方法体内的局部变量，这些数据类型包括各类基本数据类型、对象引用以及 returnAddress 类型。 注意上面加粗的几个点：  数字数组：首先表明局部变量表是一个数组类型，数组内的元素是数组，之所以可以成为数字数组，是因为 8 种基本数据类型，对象引用以及 returnAddress 都可以用数字来进行表示。 方法参数：修饰方法的参数，例如 pri">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2. 运行时栈帧结构">
-<meta property="og:url" content="http://example.com/2022/12/2513663ffa25.html">
+<meta property="og:url" content="http://example.com/2022/12/705f32784171.html">
 <meta property="og:site_name" content="CoachHe&#39;s Blog">
-<meta property="og:description" content="每一个方法从调用开始到执行结束的过程，都对应着一个栈帧在虚拟机栈里面从入栈到出栈的过程。 理解：  虚拟机栈: 一个程序从 main 方法开始到最终全部执行结束的过程。 栈帧: 一个方法从开始到结束的过程。 main 方法调用的其他方法的数量&#x3D;栈帧的数量    可以看到，一个虚拟机栈就是一个 main 进程从开始运行到最终结束的过程。在 main 进程运行时，每调用一次方法，就会生成一个">
+<meta property="og:description" content="定义是一个数字数组，主要用于存储方法参数和定义在方法体内的局部变量，这些数据类型包括各类基本数据类型、对象引用以及 returnAddress 类型。 注意上面加粗的几个点：  数字数组：首先表明局部变量表是一个数组类型，数组内的元素是数组，之所以可以成为数字数组，是因为 8 种基本数据类型，对象引用以及 returnAddress 都可以用数字来进行表示。 方法参数：修饰方法的参数，例如 pri">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221206104617.png">
-<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221216120007.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/image-20221130133042704.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221217024111.png">
-<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221217035147.png">
 <meta property="article:published_time" content="2022-12-06T02:49:41.000Z">
-<meta property="article:modified_time" content="2022-12-28T07:19:13.120Z">
+<meta property="article:modified_time" content="2022-12-29T08:10:55.905Z">
 <meta property="article:author" content="CoachHe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221206104617.png">
+<meta name="twitter:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/image-20221130133042704.png">
   
   
   
@@ -224,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.6k 字
+          2.2k 字
         
       </span>
     
@@ -235,7 +232,7 @@
         
         
         
-          47 分钟
+          19 分钟
         
       </span>
     
@@ -278,27 +275,7 @@
             
               <div class="markdown-body">
                 
-                <p>每一个方法从调用开始到执行结束的过程，都对应着一个栈帧在虚拟机栈里面从入栈到出栈的过程。</p>
-<p>理解：</p>
-<ul>
-<li>虚拟机栈: 一个程序从 main 方法开始到最终全部执行结束的过程。</li>
-<li>栈帧: 一个方法从开始到结束的过程。</li>
-<li>main 方法调用的其他方法的数量&#x3D;栈帧的数量</li>
-</ul>
-<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221206104617.png" srcset="/img/loading.gif" lazyload width = "50%" />
-
-<p>可以看到，一个虚拟机栈就是一个 <code>main</code> 进程从开始运行到最终结束的过程。在 <code>main</code> 进程运行时，每调用一次方法，就会生成一个栈帧，每个方法调用时可能会继续调用其他方法，那么会继续生成栈帧，栈帧的生命周期是和方法同步的。</p>
-<h1 id="栈帧的组成"><a href="#栈帧的组成" class="headerlink" title="栈帧的组成"></a>栈帧的组成</h1><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221216120007.png" srcset="/img/loading.gif" lazyload width = "50%" />
-
-<p>可以看到，栈帧由以下部分组成:</p>
-<ul>
-<li>局部变量表</li>
-<li>操作数栈</li>
-<li>动态连接 (指向运行时常量池的方法引用)</li>
-<li>方法返回地址</li>
-<li>额外的附加信息</li>
-</ul>
-<h1 id="局部变量表"><a href="#局部变量表" class="headerlink" title="局部变量表"></a>局部变量表</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>是一个<strong>数字数组</strong>，主要用于存储<strong>方法参数</strong>和定义在<strong>方法体内的局部变量</strong>，这些数据类型包括各类基本数据类型、对象引用以及 returnAddress 类型。</p>
+                <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>是一个<strong>数字数组</strong>，主要用于存储<strong>方法参数</strong>和定义在<strong>方法体内的局部变量</strong>，这些数据类型包括各类基本数据类型、对象引用以及 returnAddress 类型。</p>
 <p>注意上面加粗的几个点：</p>
 <ol>
 <li>数字数组：首先表明局部变量表是一个<strong>数组</strong>类型，数组内的元素是数组，之所以可以成为<strong>数字</strong>数组，是因为 8 种基本数据类型，对象引用以及 returnAddress 都可以用数字来进行表示。</li>
@@ -355,38 +332,6 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-number">0</span> ldc #<span class="hljs-number">2</span> &lt;<span class="hljs-number">67108864</span>&gt;<br> <span class="hljs-number">2</span> newarray <span class="hljs-number">8</span> (<span class="hljs-type">byte</span>)<br> <span class="hljs-number">4</span> astore_1<br> <span class="hljs-number">5</span> iconst_0<br> <span class="hljs-number">6</span> istore_1<br> <span class="hljs-number">7</span> invokestatic #<span class="hljs-number">3</span> &lt;java/lang/System.gc : ()V&gt;<br><span class="hljs-number">10</span> <span class="hljs-keyword">return</span><br></code></pre></td></tr></table></figure>
 
 <p>可以看到，在第 6 行将之前局部变量表中第 1 个元素进行覆盖，因此 <code>GC Root</code> 中已经没有对 <code>placeholder</code> 的引用了，因此系统垃圾回收就将其回收了。</p>
-<h1 id="操作数栈"><a href="#操作数栈" class="headerlink" title="操作数栈"></a>操作数栈</h1><p>操作数栈，在方法执行过程中，根据字节码指令，往栈中写入数据或提取数据，即入栈&#x2F;出栈</p>
-<p>某些字节码指令将值压入操作数栈，其余的字节码指令将操作数取出栈，使用它们之后再把结果压入栈。</p>
-<p>直接来看个具体例子：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Author</span>: CoachHe</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@Date</span>: 2022/11/25 10:00</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">OperandStackTest</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testAddOperation</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">byte</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">15</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> i + j;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>可以看到，是一个很简单的类和方法，那么我们来看看用 <code>javap -verbose OperandStackTest</code> 反编译出来的内容：</p>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><code class="hljs txt">Classfile /Users/coachhe/programs/java/jvm-coachhe/Chapter8_JVMBytecodeEngine/target/classes/com/coachhe/section2_运行时栈帧结构/操作数栈/OperandStackTest.class<br>  Last modified 2022-11-25; size 532 bytes<br>  MD5 checksum d2ef1ed6453d469857e18d619fc5dd29<br>  Compiled from &quot;OperandStackTest.java&quot;<br>public class com.coachhe.section2_运行时栈帧结构.操作数栈.OperandStackTest<br>  minor version: 0<br>  major version: 52<br>  flags: ACC_PUBLIC, ACC_SUPER<br>Constant pool:<br>   #1 = Methodref          #3.#19         // java/lang/Object.&quot;&lt;init&gt;&quot;:()V<br>   #2 = Class              #20            // com/coachhe/section2_运行时栈帧结构/操作数栈/OperandStackTest<br>   #3 = Class              #21            // java/lang/Object<br>   #4 = Utf8               &lt;init&gt;<br>   #5 = Utf8               ()V<br>   #6 = Utf8               Code<br>   #7 = Utf8               LineNumberTable<br>   #8 = Utf8               LocalVariableTable<br>   #9 = Utf8               this<br>  #10 = Utf8               Lcom/coachhe/section2_运行时栈帧结构/操作数栈/OperandStackTest;<br>  #11 = Utf8               testAddOperation<br>  #12 = Utf8               i<br>  #13 = Utf8               B<br>  #14 = Utf8               j<br>  #15 = Utf8               I<br>  #16 = Utf8               k<br>  #17 = Utf8               SourceFile<br>  #18 = Utf8               OperandStackTest. java<br>  #19 = NameAndType        #4:#5          // &quot;&lt;init&gt;&quot;:()V<br>  #20 = Utf8               com/coachhe/section2_运行时栈帧结构/操作数栈/OperandStackTest<br>  #21 = Utf8               java/lang/Object<br>&#123;<br>  public com.coachhe.section2_运行时栈帧结构.操作数栈.OperandStackTest();<br>    descriptor: ()V<br>    flags: ACC_PUBLIC<br>    Code:<br>      stack=1, locals=1, args_size=1<br>         0: aload_0<br>         1: invokespecial #1                  // Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V<br>         4: return<br>      LineNumberTable:<br>        line 7: 0<br>      LocalVariableTable:<br>        Start  Length  Slot  Name   Signature<br>            0       5     0  this   Lcom/coachhe/section2_运行时栈帧结构/操作数栈/OperandStackTest;<br><br>  public void testAddOperation();<br>    descriptor: ()V<br>    flags: ACC_PUBLIC<br>    Code:<br>      stack=2, locals=4, args_size=1<br>         0: bipush        15<br>         2: istore_1<br>         3: iconst_0<br>         4: istore_2<br>         5: iload_1<br>         6: iload_2<br>         7: iadd<br>         8: istore_3<br>         9: return<br>      LineNumberTable:<br>        line 9: 0<br>        line 10: 3<br>        line 11: 5<br>        line 12: 9<br>      LocalVariableTable:<br>        Start  Length  Slot  Name   Signature<br>            0      10     0  this   Lcom/coachhe/section2_运行时栈帧结构/操作数栈/OperandStackTest;<br>            3       7     1     i   B<br>            5       5     2     j   I<br>            9       1     3     k   I<br>&#125;<br>SourceFile: &quot;OperandStackTest. java&quot;<br></code></pre></td></tr></table></figure>
-
-<p>可以看到，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">0</span>: bipush        <span class="hljs-number">15</span><br><span class="hljs-number">2</span>: istore_1<br><span class="hljs-number">3</span>: iconst_0<br><span class="hljs-number">4</span>: istore_2<br><span class="hljs-number">5</span>: iload_1<br><span class="hljs-number">6</span>: iload_2<br><span class="hljs-number">7</span>: iadd<br><span class="hljs-number">8</span>: istore_3<br><span class="hljs-number">9</span>: <span class="hljs-keyword">return</span><br></code></pre></td></tr></table></figure>
-
-<p>这部分对应的是 <code>testAddOperation()</code> 方法对应的字节码指令。这些指令在运行时会被加载到虚拟机栈中进行运行</p>
-<h2 id="栈顶缓存技术"><a href="#栈顶缓存技术" class="headerlink" title="栈顶缓存技术"></a>栈顶缓存技术</h2><p>基于栈式的虚拟机所需要使用的零地址指令更加紧凑，但完成一项操作的时候必然需要使用更多的入栈和出栈指令，这同时也就意味着更多的指令分派次数和内存读&#x2F;写速度。</p>
-<p>由于操作数是存储在内存中的，因此频繁地执行内存读&#x2F;写操作必然会影响执行速度。为了解决这个问题，HotSpot JVM 的设计者们提出了栈顶缓存技术，将<strong>栈顶元素全部缓存在屋里 CPU 的寄存器中</strong>，以此降低为内存的读&#x2F;写次数，提升执行引擎的执行效率。</p>
-<h1 id="动态连接"><a href="#动态连接" class="headerlink" title="动态连接"></a>动态连接</h1><p>每个栈帧都包含一个指向<strong>运行时常量池</strong>中<strong>该栈帧所属方法</strong>的引用，持有这个引用是为了支持方法调用过程中的<strong>动态连接</strong>（Dynamic Linking）。比如： <code>invokedynamic</code> 指令。</p>
-<p>通过 [[2 类文件结构]]的讲解，我们知道 : </p>
-<p>在 Java 源文件被编译到字节码文件中时，所有的变量和方法引用都作为符号引用（symbolic reference）保存在 class 文件的常量池里。</p>
-<img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221217035147.png" srcset="/img/loading.gif" lazyload width = "80%" />
-
-
-<p>Class 文件的常量池中存有大量的符号引用，字节码中的方法调用指令就以常量池里指向方法的符号引用作为参数。</p>
-<h2 id="动态连接和静态解析"><a href="#动态连接和静态解析" class="headerlink" title="动态连接和静态解析"></a>动态连接和静态解析</h2><ul>
-<li>Class 文件中常量池的符号引用的一部分会在类加载阶段或者第一次使用的时候就被转化为直接引用，这种转化被称为静态解析。</li>
-<li>另外一部分将在每一次运行期间都转化为直接引用，这部分就称为动态连接。</li>
-</ul>
-<p>关于这两个转化过程的具体过程，将在接下来会再详细讲解。</p>
-<h1 id="方法返回地址"><a href="#方法返回地址" class="headerlink" title="方法返回地址"></a>方法返回地址</h1><p>退出方法的两种方式</p>
-<ol>
-<li>正常调用完成：指的是执行引擎遇到任意一个方法返回的字节码指令</li>
-<li>异常调用完成：指的是方法执行得过程中遇到了异常，并且这个异常没有在方法体中得到妥善处理。</li>
-</ol>
-<p>无论采用何种退出方式，在方法退出之后，都必须返回到最初方法被调用的位置，程序才能继续执行，方法返回时可能需要在栈帧中保存一些信息，用来帮助恢复它的上层主调方法的执行状态。</p>
 
                 
               </div>
@@ -454,7 +399,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>2. 运行时栈帧结构</div>
-      <div>http://example.com/2022/12/2513663ffa25.html</div>
+      <div>http://example.com/2022/12/705f32784171.html</div>
     </div>
     <div class="license-meta">
       

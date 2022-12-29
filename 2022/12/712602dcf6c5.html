@@ -16,12 +16,12 @@
   <meta name="author" content="CoachHe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="字符串常量池要了解字符串常量池我们需要先知道运行时常量池，这里会在 [[3 运行时数据区域]]中进行详细介绍，这里我们就不展开了，主要来看字符串常量池。 字符串常量池中的内容是在类加载完成，经过验证、准备阶段之后存放在字符串常量池中。 字符串常量池存储位置的演进  可以看到，字符串常量池原本是属于运行时常量池的一部分，从 jdk7 开始被分割开来，分配到了堆空间中。 字符串常量池中存放的内容这里其">
+    <meta name="description" content="字符串常量池要了解字符串常量池我们需要先知道运行时常量池，这里会在 [[2 虚拟机栈]]中进行详细介绍，这里我们就不展开了，主要来看字符串常量池。 字符串常量池中的内容是在类加载完成，经过验证、准备阶段之后存放在字符串常量池中。 字符串常量池存储位置的演进  可以看到，字符串常量池原本是属于运行时常量池的一部分，从 jdk7 开始被分割开来，分配到了堆空间中。 字符串常量池中存放的内容这里其实是有">
 <meta property="og:type" content="article">
 <meta property="og:title" content="补充-String和字符串常量池">
 <meta property="og:url" content="http://example.com/2022/12/712602dcf6c5.html">
 <meta property="og:site_name" content="CoachHe&#39;s Blog">
-<meta property="og:description" content="字符串常量池要了解字符串常量池我们需要先知道运行时常量池，这里会在 [[3 运行时数据区域]]中进行详细介绍，这里我们就不展开了，主要来看字符串常量池。 字符串常量池中的内容是在类加载完成，经过验证、准备阶段之后存放在字符串常量池中。 字符串常量池存储位置的演进  可以看到，字符串常量池原本是属于运行时常量池的一部分，从 jdk7 开始被分割开来，分配到了堆空间中。 字符串常量池中存放的内容这里其">
+<meta property="og:description" content="字符串常量池要了解字符串常量池我们需要先知道运行时常量池，这里会在 [[2 虚拟机栈]]中进行详细介绍，这里我们就不展开了，主要来看字符串常量池。 字符串常量池中的内容是在类加载完成，经过验证、准备阶段之后存放在字符串常量池中。 字符串常量池存储位置的演进  可以看到，字符串常量池原本是属于运行时常量池的一部分，从 jdk7 开始被分割开来，分配到了堆空间中。 字符串常量池中存放的内容这里其实是有">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221218041521.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221215024246.png">
@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221216003637.png">
 <meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221216004129.png">
 <meta property="article:published_time" content="2022-12-17T19:31:59.000Z">
-<meta property="article:modified_time" content="2022-12-28T07:19:13.119Z">
+<meta property="article:modified_time" content="2022-12-29T08:10:55.903Z">
 <meta property="article:author" content="CoachHe">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221218041521.png">
@@ -278,7 +278,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="字符串常量池"><a href="#字符串常量池" class="headerlink" title="字符串常量池"></a>字符串常量池</h1><p>要了解字符串常量池我们需要先知道运行时常量池，这里会在 [[3 运行时数据区域]]中进行详细介绍，这里我们就不展开了，主要来看字符串常量池。</p>
+                <h1 id="字符串常量池"><a href="#字符串常量池" class="headerlink" title="字符串常量池"></a>字符串常量池</h1><p>要了解字符串常量池我们需要先知道运行时常量池，这里会在 [[2 虚拟机栈]]中进行详细介绍，这里我们就不展开了，主要来看字符串常量池。</p>
 <p>字符串常量池中的内容是在类加载完成，经过验证、准备阶段之后存放在字符串常量池中。</p>
 <h2 id="字符串常量池存储位置的演进"><a href="#字符串常量池存储位置的演进" class="headerlink" title="字符串常量池存储位置的演进"></a>字符串常量池存储位置的演进</h2><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/%E7%A8%8B%E5%BA%8F%E5%91%98/%E5%B7%A5%E5%85%B7/git/20221218041521.png" srcset="/img/loading.gif" lazyload width = "50%" />
 
@@ -348,7 +348,7 @@
 <p>将其进行反汇编：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-number">0</span> ldc #<span class="hljs-number">14</span> &lt;mango&gt;<br> <span class="hljs-number">2</span> astore_1<br> <span class="hljs-number">3</span> <span class="hljs-keyword">new</span> #<span class="hljs-number">9</span> &lt;java/lang/StringBuilder&gt;<br> <span class="hljs-number">6</span> dup<br> <span class="hljs-number">7</span> invokespecial #<span class="hljs-number">10</span> &lt;java/lang/StringBuilder.&lt;init&gt; : ()V&gt;<br><span class="hljs-number">10</span> ldc #<span class="hljs-number">2</span> &lt;abc&gt;<br><span class="hljs-number">12</span> invokevirtual #<span class="hljs-number">11</span> &lt;java/lang/StringBuilder.append : (Ljava/lang/String;)Ljava/lang/StringBuilder;&gt;<br><span class="hljs-number">15</span> aload_1<br><span class="hljs-number">16</span> invokevirtual #<span class="hljs-number">11</span> &lt;java/lang/StringBuilder.append : (Ljava/lang/String;)Ljava/lang/StringBuilder;&gt;<br><span class="hljs-number">19</span> ldc #<span class="hljs-number">15</span> &lt;def&gt;<br><span class="hljs-number">21</span> invokevirtual #<span class="hljs-number">11</span> &lt;java/lang/StringBuilder.append : (Ljava/lang/String;)Ljava/lang/StringBuilder;&gt;<br><span class="hljs-number">24</span> bipush <span class="hljs-number">47</span><br><span class="hljs-number">26</span> invokevirtual #<span class="hljs-number">16</span> &lt;java/lang/StringBuilder.append : (I)Ljava/lang/StringBuilder;&gt;<br><span class="hljs-number">29</span> invokevirtual #<span class="hljs-number">12</span> &lt;java/lang/StringBuilder.toString : ()Ljava/lang/String;&gt;<br><span class="hljs-number">32</span> astore_2<br><span class="hljs-number">33</span> getstatic #<span class="hljs-number">3</span> &lt;java/lang/System.out : Ljava/io/PrintStream;&gt;<br><span class="hljs-number">36</span> aload_2<br><span class="hljs-number">37</span> invokevirtual #<span class="hljs-number">17</span> &lt;java/io/PrintStream.println : (Ljava/lang/String;)V&gt;<br><span class="hljs-number">40</span> <span class="hljs-keyword">return</span><br></code></pre></td></tr></table></figure>
 
-<p>进行分析，我们可以看到，首先从字符串常量池的第 14 个位置获取字符串常量 <code>mango</code> ，并将其放入本地变量表的第一个位置，注意，这里第 0 个位置是默认的输入参数 <code>args</code>，因为是静态方法所以没有 <code>this</code> 变量，具体的可以看 JVM 内容 [[2. 运行时栈帧结构]]。</p>
+<p>进行分析，我们可以看到，首先从字符串常量池的第 14 个位置获取字符串常量 <code>mango</code> ，并将其放入本地变量表的第一个位置，注意，这里第 0 个位置是默认的输入参数 <code>args</code>，因为是静态方法所以没有 <code>this</code> 变量，具体的可以看 JVM 内容 [[2. 局部变量表]]。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-number">0</span> ldc #<span class="hljs-number">14</span> &lt;mango&gt;<br><span class="hljs-number">2</span> astore_1<br></code></pre></td></tr></table></figure>
 
 <img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221215130047.png" srcset="/img/loading.gif" lazyload width = "50%" />

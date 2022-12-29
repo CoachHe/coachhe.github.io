@@ -16,23 +16,21 @@
   <meta name="author" content="CoachHe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="内存是非常重要的系统资源，是硬盘和 CPU 的中间仓库及桥梁，承载着操作系统和应用程序的实时运行。JVM 内存布局规定了 Java 在运行过程中内存申请、分配、管理的策略，保证了 JVM 的高效稳定运行。 结构图">
+    <meta name="description" content="对象探秘1. 对象的创建1. 类的加载先看看《深入理解JVM》里面的步骤： 当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过。如果没有，那必须先执行相应的类加载过程。 这部分对应的内容就是java.lang.ClassLoader类的loadClass方法。 首先，来看看前半句话：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1 内存介绍">
-<meta property="og:url" content="http://example.com/2022/12/f65ccc4e398c.html">
+<meta property="og:title" content="4 对象探秘">
+<meta property="og:url" content="http://example.com/2022/12/75a18ba50080.html">
 <meta property="og:site_name" content="CoachHe&#39;s Blog">
-<meta property="og:description" content="内存是非常重要的系统资源，是硬盘和 CPU 的中间仓库及桥梁，承载着操作系统和应用程序的实时运行。JVM 内存布局规定了 Java 在运行过程中内存申请、分配、管理的策略，保证了 JVM 的高效稳定运行。 结构图">
+<meta property="og:description" content="对象探秘1. 对象的创建1. 类的加载先看看《深入理解JVM》里面的步骤： 当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过。如果没有，那必须先执行相应的类加载过程。 这部分对应的内容就是java.lang.ClassLoader类的loadClass方法。 首先，来看看前半句话：">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221216121131.png">
-<meta property="article:published_time" content="2022-12-19T03:00:22.000Z">
-<meta property="article:modified_time" content="2022-12-28T07:19:35.498Z">
+<meta property="article:published_time" content="2022-12-19T03:01:02.000Z">
+<meta property="article:modified_time" content="2022-12-29T08:10:55.903Z">
 <meta property="article:author" content="CoachHe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221216121131.png">
   
   
   
-  <title>1 内存介绍 - CoachHe&#39;s Blog</title>
+  <title>4 对象探秘 - CoachHe&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +195,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="1 内存介绍"></span>
+            <span id="subtitle" data-typed-text="4 对象探秘"></span>
           
         </div>
 
@@ -208,7 +206,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-12-19 11:00" pubdate>
+        <time datetime="2022-12-19 11:01" pubdate>
           2022年12月19日 上午
         </time>
       </span>
@@ -220,7 +218,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          98 字
+          746 字
         
       </span>
     
@@ -231,7 +229,7 @@
         
         
         
-          1 分钟
+          7 分钟
         
       </span>
     
@@ -269,13 +267,38 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">1 内存介绍</h1>
+            <h1 style="display: none">4 对象探秘</h1>
             
             
               <div class="markdown-body">
                 
-                <p>内存是非常重要的系统资源，是硬盘和 CPU 的中间仓库及桥梁，承载着操作系统和应用程序的实时运行。JVM 内存布局规定了 Java 在运行过程中内存申请、分配、管理的策略，保证了 JVM 的高效稳定运行。</p>
-<h2 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h2><img src=" https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20221216121131.png" srcset="/img/loading.gif" lazyload width = "50%" />
+                <h1 id="对象探秘"><a href="#对象探秘" class="headerlink" title="对象探秘"></a>对象探秘</h1><h2 id="1-对象的创建"><a href="#1-对象的创建" class="headerlink" title="1. 对象的创建"></a>1. 对象的创建</h2><h3 id="1-类的加载"><a href="#1-类的加载" class="headerlink" title="1. 类的加载"></a>1. 类的加载</h3><p>先看看《深入理解JVM》里面的步骤：</p>
+<p>当Java虚拟机遇到一条字节码new指令时，首先将去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过。如果没有，那必须先执行相应的类加载过程。</p>
+<p>这部分对应的内容就是<code>java.lang.ClassLoader</code>类的<code>loadClass</code>方法。</p>
+<p>首先，来看看前半句话：<br><strong>当 Java 虚拟机遇到一条字节码 new 指令时，首先将去检查这个指令的参数是否能在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已被加载、解析和初始化过</strong></p>
+<p>对应的源码部分：</p>
+<img src= https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810094227.png width="50%"> 
+
+<p>点进<code>findLoadClass(name)</code>，可以看到：</p>
+<img src= https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810094452.png width="50%">
+
+<p>在这里，<code>checkName</code>很简单，作用是检查name是否为null或者是一个有效的二进制名，然后根据<code>findLoadedClass0</code>这个native方法去执行JVM的方法。</p>
+<p>接下来看看后半句话：</p>
+<p><strong>如果没有，那必须先执行相应的类加载过程。</strong></p>
+<p>对应的源码部分：</p>
+<img src= https://coachhe-1305181419.cos.ap-guangzhou.myqcloud.com/Redis/20210810114433.png width="50%">
+
+<p>这部分内容在[[3. 类加载的过程]]进行详细说明，我们先大概分析一下，就是首先使用双亲委派机制尝试进行类的加载，如果失败，那么需要调用findClass方法来进行类的加载，最终返回的是一个Class对象。<br>总结一下：类的加载主要分为三个步骤</p>
+<ol>
+<li><p>检查是否已经加载，有就直接返回，避免重复加载</p>
+</li>
+<li><p>当前缓存中确实没有该类，那么遵循父优先加载机制，加载.class文件</p>
+</li>
+<li><p>上面两步都失败了，调用findClass()方法加载</p>
+</li>
+<li><p>分配内存<br>同样，看看《深入理解 JVM》<br>在类加载检查通过后，接下来虚拟机将为新生对象分配内存。对象所需内存的大小在类加载完成后便可完全确定，为对象分配空间的任务实际上便等同于把一块确定大小的内存块从 Java 堆中划分出来。</p>
+</li>
+</ol>
 
                 
               </div>
@@ -342,8 +365,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>1 内存介绍</div>
-      <div>http://example.com/2022/12/f65ccc4e398c.html</div>
+      <div>4 对象探秘</div>
+      <div>http://example.com/2022/12/75a18ba50080.html</div>
     </div>
     <div class="license-meta">
       
@@ -387,9 +410,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/12/f9d70259125c.html" title="2 从JVM角度看线程">
+                      <a href="/2022/12/6152b1d095c4.html" title="1 简介">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">2 从JVM角度看线程</span>
+                        <span class="hidden-mobile">1 简介</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -397,8 +420,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/12/452ee15649c2.html" title="4. 类加载器">
-                        <span class="hidden-mobile">4. 类加载器</span>
+                      <a href="/2022/12/26d8b4022d78.html" title="2 从JVM角度看线程">
+                        <span class="hidden-mobile">2 从JVM角度看线程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -223,15 +223,531 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/8abbafddf064.html" target="_self">
-          APUE-12-线程控制
+        <a href="/2022/12/70be4d9dd116.html" target="_self">
+          集群分发脚本
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/8abbafddf064.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/70be4d9dd116.html" target="_self">
         <div>
-          1 线程属性回顾一下创建线程的函数： 123456#include &lt;pthread.h&gt;int pthread_create(pthread_t *restrict tidp,          const pthread_attr_t *restrict attr,         void *(*star_rtn)(void *) void *restrict arg);
+          scpscp定义scp可以实现服务器与服务器之间的数据拷贝（from server1 to server2）  基本语法1scp -r $pdir/$fname $user@hadoop$host:$pdir/$fname   解释  常见用法 本机数据拷贝到别的服务器  从别的服务器将数据拷贝到本机  将某台非本机的服务器的数据拷贝到另一台主机  案例1在hadoop100上，将hadoop10
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:39" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/Command/" class="category-chain-item">Command</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/b82cac2b1121.html" target="_self">
+          王道考研2-进程与线程
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/b82cac2b1121.html" target="_self">
+        <div>
+          1 进程的定义、组成、组织方式和特征定义就是一个指令序列  早期的计算机（只支持单道程序）   引入多道程序技术之后  进程实体程序段、数据段、PCB三部分组成了进程实体（进程映像）。一般情况下，我们把进程实体简称为进程。   创建进程所谓创建进程，实质上是创建进程实体中的PCB  撤销进程撤销进程，实质上是撤销进程实体中的PCB  进程进程是进程实体的运行过程，是系统进行资源分配和调度的一个独立
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:39" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="category-chain-item">操作系统</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/fc2a13dee69a.html" target="_self">
+          王道考研1-计算机系统概论
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/fc2a13dee69a.html" target="_self">
+        <div>
+          1 操作系统的概念概念   功能1、作为系统资源的管理者   2、 作为用户和计算机硬件之间的接口（自下往上看）需要提供三个功能a. 命令接口：允许用户直接使用b. 程序接口：允许用户通过程序间接使用c. GUI：现代操作系统中最流行的图形用户接口 命令接口分类 联机命令接口：用户说一句，操作系统做一句（例如打开cmd界面，输入time指令）   脱机命令接口：用户说一堆，操作系统做一堆,如.ba
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:39" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="category-chain-item">操作系统</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/ae0126c14b91.html" target="_self">
+          操作系统简介
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/ae0126c14b91.html" target="_self">
+        <div>
+          什么是操作系统操作系统是计算机硬件和应用之间的一层软件。 操作系统的作用 方便我们使用硬件，如使用显存 高效地使用硬件，如开多个终端  管理哪些硬件 CPU管理 内存管理 终端管理 磁盘管理 文件管理 网络管理 电源管理 多核管理  学习操作系统的层次 从应用软件出发“探到操作系统” 集中在使用计算机的接口上 使用显示器：printf；使用CPU：fork，使用文件：open、read….   从
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:39" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="category-chain-item">操作系统</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/65ad36fdf6f3.html" target="_self">
+          抓包实例
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/65ad36fdf6f3.html" target="_self">
+        <div>
+          目的搭建一个“最小化”的环境，在这个环境里仅有 HTTP 协议的两个端点：请求方和应答方，去除一切多余的环节，从而可以抓住重点，快速掌握 HTTP 的本质。 软件需要  简单说一下这个“最小化”环境用到的应用软件：  Wireshark Telnet OpenResty  Wireshark 是著名的网络抓包工具，能够截获在 TCP&#x2F;IP 协议栈中传输的所有流量，并按协议类型、地址、端口
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:39" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-chain-item">计算机网络</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/TCP/" class="category-chain-item">TCP</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/186b22802c84.html" target="_self">
+          Vim
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/186b22802c84.html" target="_self">
+        <div>
+          基本语法insert模式： Shift+a:直接跳到尾部进入insert模式 a: 在当前字符的后面进入 insert 模式 Shift+i: 直接跳到行的开头进入 insert 模式 i: 在当前字符的前面进入 insert 模式 Shift+o: 在当前一行的上一行插入一行进入 insert 模式 o: 在当前一行的下一行插入一行进入 insert 模式 Shift+g: 直接到达最后一行 g
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:39" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B7%A5%E5%85%B7/" class="category-chain-item">工具</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%B7%A5%E5%85%B7/Vim/" class="category-chain-item">Vim</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/3c786296f763.html" target="_self">
+          tshark使用技巧
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/3c786296f763.html" target="_self">
+        <div>
+          1、捕获接口参数    参数 参数说明    -i  接口名或网卡编号 (默认: 第一个非环回接口)   -f  使用libpcap过滤表达式进行包过滤   -s  设置每个抓包的大小，默认为262144   -p 不使用混杂模式抓捕报文（即只抓取与本机有关的流量）   -I 如果支持则启用镜像模式   -B 内核缓存大小 (默认4MB)   -y  链路层类型 (默认为找到的第一个协议)   -
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:39" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-chain-item">计算机网络</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/TCP/" class="category-chain-item">TCP</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/fbdc05cf2ba3.html" target="_self">
+          Shell学习
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/fbdc05cf2ba3.html" target="_self">
+        <div>
+          1 基本概念双括号结构特点 在双括号结构中，所有表达式可以像C语言一样，如a++，b–等 在双括号结构中，所有变量可以不加入：”$”符号前缀 双括号可以进行逻辑运算，四则运算 双括号结构扩展了for，while，if条件测试运算 支持多个表达式运算，各个表达式之间用逗号分开  例：依次输出100以内的2的幂值while方式 双括号方式 引号单引号和双引号的区别单引号之间的内容原封不动地指定给了变量
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-04 02:39" pubdate>
+              2022-12-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/Shell/" class="category-chain-item">Shell</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/88d21ca30910.html" target="_self">
+          Linux实操
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/88d21ca30910.html" target="_self">
+        <div>
+          一、登录虚拟机网络的三种连接方式 桥接模式  如图中张三所示，centos虚拟机的地址和张三共享了同一个网段。    好处  大家都在同一个网段，可以相互通讯  缺点  因为IP地址有限，可能造成ip冲突   NAT模式【网络地址转换模式】  在windows基础上会生成一个新的地址，该地址不和原来的地址在一个网段中。    好处  虚拟机不再占用原来的网段  缺点  该虚拟机不能被除了本机以外的
         </div>
       </a>
 
@@ -265,7 +781,7 @@
   
     <span>></span>
     
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/Command/" class="category-chain-item">Command</a>
   
   
 
@@ -291,15 +807,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/12/fa5ea0adbbff.html" target="_self">
-          APUE-11-线程
+        <a href="/2022/12/20cec6facc2c.html" target="_self">
+          Linux基本命令
         </a>
       </h1>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/fa5ea0adbbff.html" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/20cec6facc2c.html" target="_self">
         <div>
-          1 线程的概念线程就是一个正在运行的函数。 每个线程都包含有标识执行环境所必须的信息，其中包括进程中标识的线程ID、一组寄存器值、栈、调度优先级和策略、信号屏蔽字、errno变量以及线程私有数据。一个进程的所有信息对该进程的所有线程都是共享的，包括可执行程序的代码、程序的全局内存和堆内存、栈以及文件描述符。 注意会话就是一个承载进程组的容器进程组是承载更多进程的容器进程是承载线程的容器 线程标准线
+          cat普通cat显示文本内容   cat -n 1.txt-n参数给所有的行加上行号    cat -b 1.txt对脚本很有用，只给有文本的行加上行号    cat结合wc显示行数1cat 1.txt | wc -l   显示1.txt的行数 参数- c 统计字节数。- l 统计行数。- w 统计字数。 cpcp -i test_one test_two询问是否用test_one替换test_t
         </div>
       </a>
 
@@ -333,551 +849,7 @@
   
     <span>></span>
     
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/ff18ed08088f.html" target="_self">
-          APUE-10-信号
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/ff18ed08088f.html" target="_self">
-        <div>
-          引言-异步事件处理的两种方式异步事件的处理 查询法 通知法  一、信号实现并发 信号的概念   信号是软件中断。 signal(); 信号的不可靠 可重入函数 信号的响应过程（重点） 常用函数 kill(); raise(); alarm(); pause(); abort(); system(); sleep问题   信号集 信号屏蔽字&#x2F;pending集的处理 扩展： sigsuspe
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:38" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/f6612b845dfa.html" target="_self">
-          APUE-9-进程关系
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/f6612b845dfa.html" target="_self">
-        <div>
-          1 终端登录和网络登录终端介绍计算机&#x3D;主机+终端终端&#x3D;输入设备+输出设备 也就是说，终端其实就是向主机输入信息和输出信息的设备，可以分为输入设备和输出设备。台式机的输入通常包括键盘、鼠标、麦克风，输出设备包括显示器、扬声器等。 理解：也就是说，我们最开始买来的笔记本电脑只有一个主机，没有输入输出设备，不能使用。因此我们需要购买一些终端来进行输入输出操作，例如我们买键盘和县食品，
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:38" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/5879c739d263.html" target="_self">
-          APUE-8-进程控制
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/5879c739d263.html" target="_self">
-        <div>
-          1 引言本章介绍UNIX系统的进程控制，包括：  创建新进程 执行进程 进程终止 介绍进程属性的各种ID-实际、有效的用户ID和组ID，以及它们如何受到进程控制原语的影响。 解释器文件和system函数 UNIX系统提供的进程会计机制。  进程表示每个进程都有一个非负整型表示的唯一进程ID。因为进程ID标识符是唯一的，常将其用作其他标识符的一部分以保证唯一性（例如，文件名） 系统的一些专用进程：
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:38" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/68c87e039eec.html" target="_self">
-          APUE-7-进程环境
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/68c87e039eec.html" target="_self">
-        <div>
-          1 进程环境简介1 引言学习内容： 程序执行时，其main函数是如何被调用的 命令行参数是如何传递给新程序的 典型的存储空间布局是怎么样的 如何分配另外的存储空间 进程如何使用环境变量 进程的各种不同终止方式  2 main函数C程序总是从main函数开始执行的。 main函数的原型1int main(int argc, char *argv[]); 当我们在bash下输入命令执行某一个ELF文件
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:37" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/bcd7e0405b48.html" target="_self">
-          APUE-6-系统数据文件和信息
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/bcd7e0405b48.html" target="_self">
-        <div>
-          口令文件（用户数据库文件）阴影文件加密口令是经单项算法加密处理过的用户口令副本。因为此算法是单向的，所以不能从加密口令猜测原来的口令 组文件
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:37" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/0f58334a12fb.html" target="_self">
-          APUE-5-标准IO库
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/0f58334a12fb.html" target="_self">
-        <div>
-          标准I&#x2F;O介绍1 引言本章讲述标准I&#x2F;O库。不仅是UNIX，很多其他操作系统都实现了标准I&#x2F;O库，所以这个库由ISO C标准说明。标准I&#x2F;O库处理很多细节，如缓冲区分配，以优化的块长度执行I&#x2F;O等。这些处理使用户不必担心如何选择使用正确的块长度。 注意FILE类型贯穿始终，FILE是一个结构体，随着学习深入会逐渐了解。 FILE的产生FILE类型通
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:37" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/45e5ccf80fb4.html" target="_self">
-          APUE-4-文件和目录
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/45e5ccf80fb4.html" target="_self">
-        <div>
-          1 文件系统需要了解文件系统，我们需要先对磁盘的物理结构有一定的了解 磁盘的物理结构可以看到，磁盘由很多盘面组成，而盘上则是由很多同心圆组成的磁道，每个磁道又被切割为许多扇区。所有磁盘面的同一个磁道构成一个柱面，同一柱面的所有磁道学完后，才会移入下一柱面。磁盘的最小组成单位可以看成扇区，每个扇区的大小逻辑看起来是512字节，但是实际上底层的物理扇区是4096字节. 文件系统的结构在UNIX系统中，
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:37" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
-  
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/e82c9c5c0b1a.html" target="_self">
-          APUE-3-文件IO
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/e82c9c5c0b1a.html" target="_self">
-        <div>
-          1 引言本章开始讨论UNIX系统，先说明可用的文件I&#x2F;O函数-打开文件、读文件、写文件等。UNIX系统中的大部分文件I&#x2F;O只需要用到5个函数：open、read、write、lseek以及close。然后说明不同缓冲长度对read和write函数的影响。 不带缓冲的定义：术语不带缓冲指的是每个read和write都调用内核中的一个系统调用。也就是说，不带缓冲的I&#x2F;O就
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-04 02:37" pubdate>
-              2022-12-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/" class="category-chain-item">计算机</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/" class="category-chain-item">Linux</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/APUE/" class="category-chain-item">APUE</a>
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/Linux/Command/" class="category-chain-item">Command</a>
   
   
 
@@ -901,7 +873,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/8/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#board">7</a><a class="page-number" href="/page/8/#board">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/#board">10</a><a class="page-number" href="/page/11/#board">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/#board">18</a><a class="extend next" rel="next" href="/page/10/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/8/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#board">7</a><a class="page-number" href="/page/8/#board">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/#board">10</a><a class="page-number" href="/page/11/#board">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/#board">19</a><a class="extend next" rel="next" href="/page/10/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
