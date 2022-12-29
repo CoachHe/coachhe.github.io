@@ -1,7 +1,14 @@
 ---
-title: 1 PC寄存器  
-date: 2022-12-29 15:49:35  
-tags: []  
+title: 1 PC寄存器
+tags: []
+categories:
+  - 编程语言
+  - Java
+  - Java语言
+  - JVM
+  - 2 Java内存区域与内存溢出异常
+  - 3 运行时数据区域
+date: 2022-12-29 15:49:35
 ---
 
 程序计数寄存器：Program Counter Register
