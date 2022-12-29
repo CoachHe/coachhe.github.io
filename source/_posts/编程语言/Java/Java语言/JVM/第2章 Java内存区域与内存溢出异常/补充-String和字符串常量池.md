@@ -6,7 +6,7 @@ categories:
   - Java
   - Java语言
   - JVM
-  - 2 Java内存区域与内存溢出异常
+  - 第2章 Java内存区域与内存溢出异常
 date: 2022-12-18 03:31:59
 ---
 
