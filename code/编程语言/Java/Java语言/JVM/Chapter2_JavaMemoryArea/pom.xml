@@ -31,7 +31,7 @@
         </plugins>
     </build>
 
-    <artifactId>Chapter2_JavaMemoryAreaAndOutOfMemoryException</artifactId>
+    <artifactId>Chapter2_JavaMemoryArea</artifactId>
 
 
 </project>
