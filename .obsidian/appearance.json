@@ -1,13 +1,13 @@
 {
   "baseFontSize": 17,
   "cssTheme": "Things",
-  "theme": "obsidian",
+  "theme": "system",
   "enabledCssSnippets": [
     "minimal-plus"
   ],
   "translucency": false,
   "accentColor": "",
-  "interfaceFontFamily": "Consolas",
-  "textFontFamily": "新宋体",
-  "monospaceFontFamily": "Lucida Console"
+  "interfaceFontFamily": "",
+  "textFontFamily": "",
+  "monospaceFontFamily": ""
 }
