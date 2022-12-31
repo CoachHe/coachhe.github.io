@@ -6,7 +6,10 @@ import java.util.Random;
 /**
  * @author CoachHe
  * @date 2022/12/31 14:40
- * 利用该程序查看堆空间各个区域的分布情况，以及Young GC情况下各个区域（S0,S1,Eden)区域的变化情况
+ * 利用该程序查看堆空间各个区域随着对象创建的变化情况
+ * 以及Young GC情况下各个区域（S0,S1,Eden,老年代)区域的变化情况
+ * VM参数：
+ *  -Xms600m -Xmx600m
  **/
 public class HeapInstance {
     byte[] buffer = new byte[new Random().nextInt(1024 * 200)];
