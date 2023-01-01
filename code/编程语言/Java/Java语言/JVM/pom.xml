@@ -15,6 +15,7 @@
         <module>Chapter6_ClassFileFormat</module>
         <module>Chapter7_JVMClassLoadingMechanism</module>
         <module>Chapter8_JVMBytecodeEngine</module>
+        <module>Chapter11_BackendCompileOptimization</module>
     </modules>
 
     <build>
