@@ -5,7 +5,8 @@ package com.coachhe.section4_CompilerOptimization.S3_EscapeAnalysis;
  * @date 2023/1/2 02:49
  * 栈上分配
  * VM参数
- *  -Xmx1G -Xms1G -XX:-DoEscapeAnalysis -XX:+PrintGCDetails
+ * 不打开逃逸分析：-Xmx1G -Xms1G -XX:-DoEscapeAnalysis -XX:+PrintGCDetails
+ * 打开逃逸分析：  -Xmx1G -Xms1G -XX:+DoEscapeAnalysis -XX:+PrintGCDetails
  **/
 public class StackAllocations {
 
