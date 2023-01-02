@@ -1,4 +1,4 @@
-package com.coachhe.section4_CompilerOptimization.S3_EscapeAnalysis;
+package com.coachhe.section4_CompilerOptimization.S3_EscapeAnalysis.栈上分配;
 
 /**
  * @author CoachHe

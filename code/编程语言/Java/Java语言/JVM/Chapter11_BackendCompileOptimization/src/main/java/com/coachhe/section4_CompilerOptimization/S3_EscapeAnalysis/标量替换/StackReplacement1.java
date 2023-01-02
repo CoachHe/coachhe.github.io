@@ -1,11 +1,11 @@
 package com.coachhe.section4_CompilerOptimization.S3_EscapeAnalysis.标量替换;
 
-import javax.sound.sampled.Port;
-
 /**
  * @author CoachHe
  * @date 2023/1/2 13:37
  * 标量替换的过程，1 2 3分别是优化分析的步骤
+ * VM 参数
+ *  -Xmx256m -Xms256m -XX:+DoEscapeAnalysis -XX:+PrintGCDetails
  **/
 public class StackReplacement1 {
     // 1. 完全未优化的代码
@@ -39,7 +39,7 @@ public class StackReplacement1 {
         // 结束时间
         long end = System.currentTimeMillis();
 
-        System.out.println("总时长为: " + (end - start));
+        System.out.println("总时长为: " + (end - start) + " ms");
 
         try {
             Thread.sleep(10000000);
