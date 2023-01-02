@@ -223,6 +223,807 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2022/12/dd79700dd198.html" target="_self">
+          8.2.4 操作数栈
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/dd79700dd198.html" target="_self">
+        <div>
+          操作数栈，在方法执行过程中，根据字节码指令，往栈中写入数据或提取数据，即入栈&#x2F;出栈 某些字节码指令将值压入操作数栈，其余的字节码指令将操作数取出栈，使用它们之后再把结果压入栈。 直接来看个具体例子： 1234567891011/** * @Author: CoachHe * @Date: 2022/11/25 10:00 */public class OperandStackTest &
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-29 16:06" pubdate>
+              2022-12-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/" class="category-chain-item">JVM</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/%E7%AC%AC8%E7%AB%A0-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/" class="category-chain-item">第8章 虚拟机字节码执行引擎</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/%E7%AC%AC8%E7%AB%A0-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/8-2-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%A0%88%E5%B8%A7%E7%BB%93%E6%9E%84/" class="category-chain-item">8.2 运行时栈帧结构</a>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/3c5283c5b85c.html" target="_self">
+          8.2.1 栈帧结构
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/3c5283c5b85c.html" target="_self">
+        <div>
+          每一个方法从调用开始到执行结束的过程，都对应着一个栈帧在虚拟机栈里面从入栈到出栈的过程。 理解：  虚拟机栈: 一个程序从 main 方法开始到最终全部执行结束的过程。 栈帧: 一个方法从开始到结束的过程。 main 方法调用的其他方法的数量&#x3D;栈帧的数量    可以看到，一个虚拟机栈就是一个 main 进程从开始运行到最终结束的过程。在 main 进程运行时，每调用一次方法，就会生成一个
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-29 16:03" pubdate>
+              2022-12-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/" class="category-chain-item">JVM</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/%E7%AC%AC8%E7%AB%A0-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/" class="category-chain-item">第8章 虚拟机字节码执行引擎</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/%E7%AC%AC8%E7%AB%A0-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/8-2-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%A0%88%E5%B8%A7%E7%BB%93%E6%9E%84/" class="category-chain-item">8.2 运行时栈帧结构</a>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/90f6c28bc8fc.html" target="_self">
+          8.2.3 动态连接
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/90f6c28bc8fc.html" target="_self">
+        <div>
+          每个栈帧都包含一个指向运行时常量池中该栈帧所属方法的引用，持有这个引用是为了支持方法调用过程中的动态连接（Dynamic Linking）。比如： invokedynamic 指令。 通过 [[2 类文件结构]]的讲解，我们知道 :  在 Java 源文件被编译到字节码文件中时，所有的变量和方法引用都作为符号引用（symbolic reference）保存在 class 文件的常量池里。    C
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-29 16:03" pubdate>
+              2022-12-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/" class="category-chain-item">JVM</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/%E7%AC%AC8%E7%AB%A0-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/" class="category-chain-item">第8章 虚拟机字节码执行引擎</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/%E7%AC%AC8%E7%AB%A0-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/8-2-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%A0%88%E5%B8%A7%E7%BB%93%E6%9E%84/" class="category-chain-item">8.2 运行时栈帧结构</a>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/41b7e9e11a8e.html" target="_self">
+          2.3.5 运行时常量池
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/41b7e9e11a8e.html" target="_self">
+        <div>
+          
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-29 15:55" pubdate>
+              2022-12-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/" class="category-chain-item">JVM</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/%E7%AC%AC2%E7%AB%A0-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/" class="category-chain-item">第2章 Java内存区域与内存溢出异常</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/%E7%AC%AC2%E7%AB%A0-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/2-3-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F/" class="category-chain-item">2.3 运行时数据区域</a>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/ec4bd28d8311.html" target="_self">
+          2.3.3 Java堆
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/ec4bd28d8311.html" target="_self">
+        <div>
+          在这里做一个小总结。  一个 Java 程序对应一个进程 一个进程对应一个 jvm 实例 一个 jvm 实例中只有一个运行时数据区 一个运行时数据区只有一个方法区和堆 一个进程中的多个线程需要共享同一个方法区，堆空间 每一个线程拥有独立的一套程序计数器，本地方法栈和虚拟机栈  核心概述 Java 堆区在 JVM 启动的时候即被创建，其空间大小也就确定了。是 JVM 管理的最大一块内存。 此内存
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-29 15:53" pubdate>
+              2022-12-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/" class="category-chain-item">JVM</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/%E7%AC%AC2%E7%AB%A0-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/" class="category-chain-item">第2章 Java内存区域与内存溢出异常</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/%E7%AC%AC2%E7%AB%A0-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/2-3-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F/" class="category-chain-item">2.3 运行时数据区域</a>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/738dcd22a638.html" target="_self">
+          2.3.4 方法区
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/738dcd22a638.html" target="_self">
+        <div>
+          
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-29 15:53" pubdate>
+              2022-12-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/" class="category-chain-item">JVM</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/%E7%AC%AC2%E7%AB%A0-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/" class="category-chain-item">第2章 Java内存区域与内存溢出异常</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/%E7%AC%AC2%E7%AB%A0-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/2-3-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F/" class="category-chain-item">2.3 运行时数据区域</a>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/df58957de338.html" target="_self">
+          2.3.1 PC寄存器
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/df58957de338.html" target="_self">
+        <div>
+          程序计数寄存器：Program Counter Register CPU 的寄存器在了解程序计数寄存器之前，我们先需要了解一下 CPU 的寄存器。寄存器存储指令相关的现场信息。CPU 只有把数据装载到寄存器才能够运行。 程序计数寄存器和 CPU 寄存器之间的关系JVM 中的 PC 寄存器是对物理 PC 寄存器的一种抽象模拟。 PC 寄存器作用PC 寄存器用来存储指向下一条指令的地址，也就是即将要执
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-29 15:49" pubdate>
+              2022-12-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/" class="category-chain-item">JVM</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/%E7%AC%AC2%E7%AB%A0-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/" class="category-chain-item">第2章 Java内存区域与内存溢出异常</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/JVM/%E7%AC%AC2%E7%AB%A0-Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/2-3-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F/" class="category-chain-item">2.3 运行时数据区域</a>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/cddbe96ce5b3.html" target="_self">
+          2. Class对象
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/cddbe96ce5b3.html" target="_self">
+        <div>
+          
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-29 01:55" pubdate>
+              2022-12-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/" class="category-chain-item">OnJava8</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/%E7%AC%AC19%E7%AB%A0-%E5%8F%8D%E5%B0%84/" class="category-chain-item">第19章 反射</a>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/12/63e27c2185b9.html" target="_self">
+          1. 为什么需要反射
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/63e27c2185b9.html" target="_self">
+        <div>
+          反射概述 Reflection（反射）是被视为动态语言的关键，反射机制允许程序再执行期借助于 Reflection API 取得任何类的内部信息，并能直接操作任意对象的内部属性及方法 加载完类后，在堆内存的方法区中就产生了一个 Class 类型的对象（一个类之后一个 Class 对象），这个对象就包含了完整的类的结构信息。我们可以通过这个对象看到类的结构。这个对象就像一面镜子，透过这个镜子可以看到
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-29 01:03" pubdate>
+              2022-12-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/" class="category-chain-item">OnJava8</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/%E7%AC%AC19%E7%AB%A0-%E5%8F%8D%E5%B0%84/" class="category-chain-item">第19章 反射</a>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2022/12/afca19e8d47c.html" target="_self">
           2. 方法重载
         </a>
@@ -306,812 +1107,11 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/95062ab98796.html" target="_self">
-          1. 用构造器保证初始化
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/95062ab98796.html" target="_self">
-        <div>
-          构造器的作用类的设计者可以通过编写构造器来确保每个对象的初始化。 如果一个类有构造器，创建对象时 Java 就会自动调用它，此时用户还不能访问这个对象，这样就保证了初始化。 无参构造器简单示例： 1234567891011121314151617/** * @author CoachHe * @date 2022/12/28 00:18 **/public class SimpleConstruc
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-28 00:15" pubdate>
-              2022-12-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/" class="category-chain-item">OnJava8</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/%E7%AC%AC6%E7%AB%A0-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E6%B8%85%E7%90%86/" class="category-chain-item">第6章 初始化和清理</a>
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/fd91c81b2a74.html" target="_self">
-          0. 总论
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/fd91c81b2a74.html" target="_self">
-        <div>
-          除数据抽象和继承外，多态（Polymorphism）是面向对象编程语言的第三个基本特性。 多态的作用 多态提供了另一个维度的接口与实现分离，将做什么和怎么做进行分离。 具体来说，多态是面向基类进行编程的。对于基类的方法，基类的子类可以自己实现拓展或者不拓展，多态都能自动找到具体需要调用的方法。 多态能改善代码的组织，提高代码的可读性 多态能创建有扩展性的程序——无论在最初创建项目时还是在添加新特性
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-21 11:21" pubdate>
-              2022-12-21
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/" class="category-chain-item">OnJava8</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/%E7%AC%AC9%E7%AB%A0-%E5%A4%9A%E6%80%81/" class="category-chain-item">第9章 多态</a>
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/e48d55a2a432.html" target="_self">
-          7. 多态
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/e48d55a2a432.html" target="_self">
-        <div>
-          多态的描述在编程中涉及类型层次时，我们通常会将一个对象视为其基类的一个实例，而不是对象实际的类。这种方式可以让你在编写代码时不依赖具体的类。 让我们看下这个类图：   可以看到，这里基类是 Bird，实现了一个方法 move()，代表鸟类的移动。并且有两个子类 Goose 和 Penguin，他们分别重写了这个方法，Goose 可能是行走、飞翔或游泳，Penguin 则是移动或游泳。 根据上面所说
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-21 01:15" pubdate>
-              2022-12-21
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/" class="category-chain-item">OnJava8</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/%E7%AC%AC1%E7%AB%A0-%E4%BB%80%E4%B9%88%E6%98%AF%E5%AF%B9%E8%B1%A1/" class="category-chain-item">第1章 什么是对象</a>
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/259457672ac6.html" target="_self">
-          6. 总结
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/259457672ac6.html" target="_self">
-        <div>
-          
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-21 01:02" pubdate>
-              2022-12-21
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/" class="category-chain-item">OnJava8</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/%E7%AC%AC9%E7%AB%A0-%E5%A4%9A%E6%80%81/" class="category-chain-item">第9章 多态</a>
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/aff0fad273d8.html" target="_self">
-          5. 用继承进行设计
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/aff0fad273d8.html" target="_self">
-        <div>
-          
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-21 01:02" pubdate>
-              2022-12-21
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/" class="category-chain-item">OnJava8</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/%E7%AC%AC9%E7%AB%A0-%E5%A4%9A%E6%80%81/" class="category-chain-item">第9章 多态</a>
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/adcc70bf647f.html" target="_self">
-          4. 协变返回类型
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/adcc70bf647f.html" target="_self">
-        <div>
-          
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-21 01:02" pubdate>
-              2022-12-21
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/" class="category-chain-item">OnJava8</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/%E7%AC%AC9%E7%AB%A0-%E5%A4%9A%E6%80%81/" class="category-chain-item">第9章 多态</a>
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/19fb1c084aaa.html" target="_self">
-          3. 构造器和多态
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/19fb1c084aaa.html" target="_self">
-        <div>
-          
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-21 01:02" pubdate>
-              2022-12-21
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/" class="category-chain-item">OnJava8</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/%E7%AC%AC9%E7%AB%A0-%E5%A4%9A%E6%80%81/" class="category-chain-item">第9章 多态</a>
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/484c04ea3826.html" target="_self">
-          2. 难点
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/484c04ea3826.html" target="_self">
-        <div>
-          在 [[1. 再论向上转型]]中我们可以看到，运行 Music.java 程序之后我们方法产生的输出是 Wind.play MIDDLE_C，这显然是我们所期望的。但它能这样运行似乎是没有道理的。 让我们再看看这个程序： 123456789101112131415/** * @author CoachHe * @date 2022/12/21 13:07 * 继承与向上转型 **/public c
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-21 01:02" pubdate>
-              2022-12-21
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/" class="category-chain-item">OnJava8</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/%E7%AC%AC9%E7%AB%A0-%E5%A4%9A%E6%80%81/" class="category-chain-item">第9章 多态</a>
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2022/12/c1cbac5fd763.html" target="_self">
-          1. 再论向上转型
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/12/c1cbac5fd763.html" target="_self">
-        <div>
-          向上转型定义获取对象引用并将其当做基类型的引用成为向上转型，因为继承层次结构是以基类在顶部的方式绘制的。 出现的问题来看个例子，我们在包中创建一个单独的 Note 枚举。 12345678/** * @author CoachHe * @date 2022/12/21 13:07 * 用来在乐器中演奏的音符 **/public enum Note &#123;    MIDDLE_C, C_SHA
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-21 01:01" pubdate>
-              2022-12-21
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/" class="category-chain-item">Java</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/" class="category-chain-item">Java语言</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/" class="category-chain-item">Java语法</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/" class="category-chain-item">OnJava8</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Java/Java%E8%AF%AD%E8%A8%80/Java%E8%AF%AD%E6%B3%95/OnJava8/%E7%AC%AC9%E7%AB%A0-%E5%A4%9A%E6%80%81/" class="category-chain-item">第9章 多态</a>
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/#board">19</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/2/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#board">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#board">4</a><a class="page-number" href="/page/5/#board">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/#board">20</a><a class="extend next" rel="next" href="/page/4/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
