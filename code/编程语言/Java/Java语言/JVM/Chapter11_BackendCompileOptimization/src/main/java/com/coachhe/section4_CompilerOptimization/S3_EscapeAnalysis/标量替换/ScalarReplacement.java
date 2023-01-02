@@ -8,17 +8,16 @@ package com.coachhe.section4_CompilerOptimization.S3_EscapeAnalysis.标量替换
 public class ScalarReplacement {
 
     public static void main(String[] args) {
-        ScalarReplacement sr = new ScalarReplacement();
-        sr.alloc();
+        alloc();
     }
 
-    private void alloc() {
+    private static void alloc() {
         Point point = new Point(1, 2);
         System.out.println("point.x=" + point.x + "; point.y=" + point.y);
     }
 
 
-    class Point{
+    static class Point{
         private int x;
         private int y;
 
