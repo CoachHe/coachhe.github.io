@@ -247,5 +247,14 @@
       ],
       "key": "S"
     }
+  ],
+  "obsidian-mind-map:app:markmap-preview": [],
+  "obsidian-enhancing-mindmap:Toggle to markdown or mindmap": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "P"
+    }
   ]
 }
