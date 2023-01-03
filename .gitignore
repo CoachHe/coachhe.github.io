@@ -11,3 +11,4 @@ public/
 target/
 .obsidian/plugins/recent-files-obsidian/
 .obsidian/plugins/remember-cursor-position/
+.obsidian/plugins/remember-cursor-position/cursor-positions.json
