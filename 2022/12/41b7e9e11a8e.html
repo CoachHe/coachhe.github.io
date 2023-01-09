@@ -16,13 +16,15 @@
   <meta name="author" content="CoachHe">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="为什么需要常量池一个 java 源文件中的类、接口，编译后产生的一个字节码文件。而 Java 种的字节码需要数据支持，通常这种数据会很大以至于不能直接存在字节码里，换一种方式，可以存在常量池，这个字节码包含了指向常量池的引用。在动态链接的时候会用到运行时常量池。 比如： 12345public class SimpleClass &amp;#123;	public void sayHello() &amp;#12">
+<meta property="og:type" content="article">
 <meta property="og:title" content="2.3.5 运行时常量池">
 <meta property="og:url" content="http://example.com/2022/12/41b7e9e11a8e.html">
 <meta property="og:site_name" content="CoachHe&#39;s Blog">
+<meta property="og:description" content="为什么需要常量池一个 java 源文件中的类、接口，编译后产生的一个字节码文件。而 Java 种的字节码需要数据支持，通常这种数据会很大以至于不能直接存在字节码里，换一种方式，可以存在常量池，这个字节码包含了指向常量池的引用。在动态链接的时候会用到运行时常量池。 比如： 12345public class SimpleClass &amp;#123;	public void sayHello() &amp;#12">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-12-29T07:55:08.000Z">
-<meta property="article:modified_time" content="2022-12-29T09:18:30.870Z">
+<meta property="article:modified_time" content="2023-01-09T17:19:27.307Z">
 <meta property="article:author" content="CoachHe">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -216,7 +218,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          922 字
         
       </span>
     
@@ -227,7 +229,7 @@
         
         
         
-          1 分钟
+          8 分钟
         
       </span>
     
@@ -270,7 +272,33 @@
             
               <div class="markdown-body">
                 
-                
+                <h1 id="为什么需要常量池"><a href="#为什么需要常量池" class="headerlink" title="为什么需要常量池"></a>为什么需要常量池</h1><p>一个 java 源文件中的类、接口，编译后产生的一个字节码文件。而 Java 种的字节码需要数据支持，通常这种数据会很大以至于不能直接存在字节码里，换一种方式，可以存在常量池，这个字节码包含了指向常量池的引用。在动态链接的时候会用到运行时常量池。</p>
+<p>比如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SimpleClass</span> &#123;<br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sayHello</span><span class="hljs-params">()</span> &#123;<br>		System.out.println(<span class="hljs-string">&quot;hello&quot;</span>);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这个文件编译出来的 class 文件会非常小，但是里面却使用了 String、System、PrintStream 以及 Object 等结构。这里的代码量其实已经很小了，如果代码多，引用到的结构会更多！这里就需要常量池了</p>
+<h1 id="常量池中有什么？"><a href="#常量池中有什么？" class="headerlink" title="常量池中有什么？"></a>常量池中有什么？</h1><ul>
+<li>数量值</li>
+<li>字符串值</li>
+<li>类引用</li>
+<li>字段引用</li>
+<li>方法引用</li>
+</ul>
+<h1 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h1><ul>
+<li>运行时常量池是方法区的一部分</li>
+<li>常量池表是 Class 文件的一部分，<strong>用于存放编译器生成的各种字面量和符号引用</strong>，这部分内容在类加载后存放在方法区的运行时常量池中</li>
+<li>运行时常量池，在加载类和接口到虚拟机后，就会创建对应的运行时常量池</li>
+<li>JVM 为每个已加载的类型（类或借口）都维护一个常量池。池中的数据项像数组项一样，是通过<strong>索引访问</strong>的</li>
+<li>运行时常量池中包含多种不同的常量，包括编译器就已经明确的数值字面量，也包括运行期解析后才能获得的方法或者字段引用。此时不再是常量池中的符号地址了，这里换为真实地址<ul>
+<li>运行时常量池，相对于 Class 文件常量池的另一重要特性是：具备动态性</li>
+</ul>
+</li>
+<li>运行时常量池类似于传统编程语言中的符号表，但是它所包含的数据却比符号表要更丰富一些</li>
+<li>当创建类或借口的运行时常量池时，如果构造运行时常量池所需的内存空间超过了方法区所能提供的最大值，则 JVM 会抛 OOM 异常。</li>
+</ul>
+<h1 id="StringTable-为什么要从永久代调整到堆空间？"><a href="#StringTable-为什么要从永久代调整到堆空间？" class="headerlink" title="StringTable 为什么要从永久代调整到堆空间？"></a>StringTable 为什么要从永久代调整到堆空间？</h1><p>jdk7 中将 StrngTable 放到了堆空间中。因为永久代的回收效率很低，在 full gc 时才会触发。而 full gc 是老年代空间不足、永久代不足时才会触发。</p>
+<p>这就导致了 StringTable 回收效率不高。而我们开发中会有大量的字符串被创建，回收效率低，导致永久代内存不足。放到堆里，能及时回收内存。</p>
+
                 
               </div>
             
